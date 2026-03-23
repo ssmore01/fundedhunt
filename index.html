@@ -3960,7 +3960,7 @@ function nav(panelId) {
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
   if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); }
-  if (panelId==='journal') renderTJPanel();
+  if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
   if (panelId==='tracker') renderTracker();
@@ -5083,6 +5083,54 @@ let _tjFilter = 'all';
 
 function tjData() { return lsGetJSON('tj_trades', []); }
 function tjSave(data) { lsSetJSON('tj_trades', data); renderTJPanel(); }
+
+async function loadTJFromSupabase() {
+  if (!_currentUser) return;
+  try {
+    const { data, error } = await supa
+      .from('journal_trades')
+      .select('*')
+      .eq('user_id', _currentUser.id)
+      .order('trade_date', { ascending: false });
+
+    if (error) { console.warn('Journal load error:', error.message); return; }
+    if (!data || data.length === 0) return;
+
+    // Convert Supabase format back to local format
+    const trades = data.map(r => ({
+      id: 'tj_' + r.id,
+      supaId: r.id,
+      date: r.trade_date,
+      pair: r.pair || '',
+      dir: r.direction || 'long',
+      entry: r.entry_price || 0,
+      sl: r.stop_loss || 0,
+      tp: r.take_profit || 0,
+      rr: r.risk_reward || '',
+      lot: r.lot_size || '',
+      session: r.session || '',
+      setup: r.setup || '',
+      tf: r.timeframe || '',
+      reason: r.reason || '',
+      outcome: r.outcome || 'open',
+      exit: r.exit_price || 0,
+      rGained: r.r_gained || '',
+      emotion: r.emotion || '',
+      mistake: r.mistake || '',
+      notes: r.notes || '',
+      createdAt: r.created_at || new Date().toISOString(),
+    }));
+
+    // Merge with any local entries that are not yet in Supabase
+    const supaIds = new Set(trades.map(t => t.supaId));
+    const localOnly = tjData().filter(t => !t.supaId);
+    const merged = [...trades, ...localOnly];
+
+    lsSetJSON('tj_trades', merged);
+    renderTJPanel();
+    console.log('Journal loaded from Supabase:', trades.length, 'trades');
+  } catch(e) { console.warn('Journal load exception:', e); }
+}
 
 async function saveTJToSupabase(trade) {
   if (!_currentUser) { console.warn('Journal save: no user logged in'); return; }
@@ -7793,6 +7841,9 @@ async function onUserLoggedIn(user) {
 
   // Migrate any localStorage data to Supabase
   await migrateLocalDataToSupabase(user.id);
+
+  // Load journal from Supabase to sync across devices
+  await loadTJFromSupabase();
 }
 
 // ── When user logs out ─────────────────────────────────────────
