@@ -5085,32 +5085,37 @@ function tjData() { return lsGetJSON('tj_trades', []); }
 function tjSave(data) { lsSetJSON('tj_trades', data); renderTJPanel(); }
 
 async function saveTJToSupabase(trade) {
-  if (!_currentUser) return;
+  if (!_currentUser) { console.warn('Journal save: no user logged in'); return; }
   try {
-    const { error } = await supa.from('journal_trades').upsert({
-      id: trade.id,
+    const payload = {
       user_id: _currentUser.id,
       trade_date: trade.date ? new Date(trade.date).toISOString() : new Date().toISOString(),
       pair: trade.pair,
       direction: trade.dir,
-      entry_price: trade.entry || null,
-      stop_loss: trade.sl || null,
-      take_profit: trade.tp || null,
-      risk_reward: trade.rr || null,
-      lot_size: trade.lot || null,
+      entry_price: parseFloat(trade.entry) || null,
+      stop_loss: parseFloat(trade.sl) || null,
+      take_profit: parseFloat(trade.tp) || null,
+      risk_reward: String(trade.rr || ''),
+      lot_size: String(trade.lot || ''),
       session: trade.session || null,
       setup: trade.setup || null,
       timeframe: trade.tf || null,
       outcome: trade.outcome || null,
-      exit_price: trade.exit || null,
-      r_gained: trade.rGained || null,
+      exit_price: parseFloat(trade.exit) || null,
+      r_gained: String(trade.rGained || ''),
       emotion: trade.emotion || null,
       mistake: trade.mistake || null,
       notes: trade.notes || null,
       created_at: trade.createdAt || new Date().toISOString(),
-    }, { onConflict: 'id' });
-    if (error) console.warn('Journal Supabase save error:', error.message);
-  } catch(e) { console.warn('Journal save error:', e); }
+    };
+    const { data, error } = await supa.from('journal_trades').insert(payload).select();
+    if (error) {
+      console.error('Journal save error:', error.message, error.hint);
+      showToast('⚠️ Could not sync to cloud: ' + error.message, 'error');
+    } else {
+      console.log('Journal saved to Supabase:', data);
+    }
+  } catch(e) { console.error('Journal save exception:', e); }
 }
 
 /* ── OPEN / CLOSE MODALS ── */
