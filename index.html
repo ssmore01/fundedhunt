@@ -5133,7 +5133,7 @@ async function loadTJFromSupabase() {
 }
 
 async function saveTJToSupabase(trade) {
-  if (!_currentUser) { console.warn('Journal save: no user logged in'); return; }
+  if (!_currentUser) return;
   try {
     const payload = {
       user_id: _currentUser.id,
@@ -5154,14 +5154,36 @@ async function saveTJToSupabase(trade) {
       emotion: trade.emotion || null,
       mistake: trade.mistake || null,
       notes: trade.notes || null,
-      created_at: trade.createdAt || new Date().toISOString(),
     };
-    const { data, error } = await supa.from('journal_trades').insert(payload).select();
+
+    let result;
+
+    // If trade already has a supabase UUID update it, otherwise insert new
+    if (trade.supaId) {
+      result = await supa.from('journal_trades')
+        .update(payload)
+        .eq('id', trade.supaId)
+        .eq('user_id', _currentUser.id)
+        .select();
+    } else {
+      result = await supa.from('journal_trades')
+        .insert(payload)
+        .select();
+    }
+
+    const { data, error } = result;
+
     if (error) {
       console.error('Journal save error:', error.message, error.hint);
       showToast('⚠️ Could not sync to cloud: ' + error.message, 'error');
-    } else {
-      console.log('Journal saved to Supabase:', data);
+    } else if (data && data[0]) {
+      // Store supabase UUID back into localStorage entry
+      const all = lsGetJSON('tj_trades', []);
+      const idx = all.findIndex(t => t.id === trade.id);
+      if (idx >= 0 && !all[idx].supaId) {
+        all[idx].supaId = data[0].id;
+        lsSetJSON('tj_trades', all);
+      }
     }
   } catch(e) { console.error('Journal save exception:', e); }
 }
@@ -5247,6 +5269,7 @@ function saveTJEntry() {
 
   const trade = {
     id: _tjEditId || 'tj_' + Date.now(),
+    supaId: _tjEditId ? (tjData().find(t=>t.id===_tjEditId)?.supaId || null) : null,
     date: document.getElementById('tjDate').value,
     pair,
     dir: document.getElementById('tjDir').value,
@@ -5283,6 +5306,11 @@ function saveTJEntry() {
 /* ── DELETE TRADE ── */
 function deleteTJ(id) {
   if (!confirm('Delete this trade entry?')) return;
+  const trade = tjData().find(t => t.id === id);
+  // Delete from Supabase if it has a supaId
+  if (trade?.supaId && _currentUser) {
+    supa.from('journal_trades').delete().eq('id', trade.supaId).eq('user_id', _currentUser.id);
+  }
   tjSave(tjData().filter(t => t.id !== id));
   closeTJDetail();
 }
