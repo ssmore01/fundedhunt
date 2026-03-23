@@ -5094,7 +5094,14 @@ async function loadTJFromSupabase() {
       .order('trade_date', { ascending: false });
 
     if (error) { console.warn('Journal load error:', error.message); return; }
-    if (!data || data.length === 0) return;
+
+    // Always clear localStorage first to prevent cross-user data mixing
+    lsSetJSON('tj_trades', []);
+
+    if (!data || data.length === 0) {
+      renderTJPanel();
+      return;
+    }
 
     // Convert Supabase format back to local format
     const trades = data.map(r => ({
@@ -5121,14 +5128,8 @@ async function loadTJFromSupabase() {
       createdAt: r.created_at || new Date().toISOString(),
     }));
 
-    // Merge with any local entries that are not yet in Supabase
-    const supaIds = new Set(trades.map(t => t.supaId));
-    const localOnly = tjData().filter(t => !t.supaId);
-    const merged = [...trades, ...localOnly];
-
-    lsSetJSON('tj_trades', merged);
+    lsSetJSON('tj_trades', trades);
     renderTJPanel();
-    console.log('Journal loaded from Supabase:', trades.length, 'trades');
   } catch(e) { console.warn('Journal load exception:', e); }
 }
 
@@ -5340,15 +5341,17 @@ function renderTJSummary() {
   const losses = closed.filter(t => t.outcome === 'loss');
   const wr     = closed.length ? Math.round(wins.length / closed.length * 100) : 0;
   const rArr   = closed.map(t => parseFloat((t.rGained||'').replace('+','')) || 0).filter(r => r !== 0);
-  const totalR = rArr.reduce((a,b)=>a+b, 0);
-  const avgR   = rArr.length ? (totalR/rArr.length).toFixed(2) : '0.00';
+  const totalPL = rArr.reduce((a,b)=>a+b, 0);
+  const avgPL   = rArr.length ? (totalPL/rArr.length).toFixed(2) : '0.00';
   const streakData = calcStreak(data);
+  const plColor = totalPL >= 0 ? 'var(--green)' : 'var(--red)';
+  const avgColor = parseFloat(avgPL) >= 0 ? 'var(--green)' : 'var(--red)';
 
   el.innerHTML = `
     <div class="stat-chip"><div class="val">${data.length}</div><div class="lbl">Total Trades</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--green)">${wr}%</div><div class="lbl">Win Rate</div></div>
-    <div class="stat-chip"><div class="val" style="color:${totalR>=0?'var(--green)':'var(--red)'}">${totalR>=0?'+':''}${totalR.toFixed(2)}R</div><div class="lbl">Total R</div></div>
-    <div class="stat-chip"><div class="val">${avgR}R</div><div class="lbl">Avg R/Trade</div></div>
+    <div class="stat-chip"><div class="val" style="color:${plColor}">${totalPL>=0?'+':''}${totalPL.toFixed(2)}R</div><div class="lbl">Total Profit/Loss</div></div>
+    <div class="stat-chip"><div class="val" style="color:${avgColor}">${parseFloat(avgPL)>=0?'+':''}${avgPL}R</div><div class="lbl">Avg Profit/Loss</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--green)">${wins.length}</div><div class="lbl">Wins</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--red)">${losses.length}</div><div class="lbl">Losses</div></div>
     <div class="stat-chip"><div class="val" style="color:${streakData.color}">${streakData.label}</div><div class="lbl">Current Streak</div></div>
@@ -5445,7 +5448,7 @@ function renderTJReport() {
       </div>
       <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:${totalR>=0?'var(--green)':'var(--red)'};">${totalR>=0?'+':''}${totalR.toFixed(1)}R</div>
-        <div style="font-size:11px;color:var(--muted);">Total R</div>
+        <div style="font-size:11px;color:var(--muted);">Total Profit/Loss</div>
       </div>
       <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--green);">${wins}</div>
@@ -7817,6 +7820,10 @@ async function supaInit() {
       _currentSession = session;
       _currentUser    = session.user;
       await onUserLoggedIn(_currentUser);
+    } else if (event === 'TOKEN_REFRESHED' && session) {
+      // Just update the session silently — no need to reload UI
+      _currentSession = session;
+      _currentUser    = session.user;
     } else if (event === 'SIGNED_OUT') {
       _currentUser    = null;
       _currentSession = null;
@@ -7964,6 +7971,9 @@ async function doLogout() {
   try {
     await supa.auth.signOut();
   } catch(e) { console.warn('Logout error:', e); }
+  // Clear user specific localStorage data
+  lsDel('tj_trades');
+  lsDel('fe_journal');
   _currentUser = null;
   _currentSession = null;
   closeDropdown();
