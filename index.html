@@ -5084,6 +5084,35 @@ let _tjFilter = 'all';
 function tjData() { return lsGetJSON('tj_trades', []); }
 function tjSave(data) { lsSetJSON('tj_trades', data); renderTJPanel(); }
 
+async function saveTJToSupabase(trade) {
+  if (!_currentUser) return;
+  try {
+    const { error } = await supa.from('journal_trades').upsert({
+      id: trade.id,
+      user_id: _currentUser.id,
+      trade_date: trade.date ? new Date(trade.date).toISOString() : new Date().toISOString(),
+      pair: trade.pair,
+      direction: trade.dir,
+      entry_price: trade.entry || null,
+      stop_loss: trade.sl || null,
+      take_profit: trade.tp || null,
+      risk_reward: trade.rr || null,
+      lot_size: trade.lot || null,
+      session: trade.session || null,
+      setup: trade.setup || null,
+      timeframe: trade.tf || null,
+      outcome: trade.outcome || null,
+      exit_price: trade.exit || null,
+      r_gained: trade.rGained || null,
+      emotion: trade.emotion || null,
+      mistake: trade.mistake || null,
+      notes: trade.notes || null,
+      created_at: trade.createdAt || new Date().toISOString(),
+    }, { onConflict: 'id' });
+    if (error) console.warn('Journal Supabase save error:', error.message);
+  } catch(e) { console.warn('Journal save error:', e); }
+}
+
 /* ── OPEN / CLOSE MODALS ── */
 function openTJModal(id) {
   _tjEditId = id || null;
@@ -5194,6 +5223,7 @@ function saveTJEntry() {
     data.unshift(trade);
   }
   tjSave(data);
+  saveTJToSupabase(trade);
   closeTJModal();
 }
 
@@ -7847,8 +7877,14 @@ async function doForgot() {
 
 // ── Logout ─────────────────────────────────────────────────────
 async function doLogout() {
-  await supa.auth.signOut();
+  try {
+    await supa.auth.signOut();
+  } catch(e) { console.warn('Logout error:', e); }
+  _currentUser = null;
+  _currentSession = null;
   closeDropdown();
+  onUserLoggedOut();
+  showToast('✅ Signed out successfully', 'success');
 }
 
 // ── Auth UI helpers ────────────────────────────────────────────
