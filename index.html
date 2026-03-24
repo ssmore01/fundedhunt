@@ -7808,7 +7808,13 @@ function updateSummaryPreview() {
 const SUPA_URL = 'https://omosvurqdlreznfmeegf.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9tb3N2dXJxZGxyZXpuZm1lZWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY2ODAsImV4cCI6MjA4OTU5MjY4MH0.aP4xRDagK0LzwqCPvkXk4iKz5JmzxqRQ7HHxBBHL5ew';
 
-const supa = supabase.createClient(SUPA_URL, SUPA_KEY);
+const supa = supabase.createClient(SUPA_URL, SUPA_KEY, {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+    storage: window.sessionStorage,
+  }
+});
 let _currentUser = null;
 let _currentSession = null;
 
@@ -7820,7 +7826,9 @@ async function supaInit() {
     _currentUser    = session.user;
     await onUserLoggedIn(_currentUser);
   } else {
-    // No active session — show login modal on every open
+    // No active session — clear any leftover user data and show login
+    lsDel('tj_trades');
+    lsDel('fe_journal');
     setTimeout(() => openAuth('login'), 600);
   }
 
