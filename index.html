@@ -3959,7 +3959,7 @@ function nav(panelId) {
   if (panelId==='leaderboard') renderLeaderboard();
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
-  if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); }
+  if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); if(_currentUser) loadLogbookFromSupabase(); }
   if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
@@ -7829,6 +7829,7 @@ async function supaInit() {
     // No active session — clear any leftover user data and show login
     lsDel('tj_trades');
     lsDel('fe_journal');
+    lsDel('lb_challenges');
     setTimeout(() => openAuth('login'), 600);
   }
 
@@ -7897,6 +7898,9 @@ async function onUserLoggedIn(user) {
 
   // Load journal from Supabase to sync across devices
   await loadTJFromSupabase();
+
+  // Load logbook from Supabase to sync across devices
+  await loadLogbookFromSupabase();
 }
 
 // ── When user logs out ─────────────────────────────────────────
@@ -7992,6 +7996,7 @@ async function doLogout() {
   // Clear user specific localStorage data
   lsDel('tj_trades');
   lsDel('fe_journal');
+  lsDel('lb_challenges');
   _currentUser = null;
   _currentSession = null;
   closeDropdown();
@@ -8142,8 +8147,8 @@ async function migrateLocalDataToSupabase(userId) {
 async function syncLogbookEntryToSupabase(entry) {
   if (!_currentUser) return;
   try {
-    await supa.from('logbook_entries').upsert({
-      id:           entry.id,
+    const { error } = await supa.from('logbook_entries').upsert({
+      id:           entry.supaId || undefined,
       user_id:      _currentUser.id,
       firm_id:      entry.firmId,
       firm_name:    entry.firmName || entry.firmId,
@@ -8155,7 +8160,51 @@ async function syncLogbookEntryToSupabase(entry) {
       notes:        entry.notes || '',
       updated_at:   new Date().toISOString(),
     }, { onConflict: 'id' });
-  } catch(e) {}
+    if (error) console.warn('Logbook save error:', error.message);
+  } catch(e) { console.warn('Logbook save exception:', e); }
+}
+
+async function loadLogbookFromSupabase() {
+  if (!_currentUser) return;
+  try {
+    const { data, error } = await supa
+      .from('logbook_entries')
+      .select('*')
+      .eq('user_id', _currentUser.id)
+      .order('created_at', { ascending: false });
+
+    if (error) { console.warn('Logbook load error:', error.message); return; }
+
+    // Always clear localStorage first to prevent cross-user mixing
+    lsSetJSON('lb_challenges', []);
+
+    if (!data || data.length === 0) {
+      renderLogbook();
+      updateLogbookBadge();
+      return;
+    }
+
+    // Convert Supabase format back to local format
+    const entries = data.map(r => ({
+      id: 'lb_' + r.id,
+      supaId: r.id,
+      firmId: r.firm_id || '',
+      firmName: r.firm_name || '',
+      plan: r.plan || '',
+      accountSize: r.account_size || '',
+      fee: r.fee || 0,
+      purchaseDate: r.purchase_date || '',
+      status: r.status || 'evaluation',
+      notes: r.notes || '',
+      payouts: [],
+      createdAt: r.created_at || new Date().toISOString(),
+    }));
+
+    lsSetJSON('lb_challenges', entries);
+    renderLogbook();
+    updateLogbookBadge();
+    console.log('Logbook loaded from Supabase:', entries.length, 'entries');
+  } catch(e) { console.warn('Logbook load exception:', e); }
 }
 
 // ── Sync: Save payout to Supabase ─────────────────────────────
