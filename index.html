@@ -976,6 +976,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
             <option value="weekly" selected>Weekly Report</option>
             <option value="monthly">Monthly Report</option>
           </select>
+          <button class="btn btn-outline" onclick="exportJournalExcel()" style="font-size:12px;padding:7px 14px;gap:6px;">📥 Export Excel</button>
           <button class="btn btn-gold" onclick="openTJModal()">+ Log Trade</button>
         </div>
       </div>
@@ -1014,7 +1015,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
               <th>R:R</th>
               <th>Setup</th>
               <th>Outcome</th>
-              <th>R Gained</th>
+              <th>$ Gained</th>
               <th></th>
             </tr>
           </thead>
@@ -1120,7 +1121,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
             <label>Timeframe</label>
             <select class="form-select" id="tjTF">
               <option value="">— Select —</option>
-              <option>1m</option><option>5m</option><option>15m</option><option>30m</option>
+              <option>1m</option><option>3m</option><option>5m</option><option>15m</option><option>30m</option>
               <option>1H</option><option>4H</option><option>Daily</option><option>Weekly</option>
             </select>
           </div>
@@ -1139,7 +1140,6 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
             <div class="form-group" style="margin-bottom:0;">
               <label>Status</label>
               <select class="form-select" id="tjOutcome">
-                <option value="open">🔵 Open / Running</option>
                 <option value="win">✅ Win (TP Hit)</option>
                 <option value="loss">❌ Loss (SL Hit)</option>
                 <option value="be">➖ Break Even</option>
@@ -1152,8 +1152,8 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
               <input class="form-input" type="number" id="tjExit" step="any" placeholder="e.g. 1.08950">
             </div>
             <div class="form-group" style="margin-bottom:0;">
-              <label>R Gained / Lost</label>
-              <input class="form-input" type="text" id="tjRGained" placeholder="e.g. +2.1R or -1R">
+              <label>$ Gained / Lost</label>
+              <input class="form-input" type="text" id="tjRGained" placeholder="e.g. +250 or -100">
             </div>
           </div>
         </div>
@@ -5330,6 +5330,99 @@ let _tjFilter = 'all';
 function tjData() { return lsGetJSON('tj_trades', []); }
 function tjSave(data) { lsSetJSON('tj_trades', data); renderTJPanel(); }
 
+// ── Export Journal to Excel ────────────────────────────────────
+function exportJournalExcel() {
+  const trades = tjData();
+  if (!trades || trades.length === 0) {
+    showToast('No trades to export yet.', 'info');
+    return;
+  }
+
+  // Build CSV content (opens perfectly in Excel)
+  const headers = [
+    'Date', 'Pair / Asset', 'Direction', 'Entry Price', 'Stop Loss',
+    'Take Profit', 'R:R Ratio', 'Lot Size', 'Session', 'Timeframe',
+    'Setup / Strategy', 'Outcome', 'Exit Price', '$ Gained / Lost',
+    'Emotion', 'Mistake', 'Notes / Lessons', 'Reason'
+  ];
+
+  const outcomeLabel = {
+    win: 'Win', loss: 'Loss', be: 'Break Even',
+    partial: 'Partial Close', manual: 'Manual Close', open: 'Open'
+  };
+
+  const rows = trades.map(t => {
+    const rNum = parseFloat((t.rGained || '').replace('+', '')) || 0;
+    const dollarVal = t.rGained
+      ? (rNum >= 0 ? '+' : '-') + '$' + Math.abs(rNum).toFixed(2)
+      : '';
+
+    return [
+      t.date ? new Date(t.date).toLocaleDateString('en-IN') : '',
+      t.pair || '',
+      t.dir === 'long' ? 'Long / Buy' : t.dir === 'short' ? 'Short / Sell' : t.dir || '',
+      t.entry || '',
+      t.sl || '',
+      t.tp || '',
+      t.rr || '',
+      t.lot || '',
+      t.session || '',
+      t.tf || '',
+      t.setup || '',
+      outcomeLabel[t.outcome] || t.outcome || '',
+      t.exit || '',
+      dollarVal,
+      t.emotion || '',
+      t.mistake || '',
+      (t.notes || '').replace(/\n/g, ' '),
+      (t.reason || '').replace(/\n/g, ' '),
+    ].map(v => `"${String(v).replace(/"/g, '""')}"`);
+  });
+
+  // Calculate summary stats
+  const closed = trades.filter(t => t.outcome && t.outcome !== 'open');
+  const wins = closed.filter(t => t.outcome === 'win').length;
+  const losses = closed.filter(t => t.outcome === 'loss').length;
+  const rArr = closed.map(t => parseFloat((t.rGained || '').replace('+', '')) || 0).filter(r => r !== 0);
+  const totalPL = rArr.reduce((a, b) => a + b, 0);
+  const wr = closed.length ? ((wins / closed.length) * 100).toFixed(1) : '0.0';
+
+  const summaryRows = [
+    [],
+    ['"--- PERFORMANCE SUMMARY ---"'],
+    [`"Total Trades"`, `"${trades.length}"`],
+    [`"Closed Trades"`, `"${closed.length}"`],
+    [`"Win Rate"`, `"${wr}%"`],
+    [`"Wins"`, `"${wins}"`],
+    [`"Losses"`, `"${losses}"`],
+    [`"Total $ P/L"`, `"${totalPL >= 0 ? '+' : '-'}$${Math.abs(totalPL).toFixed(2)}"`],
+    [`"Avg $ Per Trade"`, `"${rArr.length ? (totalPL >= 0 ? '+' : '-') + '$' + Math.abs(totalPL / rArr.length).toFixed(2) : '$0.00'}"`],
+    [],
+    ['"Generated by FundedHunt.com — Your Trading Journal"'],
+  ];
+
+  const csvContent = [
+    headers.map(h => `"${h}"`).join(','),
+    ...rows.map(r => r.join(',')),
+    ...summaryRows.map(r => r.join(',')),
+  ].join('\n');
+
+  // Add BOM for Excel to read UTF-8 correctly
+  const bom = '\uFEFF';
+  const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const today = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `FundedHunt_Journal_${today}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast(`✅ Exported ${trades.length} trades to Excel!`, 'success');
+}
+
 async function loadTJFromSupabase() {
   if (!_currentUser) return;
   try {
@@ -5593,21 +5686,20 @@ function renderTJSummary() {
   const plColor = totalPL >= 0 ? 'var(--green)' : 'var(--red)';
   const avgColor = parseFloat(avgPL) >= 0 ? 'var(--green)' : 'var(--red)';
 
-  // Format large numbers nicely
+  // Format dollar amounts — no K abbreviation, exact figures
   function fmtR(val) {
     const v = parseFloat(val);
-    if (isNaN(v)) return '0R';
+    if (isNaN(v)) return '$0';
     const abs = Math.abs(v);
     const sign = v >= 0 ? '+' : '-';
-    if (abs >= 1000) return sign + (abs/1000).toFixed(1) + 'KR';
-    return sign + abs.toFixed(2) + 'R';
+    return sign + '$' + abs.toFixed(2);
   }
 
   el.innerHTML = `
     <div class="stat-chip"><div class="val">${data.length}</div><div class="lbl">Total Trades</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--green)">${wr}%</div><div class="lbl">Win Rate</div></div>
-    <div class="stat-chip"><div class="val" style="color:${plColor};font-size:clamp(14px,1.4vw,22px);word-break:break-all;">${fmtR(totalPL)}</div><div class="lbl">Total P/L</div></div>
-    <div class="stat-chip"><div class="val" style="color:${avgColor};font-size:clamp(14px,1.4vw,22px);word-break:break-all;">${fmtR(avgPL)}</div><div class="lbl">Avg P/L</div></div>
+    <div class="stat-chip"><div class="val" style="color:${plColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(totalPL)}</div><div class="lbl">Total P/L</div></div>
+    <div class="stat-chip"><div class="val" style="color:${avgColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(avgPL)}</div><div class="lbl">Avg P/L</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--green)">${wins.length}</div><div class="lbl">Wins</div></div>
     <div class="stat-chip"><div class="val" style="color:var(--red)">${losses.length}</div><div class="lbl">Losses</div></div>
     <div class="stat-chip"><div class="val" style="color:${streakData.color}">${streakData.label}</div><div class="lbl">Streak</div></div>
@@ -5703,7 +5795,7 @@ function renderTJReport() {
         <div style="font-size:11px;color:var(--muted);">Win Rate</div>
       </div>
       <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;text-align:center;">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:${totalR>=0?'var(--green)':'var(--red)'};">${totalR>=0?'+':''}${totalR.toFixed(1)}R</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(14px,1.6vw,22px);font-weight:800;color:${totalR>=0?'var(--green)':'var(--red)'};word-break:break-all;line-height:1.2;">${totalR>=0?'+':''}$${Math.abs(totalR).toFixed(2)}</div>
         <div style="font-size:11px;color:var(--muted);">Total Profit/Loss</div>
       </div>
       <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;text-align:center;">
@@ -5782,7 +5874,7 @@ function renderTJEntries() {
       <td style="font-size:12px;color:var(--muted);">${t.rr||'—'}</td>
       <td style="font-size:11px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);">${t.setup||'—'}</td>
       <td><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;color:${oc.color};background:${oc.bg};">${oc.label}</span></td>
-      <td style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:${rColor};">${t.rGained ? (rNum>0?'+':'')+t.rGained : '—'}</td>
+      <td style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:${rColor};">${t.rGained ? (rNum>0?'+':'-')+'$'+Math.abs(rNum).toFixed(2) : '—'}</td>
       <td onclick="event.stopPropagation()">
         <div style="display:flex;gap:4px;">
           <button class="btn btn-sm btn-outline" onclick="openTJModal('${t.id}')" style="padding:4px 10px;font-size:11px;">✏️</button>
@@ -5831,7 +5923,7 @@ function renderTJDetailHTML(t) {
     ${section('Outcome', `
       ${row('Result', OUTCOME_CONFIG[t.outcome] || '—')}
       ${row('Exit Price', t.exit || '—')}
-      ${row('R Gained / Lost', t.rGained ? `${rNum>0?'+':''}${t.rGained}` : '—', rColor)}
+      ${row('$ Gained / Lost', t.rGained ? `${rNum>0?'+':''}$${Math.abs(rNum).toFixed(2)}` : '—', rColor)}
     `)}
     ${(t.emotion || t.mistake) ? section('Discipline', `
       ${t.emotion ? row('Emotional State', t.emotion) : ''}
