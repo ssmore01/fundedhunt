@@ -8009,6 +8009,45 @@ const FIRM_EXTRA = {
     {rule:'EAs allowed — no abuse of system',type:'allowed'},
   ]
  },
+ 'pipstone-capital':{
+  about:`Pipstone Capital is a UK-based prop firm founded in 2023 that has built a strong reputation among traders for one key reason — they have no consistency rule. This is one of the rarest and most trader-friendly policies in the prop trading industry. Combined with static drawdown, a 24-hour payout guarantee with compensation if delayed, and 90% profit split, Pipstone offers some of the most generous terms available. Their CEO is publicly engaged with the community, which adds a layer of transparency that many larger firms lack. News trading and weekend holding are both fully allowed. While their Trustpilot review count is still growing at 129 reviews, the quality of feedback has been consistently positive with traders highlighting fast payouts, fair rules and responsive support.`,
+  headquarters:'United Kingdom',
+  platforms:'cTrader, Match Trader',
+  instruments:'Forex, Indices, Commodities, Crypto',
+  leverage:'Up to 1:100',
+  minTradingDays:'No minimum trading days',
+  scaling:'Up to $200,000 through consistent performance',
+  pros:[
+    'No consistency rule — rarest and most valued policy in the industry',
+    'Static drawdown — limit never trails your profits',
+    '24-hour payout guarantee — compensation paid if delayed',
+    '90% profit split — highly competitive',
+    'News trading fully allowed — no restrictions on events',
+    'Weekend holding allowed — no overnight restrictions',
+    'CEO publicly engaged with community — strong transparency',
+    'Instant Funding available — skip evaluation entirely',
+  ],
+  cons:[
+    'Founded 2023 — newer firm still building long-term track record',
+    '129 Trustpilot reviews — growing but smaller community vs established firms',
+    'Some payout delay reports — though compensation policy exists',
+    'UK based but regulatory framework still developing',
+    'Smaller firm with less total payout volume vs top-tier firms',
+  ],
+  rules:[
+    {rule:'No Consistency Rule — biggest differentiator in the industry, no pattern restrictions',type:'allowed'},
+    {rule:'Static Drawdown — limit is always calculated from starting balance, never trails',type:'allowed'},
+    {rule:'24-Hour Payout Guarantee — compensation paid if payout is delayed beyond 24 hours',type:'allowed'},
+    {rule:'90% Profit Split — among the highest available in the industry',type:'allowed'},
+    {rule:'News Trading — fully allowed on all plans, trade NFP and rate decisions freely',type:'allowed'},
+    {rule:'Weekend Holding — allowed, hold positions over weekends without restrictions',type:'allowed'},
+    {rule:'Instant Funding — skip evaluation, start trading funded capital immediately',type:'allowed'},
+    {rule:'1-Step Challenge — single phase evaluation, static drawdown, no time limit',type:'allowed'},
+    {rule:'2-Step Challenge — two phase evaluation, static drawdown, no time limit',type:'allowed'},
+    {rule:'Scalping — allowed, no minimum hold time restrictions',type:'allowed'},
+    {rule:'EAs — allowed with reasonable use',type:'allowed'},
+  ]
+ },
 };
 
 let _revStars = 0;
@@ -8812,11 +8851,37 @@ function updateSummaryPreview() {
 const SUPA_URL = 'https://omosvurqdlreznfmeegf.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9tb3N2dXJxZGxyZXpuZm1lZWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY2ODAsImV4cCI6MjA4OTU5MjY4MH0.aP4xRDagK0LzwqCPvkXk4iKz5JmzxqRQ7HHxBBHL5ew';
 
+// ── Smart Session Storage ─────────────────────────────────────
+// Keeps user logged in on page refresh (same browser session)
+// Logs out when browser is fully closed
+// How it works:
+//   - Session token stored in localStorage (survives refresh)
+//   - sessionStorage flag 'fh_alive' set on every page load
+//   - On load: if flag missing = new browser session = clear localStorage session
+const FH_SESSION_KEY = 'fh_sb_session';
+const FH_ALIVE_KEY   = 'fh_alive';
+
+// If this is a fresh browser open (no sessionStorage flag), clear stored session
+if (!sessionStorage.getItem(FH_ALIVE_KEY)) {
+  localStorage.removeItem(FH_SESSION_KEY);
+  localStorage.removeItem('fh_sb_session-code-verifier');
+}
+// Mark this as an active browser session
+sessionStorage.setItem(FH_ALIVE_KEY, '1');
+
+// Custom storage adapter using localStorage under our own key
+const fhStorage = {
+  getItem:    (key) => { try { return localStorage.getItem(key); } catch(e) { return null; } },
+  setItem:    (key, val) => { try { localStorage.setItem(key, val); } catch(e) {} },
+  removeItem: (key) => { try { localStorage.removeItem(key); } catch(e) {} },
+};
+
 const supa = supabase.createClient(SUPA_URL, SUPA_KEY, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
-    storage: window.sessionStorage,
+    storageKey: FH_SESSION_KEY,
+    storage: fhStorage,
   }
 });
 let _currentUser = null;
