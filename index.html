@@ -996,7 +996,6 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           <button class="filter-btn" onclick="filterTJ('win',this)">✅ Win</button>
           <button class="filter-btn" onclick="filterTJ('loss',this)">❌ Loss</button>
           <button class="filter-btn" onclick="filterTJ('be',this)">➖ B/E</button>
-          <button class="filter-btn" onclick="filterTJ('open',this)">🔵 Open</button>
         </div>
         <input class="form-input" id="tjSearch" placeholder="🔍 Search pair, setup, notes…" style="width:220px;font-size:12px;padding:7px 12px;border-radius:8px;" oninput="renderTJEntries()">
       </div>
@@ -8154,9 +8153,9 @@ const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsI
 
 const supa = supabase.createClient(SUPA_URL, SUPA_KEY, {
   auth: {
-    persistSession: false,
-    autoRefreshToken: false,
-    storage: window.sessionStorage,
+    persistSession: true,
+    autoRefreshToken: true,
+    storage: window.localStorage,
   }
 });
 let _currentUser = null;
