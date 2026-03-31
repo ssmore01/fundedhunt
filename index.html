@@ -4650,7 +4650,14 @@ function closeSidebar(){
 }
 
 function nav(panelId) {
-  if(panelId==='blog') setTimeout(renderBlog, 50);
+  if(panelId==='blog') {
+    // Always reset blog to list view before showing panel
+    const lv = document.getElementById('blogListView');
+    const av = document.getElementById('blogArticleView');
+    if(lv) lv.style.display = 'block';
+    if(av) av.style.display = 'none';
+    setTimeout(renderBlog, 30);
+  }
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   const panel = document.getElementById('panel-'+panelId);
   if (panel) { panel.classList.add('active'); panel.scrollTop = 0; }
@@ -8757,6 +8764,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderHomeFirms();
   applyFirmsDisplay();
   renderChallenges();
+  renderBlog();
   nav('home');
   initCookieBanner();
   injectFooter();
@@ -10001,58 +10009,75 @@ function filterBlog(tag,btn){
 function openBlogPost(id){
   const post = BLOG_POSTS.find(p => p.id === id);
   if(!post) return;
+
   document.getElementById('blogListView').style.display = 'none';
   document.getElementById('blogArticleView').style.display = 'block';
 
-  // Build related posts sidebar (all other posts)
+  // Clear previous content
+  const container = document.getElementById('blogArticleContent');
+  container.innerHTML = '';
+
+  // ── Build hero ──────────────────────────────────────────────
+  const heroWrap = document.createElement('div');
+  heroWrap.className = 'blog-article-hero';
+  heroWrap.innerHTML = `
+    <img src="${post.image||''}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;opacity:0.5;">
+    <div class="blog-article-hero-overlay">
+      <div class="blog-article-hero-tag">${(post.tag||'').toUpperCase()}</div>
+      <div class="blog-article-hero-title">${post.title}</div>
+      <div class="blog-article-hero-meta">
+        <span>📅 ${post.date}</span>
+        <span>⏱ ${post.readTime}</span>
+        <span>✍️ FundedHunt</span>
+      </div>
+    </div>`;
+
+  // ── Build two-column wrap ───────────────────────────────────
+  const wrap = document.createElement('div');
+  wrap.className = 'blog-article-wrap';
+
+  // Main article body — inject post.content
+  const main = document.createElement('article');
+  main.className = 'blog-article-body';
+  // Strip the hero div and body wrapper from content since we built them above
+  // Just inject the inner content paragraphs
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = post.content;
+  // Remove any .blog-article-hero inside content (we already built it)
+  const existingHero = tempDiv.querySelector('.blog-article-hero');
+  if(existingHero) existingHero.remove();
+  // Get .blog-article-body if it exists, otherwise use all content
+  const bodyEl = tempDiv.querySelector('.blog-article-body');
+  if(bodyEl){
+    main.innerHTML = bodyEl.innerHTML;
+  } else {
+    main.innerHTML = tempDiv.innerHTML;
+  }
+  wrap.appendChild(main);
+
+  // ── Build sidebar ───────────────────────────────────────────
   const others = BLOG_POSTS.filter(p => p.id !== id).slice(0,4);
-  const relatedHTML = others.map(p => `
-    <div class="blog-related-post" onclick="openBlogPost('${p.id}')">
-      <div class="blog-related-emoji">${p.emoji}</div>
-      <div class="blog-related-title">${p.title}</div>
-    </div>`).join('');
-
-  document.getElementById('blogArticleContent').innerHTML = `
-    <div class="blog-article">
-      ${post.content}
+  const sidebar = document.createElement('aside');
+  sidebar.className = 'blog-sidebar';
+  sidebar.innerHTML = `
+    <div class="blog-sidebar-card">
+      <h4>Related Articles</h4>
+      ${others.map(p=>`
+        <div class="blog-related-post" onclick="openBlogPost('${p.id}')">
+          <div class="blog-related-emoji">${p.emoji}</div>
+          <div class="blog-related-title">${p.title}</div>
+        </div>`).join('')}
     </div>
-    <script>
-      // Wrap content in two-column layout after render
-      (function(){
-        const hero = document.querySelector('.blog-article .blog-article-hero');
-        const body = document.querySelector('.blog-article .blog-article-body');
-        if(!hero || !body) return;
+    <div class="blog-sidebar-cta" style="margin-top:20px;">
+      <h4>Find Your Firm 🎯</h4>
+      <p>Compare 30 prop firms honestly. Trust scores, verified payouts, discount codes — free.</p>
+      <a href="#" onclick="nav('firms');return false;">Compare Firms →</a>
+    </div>`;
+  wrap.appendChild(sidebar);
 
-        // Move hero outside the wrap
-        const article = document.querySelector('.blog-article');
-        article.insertBefore(hero, article.firstChild);
-
-        // Create two-column wrap
-        const wrap = document.createElement('div');
-        wrap.className = 'blog-article-wrap';
-
-        // Main content
-        const main = document.createElement('article');
-        main.appendChild(body);
-        wrap.appendChild(main);
-
-        // Sidebar
-        const sidebar = document.createElement('aside');
-        sidebar.className = 'blog-sidebar';
-        sidebar.innerHTML = \`
-          <div class="blog-sidebar-card">
-            <h4>Related Articles</h4>
-            ${relatedHTML}
-          </div>
-          <div class="blog-sidebar-cta">
-            <h4>Find Your Firm 🎯</h4>
-            <p>Compare 30 prop firms honestly. AI matching, trust scores and verified payouts — free.</p>
-            <a href="#" onclick="nav('firms');return false;">Compare Firms →</a>
-          </div>\`;
-        wrap.appendChild(sidebar);
-        article.appendChild(wrap);
-      })();
-    <\/script>`;
+  // ── Assemble ────────────────────────────────────────────────
+  container.appendChild(heroWrap);
+  container.appendChild(wrap);
 
   window.scrollTo(0,0);
 }
