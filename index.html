@@ -477,26 +477,79 @@
 .blog-card-meta{font-size:12px;color:var(--muted);display:flex;gap:12px;align-items:center;}
 .blog-article{display:none;padding:8px 0;}
 .blog-article.show{display:block;}
-.blog-article-hero{width:100%;height:320px;border-radius:16px;overflow:hidden;margin-bottom:32px;position:relative;background:linear-gradient(135deg,#1a1200,#0a0800);}
-.blog-article-hero-img{width:100%;height:100%;object-fit:cover;opacity:0.7;}
-.blog-article-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px;}
-.blog-article-hero-tag{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;background:var(--gold-dim);border:1px solid var(--border2);padding:4px 10px;border-radius:100px;width:fit-content;}
-.blog-article-hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:12px;}
-.blog-article-hero-meta{font-size:12px;color:rgba(255,255,255,0.6);display:flex;gap:16px;align-items:center;}
-.blog-article h2{font-size:24px;font-weight:800;margin-bottom:8px;display:none;}
-.blog-article h3{font-size:17px;font-weight:700;color:var(--text);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.blog-article h3 span{color:var(--gold);}
-.blog-article p{color:var(--muted);line-height:1.9;margin-bottom:18px;font-size:14.5px;}
-.blog-article ul{color:var(--muted);line-height:1.8;padding-left:20px;margin-bottom:16px;}
-.blog-article li{margin-bottom:6px;}
-.blog-back{display:inline-flex;align-items:center;gap:6px;color:var(--gold);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:28px;background:none;border:none;padding:0;}
-.blog-article-meta{display:none;}
+.blog-article-hero{width:100%;height:420px;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a1200,#0a0800);}
+.blog-article-hero img{width:100%;height:100%;object-fit:cover;opacity:0.5;}
+.blog-article-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,14,1) 0%,rgba(12,12,14,0.5) 50%,rgba(12,12,14,0.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 48px;}
+.blog-article-hero-tag{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;background:rgba(245,197,24,0.12);border:1px solid var(--border2);padding:4px 12px;border-radius:100px;width:fit-content;}
+.blog-article-hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(22px,3vw,38px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px;}
+.blog-article-hero-meta{font-size:13px;color:rgba(255,255,255,0.55);display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+.blog-article-wrap{max-width:1200px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px;}
+.blog-article-body{font-family:'Georgia',serif;font-size:16px;line-height:1.9;color:var(--muted);}
+.blog-article-body p{margin-bottom:22px;}
+.blog-article-body h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:800;color:var(--text);margin:40px 0 14px;padding-left:14px;border-left:3px solid var(--gold);line-height:1.3;}
+.blog-article-body strong{color:var(--text);}
+.blog-article-body a{color:var(--gold);text-decoration:none;}
+.blog-article-body a:hover{text-decoration:underline;}
+.blog-article-body h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px;}
+.blog-back{display:inline-flex;align-items:center;gap:6px;color:var(--gold);cursor:pointer;font-size:13px;font-weight:600;margin-bottom:0;background:none;border:none;padding:0;}
+.pull-quote,.blog-pull-quote{border-left:3px solid var(--gold);padding:18px 24px;margin:32px 0;background:rgba(245,197,24,0.04);border-radius:0 12px 12px 0;font-size:18px;font-style:italic;color:var(--text);line-height:1.6;}
+.insight-box,.blog-insight-box{background:rgba(245,197,24,0.05);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;margin:24px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text);line-height:1.65;}
+.warning-box,.blog-warning-box{background:rgba(229,62,62,0.05);border:1px solid rgba(229,62,62,0.2);border-radius:12px;padding:18px 20px;margin:24px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text);line-height:1.65;}
+.success-box,.blog-success-box{background:rgba(29,185,84,0.05);border:1px solid rgba(29,185,84,0.2);border-radius:12px;padding:18px 20px;margin:24px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--text);line-height:1.65;}
+.truth-box,.blog-truth-box{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin:28px 0;}
+.truth-box .tb-label,.blog-truth-box .tb-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;}
+.truth-box p,.blog-truth-box p{margin-bottom:0;font-size:15px;font-family:'Georgia',serif;}
+.year-grid,.blog-year-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0;}
+.year-card,.blog-year-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;}
+.year-card .yc-num,.blog-year-card .yc-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);margin-bottom:6px;}
+.year-card .yc-title,.blog-year-card .yc-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.year-card .yc-desc,.blog-year-card .yc-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);line-height:1.5;}
+.math-box,.blog-math-box{background:linear-gradient(135deg,rgba(229,62,62,0.05),rgba(29,185,84,0.05));border:1px solid var(--border);border-radius:14px;padding:22px;margin:28px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.math-item,.blog-math-item{text-align:center;}
+.math-item .mi-label,.blog-math-item .mi-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;}
+.math-item .mi-val,.blog-math-item .mi-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;}
+.math-item .mi-val.red,.blog-math-item .mi-val.red{color:var(--red);}
+.math-item .mi-val.green,.blog-math-item .mi-val.green{color:var(--green);}
+.math-item .mi-result,.blog-math-item .mi-result{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;margin-top:4px;}
+.math-item .mi-result.red,.blog-math-item .mi-result.red{color:var(--red);}
+.math-item .mi-result.green,.blog-math-item .mi-result.green{color:var(--green);}
+.mindset-list,.blog-mindset-list{display:flex;flex-direction:column;gap:12px;margin:20px 0;}
+.mindset-item,.blog-mindset-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
+.mindset-item .mi-ico,.blog-mindset-item .mi-ico{font-size:20px;flex-shrink:0;margin-top:2px;}
+.mindset-item .mi-text,.blog-mindset-item .mi-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);line-height:1.6;}
+.mindset-item .mi-text strong,.blog-mindset-item .mi-text strong{color:var(--text);display:block;margin-bottom:3px;font-size:13px;}
+.verdict-box.blog-verdict,.blog-verdict-box{background:linear-gradient(135deg,rgba(245,197,24,0.06),rgba(29,185,84,0.04));border:1px solid var(--border2);border-radius:16px;padding:28px;margin:40px 0;}
+.verdict-box.blog-verdict h3,.blog-verdict-box h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--gold);margin:0 0 14px;border:none;padding:0;}
+.verdict-box.blog-verdict p,.blog-verdict-box p{font-size:15.5px;margin-bottom:12px;font-family:'Georgia',serif;color:var(--muted);}
+.verdict-box.blog-verdict p:last-child,.blog-verdict-box p:last-child{margin-bottom:0;}
+.reason-card,.blog-reason-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin:28px 0;transition:border-color 0.2s;}
+.reason-card:hover,.blog-reason-card:hover{border-color:rgba(255,255,255,0.12);}
+.reason-card .reason-number,.blog-reason-card .reason-number{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px;}
+.reason-card .reason-title,.blog-reason-card .reason-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:12px;}
+.reason-card p,.blog-reason-card p{font-size:15px;margin-bottom:10px;font-family:'Georgia',serif;}
+.reason-card p:last-child,.blog-reason-card p:last-child{margin-bottom:0;}
+.blog-sidebar{position:sticky;top:80px;height:fit-content;}
+.blog-sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;}
+.blog-sidebar-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.blog-toc-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:var(--muted);cursor:pointer;transition:color 0.2s;text-decoration:none;line-height:1.4;}
+.blog-toc-item:last-child{border-bottom:none;}
+.blog-toc-item:hover{color:var(--gold);}
+.blog-toc-num{color:var(--gold);font-weight:700;font-size:11px;width:20px;flex-shrink:0;margin-top:1px;}
+.blog-sidebar-cta{background:linear-gradient(135deg,#1a1200,#0a1400);border:1px solid var(--border2);border-radius:16px;padding:24px;text-align:center;}
+.blog-sidebar-cta h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:8px;text-transform:none;letter-spacing:0;}
+.blog-sidebar-cta p{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+.blog-sidebar-cta a{display:block;background:var(--gold);color:#000;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;transition:opacity 0.2s;}
+.blog-sidebar-cta a:hover{opacity:0.85;}
+.blog-related-post{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);text-decoration:none;cursor:pointer;}
+.blog-related-post:last-child{border-bottom:none;}
+.blog-related-emoji{font-size:20px;width:36px;height:36px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.blog-related-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);line-height:1.4;transition:color 0.2s;}
+.blog-related-post:hover .blog-related-title{color:var(--gold);}
 .blog-callout{background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 16px;margin:20px 0;font-size:14px;color:var(--text);}
-.blog-article-body{max-width:780px;}
 .blog-cta-box{background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1px solid var(--border2);border-radius:16px;padding:28px 32px;margin:40px 0;text-align:center;}
 .blog-cta-box h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px;}
 .blog-cta-box p{color:var(--muted);font-size:13px;margin-bottom:16px;}
-@media(max-width:768px){.blog-article-hero{height:220px;}.blog-article-hero-title{font-size:20px;}.blog-article-hero-overlay{padding:20px 16px;}}
+@media(max-width:900px){.blog-article-wrap{grid-template-columns:1fr;gap:32px;}.blog-sidebar{position:relative;top:0;}.year-grid,.blog-year-grid{grid-template-columns:1fr;}.math-box,.blog-math-box{grid-template-columns:1fr;}.blog-article-hero{height:280px;}.blog-article-hero-overlay{padding:24px 20px;}}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1503,6 +1556,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   
 <!-- ═══════════════════ BLOG PANEL ══════════════════════ -->
 <div class="panel" id="panel-blog">
+  <div class="panel-inner">
   <div id="blogListView">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:4px;">
       <h2 style="margin:0;">✍️ Funded Hunt Blog</h2>
@@ -1511,8 +1565,11 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
     <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Trading insights, prop firm news, and guides — written by a trader, for traders.</p>
     <div class="blog-grid" id="blogGrid"></div>
   </div>
-  <div id="blogArticleView" style="display:none;padding:0 8px;">
-    <button class="blog-back" onclick="closeBlogArticle()">← Back to Blog</button>
+  </div>
+  <div id="blogArticleView" style="display:none;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 20px;">
+      <button class="blog-back" onclick="closeBlogArticle()" style="margin-bottom:0;margin-top:20px;">← Back to Blog</button>
+    </div>
     <div id="blogArticleContent"></div>
   </div>
 </div>
@@ -9933,11 +9990,61 @@ function filterBlog(tag,btn){
   renderBlog();
 }
 function openBlogPost(id){
-  const post=BLOG_POSTS.find(p=>p.id===id);
-  if(!post)return;
-  document.getElementById('blogListView').style.display='none';
-  document.getElementById('blogArticleView').style.display='block';
-  document.getElementById('blogArticleContent').innerHTML='<div class="blog-article show">'+post.content+'</div>';
+  const post = BLOG_POSTS.find(p => p.id === id);
+  if(!post) return;
+  document.getElementById('blogListView').style.display = 'none';
+  document.getElementById('blogArticleView').style.display = 'block';
+
+  // Build related posts sidebar (all other posts)
+  const others = BLOG_POSTS.filter(p => p.id !== id).slice(0,4);
+  const relatedHTML = others.map(p => `
+    <div class="blog-related-post" onclick="openBlogPost('${p.id}')">
+      <div class="blog-related-emoji">${p.emoji}</div>
+      <div class="blog-related-title">${p.title}</div>
+    </div>`).join('');
+
+  document.getElementById('blogArticleContent').innerHTML = `
+    <div class="blog-article">
+      ${post.content}
+    </div>
+    <script>
+      // Wrap content in two-column layout after render
+      (function(){
+        const hero = document.querySelector('.blog-article .blog-article-hero');
+        const body = document.querySelector('.blog-article .blog-article-body');
+        if(!hero || !body) return;
+
+        // Move hero outside the wrap
+        const article = document.querySelector('.blog-article');
+        article.insertBefore(hero, article.firstChild);
+
+        // Create two-column wrap
+        const wrap = document.createElement('div');
+        wrap.className = 'blog-article-wrap';
+
+        // Main content
+        const main = document.createElement('article');
+        main.appendChild(body);
+        wrap.appendChild(main);
+
+        // Sidebar
+        const sidebar = document.createElement('aside');
+        sidebar.className = 'blog-sidebar';
+        sidebar.innerHTML = \`
+          <div class="blog-sidebar-card">
+            <h4>Related Articles</h4>
+            ${relatedHTML}
+          </div>
+          <div class="blog-sidebar-cta">
+            <h4>Find Your Firm 🎯</h4>
+            <p>Compare 30 prop firms honestly. AI matching, trust scores and verified payouts — free.</p>
+            <a href="#" onclick="nav('firms');return false;">Compare Firms →</a>
+          </div>\`;
+        wrap.appendChild(sidebar);
+        article.appendChild(wrap);
+      })();
+    <\/script>`;
+
   window.scrollTo(0,0);
 }
 function closeBlogArticle(){
