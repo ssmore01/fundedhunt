@@ -1556,19 +1556,18 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   
 <!-- ═══════════════════ BLOG PANEL ══════════════════════ -->
 <div class="panel" id="panel-blog">
-  <div class="panel-inner">
   <div id="blogListView">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:4px;">
-      <h2 style="margin:0;">✍️ Funded Hunt Blog</h2>
-      
+    <div class="panel-inner">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:4px;">
+        <h2 style="margin:0;">✍️ Funded Hunt Blog</h2>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Trading insights, prop firm news, and guides — written by a trader, for traders.</p>
+      <div class="blog-grid" id="blogGrid"></div>
     </div>
-    <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Trading insights, prop firm news, and guides — written by a trader, for traders.</p>
-    <div class="blog-grid" id="blogGrid"></div>
-  </div>
   </div>
   <div id="blogArticleView" style="display:none;">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px 20px;">
-      <button class="blog-back" onclick="closeBlogArticle()" style="margin-bottom:0;margin-top:20px;">← Back to Blog</button>
+    <div style="max-width:1200px;margin:0 auto;padding:16px 32px 8px;">
+      <button class="blog-back" onclick="closeBlogArticle()">← Back to Blog</button>
     </div>
     <div id="blogArticleContent"></div>
   </div>
@@ -8916,24 +8915,29 @@ const SUPA_URL = 'https://omosvurqdlreznfmeegf.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9tb3N2dXJxZGxyZXpuZm1lZWdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY2ODAsImV4cCI6MjA4OTU5MjY4MH0.aP4xRDagK0LzwqCPvkXk4iKz5JmzxqRQ7HHxBBHL5ew';
 
 // ── Smart Session Storage ─────────────────────────────────────
-// Keeps user logged in on page refresh (same browser session)
-// Logs out when browser is fully closed
-// How it works:
-//   - Session token stored in localStorage (survives refresh)
-//   - sessionStorage flag 'fh_alive' set on every page load
-//   - On load: if flag missing = new browser session = clear localStorage session
+// GOAL: Stay logged in on refresh. Log out on browser/tab close.
+// APPROACH:
+//   - Store session in localStorage (survives refresh)
+//   - Use sessionStorage flag to detect genuine browser close vs refresh
+//   - beforeunload: do nothing (can't distinguish refresh from close here)
+//   - On load: check sessionStorage flag
+//     * Flag present = tab was refreshed = keep session ✅
+//     * Flag absent = new tab/browser open = clear session ✅
 const FH_SESSION_KEY = 'fh_sb_session';
-const FH_ALIVE_KEY   = 'fh_alive';
+const FH_TAB_KEY = 'fh_tab_open';
 
-// If this is a fresh browser open (no sessionStorage flag), clear stored session
-if (!sessionStorage.getItem(FH_ALIVE_KEY)) {
+// sessionStorage persists through refresh but clears on tab/browser close
+// If flag is not in sessionStorage, this is a fresh open — clear any old session
+if (!sessionStorage.getItem(FH_TAB_KEY)) {
   localStorage.removeItem(FH_SESSION_KEY);
-  localStorage.removeItem('fh_sb_session-code-verifier');
+  localStorage.removeItem(FH_SESSION_KEY + '-code-verifier');
+  // Also clear any default supabase keys
+  localStorage.removeItem('sb-omosvurqdlreznfmeegf-auth-token');
 }
-// Mark this as an active browser session
-sessionStorage.setItem(FH_ALIVE_KEY, '1');
+// Always set the flag — this survives refresh but not close
+sessionStorage.setItem(FH_TAB_KEY, '1');
 
-// Custom storage adapter using localStorage under our own key
+// Custom storage adapter
 const fhStorage = {
   getItem:    (key) => { try { return localStorage.getItem(key); } catch(e) { return null; } },
   setItem:    (key, val) => { try { localStorage.setItem(key, val); } catch(e) {} },
@@ -9126,10 +9130,15 @@ async function doLogout() {
   try {
     await supa.auth.signOut();
   } catch(e) { console.warn('Logout error:', e); }
-  // Clear user specific localStorage data
+  // Clear all session and user data
   lsDel('tj_trades');
   lsDel('fe_journal');
   lsDel('lb_challenges');
+  lsDel(FH_SESSION_KEY);
+  lsDel(FH_SESSION_KEY + '-code-verifier');
+  lsDel('sb-omosvurqdlreznfmeegf-auth-token');
+  // Clear tab flag so browser open after logout starts fresh
+  try { sessionStorage.removeItem(FH_TAB_KEY); } catch(e) {}
   _currentUser = null;
   _currentSession = null;
   closeDropdown();
