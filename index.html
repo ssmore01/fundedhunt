@@ -10209,12 +10209,14 @@ function openClaimModal(btn) {
   document.getElementById('claimSubmitBtn').disabled = false;
   document.getElementById('claimSubmitBtn').textContent = 'Submit for Approval →';
   const modal = document.getElementById('claimModal');
+  if(!modal){ console.error('Claim modal not found'); return; }
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 
 function closeClaimModal() {
-  document.getElementById('claimModal').style.display = 'none';
+  const m = document.getElementById('claimModal');
+  if(m) m.style.display = 'none';
   document.body.style.overflow = '';
 }
 
@@ -10307,4 +10309,57 @@ document.addEventListener('DOMContentLoaded', function(){
 
 </script>
 
-  <!-- ═════�
+<!-- ══════ CLAIM POINTS MODAL ══════ -->
+<div id="claimModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9000;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);">
+  <div class="claim-modal">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+      <h3 id="claimModalTitle" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;">🎯 Claim Points</h3>
+      <span onclick="closeClaimModal()" style="cursor:pointer;font-size:22px;color:var(--muted);line-height:1;padding:4px 8px;">✕</span>
+    </div>
+    <div class="claim-modal-sub" id="claimModalSub">Submit proof to earn PFPoints. Our team will verify and approve within 24 hours.</div>
+
+    <div class="claim-field">
+      <label>Your Name / Alias *</label>
+      <input id="claimName" type="text" placeholder="e.g. Rahul T.">
+    </div>
+    <div class="claim-field">
+      <label>Prop Firm *</label>
+      <select id="claimFirm">
+        <option value="">Select firm...</option>
+        <option>FTMO</option><option>FundedNext</option><option>FundingPips</option>
+        <option>E8 Markets</option><option>FXIFY</option><option>Topstep</option>
+        <option>Apex Trader Funding</option><option>The5ers</option><option>Alpha Capital Group</option>
+        <option>Blueberry Funded</option><option>GOAT Funded Trader</option><option>Blue Guardian</option>
+        <option>Lark Funding</option><option>FundedFirm</option><option>Calvoro Funding</option>
+        <option>The Funded Room</option><option>Funded Friday</option><option>Top One Trader</option>
+        <option>AquaFunded</option><option>Finotive Funding</option><option>Pipstone Capital</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="claim-field" id="claimAmountField" style="display:none;">
+      <label>Amount (USD) *</label>
+      <input id="claimAmount" type="number" placeholder="e.g. 250">
+    </div>
+    <div class="claim-field">
+      <label>Notes (optional)</label>
+      <input id="claimNotes" type="text" placeholder="e.g. Passed $50K challenge" maxlength="120">
+    </div>
+    <div class="claim-field">
+      <label>Upload Proof * <span style="color:var(--gold)">(Screenshot or PDF required)</span></label>
+      <div class="claim-dropzone" onclick="document.getElementById('claimFile').click()" id="claimDropzone">
+        <div style="font-size:28px;margin-bottom:6px">📎</div>
+        <div style="font-size:12px;color:var(--muted)" id="claimFileLabel">Click to upload screenshot or PDF<br><span style="font-size:10px;opacity:.7">JPG, PNG, PDF — max 5MB</span></div>
+      </div>
+      <input id="claimFile" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none" onchange="claimFileSelected(this)">
+    </div>
+
+    <div class="claim-btn-row">
+      <button class="claim-cancel-btn" onclick="closeClaimModal()">Cancel</button>
+      <button class="claim-submit-btn" id="claimSubmitBtn" onclick="submitClaimRequest()">Submit for Approval →</button>
+    </div>
+    <div class="claim-status" id="claimStatus"></div>
+  </div>
+</div>
+
+</body>
+</html>
