@@ -4980,6 +4980,31 @@ async function submitPayoutProof() {
     // Success!
     btn.textContent = '✅ Submitted!';
     showPPStatus('🎉 Proof submitted! We will review and verify within 24 hours. Once approved it will appear on the live feed and leaderboard.', 'success');
+
+    // Auto-create reward claim for "Submit First Payout Proof" (+200 pts)
+    const ppUser = state.user || _currentUser;
+    if(ppUser) {
+      try {
+        // Only insert if not already claimed
+        const { data: existing } = await supa.from('reward_claims')
+          .select('id').eq('user_id', ppUser.id).eq('claim_key', 'auto_first_payout').single();
+        if(!existing) {
+          await supa.from('reward_claims').insert({
+            user_id:      ppUser.id,
+            user_email:   ppUser.email,
+            trader_name:  name,
+            firm_name:    firm,
+            category:     'Payout',
+            points:       200,
+            notes:        'Auto: First payout proof submitted',
+            proof_url:    proofUrl,
+            status:       'pending',
+            claim_key:    'auto_first_payout',
+            submitted_at: new Date().toISOString()
+          });
+        }
+      } catch(e) { /* silent */ }
+    }
     
     // Reset form
     setTimeout(() => {
@@ -5641,7 +5666,7 @@ async function renderLeaderboard() {
   }
 }
 
-function renderRewards() {
+async function renderRewards() {
   const pts = state.user?.points||0;
   document.getElementById('ptsBig').textContent = pts.toLocaleString();
   const tier = pts>=10000?'👑 Elite':pts>=5000?'💎 Diamond':pts>=2500?'🥇 Gold':pts>=500?'🥈 Silver':'🥉 Bronze';
@@ -5750,8 +5775,26 @@ function renderRewards() {
     'Challenge':'#8B5CF6'
   };
 
-  // Load pending claims for this user
-  const pendingClaims = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
+  // Load pending claims from localStorage
+  let pendingClaims = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
+
+  // Check Supabase for approved claims — clear them from pending locally
+  const activeUser = state.user || _currentUser;
+  if(activeUser) {
+    try {
+      const { data: approvedClaims } = await supa
+        .from('reward_claims')
+        .select('claim_key, status')
+        .eq('user_id', activeUser.id);
+      if(approvedClaims) {
+        const approvedKeys = approvedClaims.filter(c=>c.status==='approved').map(c=>c.claim_key);
+        const stillPending = approvedClaims.filter(c=>c.status==='pending').map(c=>c.claim_key);
+        // Remove approved ones from pending list
+        pendingClaims = pendingClaims.filter(k => !approvedKeys.includes(k) && stillPending.includes(k));
+        localStorage.setItem('fh_pending_claims', JSON.stringify(pendingClaims));
+      }
+    } catch(e) { /* silent */ }
+  }
 
   // Store ways globally so openClaimModal can look up by index safely
   window._rewardWays = ways;
@@ -5759,11 +5802,21 @@ function renderRewards() {
   document.getElementById('rewardsGrid').innerHTML = ways.map((w,idx)=>{
     const claimKey = 'claim_'+idx;
     const isPending = pendingClaims.includes(claimKey);
+
+    // Auto-awarded categories — no manual claim button
+    const isAutoAwarded = w.category === 'Leaderboard' || 
+                          w.title === 'Submit First Payout Proof' ||
+                          w.title === 'Total Payout Logged — $10,000+';
+
     let btnHtml = '';
     if(isPending){
       btnHtml = `<button class="reward-claim-btn pending-approval" disabled>⏳ Pending Approval</button>`;
     } else if(w.category === 'Leaderboard'){
       btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>🏆 Auto-awarded on rank</button>`;
+    } else if(w.title === 'Submit First Payout Proof'){
+      btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>💸 Auto-awarded on first verified payout</button>`;
+    } else if(w.title === 'Total Payout Logged — $10,000+'){
+      btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>🚀 Auto-awarded when milestone reached</button>`;
     } else {
       btnHtml = `<button class="reward-claim-btn" data-idx="${idx}" onclick="openClaimModal(this)">🎯 Claim ${w.ptsBadge} Points</button>`;
     }
