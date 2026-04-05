@@ -4664,6 +4664,7 @@ function nav(panelId) {
   if (panelId==='news') renderNews();
   if (panelId==='awards') renderAwards();
   if (panelId==='leaderboard') renderLeaderboard();
+  if (panelId==='payouts') { fetchVerifiedPayouts(); }
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
   if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); if(_currentUser) loadLogbookFromSupabase(); }
@@ -4958,6 +4959,7 @@ async function submitPayoutProof() {
     const proofUrl = urlData?.publicUrl || '';
 
     // 3. Insert into payout_records with pending status
+    const activeUser = state.user || _currentUser;
     const { error: insertError } = await supa.from('payout_records').insert({
       trader_name:  name,
       firm_name:    firm,
@@ -4968,6 +4970,8 @@ async function submitPayoutProof() {
       proof_type:   file.type,
       status:       'pending',
       is_public:    false,
+      user_id:      activeUser?.id || null,
+      user_email:   activeUser?.email || null,
       submitted_at: new Date().toISOString()
     });
 
@@ -5013,9 +5017,90 @@ function showPPStatus(msg, type) {
 
 function startPayouts() {
   fetchVerifiedPayouts();
-  // Auto-refresh every 60 seconds to pick up newly approved proofs
+
+  // Auto-refresh every 30 seconds
   if (!window._payoutRefreshInterval) {
-    window._payoutRefreshInterval = setInterval(fetchVerifiedPayouts, 60000);
+    window._payoutRefreshInterval = setInterval(fetchVerifiedPayouts, 30000);
+  }
+
+  // Realtime subscription — fires instantly when admin approves a payout
+  if (!window._payoutRealtimeSub) {
+    window._payoutRealtimeSub = supa
+      .channel('payout-approvals')
+      .on('postgres_changes', {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'payout_records',
+        filter: 'status=eq.approved'
+      }, async (payload) => {
+        // Refresh live feed
+        fetchVerifiedPayouts();
+
+        // Refresh leaderboard if open
+        if(document.getElementById('panel-leaderboard')?.classList.contains('active')) {
+          renderLeaderboard();
+        }
+
+        // If this approval belongs to the logged-in user → refresh their points
+        const activeUser = state.user || _currentUser;
+        if(activeUser && payload.new?.user_id === activeUser.id) {
+          const { data: profile } = await supa
+            .from('profiles')
+            .select('pf_points')
+            .eq('id', activeUser.id)
+            .single();
+          if(profile) {
+            state.user = { ...state.user, points: profile.pf_points };
+            lsSet('fe_user', state.user);
+            // Update sidebar points display
+            document.getElementById('sbPts').textContent = profile.pf_points + ' PFPoints';
+            document.getElementById('udPts').textContent = profile.pf_points;
+            // Update rewards panel if open
+            if(document.getElementById('panel-rewards')?.classList.contains('active')) {
+              renderRewards();
+            }
+            toast('🎉 Your payout was verified! Points awarded.','⭐','success');
+          }
+        }
+      })
+      .subscribe();
+  }
+
+  // Also subscribe to reward_claims approvals → update points instantly
+  if (!window._claimRealtimeSub) {
+    window._claimRealtimeSub = supa
+      .channel('claim-approvals')
+      .on('postgres_changes', {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'reward_claims',
+        filter: 'status=eq.approved'
+      }, async (payload) => {
+        const activeUser = state.user || _currentUser;
+        if(activeUser && payload.new?.user_id === activeUser.id) {
+          // Fetch fresh points from DB
+          const { data: profile } = await supa
+            .from('profiles')
+            .select('pf_points')
+            .eq('id', activeUser.id)
+            .single();
+          if(profile) {
+            const pts = profile.pf_points || 0;
+            state.user = { ...state.user, points: pts };
+            lsSet('fe_user', state.user);
+            // Update all UI points displays
+            document.getElementById('sbPts').textContent = pts + ' PFPoints';
+            document.getElementById('udPts').textContent = pts;
+            document.getElementById('ptsBig').textContent = pts.toLocaleString();
+            // Refresh rewards panel
+            if(document.getElementById('panel-rewards')?.classList.contains('active')) {
+              renderRewards();
+            }
+            toast('🎉 Claim approved! +' + payload.new.points + ' PFPoints credited.','⭐','success');
+          }
+        }
+      })
+      .subscribe();
   }
 }
 
@@ -5079,6 +5164,11 @@ async function fetchVerifiedPayouts() {
       <div class="pstat-card"><div class="pstat-val">${data.length}</div><div class="pstat-lbl">Verified Entries</div></div>
       <div class="pstat-card"><div class="pstat-val">$${avgPayout.toLocaleString('en-US',{maximumFractionDigits:0})}</div><div class="pstat-lbl">Avg Payout</div></div>
       <div class="pstat-card"><div class="pstat-val" style="font-size:13px">${topFirm}</div><div class="pstat-lbl">Most Payouts From</div></div>`;
+
+    // Also refresh leaderboard if it's open
+    if(document.getElementById('panel-leaderboard')?.classList.contains('active')) {
+      renderLeaderboard();
+    }
 
   } catch(err) {
     console.error('Payout fetch error:', err);
@@ -10254,21 +10344,31 @@ async function submitClaimRequest() {
   let proofUrl = '';
 
   try {
-    // Step 1 — Upload file to Supabase Storage
+    // Step 1 — Upload file to Supabase Storage (with 10s timeout)
     const ext = file.name.split('.').pop().toLowerCase();
     const fileName = 'claim_' + Date.now() + '_' + Math.random().toString(36).substr(2,6) + '.' + ext;
 
-    const { data: uploadData, error: uploadError } = await supa.storage
-      .from('payout-proofs')
-      .upload(fileName, file, { cacheControl: '3600', upsert: false });
+    try {
+      const uploadPromise = supa.storage
+        .from('payout-proofs')
+        .upload(fileName, file, { cacheControl: '3600', upsert: false });
 
-    if(uploadError) {
-      // Show specific error so we know what failed
-      console.error('Storage upload error:', uploadError);
-      statusEl.textContent = '⚠️ File upload issue: ' + uploadError.message + ' — saving claim without file...';
-    } else {
-      const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
-      proofUrl = urlData?.publicUrl || '';
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Upload timed out')), 10000)
+      );
+
+      const { data: uploadData, error: uploadError } = await Promise.race([uploadPromise, timeoutPromise]);
+
+      if(uploadError) {
+        console.error('Storage upload error:', uploadError);
+        statusEl.textContent = '⚠️ ' + uploadError.message + ' — saving claim details only...';
+      } else {
+        const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
+        proofUrl = urlData?.publicUrl || '';
+      }
+    } catch(uploadErr) {
+      console.error('Upload failed:', uploadErr.message);
+      statusEl.textContent = '⚠️ ' + uploadErr.message + ' — saving claim details only...';
     }
 
     btn.textContent = '⏳ Saving claim...';
