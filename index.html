@@ -5599,11 +5599,27 @@ async function renderLeaderboard() {
   }
 }
 
-function renderRewards() {
-  const pts = state.user?.points||0;
+async function renderRewards() {
+  // Always read fresh points from Supabase if logged in
+  let pts = state.user?.points || 0;
+  if (_currentUser) {
+    try {
+      const { data: prof } = await supa.from('profiles').select('pf_points').eq('id', _currentUser.id).single();
+      if (prof) {
+        pts = prof.pf_points || 0;
+        // Sync back to state
+        if (state.user) state.user.points = pts;
+        // Update all displays
+        document.getElementById('sbPts').textContent = pts + ' PFPoints';
+        document.getElementById('ptsChipVal').textContent = pts.toLocaleString();
+        const udPts = document.getElementById('udPts');
+        if(udPts) udPts.textContent = pts;
+      }
+    } catch(e) { /* use cached pts */ }
+  }
   document.getElementById('ptsBig').textContent = pts.toLocaleString();
   const tier = pts>=10000?'👑 Elite':pts>=5000?'💎 Diamond':pts>=2500?'🥇 Gold':pts>=500?'🥈 Silver':'🥉 Bronze';
-  document.getElementById('tierBadge').textContent = state.user ? tier : '🔒 Sign Up to Start';
+  document.getElementById('tierBadge').textContent = (_currentUser || state.user) ? tier : '🔒 Sign Up to Start';
 
   // Highlight current tier
   const tiers = ['Bronze','Silver','Gold','Diamond','Elite'];
@@ -6857,7 +6873,21 @@ function formatPayoutTime(ts) {
 function deletePayout(lbId,idx){
   if(!confirm('Remove this payout?')) return;
   const data=lbData(); const lb=data.find(d=>d.id===lbId); if(!lb) return;
-  lb.payouts.splice(idx,1); lbSave(data);
+  const payout = lb.payouts[idx];
+  lb.payouts.splice(idx,1);
+  lbSave(data);
+  // Also remove from Supabase if exists
+  if(_currentUser && payout) {
+    supa.from('payout_records')
+      .delete()
+      .eq('user_id', _currentUser.id)
+      .eq('amount', payout.amount)
+      .then(({error}) => {
+        if(error) console.warn('Payout delete from DB note:', error.message);
+        else { loadTickerFromSupabase(); fetchVerifiedPayouts(); }
+      });
+  }
+  toast('Payout removed','🗑','info');
 }
 
 function deleteLogbook(id){
@@ -8731,42 +8761,74 @@ function toast(msg, ico='ℹ️', type='info') {
 }
 
 function initTicker() {
-  updateTickerFromFeed();
+  loadTickerFromSupabase();
 }
 
-function updateTickerFromFeed() {
+// Ticker loads ONLY from Supabase approved payouts — same on all devices/browsers
+async function loadTickerFromSupabase() {
   const wrap = document.getElementById('tickerWrap');
   if(!wrap) return;
 
-  const feed = getCommunityPayouts();
-  let items = [];
+  try {
+    let data = null;
+    // Try approved + public filter first
+    const r1 = await supa.from('payout_records')
+      .select('trader_name, firm_name, amount, submitted_at')
+      .eq('is_public', true).eq('status', 'approved')
+      .order('submitted_at', { ascending: false }).limit(30);
+    if (!r1.error && r1.data) data = r1.data;
+    else {
+      // Fallback without filters
+      const r2 = await supa.from('payout_records')
+        .select('trader_name, firm_name, amount, created_at')
+        .order('created_at', { ascending: false }).limit(30);
+      if (!r2.error && r2.data) data = r2.data;
+    }
+    renderTicker(data || []);
+  } catch(e) {
+    renderTicker([]);
+  }
+}
 
-  if(feed.length > 0) {
-    // Real community payouts — show actual entries
-    items = feed.slice(0,20).map(entry => {
-      const timeAgo = formatPayoutTime(entry.ts);
-      const acct = entry.accountSize ? ` · $${Number(entry.accountSize).toLocaleString()} acct` : '';
-      return `${entry.firmEmoji} <strong>${entry.firmName}</strong> — Trader received <span class="up">$${Number(entry.amount).toLocaleString()}</span>${acct} · ${timeAgo}`;
+function renderTicker(data) {
+  const wrap = document.getElementById('tickerWrap');
+  if(!wrap) return;
+
+  const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡',
+    'Topstep':'🔴','Apex Trader Funding':'🧡','The5ers':'💜','BrightFunded':'✨','QT Funded':'⚡',
+    'GOAT Funded Trader':'🐐','Blue Guardian':'🛡️','Blueberry Funded':'🫐','Funded Friday':'📅',
+    'FundedFirm':'🏦','FunderPro':'⚡','AquaFunded':'💧','Top One Trader':'🥇'};
+
+  let items = [];
+  if(data && data.length > 0) {
+    items = data.map(p => {
+      const emoji = firmEmojis[p.firm_name] || '💰';
+      const dateStr = p.submitted_at || p.created_at;
+      const daysAgo = dateStr ? Math.floor((Date.now()-new Date(dateStr))/86400000) : 0;
+      const timeStr = daysAgo===0?'Today':daysAgo===1?'Yesterday':daysAgo+' days ago';
+      const name = p.trader_name ? p.trader_name + ' ' : 'A trader ';
+      return `${emoji} <strong>${p.firm_name||'Prop Firm'}</strong> — ${name}received <span class="up">$${Number(p.amount).toLocaleString()}</span> · ${timeStr}`;
     });
   } else {
-    // Empty state — invite users to log their payout
     items = [
-      '💸 <strong>Be the first!</strong> Log your payout in the Challenge Logbook to appear here',
-      '📓 Go to <strong>Challenge Logbook</strong> → Add Payout → it shows up live in this feed',
-      '🏆 Real payouts from real traders — no fake data on Funded Hunt',
-      '✅ Every entry here is from a verified logbook entry by a real user',
-      '💸 <strong>Be the first!</strong> Log your payout in the Challenge Logbook to appear here',
+      '🏆 <strong>FundedHunt</strong> — Compare 30+ prop firms free · No paid rankings · No fake reviews',
+      '💸 <strong>Submit your payout proof</strong> in Live Payouts — get featured here once verified by our team',
+      '🔥 <strong>Exclusive discount codes</strong> — HUNT, 8836, fundedhunt and more · Save on your next challenge',
+      '🛡️ <strong>Trust Radar</strong> — 8-criteria independent trust scores · Not influenced by affiliate commissions',
+      '🎯 <strong>AI Firm Matcher</strong> — Answer 5 questions, get matched to your perfect prop firm instantly',
     ];
   }
 
-  // Double items for seamless infinite scroll
   const doubled = [...items, ...items];
   wrap.innerHTML = doubled.map(t=>`<span class="ticker-item">${t}</span>`).join('');
-
-  // Reset animation so new items appear smoothly
   wrap.style.animation = 'none';
-  wrap.offsetHeight; // force reflow
+  wrap.offsetHeight;
   wrap.style.animation = '';
+}
+
+// Keep for backwards compatibility — but no longer used for ticker
+function updateTickerFromFeed() {
+  loadTickerFromSupabase();
 }
 
 
@@ -8871,7 +8933,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateUI();
   initTicker();
   // Auto-refresh ticker every 30 seconds for new payout entries
-  setInterval(updateTickerFromFeed, 30000);
+  setInterval(loadTickerFromSupabase, 30000); // refresh ticker every 30s from Supabase
   renderHomeFirms();
   applyFirmsDisplay();
   renderChallenges();
