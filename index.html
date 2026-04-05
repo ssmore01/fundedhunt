@@ -5663,17 +5663,19 @@ function renderRewards() {
   // Load pending claims for this user
   const pendingClaims = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
 
+  // Store ways globally so openClaimModal can look up by index safely
+  window._rewardWays = ways;
+
   document.getElementById('rewardsGrid').innerHTML = ways.map((w,idx)=>{
     const claimKey = 'claim_'+idx;
     const isPending = pendingClaims.includes(claimKey);
-    const needsProof = w.category === 'Challenge' || w.category === 'Payout';
     let btnHtml = '';
     if(isPending){
       btnHtml = `<button class="reward-claim-btn pending-approval" disabled>⏳ Pending Approval</button>`;
     } else if(w.category === 'Leaderboard'){
       btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>🏆 Auto-awarded on rank</button>`;
     } else {
-      btnHtml = `<button class="reward-claim-btn" onclick="openClaimModal(${idx},'${w.title}','${w.category}','${w.ptsBadge}',${needsProof})">🎯 Claim ${w.ptsBadge} Points</button>`;
+      btnHtml = `<button class="reward-claim-btn" data-idx="${idx}" onclick="openClaimModal(this)">🎯 Claim ${w.ptsBadge} Points</button>`;
     }
     return `
     <div class="reward-card" style="${w.highlight?'border-color:var(--gold);background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,0.04))':''}">
@@ -10176,10 +10178,20 @@ let _claimIdx = null;
 let _claimPts = 0;
 let _claimCategory = '';
 
-function openClaimModal(idx, title, category, pts, needsAmount) {
+function openClaimModal(btn) {
+  const idx = parseInt(btn.dataset.idx);
+  const w = (window._rewardWays || [])[idx];
+  if(!w) return;
+
   const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email } : null);
   if(!activeUser){ toast('Please sign in to claim points','🔒','info'); return; }
   if(!state.user && activeUser) state.user = activeUser;
+
+  const title = w.title;
+  const category = w.category;
+  const pts = w.ptsBadge;
+  const needsAmount = category === 'Challenge' || category === 'Payout';
+
   _claimIdx = idx;
   _claimPts = pts;
   _claimCategory = category;
