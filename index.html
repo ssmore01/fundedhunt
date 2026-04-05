@@ -10241,27 +10241,43 @@ async function submitClaimRequest() {
   if(!file){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please upload your proof screenshot or PDF.'; return; }
   if(file.size > 5 * 1024 * 1024){ statusEl.className='claim-status error'; statusEl.textContent='❌ File too large. Max 5MB.'; return; }
 
+  // Ensure user is available
+  const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email, name: _currentUser.email } : null);
+  if(!activeUser){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please sign in first.'; return; }
+
   btn.disabled = true;
-  btn.textContent = '⏳ Uploading...';
-  statusEl.className = 'claim-status';
+  btn.textContent = '⏳ Uploading proof...';
+  statusEl.className = 'claim-status pending';
+  statusEl.textContent = '⏳ Uploading your proof...';
+  statusEl.style.display = 'block';
+
+  let proofUrl = '';
 
   try {
-    // Upload proof to Supabase storage
+    // Step 1 — Upload file to Supabase Storage
     const ext = file.name.split('.').pop().toLowerCase();
     const fileName = 'claim_' + Date.now() + '_' + Math.random().toString(36).substr(2,6) + '.' + ext;
+
     const { data: uploadData, error: uploadError } = await supa.storage
       .from('payout-proofs')
       .upload(fileName, file, { cacheControl: '3600', upsert: false });
 
-    if(uploadError) throw new Error('Upload failed: ' + uploadError.message);
+    if(uploadError) {
+      // Show specific error so we know what failed
+      console.error('Storage upload error:', uploadError);
+      statusEl.textContent = '⚠️ File upload issue: ' + uploadError.message + ' — saving claim without file...';
+    } else {
+      const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
+      proofUrl = urlData?.publicUrl || '';
+    }
 
-    const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
-    const proofUrl = urlData?.publicUrl || '';
+    btn.textContent = '⏳ Saving claim...';
+    statusEl.textContent = '⏳ Saving your claim request...';
 
-    // Insert into reward_claims table
+    // Step 2 — Insert into reward_claims table
     const { error: insertError } = await supa.from('reward_claims').insert({
-      user_id:      state.user.id,
-      user_email:   state.user.email,
+      user_id:      activeUser.id,
+      user_email:   activeUser.email,
       trader_name:  name,
       firm_name:    firm,
       category:     _claimCategory,
@@ -10275,9 +10291,9 @@ async function submitClaimRequest() {
       submitted_at: new Date().toISOString()
     });
 
-    if(insertError) throw new Error('Save failed: ' + insertError.message);
+    if(insertError) throw new Error('Could not save claim: ' + insertError.message);
 
-    // Mark as pending locally
+    // Step 3 — Mark as pending locally so button updates
     const pending = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
     if(!pending.includes('claim_'+_claimIdx)) pending.push('claim_'+_claimIdx);
     localStorage.setItem('fh_pending_claims', JSON.stringify(pending));
@@ -10286,10 +10302,11 @@ async function submitClaimRequest() {
     statusEl.className = 'claim-status success';
     statusEl.textContent = '🎉 Claim submitted! We will verify your proof within 24 hours. Points will be credited automatically on approval.';
 
-    // Refresh rewards grid
+    // Close and refresh
     setTimeout(() => { closeClaimModal(); renderRewards(); }, 2500);
 
   } catch(e) {
+    console.error('Claim submission error:', e);
     btn.disabled = false;
     btn.textContent = 'Submit for Approval →';
     statusEl.className = 'claim-status error';
