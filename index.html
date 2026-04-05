@@ -553,37 +553,6 @@
 .blog-cta-box h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px;}
 .blog-cta-box p{color:var(--muted);font-size:13px;margin-bottom:16px;}
 @media(max-width:900px){.blog-article-wrap{grid-template-columns:1fr;gap:32px;}.blog-sidebar{position:relative;top:0;}.year-grid,.blog-year-grid{grid-template-columns:1fr;}.math-box,.blog-math-box{grid-template-columns:1fr;}.blog-article-hero{height:280px;}.blog-article-hero-overlay{padding:24px 20px;}}
-
-.claim-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);animation:fade-in .2s ease;}
-.claim-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:28px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;animation:slide-up .25s ease;}
-@keyframes slide-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.claim-modal h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;}
-.claim-modal-sub{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.5;}
-.claim-field{margin-bottom:14px;}
-.claim-field label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
-.claim-field input,.claim-field select,.claim-field textarea{width:100%;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;box-sizing:border-box;transition:border-color .2s;}
-.claim-field input:focus,.claim-field select:focus,.claim-field textarea:focus{outline:none;border-color:var(--gold);}
-.claim-dropzone{border:2px dashed var(--border2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;background:var(--bg3);transition:border-color .2s;}
-.claim-dropzone:hover{border-color:var(--gold);}
-.claim-btn-row{display:flex;gap:10px;margin-top:20px;}
-.claim-submit-btn{flex:1;padding:12px;background:var(--gold);color:#000;font-weight:700;font-size:13px;border:none;border-radius:10px;cursor:pointer;transition:opacity .2s;}
-.claim-submit-btn:hover{opacity:.88;}
-.claim-submit-btn:disabled{opacity:.5;cursor:not-allowed;}
-.claim-cancel-btn{padding:12px 20px;background:var(--bg3);color:var(--muted);font-size:13px;border:1px solid var(--border);border-radius:10px;cursor:pointer;}
-.claim-status{margin-top:12px;font-size:12px;text-align:center;padding:8px;border-radius:8px;display:none;}
-.claim-status.success{background:rgba(29,185,84,.1);color:var(--green);display:block;}
-.claim-status.error{background:rgba(229,62,62,.1);color:var(--red);display:block;}
-.claim-status.pending{background:rgba(245,197,24,.1);color:var(--gold);display:block;}
-.reward-claim-btn{margin-top:12px;width:100%;padding:8px 0;background:rgba(245,197,24,0.1);border:1px solid var(--border2);border-radius:8px;color:var(--gold);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;}
-.reward-claim-btn:hover{background:rgba(245,197,24,0.2);}
-.reward-claim-btn.claimed{background:rgba(29,185,84,.08);border-color:rgba(29,185,84,.3);color:var(--green);cursor:default;}
-.reward-claim-btn.pending-approval{background:rgba(245,197,24,.06);border-color:rgba(245,197,24,.2);color:var(--muted);cursor:default;}
-.coming-soon-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;text-align:center;}
-.coming-soon-emoji{font-size:72px;margin-bottom:20px;animation:float 3s ease-in-out infinite;}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.coming-soon-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;margin-bottom:12px;}
-.coming-soon-sub{font-size:14px;color:var(--muted);max-width:320px;line-height:1.7;}
-.coming-soon-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:700;color:var(--gold);margin-top:20px;}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1362,16 +1331,60 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   <!-- COMPETITION PANEL -->
   <div class="panel" id="panel-competition">
     <div class="panel-inner">
+
       <div class="panel-head">
         <h1>🏆 Monthly Competition</h1>
-        <p>Compete with traders across India. Win funded accounts every month.</p>
+        <p>Top traders win a free funded prop account. Log payouts to climb the ranks.</p>
       </div>
-      <div class="coming-soon-wrap">
-        <div class="coming-soon-emoji">🏆</div>
-        <div class="coming-soon-title">Coming Soon</div>
-        <div class="coming-soon-sub">We are building something exciting. Monthly competitions where top traders win real funded accounts — launching soon.</div>
-        <div class="coming-soon-badge">🚀 Launching Soon — Stay Tuned</div>
+
+      <!-- Active Competition Card -->
+      <div class="comp-hero" id="compHero">
+        <div class="comp-badge">🔴 LIVE NOW</div>
+        <div class="comp-title" id="compTitle">March 2026 — Payout Champions</div>
+        <div class="comp-sub" id="compSub">Log your prop firm payouts this month. Highest total payout amount wins!</div>
+        <div class="comp-timer">
+          <div class="comp-timer-box"><span id="compDays">--</span><small>Days</small></div>
+          <div class="comp-timer-box"><span id="compHours">--</span><small>Hours</small></div>
+          <div class="comp-timer-box"><span id="compMins">--</span><small>Mins</small></div>
+        </div>
+        <div class="comp-prizes">
+          <div class="comp-prize gold">🥇 1st Place<br><span>$10,000 Funded Account</span></div>
+          <div class="comp-prize silver">🥈 2nd Place<br><span>$5,000 Funded Account</span></div>
+          <div class="comp-prize bronze">🥉 3rd Place<br><span>$2,500 Funded Account</span></div>
+        </div>
+        <div class="comp-rule-note">📋 How to qualify: <strong>Log your payouts</strong> in Challenge Logbook → they count automatically!</div>
       </div>
+
+      <!-- How It Works -->
+      <div class="card" style="margin-bottom:20px">
+        <div style="font-size:15px;font-weight:700;margin-bottom:16px">📖 How It Works</div>
+        <div class="comp-steps">
+          <div class="comp-step"><div class="comp-step-num">1</div><div><strong>Sign Up Free</strong><br><span>Join Funded Hunt — it's free</span></div></div>
+          <div class="comp-step"><div class="comp-step-num">2</div><div><strong>Log Your Payouts</strong><br><span>Use Challenge Logbook to record every payout you receive</span></div></div>
+          <div class="comp-step"><div class="comp-step-num">3</div><div><strong>Climb The Ranks</strong><br><span>Your total payout amount this month = your competition score</span></div></div>
+          <div class="comp-step"><div class="comp-step-num">4</div><div><strong>Win A Funded Account</strong><br><span>Top 3 traders at month end win free prop accounts!</span></div></div>
+        </div>
+      </div>
+
+      <!-- Competition Leaderboard -->
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-size:15px;font-weight:700">🏅 This Month's Rankings</div>
+          <div style="font-size:11px;color:var(--muted)" id="compLastUpdate">Loading...</div>
+        </div>
+        <div id="compLeaderboard"><div class="news-loading">⏳ Loading rankings...</div></div>
+      </div>
+
+      <!-- Past Winners -->
+      <div class="card" style="margin-top:20px">
+        <div style="font-size:15px;font-weight:700;margin-bottom:16px">🎖️ Past Winners</div>
+        <div id="compPastWinners">
+          <div style="text-align:center;padding:30px;color:var(--muted);font-size:13px">
+            🏆 First competition starts March 2026.<br>Winners will be announced here!
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -2687,7 +2700,7 @@ const FIRMS=[{id:'funding-pips',
   ]
 },{id:'fxify',
   rating:4.3,reviewCount:4100,
-  discount:'30% OFF',discountCode:'EASTER26',affiliateCode:'FXIFYK57KDY',
+  discount:'30% OFF',discountCode:'EASTER26',affiliateCode:'HUNT',
   badge:'🔥 30% OFF · Use EASTER26 · Broker-Backed',
   founded:2023,country:'UK',
   logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',
@@ -4664,7 +4677,6 @@ function nav(panelId) {
   if (panelId==='news') renderNews();
   if (panelId==='awards') renderAwards();
   if (panelId==='leaderboard') renderLeaderboard();
-  if (panelId==='payouts') { fetchVerifiedPayouts(); }
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
   if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); if(_currentUser) loadLogbookFromSupabase(); }
@@ -4959,7 +4971,6 @@ async function submitPayoutProof() {
     const proofUrl = urlData?.publicUrl || '';
 
     // 3. Insert into payout_records with pending status
-    const activeUser = state.user || _currentUser;
     const { error: insertError } = await supa.from('payout_records').insert({
       trader_name:  name,
       firm_name:    firm,
@@ -4970,8 +4981,6 @@ async function submitPayoutProof() {
       proof_type:   file.type,
       status:       'pending',
       is_public:    false,
-      user_id:      activeUser?.id || null,
-      user_email:   activeUser?.email || null,
       submitted_at: new Date().toISOString()
     });
 
@@ -4980,31 +4989,6 @@ async function submitPayoutProof() {
     // Success!
     btn.textContent = '✅ Submitted!';
     showPPStatus('🎉 Proof submitted! We will review and verify within 24 hours. Once approved it will appear on the live feed and leaderboard.', 'success');
-
-    // Auto-create reward claim for "Submit First Payout Proof" (+200 pts)
-    const ppUser = state.user || _currentUser;
-    if(ppUser) {
-      try {
-        // Only insert if not already claimed
-        const { data: existing } = await supa.from('reward_claims')
-          .select('id').eq('user_id', ppUser.id).eq('claim_key', 'auto_first_payout').single();
-        if(!existing) {
-          await supa.from('reward_claims').insert({
-            user_id:      ppUser.id,
-            user_email:   ppUser.email,
-            trader_name:  name,
-            firm_name:    firm,
-            category:     'Payout',
-            points:       200,
-            notes:        'Auto: First payout proof submitted',
-            proof_url:    proofUrl,
-            status:       'pending',
-            claim_key:    'auto_first_payout',
-            submitted_at: new Date().toISOString()
-          });
-        }
-      } catch(e) { /* silent */ }
-    }
     
     // Reset form
     setTimeout(() => {
@@ -5042,90 +5026,9 @@ function showPPStatus(msg, type) {
 
 function startPayouts() {
   fetchVerifiedPayouts();
-
-  // Auto-refresh every 30 seconds
+  // Auto-refresh every 60 seconds to pick up newly approved proofs
   if (!window._payoutRefreshInterval) {
-    window._payoutRefreshInterval = setInterval(fetchVerifiedPayouts, 30000);
-  }
-
-  // Realtime subscription — fires instantly when admin approves a payout
-  if (!window._payoutRealtimeSub) {
-    window._payoutRealtimeSub = supa
-      .channel('payout-approvals')
-      .on('postgres_changes', {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'payout_records',
-        filter: 'status=eq.approved'
-      }, async (payload) => {
-        // Refresh live feed
-        fetchVerifiedPayouts();
-
-        // Refresh leaderboard if open
-        if(document.getElementById('panel-leaderboard')?.classList.contains('active')) {
-          renderLeaderboard();
-        }
-
-        // If this approval belongs to the logged-in user → refresh their points
-        const activeUser = state.user || _currentUser;
-        if(activeUser && payload.new?.user_id === activeUser.id) {
-          const { data: profile } = await supa
-            .from('profiles')
-            .select('pf_points')
-            .eq('id', activeUser.id)
-            .single();
-          if(profile) {
-            state.user = { ...state.user, points: profile.pf_points };
-            lsSet('fe_user', state.user);
-            // Update sidebar points display
-            document.getElementById('sbPts').textContent = profile.pf_points + ' PFPoints';
-            document.getElementById('udPts').textContent = profile.pf_points;
-            // Update rewards panel if open
-            if(document.getElementById('panel-rewards')?.classList.contains('active')) {
-              renderRewards();
-            }
-            toast('🎉 Your payout was verified! Points awarded.','⭐','success');
-          }
-        }
-      })
-      .subscribe();
-  }
-
-  // Also subscribe to reward_claims approvals → update points instantly
-  if (!window._claimRealtimeSub) {
-    window._claimRealtimeSub = supa
-      .channel('claim-approvals')
-      .on('postgres_changes', {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'reward_claims',
-        filter: 'status=eq.approved'
-      }, async (payload) => {
-        const activeUser = state.user || _currentUser;
-        if(activeUser && payload.new?.user_id === activeUser.id) {
-          // Fetch fresh points from DB
-          const { data: profile } = await supa
-            .from('profiles')
-            .select('pf_points')
-            .eq('id', activeUser.id)
-            .single();
-          if(profile) {
-            const pts = profile.pf_points || 0;
-            state.user = { ...state.user, points: pts };
-            lsSet('fe_user', state.user);
-            // Update all UI points displays
-            document.getElementById('sbPts').textContent = pts + ' PFPoints';
-            document.getElementById('udPts').textContent = pts;
-            document.getElementById('ptsBig').textContent = pts.toLocaleString();
-            // Refresh rewards panel
-            if(document.getElementById('panel-rewards')?.classList.contains('active')) {
-              renderRewards();
-            }
-            toast('🎉 Claim approved! +' + payload.new.points + ' PFPoints credited.','⭐','success');
-          }
-        }
-      })
-      .subscribe();
+    window._payoutRefreshInterval = setInterval(fetchVerifiedPayouts, 60000);
   }
 }
 
@@ -5134,13 +5037,33 @@ async function fetchVerifiedPayouts() {
   const statsEl = document.getElementById('payoutStats');
   
   try {
-    const { data, error } = await supa
+    // Try with filters first; fall back to simple select if columns missing
+    let data, error;
+    const res1 = await supa
       .from('payout_records')
       .select('*')
       .eq('is_public', true)
       .eq('status', 'approved')
       .order('submitted_at', { ascending: false })
       .limit(50);
+
+    if (res1.error) {
+      // Columns may not exist yet — try without filters
+      const res2 = await supa
+        .from('payout_records')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(50);
+      if (res2.error) {
+        // Table doesn't exist yet — show empty state, not error
+        showPayoutEmptyState(list, statsEl);
+        return;
+      }
+      data = res2.data;
+    } else {
+      data = res1.data;
+      error = res1.error;
+    }
 
     if (error) throw error;
 
@@ -5190,15 +5113,15 @@ async function fetchVerifiedPayouts() {
       <div class="pstat-card"><div class="pstat-val">$${avgPayout.toLocaleString('en-US',{maximumFractionDigits:0})}</div><div class="pstat-lbl">Avg Payout</div></div>
       <div class="pstat-card"><div class="pstat-val" style="font-size:13px">${topFirm}</div><div class="pstat-lbl">Most Payouts From</div></div>`;
 
-    // Also refresh leaderboard if it's open
-    if(document.getElementById('panel-leaderboard')?.classList.contains('active')) {
-      renderLeaderboard();
-    }
-
   } catch(err) {
-    console.error('Payout fetch error:', err);
-    list.innerHTML = `<div style="padding:30px;text-align:center;color:var(--muted);font-size:12px">⚠️ Could not load payouts. Please refresh.</div>`;
+    console.warn('Payout fetch note:', err);
+    showPayoutEmptyState(list, statsEl);
   }
+}
+
+function showPayoutEmptyState(list, statsEl) {
+  if(list) list.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--muted);"><div style="font-size:36px;margin-bottom:12px;">💸</div><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">No verified payouts yet</div><div style="font-size:12px;line-height:1.6;">Be the first! Submit your payout proof above and get featured once verified.</div></div>';
+  if(statsEl) statsEl.innerHTML = '<div class="pstat-card"><div class="pstat-val">$0</div><div class="pstat-lbl">Total Verified Payouts</div></div><div class="pstat-card"><div class="pstat-val">0</div><div class="pstat-lbl">Verified Entries</div></div>';
 }
 
 
@@ -5579,12 +5502,22 @@ async function renderLeaderboard() {
 
   try {
     // Fetch ONLY approved, public payout proofs
-    const { data, error } = await supa
+    // Try with filters; fall back gracefully if table/columns missing
+    let data, error;
+    const _lb1 = await supa
       .from('payout_records')
       .select('trader_name, firm_name, amount, submitted_at')
       .eq('is_public', true)
       .eq('status', 'approved')
       .order('submitted_at', { ascending: false });
+    if (_lb1.error) {
+      const _lb2 = await supa.from('payout_records').select('trader_name, firm_name, amount, created_at').order('created_at', { ascending: false }).limit(50);
+      data = _lb2.data || [];
+      error = _lb2.error;
+    } else {
+      data = _lb1.data;
+      error = _lb1.error;
+    }
 
     // Treat any error (missing table, columns etc) as empty data
     if (error || !data || data.length === 0) {
@@ -5666,7 +5599,7 @@ async function renderLeaderboard() {
   }
 }
 
-async function renderRewards() {
+function renderRewards() {
   const pts = state.user?.points||0;
   document.getElementById('ptsBig').textContent = pts.toLocaleString();
   const tier = pts>=10000?'👑 Elite':pts>=5000?'💎 Diamond':pts>=2500?'🥇 Gold':pts>=500?'🥈 Silver':'🥉 Bronze';
@@ -5775,51 +5708,57 @@ async function renderRewards() {
     'Challenge':'#8B5CF6'
   };
 
+  // Store ways globally so openClaimModal can look up by index
+  window._rewardWays = ways;
+
   // Load pending claims from localStorage
   let pendingClaims = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
 
-  // Check Supabase for approved claims — clear them from pending locally
+  // Check Supabase for approved/pending claims to sync state
   const activeUser = state.user || _currentUser;
   if(activeUser) {
-    try {
-      const { data: approvedClaims } = await supa
-        .from('reward_claims')
-        .select('claim_key, status')
-        .eq('user_id', activeUser.id);
-      if(approvedClaims) {
-        const approvedKeys = approvedClaims.filter(c=>c.status==='approved').map(c=>c.claim_key);
-        const stillPending = approvedClaims.filter(c=>c.status==='pending').map(c=>c.claim_key);
-        // Remove approved ones from pending list
-        pendingClaims = pendingClaims.filter(k => !approvedKeys.includes(k) && stillPending.includes(k));
-        localStorage.setItem('fh_pending_claims', JSON.stringify(pendingClaims));
-      }
-    } catch(e) { /* silent */ }
+    supa.from('reward_claims')
+      .select('claim_key, status')
+      .eq('user_id', activeUser.id)
+      .then(({ data: approvedClaims }) => {
+        if(approvedClaims) {
+          const approvedKeys = approvedClaims.filter(c=>c.status==='approved').map(c=>c.claim_key);
+          const stillPending = approvedClaims.filter(c=>c.status==='pending').map(c=>c.claim_key);
+          // Remove approved ones from pending list (they are done)
+          pendingClaims = pendingClaims.filter(k => !approvedKeys.includes(k));
+          localStorage.setItem('fh_pending_claims', JSON.stringify(pendingClaims));
+          // Re-render after sync
+          renderRewardsGrid(ways, categoryColors, pendingClaims);
+        }
+      }).catch(()=>{});
   }
 
-  // Store ways globally so openClaimModal can look up by index safely
-  window._rewardWays = ways;
+  renderRewardsGrid(ways, categoryColors, pendingClaims);
+}
 
+function renderRewardsGrid(ways, categoryColors, pendingClaims) {
   document.getElementById('rewardsGrid').innerHTML = ways.map((w,idx)=>{
     const claimKey = 'claim_'+idx;
-    const isPending = pendingClaims.includes(claimKey);
+    const isPending = (pendingClaims||[]).includes(claimKey);
 
     // Auto-awarded categories — no manual claim button
-    const isAutoAwarded = w.category === 'Leaderboard' || 
+    const isAutoAwarded = w.category === 'Leaderboard' ||
                           w.title === 'Submit First Payout Proof' ||
                           w.title === 'Total Payout Logged — $10,000+';
 
     let btnHtml = '';
     if(isPending){
-      btnHtml = `<button class="reward-claim-btn pending-approval" disabled>⏳ Pending Approval</button>`;
+      btnHtml = `<button class="reward-claim-btn pending-approval" disabled style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);border-radius:8px;color:var(--muted);font-size:12px;font-weight:700;cursor:not-allowed;">⏳ Pending Approval</button>`;
     } else if(w.category === 'Leaderboard'){
-      btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>🏆 Auto-awarded on rank</button>`;
+      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>🏆 Auto-awarded on rank</button>`;
     } else if(w.title === 'Submit First Payout Proof'){
-      btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>💸 Auto-awarded on first verified payout</button>`;
+      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(29,185,84,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>💸 Auto-awarded on first verified payout</button>`;
     } else if(w.title === 'Total Payout Logged — $10,000+'){
-      btnHtml = `<button class="reward-claim-btn" style="opacity:.5;cursor:default;" disabled>🚀 Auto-awarded when milestone reached</button>`;
+      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(29,185,84,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>🚀 Auto-awarded when milestone reached</button>`;
     } else {
-      btnHtml = `<button class="reward-claim-btn" data-idx="${idx}" onclick="openClaimModal(this)">🎯 Claim ${w.ptsBadge} Points</button>`;
+      btnHtml = `<button data-idx="${idx}" onclick="openClaimModal(this)" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,0.1);border:1px solid var(--border2);border-radius:8px;color:var(--gold);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(245,197,24,0.2)'" onmouseout="this.style.background='rgba(245,197,24,0.1)'">🎯 Claim ${w.ptsBadge} Points</button>`;
     }
+
     return `
     <div class="reward-card" style="${w.highlight?'border-color:var(--gold);background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,0.04))':''}">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
@@ -5828,7 +5767,7 @@ async function renderRewards() {
       </div>
       <div class="reward-title" style="font-size:13px;margin-bottom:6px;">${w.title}</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;">${w.desc}</div>
-      <div style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:4px 14px;margin-bottom:4px;">
+      <div style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:4px 14px;margin-bottom:2px;">
         <span style="font-size:14px;font-weight:800;color:var(--gold);">+${w.ptsBadge}</span>
         <span style="font-size:10px;color:var(--muted);font-weight:600;">PFPoints</span>
       </div>
@@ -5960,7 +5899,7 @@ function tjSave(data) { lsSetJSON('tj_trades', data); renderTJPanel(); }
 function exportJournalExcel() {
   const trades = tjData();
   if (!trades || trades.length === 0) {
-    toast('No trades to export yet.','📭','info');
+    showToast('No trades to export yet.', 'info');
     return;
   }
 
@@ -6046,7 +5985,7 @@ function exportJournalExcel() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  toast(`✅ Exported ${trades.length} trades to Excel!`,'📊','success');
+  showToast(`✅ Exported ${trades.length} trades to Excel!`, 'success');
 }
 
 async function loadTJFromSupabase() {
@@ -6141,7 +6080,7 @@ async function saveTJToSupabase(trade) {
 
     if (error) {
       console.error('Journal save error:', error.message, error.hint);
-      toast('⚠️ Could not sync to cloud: ' + error.message,'☁️','error');
+      showToast('⚠️ Could not sync to cloud: ' + error.message, 'error');
     } else if (data && data[0]) {
       // Store supabase UUID back into localStorage entry
       const all = lsGetJSON('tj_trades', []);
@@ -8752,7 +8691,7 @@ function awardPoints(pts, reason) {
   state.user.points = (state.user.points||0)+pts;
   lsSet('fe_user', state.user);
   updateUI();
-  if (pts > 0) toast('⭐ +' + pts + ' PFPoints — ' + (reason||'Points earned'),'⭐','success');
+  if (pts > 0) showToast('success', '⭐ +' + pts + ' PFPoints!', reason || 'Points earned');
 }
 
 function updateUI() {
@@ -9163,8 +9102,6 @@ async function supaInit() {
     } else if (event === 'SIGNED_OUT') {
       _currentUser    = null;
       _currentSession = null;
-      state.user      = null;
-      lsDel('fe_user');
       onUserLoggedOut();
     }
   });
@@ -9182,10 +9119,6 @@ async function onUserLoggedIn(user) {
   const name   = profile?.display_name || user.email.split('@')[0];
   const points = profile?.pf_points    || 0;
   const initials = name.charAt(0).toUpperCase();
-
-  // ── Set state.user so all auth checks work ──
-  state.user = { id: user.id, email: user.email, name, points };
-  lsSet('fe_user', state.user);
 
   // Update topbar
   document.getElementById('topGuest').style.display = 'none';
@@ -9327,11 +9260,9 @@ async function doLogout() {
   try { sessionStorage.removeItem(FH_TAB_KEY); } catch(e) {}
   _currentUser = null;
   _currentSession = null;
-  state.user   = null;
-  lsDel('fe_user');
   closeDropdown();
   onUserLoggedOut();
-  toast('✅ Signed out successfully','👋','success');
+  showToast('✅ Signed out successfully', 'success');
 }
 
 // ── Auth UI helpers ────────────────────────────────────────────
@@ -10316,7 +10247,7 @@ function closeBlogArticle(){
 }
 
 
-// ══════ CLAIM POINTS SYSTEM ══════
+// ══════ CLAIM POINTS MODAL SYSTEM ══════
 let _claimIdx = null;
 let _claimPts = 0;
 let _claimCategory = '';
@@ -10325,21 +10256,15 @@ function openClaimModal(btn) {
   const idx = parseInt(btn.dataset.idx);
   const w = (window._rewardWays || [])[idx];
   if(!w) return;
-
   const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email } : null);
   if(!activeUser){ toast('Please sign in to claim points','🔒','info'); return; }
   if(!state.user && activeUser) state.user = activeUser;
-
-  const title = w.title;
-  const category = w.category;
-  const pts = w.ptsBadge;
-  const needsAmount = category === 'Challenge' || category === 'Payout';
-
   _claimIdx = idx;
-  _claimPts = pts;
-  _claimCategory = category;
-  document.getElementById('claimModalTitle').textContent = '🎯 Claim ' + pts + ' PFPoints';
-  document.getElementById('claimModalSub').textContent = title + ' — Upload proof and our team will verify within 24 hours.';
+  _claimPts = w.ptsBadge;
+  _claimCategory = w.category;
+  document.getElementById('claimModalTitle').textContent = '🎯 Claim ' + w.ptsBadge + ' PFPoints';
+  document.getElementById('claimModalSub').textContent = w.title + ' — Upload proof and our team will verify within 24 hours.';
+  const needsAmount = w.category === 'Challenge' || w.category === 'Payout';
   document.getElementById('claimAmountField').style.display = needsAmount ? 'block' : 'none';
   document.getElementById('claimName').value = '';
   document.getElementById('claimFirm').value = '';
@@ -10352,7 +10277,7 @@ function openClaimModal(btn) {
   document.getElementById('claimSubmitBtn').disabled = false;
   document.getElementById('claimSubmitBtn').textContent = 'Submit for Approval →';
   const modal = document.getElementById('claimModal');
-  if(!modal){ console.error('Claim modal not found'); return; }
+  if(!modal){ return; }
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
@@ -10379,14 +10304,13 @@ async function submitClaimRequest() {
   const statusEl = document.getElementById('claimStatus');
   const btn = document.getElementById('claimSubmitBtn');
 
-  if(!name){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please enter your name or alias.'; return; }
-  if(!firm){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please select a prop firm.'; return; }
-  if(!file){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please upload your proof screenshot or PDF.'; return; }
-  if(file.size > 5 * 1024 * 1024){ statusEl.className='claim-status error'; statusEl.textContent='❌ File too large. Max 5MB.'; return; }
+  if(!name){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please enter your name or alias.'; statusEl.style.display='block'; return; }
+  if(!firm){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please select a prop firm.'; statusEl.style.display='block'; return; }
+  if(!file){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please upload your proof screenshot or PDF.'; statusEl.style.display='block'; return; }
+  if(file.size > 5 * 1024 * 1024){ statusEl.className='claim-status error'; statusEl.textContent='❌ File too large. Max 5MB.'; statusEl.style.display='block'; return; }
 
-  // Ensure user is available
-  const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email, name: _currentUser.email } : null);
-  if(!activeUser){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please sign in first.'; return; }
+  const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email } : null);
+  if(!activeUser){ statusEl.className='claim-status error'; statusEl.textContent='❌ Please sign in first.'; statusEl.style.display='block'; return; }
 
   btn.disabled = true;
   btn.textContent = '⏳ Uploading proof...';
@@ -10395,39 +10319,25 @@ async function submitClaimRequest() {
   statusEl.style.display = 'block';
 
   let proofUrl = '';
-
   try {
-    // Step 1 — Upload file to Supabase Storage (with 10s timeout)
+    // Upload to Supabase Storage
     const ext = file.name.split('.').pop().toLowerCase();
     const fileName = 'claim_' + Date.now() + '_' + Math.random().toString(36).substr(2,6) + '.' + ext;
-
     try {
-      const uploadPromise = supa.storage
-        .from('payout-proofs')
-        .upload(fileName, file, { cacheControl: '3600', upsert: false });
-
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Upload timed out')), 10000)
-      );
-
-      const { data: uploadData, error: uploadError } = await Promise.race([uploadPromise, timeoutPromise]);
-
-      if(uploadError) {
-        console.error('Storage upload error:', uploadError);
-        statusEl.textContent = '⚠️ ' + uploadError.message + ' — saving claim details only...';
-      } else {
+      const { data: uploadData, error: uploadError } = await Promise.race([
+        supa.storage.from('payout-proofs').upload(fileName, file, { cacheControl:'3600', upsert:false }),
+        new Promise((_,rej) => setTimeout(()=>rej(new Error('Upload timed out')), 12000))
+      ]);
+      if(!uploadError) {
         const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
         proofUrl = urlData?.publicUrl || '';
       }
     } catch(uploadErr) {
-      console.error('Upload failed:', uploadErr.message);
-      statusEl.textContent = '⚠️ ' + uploadErr.message + ' — saving claim details only...';
+      statusEl.textContent = '⏳ Saving claim without file upload...';
     }
 
     btn.textContent = '⏳ Saving claim...';
-    statusEl.textContent = '⏳ Saving your claim request...';
-
-    // Step 2 — Insert into reward_claims table
+    // Insert into reward_claims table
     const { error: insertError } = await supa.from('reward_claims').insert({
       user_id:      activeUser.id,
       user_email:   activeUser.email,
@@ -10443,10 +10353,9 @@ async function submitClaimRequest() {
       claim_key:    'claim_' + _claimIdx,
       submitted_at: new Date().toISOString()
     });
-
     if(insertError) throw new Error('Could not save claim: ' + insertError.message);
 
-    // Step 3 — Mark as pending locally so button updates
+    // Mark locally as pending
     const pending = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
     if(!pending.includes('claim_'+_claimIdx)) pending.push('claim_'+_claimIdx);
     localStorage.setItem('fh_pending_claims', JSON.stringify(pending));
@@ -10454,45 +10363,95 @@ async function submitClaimRequest() {
     btn.textContent = '✅ Submitted!';
     statusEl.className = 'claim-status success';
     statusEl.textContent = '🎉 Claim submitted! We will verify your proof within 24 hours. Points will be credited automatically on approval.';
-
-    // Close and refresh
+    statusEl.style.display = 'block';
     setTimeout(() => { closeClaimModal(); renderRewards(); }, 2500);
 
   } catch(e) {
-    console.error('Claim submission error:', e);
     btn.disabled = false;
     btn.textContent = 'Submit for Approval →';
     statusEl.className = 'claim-status error';
     statusEl.textContent = '❌ ' + e.message;
+    statusEl.style.display = 'block';
   }
 }
 
-// Close claim modal on overlay click — wrapped in DOMContentLoaded to avoid null error
+// Auto-award points when payout proof is approved (realtime listener in startPayouts)
+// Also hook into reward_claims approvals to update pf_points display live
+function setupRewardClaimsRealtime() {
+  if(window._claimRealtimeSub || !_currentUser) return;
+  window._claimRealtimeSub = supa
+    .channel('claim-approvals-rt')
+    .on('postgres_changes', {
+      event: 'UPDATE',
+      schema: 'public',
+      table: 'reward_claims',
+      filter: 'status=eq.approved'
+    }, async (payload) => {
+      if(!_currentUser || payload.new?.user_id !== _currentUser.id) return;
+      // Fetch fresh points
+      const { data: profile } = await supa.from('profiles').select('pf_points').eq('id', _currentUser.id).single();
+      if(profile) {
+        const pts = profile.pf_points || 0;
+        state.user = { ...state.user, points: pts };
+        document.getElementById('sbPts').textContent = pts + ' PFPoints';
+        document.getElementById('ptsChipVal').textContent = pts.toLocaleString();
+        document.getElementById('ptsBig').textContent = pts.toLocaleString();
+        // Remove from pending locally
+        const pending = JSON.parse(localStorage.getItem('fh_pending_claims')||'[]');
+        const updated = pending.filter(k => k !== payload.new?.claim_key);
+        localStorage.setItem('fh_pending_claims', JSON.stringify(updated));
+        if(document.getElementById('panel-rewards')?.classList.contains('active')) renderRewards();
+        toast('🎉 Claim approved! +' + payload.new.points + ' PFPoints credited.','⭐','success');
+      }
+    })
+    .subscribe();
+}
+
+// Close claim modal on overlay click
 document.addEventListener('DOMContentLoaded', function(){
   const claimModal = document.getElementById('claimModal');
-  if(claimModal){
-    claimModal.addEventListener('click', function(e){
-      if(e.target === this) closeClaimModal();
-    });
-  }
+  if(claimModal){ claimModal.addEventListener('click', function(e){ if(e.target===this) closeClaimModal(); }); }
+  // Setup realtime for claims after user logs in
+  const origOnUserLoggedIn = window._origOnUserLoggedIn;
 });
 
 </script>
 
 <!-- ══════ CLAIM POINTS MODAL ══════ -->
+<style>
+.claim-modal-ovl{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);}
+.claim-modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:28px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;}
+.claim-modal-box h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;}
+.claim-modal-sub-txt{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.5;}
+.claim-fld{margin-bottom:14px;}
+.claim-fld label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
+.claim-fld input,.claim-fld select{width:100%;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;box-sizing:border-box;transition:border-color .2s;}
+.claim-fld input:focus,.claim-fld select:focus{outline:none;border-color:var(--gold);}
+.claim-dz{border:2px dashed var(--border2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;background:var(--bg3);transition:border-color .2s;}
+.claim-dz:hover{border-color:var(--gold);}
+.claim-btns{display:flex;gap:10px;margin-top:20px;}
+.claim-sub-btn{flex:1;padding:12px;background:var(--gold);color:#000;font-weight:700;font-size:13px;border:none;border-radius:10px;cursor:pointer;transition:opacity .2s;}
+.claim-sub-btn:hover{opacity:.88;}
+.claim-sub-btn:disabled{opacity:.5;cursor:not-allowed;}
+.claim-cancel-btn2{padding:12px 20px;background:var(--bg3);color:var(--muted);font-size:13px;border:1px solid var(--border);border-radius:10px;cursor:pointer;}
+.claim-st{margin-top:12px;font-size:12px;text-align:center;padding:8px;border-radius:8px;display:none;}
+.claim-st.success{background:rgba(29,185,84,.1);color:var(--green);display:block;}
+.claim-st.error{background:rgba(229,62,62,.1);color:var(--red);display:block;}
+.claim-st.pending{background:rgba(245,197,24,.1);color:var(--gold);display:block;}
+</style>
+
 <div id="claimModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9000;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);">
-  <div class="claim-modal">
+  <div class="claim-modal-box">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-      <h3 id="claimModalTitle" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;">🎯 Claim Points</h3>
+      <h3 id="claimModalTitle">🎯 Claim Points</h3>
       <span onclick="closeClaimModal()" style="cursor:pointer;font-size:22px;color:var(--muted);line-height:1;padding:4px 8px;">✕</span>
     </div>
-    <div class="claim-modal-sub" id="claimModalSub">Submit proof to earn PFPoints. Our team will verify and approve within 24 hours.</div>
-
-    <div class="claim-field">
+    <div class="claim-modal-sub-txt" id="claimModalSub">Submit proof to earn PFPoints. Our team will verify and approve within 24 hours.</div>
+    <div class="claim-fld">
       <label>Your Name / Alias *</label>
       <input id="claimName" type="text" placeholder="e.g. Rahul T.">
     </div>
-    <div class="claim-field">
+    <div class="claim-fld">
       <label>Prop Firm *</label>
       <select id="claimFirm">
         <option value="">Select firm...</option>
@@ -10506,28 +10465,42 @@ document.addEventListener('DOMContentLoaded', function(){
         <option>Other</option>
       </select>
     </div>
-    <div class="claim-field" id="claimAmountField" style="display:none;">
+    <div class="claim-fld" id="claimAmountField" style="display:none;">
       <label>Amount (USD) *</label>
       <input id="claimAmount" type="number" placeholder="e.g. 250">
     </div>
-    <div class="claim-field">
+    <div class="claim-fld">
       <label>Notes (optional)</label>
       <input id="claimNotes" type="text" placeholder="e.g. Passed $50K challenge" maxlength="120">
     </div>
-    <div class="claim-field">
+    <div class="claim-fld">
       <label>Upload Proof * <span style="color:var(--gold)">(Screenshot or PDF required)</span></label>
-      <div class="claim-dropzone" onclick="document.getElementById('claimFile').click()" id="claimDropzone">
+      <div class="claim-dz" onclick="document.getElementById('claimFile').click()">
         <div style="font-size:28px;margin-bottom:6px">📎</div>
         <div style="font-size:12px;color:var(--muted)" id="claimFileLabel">Click to upload screenshot or PDF<br><span style="font-size:10px;opacity:.7">JPG, PNG, PDF — max 5MB</span></div>
       </div>
       <input id="claimFile" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none" onchange="claimFileSelected(this)">
     </div>
-
-    <div class="claim-btn-row">
-      <button class="claim-cancel-btn" onclick="closeClaimModal()">Cancel</button>
-      <button class="claim-submit-btn" id="claimSubmitBtn" onclick="submitClaimRequest()">Submit for Approval →</button>
+    <div style="font-size:10px;color:var(--muted);margin-bottom:14px;line-height:1.6;padding:10px;background:var(--bg3);border-radius:6px">
+      ⚠️ Only submit genuine proof. False claims will be rejected and may result in account suspension.
     </div>
-    <div class="claim-status" id="claimStatus"></div>
+    <div class="claim-btns">
+      <button class="claim-cancel-btn2" onclick="closeClaimModal()">Cancel</button>
+      <button class="claim-sub-btn" id="claimSubmitBtn" onclick="submitClaimRequest()">Submit for Approval →</button>
+    </div>
+    <div class="claim-st" id="claimStatus"></div>
+  </div>
+</div>
+
+<!-- ══════ COOKIE BANNER ══════ -->
+<div id="cookieBanner" style="position:fixed;bottom:0;left:var(--sidebar);right:0;z-index:300;background:rgba(17,17,20,.97);border-top:1px solid var(--border);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(20px);transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);">
+  <div style="font-size:12px;color:var(--muted);line-height:1.6;flex:1;">
+    🍪 We use Google Analytics (anonymous) to improve FundedHunt. No personal data stored. 
+    <a onclick="openLegalPage('privacy')" style="color:var(--gold);cursor:pointer;text-decoration:none;">Privacy Policy</a>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button onclick="declineCookies()" class="btn btn-outline" style="font-size:12px;padding:6px 14px;">Decline</button>
+    <button onclick="acceptCookies()" class="btn btn-gold" style="font-size:12px;padding:6px 14px;">Accept</button>
   </div>
 </div>
 
