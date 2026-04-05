@@ -9018,6 +9018,8 @@ async function supaInit() {
     } else if (event === 'SIGNED_OUT') {
       _currentUser    = null;
       _currentSession = null;
+      state.user      = null;
+      lsDel('fe_user');
       onUserLoggedOut();
     }
   });
@@ -9035,6 +9037,10 @@ async function onUserLoggedIn(user) {
   const name   = profile?.display_name || user.email.split('@')[0];
   const points = profile?.pf_points    || 0;
   const initials = name.charAt(0).toUpperCase();
+
+  // ── Set state.user so all auth checks work ──
+  state.user = { id: user.id, email: user.email, name, points };
+  lsSet('fe_user', state.user);
 
   // Update topbar
   document.getElementById('topGuest').style.display = 'none';
@@ -9176,6 +9182,8 @@ async function doLogout() {
   try { sessionStorage.removeItem(FH_TAB_KEY); } catch(e) {}
   _currentUser = null;
   _currentSession = null;
+  state.user   = null;
+  lsDel('fe_user');
   closeDropdown();
   onUserLoggedOut();
   toast('✅ Signed out successfully','👋','success');
@@ -10169,7 +10177,9 @@ let _claimPts = 0;
 let _claimCategory = '';
 
 function openClaimModal(idx, title, category, pts, needsAmount) {
-  if(!state.user){ toast('Please sign in to claim points','🔒','info'); return; }
+  const activeUser = state.user || (_currentUser ? { id: _currentUser.id, email: _currentUser.email } : null);
+  if(!activeUser){ toast('Please sign in to claim points','🔒','info'); return; }
+  if(!state.user && activeUser) state.user = activeUser;
   _claimIdx = idx;
   _claimPts = pts;
   _claimCategory = category;
