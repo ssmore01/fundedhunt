@@ -4712,7 +4712,7 @@ function nav(panelId) {
   if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
-  if (panelId==='tracker') renderTracker();
+  if (panelId==='tracker') { if(_currentUser) loadLogbookFromSupabase().then(()=>renderTracker()); else renderTracker(); }
   if (panelId==='quiz') initQuiz();
   if (panelId==='legal') initLegalPanel();
   if(window.innerWidth <= 768) closeSidebar();
@@ -6809,6 +6809,10 @@ function savePayoutEntry() {
   syncPayoutToSupabase(lb.id, payoutEntry);
   trackEvent('payout_logged', {amount: payoutEntry.amount, firmId: lb.firmId});
   closePayoutModal();
+  renderLogbook();
+  // Re-render tracker if open so stats update immediately
+  if(state.currentPanel === 'tracker') renderTracker();
+  toast('Payout saved! 💰','💰','success');
 }
 
 // ── Community Payout Feed ──────────────────────────────────────────────────
@@ -6979,6 +6983,8 @@ function saveEditPayout() {
   _editPayoutLbId = null;
   _editPayoutIdx = null;
   closePayoutModal();
+  renderLogbook();
+  if(state.currentPanel === 'tracker') renderTracker();
   toast('Payout updated ✅','💰','success');
 }
 
@@ -7019,7 +7025,16 @@ function deletePayout(lbId,idx){
 
 function deleteLogbook(id){
   if(!confirm('Delete this challenge entry? This cannot be undone.')) return;
+  const entry = lbData().find(d=>d.id===id);
   lbSave(lbData().filter(d=>d.id!==id));
+  // Delete from Supabase
+  if(_currentUser && entry?.supaId) {
+    supa.from('logbook_entries').delete().eq('id', entry.supaId).eq('user_id', _currentUser.id).then(()=>{});
+    supa.from('payout_records').delete().eq('logbook_id', entry.supaId).eq('user_id', _currentUser.id).then(()=>{});
+  }
+  renderLogbook();
+  if(state.currentPanel === 'tracker') renderTracker();
+  toast('Challenge deleted','🗑','info');
 }
 
 
@@ -9346,6 +9361,10 @@ async function onUserLoggedIn(user) {
 
   // Load logbook from Supabase to sync across devices
   await loadLogbookFromSupabase();
+  // Refresh tracker if it's currently open
+  if(state.currentPanel === 'tracker') renderTracker();
+  // Refresh logbook badge
+  updateLogbookBadge();
 }
 
 // ── When user logs out ─────────────────────────────────────────
