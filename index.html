@@ -6684,10 +6684,16 @@ function renderLbCard(lb) {
     ? `<div class="lb-no-payouts">No payouts yet — add one when you withdraw</div>`
     : lb.payouts.slice().reverse().map((p,i)=>{
         const ri=lb.payouts.length-1-i;
-        return `<div class="lb-payout-item">
-          <span class="pamt">+$${p.amount.toLocaleString()}</span>
-          <span class="pdate">${p.date}${p.note?' · '+p.note:''}</span>
-          <button class="lb-payout-del" onclick="deletePayout('${lb.id}',${ri})" title="Remove">✕</button>
+        const methodBadge = p.method ? ` · ${p.method}` : '';
+        return `<div class="lb-payout-item" style="flex-direction:column;align-items:stretch;gap:2px;padding:8px 10px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span class="pamt">+$${p.amount.toLocaleString()}</span>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <button style="background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.3);border-radius:5px;color:var(--gold);font-size:11px;padding:2px 8px;cursor:pointer;" onclick="openEditPayout('${lb.id}',${ri})" title="Edit payout">✏️ Edit</button>
+              <button class="lb-payout-del" onclick="deletePayout('${lb.id}',${ri})" title="Remove payout">✕</button>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:1px;">${p.date||'No date'}${methodBadge}${p.note?' · '+p.note:''}</div>
         </div>`;
       }).join('');
   return `<div class="lb-card" data-status="${lb.status}" id="lbcard-${lb.id}">
@@ -6900,22 +6906,116 @@ function formatPayoutTime(ts) {
   return Math.floor(diff/86400)+'d ago';
 }
 
+let _editPayoutLbId = null;
+let _editPayoutIdx = null;
+
+function openEditPayout(lbId, idx) {
+  const lb = lbData().find(d => d.id === lbId);
+  if(!lb || !lb.payouts[idx]) return;
+  const p = lb.payouts[idx];
+  _editPayoutLbId = lbId;
+  _editPayoutIdx = idx;
+
+  // Reuse the existing payout modal but in edit mode
+  document.getElementById('lbPayoutAmount').value = p.amount || '';
+  document.getElementById('lbPayoutDate').value = p.date || '';
+  document.getElementById('lbPayoutNote').value = p.note || '';
+
+  // Select method if exists
+  document.querySelectorAll('.lb-method-btn').forEach(b => b.classList.remove('selected'));
+  if(p.method) {
+    const btn = document.querySelector(`.lb-method-btn[data-method="${p.method}"]`);
+    if(btn) btn.classList.add('selected');
+  }
+
+  // Change save button to update mode
+  const saveBtn = document.querySelector('#overlay-payout-modal .lb-btn-save');
+  if(saveBtn) {
+    saveBtn.textContent = '✏️ Update Payout';
+    saveBtn.onclick = saveEditPayout;
+  }
+
+  document.getElementById('overlay-payout-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function saveEditPayout() {
+  const amount = parseFloat(document.getElementById('lbPayoutAmount').value);
+  if(!amount || amount <= 0) { alert('Enter a valid payout amount.'); return; }
+  const date   = document.getElementById('lbPayoutDate').value;
+  const note   = document.getElementById('lbPayoutNote').value.trim();
+  const method = document.querySelector('.lb-method-btn.selected')?.dataset?.method || '';
+
+  const data = lbData();
+  const lb = data.find(d => d.id === _editPayoutLbId);
+  if(!lb || _editPayoutIdx === null) return;
+
+  const oldPayout = lb.payouts[_editPayoutIdx];
+  lb.payouts[_editPayoutIdx] = { ...oldPayout, amount, date, note, method };
+  lbSave(data);
+
+  // Update in Supabase if we have the payout ID
+  if(_currentUser && oldPayout.supaPayoutId) {
+    supa.from('payout_records')
+      .update({
+        amount: amount,
+        date_received: date || null,
+        note: note || '',
+        payment_method: method || null,
+      })
+      .eq('id', oldPayout.supaPayoutId)
+      .eq('user_id', _currentUser.id)
+      .then(({error}) => {
+        if(error) console.warn('Payout update error:', error.message);
+      });
+  }
+
+  // Reset modal button back to Add mode
+  const saveBtn = document.querySelector('#overlay-payout-modal .lb-btn-save');
+  if(saveBtn) {
+    saveBtn.textContent = '💰 Save Payout & Push to Feed';
+    saveBtn.onclick = savePayoutEntry;
+  }
+  _editPayoutLbId = null;
+  _editPayoutIdx = null;
+
+  closePayoutModal();
+  toast('Payout updated ✅','💰','success');
+}
+
+// Also reset modal to Add mode when closed
+const _origClosePayoutModal = closePayoutModal;
+function closePayoutModal(){
+  _origClosePayoutModal?.();
+  const saveBtn = document.querySelector('#overlay-payout-modal .lb-btn-save');
+  if(saveBtn && _editPayoutLbId === null) {
+    saveBtn.textContent = '💰 Save Payout & Push to Feed';
+    saveBtn.onclick = savePayoutEntry;
+  }
+}
+
 function deletePayout(lbId,idx){
   if(!confirm('Remove this payout?')) return;
   const data=lbData(); const lb=data.find(d=>d.id===lbId); if(!lb) return;
   const payout = lb.payouts[idx];
   lb.payouts.splice(idx,1);
   lbSave(data);
-  // Also remove from Supabase if exists
-  if(_currentUser && payout) {
+  // Also remove from Supabase if we have the payout ID
+  if(_currentUser && payout?.supaPayoutId) {
+    supa.from('payout_records')
+      .delete()
+      .eq('id', payout.supaPayoutId)
+      .eq('user_id', _currentUser.id)
+      .then(({error}) => {
+        if(!error) { loadTickerFromSupabase(); fetchVerifiedPayouts(); }
+      });
+  } else if(_currentUser && payout) {
+    // Fallback: delete by amount match
     supa.from('payout_records')
       .delete()
       .eq('user_id', _currentUser.id)
       .eq('amount', payout.amount)
-      .then(({error}) => {
-        if(error) console.warn('Payout delete from DB note:', error.message);
-        else { loadTickerFromSupabase(); fetchVerifiedPayouts(); }
-      });
+      .then(() => { loadTickerFromSupabase(); fetchVerifiedPayouts(); });
   }
   toast('Payout removed','🗑','info');
 }
@@ -9500,26 +9600,53 @@ async function migrateLocalDataToSupabase(userId) {
 async function syncLogbookEntryToSupabase(entry) {
   if (!_currentUser) return;
   try {
-    const { error } = await supa.from('logbook_entries').upsert({
-      id:           entry.supaId || undefined,
+    const payload = {
       user_id:      _currentUser.id,
       firm_id:      entry.firmId,
       firm_name:    entry.firmName || entry.firmId,
-      plan:         entry.plan,
+      plan:         entry.plan || '',
       account_size: parseFloat(entry.accountSize) || null,
       fee:          parseFloat(entry.fee) || 0,
       purchase_date: entry.purchaseDate || null,
-      status:       entry.status,
+      status:       entry.status || 'evaluation',
       notes:        entry.notes || '',
       updated_at:   new Date().toISOString(),
-    }, { onConflict: 'id' });
-    if (error) console.warn('Logbook save error:', error.message);
+    };
+
+    let result;
+    if (entry.supaId) {
+      // Update existing entry
+      result = await supa.from('logbook_entries')
+        .update(payload)
+        .eq('id', entry.supaId)
+        .eq('user_id', _currentUser.id)
+        .select();
+    } else {
+      // Insert new entry
+      result = await supa.from('logbook_entries')
+        .insert(payload)
+        .select();
+    }
+
+    const { data: saved, error } = result;
+    if (error) {
+      console.warn('Logbook save error:', error.message);
+    } else if (saved && saved[0]) {
+      // Store supaId back into localStorage entry
+      const all = lbData();
+      const idx = all.findIndex(e => e.id === entry.id);
+      if (idx >= 0 && !all[idx].supaId) {
+        all[idx].supaId = saved[0].id;
+        lsSetJSON('lb_challenges', all);
+      }
+    }
   } catch(e) { console.warn('Logbook save exception:', e); }
 }
 
 async function loadLogbookFromSupabase() {
   if (!_currentUser) return;
   try {
+    // Load logbook entries
     const { data, error } = await supa
       .from('logbook_entries')
       .select('*')
@@ -9528,7 +9655,6 @@ async function loadLogbookFromSupabase() {
 
     if (error) { console.warn('Logbook load error:', error.message); return; }
 
-    // Always clear localStorage first to prevent cross-user mixing
     lsSetJSON('lb_challenges', []);
 
     if (!data || data.length === 0) {
@@ -9537,7 +9663,31 @@ async function loadLogbookFromSupabase() {
       return;
     }
 
-    // Convert Supabase format back to local format
+    // Also load all payouts for this user from payout_records
+    let payoutMap = {};
+    try {
+      const { data: payoutData } = await supa
+        .from('payout_records')
+        .select('*')
+        .eq('user_id', _currentUser.id)
+        .order('date_received', { ascending: true });
+
+      if (payoutData) {
+        payoutData.forEach(p => {
+          const key = p.logbook_id;
+          if (!payoutMap[key]) payoutMap[key] = [];
+          payoutMap[key].push({
+            supaPayoutId: p.id,
+            amount: parseFloat(p.amount) || 0,
+            date: p.date_received || '',
+            method: p.payment_method || '',
+            note: p.note || '',
+          });
+        });
+      }
+    } catch(e) { console.warn('Payout load error:', e); }
+
+    // Convert Supabase format back to local format, merging payouts
     const entries = data.map(r => ({
       id: 'lb_' + r.id,
       supaId: r.id,
@@ -9549,31 +9699,47 @@ async function loadLogbookFromSupabase() {
       purchaseDate: r.purchase_date || '',
       status: r.status || 'evaluation',
       notes: r.notes || '',
-      payouts: [],
+      payouts: payoutMap[r.id] || [],
       createdAt: r.created_at || new Date().toISOString(),
     }));
 
     lsSetJSON('lb_challenges', entries);
     renderLogbook();
     updateLogbookBadge();
-    console.log('Logbook loaded from Supabase:', entries.length, 'entries');
   } catch(e) { console.warn('Logbook load exception:', e); }
 }
 
 // ── Sync: Save payout to Supabase ─────────────────────────────
-async function syncPayoutToSupabase(logbookId, payout) {
+async function syncPayoutToSupabase(logbookLocalId, payout) {
   if (!_currentUser) return;
   try {
-    await supa.from('payout_records').insert({
-      user_id:       _currentUser.id,
-      logbook_id:    logbookId,
-      amount:        parseFloat(payout.amount) || 0,
-      date_received: payout.date || null,
+    // Get the supabase UUID for this logbook entry
+    const all = lbData();
+    const lb = all.find(e => e.id === logbookLocalId);
+    const supaLogbookId = lb?.supaId || null;
+
+    const { data: inserted, error } = await supa.from('payout_records').insert({
+      user_id:        _currentUser.id,
+      logbook_id:     supaLogbookId,
+      amount:         parseFloat(payout.amount) || 0,
+      date_received:  payout.date || null,
       payment_method: payout.method || null,
-      note:          payout.note || '',
-      is_public:     true,
-    });
-  } catch(e) {}
+      note:           payout.note || '',
+      is_public:      true,
+      status:         'pending',
+    }).select();
+
+    if (error) { console.warn('Payout sync error:', error.message); }
+    else if (inserted && inserted[0]) {
+      // Store supaPayoutId back locally for future edit/delete
+      const idx = lb ? all.indexOf(lb) : -1;
+      if (idx >= 0) {
+        const payIdx = all[idx].payouts.length - 1;
+        if (payIdx >= 0) all[idx].payouts[payIdx].supaPayoutId = inserted[0].id;
+        lsSetJSON('lb_challenges', all);
+      }
+    }
+  } catch(e) { console.warn('Payout sync exception:', e); }
 }
 
 // ── Community payout feed from Supabase ───────────────────────
