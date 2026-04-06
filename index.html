@@ -6788,7 +6788,13 @@ function openAddPayout(id){
   document.getElementById('overlay-payout-modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closePayoutModal(){document.getElementById('overlay-payout-modal').classList.remove('open');document.body.style.overflow='';}
+function closePayoutModal(){
+  document.getElementById('overlay-payout-modal').classList.remove('open');
+  document.body.style.overflow='';
+  _editPayoutLbId = null;
+  _editPayoutIdx = null;
+  resetPayoutModalBtn();
+}
 
 function savePayoutEntry() {
   const amount=parseFloat(document.getElementById('lbPayoutAmount').value);
@@ -6970,25 +6976,16 @@ function saveEditPayout() {
       });
   }
 
-  // Reset modal button back to Add mode
-  const saveBtn = document.querySelector('#overlay-payout-modal .lb-btn-save');
-  if(saveBtn) {
-    saveBtn.textContent = '💰 Save Payout & Push to Feed';
-    saveBtn.onclick = savePayoutEntry;
-  }
   _editPayoutLbId = null;
   _editPayoutIdx = null;
-
   closePayoutModal();
   toast('Payout updated ✅','💰','success');
 }
 
-// Also reset modal to Add mode when closed
-const _origClosePayoutModal = closePayoutModal;
-function closePayoutModal(){
-  _origClosePayoutModal?.();
+// Reset modal save button to Add mode (called after edit/close)
+function resetPayoutModalBtn() {
   const saveBtn = document.querySelector('#overlay-payout-modal .lb-btn-save');
-  if(saveBtn && _editPayoutLbId === null) {
+  if(saveBtn) {
     saveBtn.textContent = '💰 Save Payout & Push to Feed';
     saveBtn.onclick = savePayoutEntry;
   }
