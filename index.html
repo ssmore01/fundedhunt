@@ -1362,9 +1362,39 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
     <div class="panel-inner">
 
       <div class="panel-head">
-        <h1>🏆 Monthly Competition</h1>
-        <p>Top traders win a free funded prop account. Log payouts to climb the ranks.</p>
+        <h1>🏆 Competition</h1>
+        <p>Monthly trading competitions with real prizes — coming soon to FundedHunt.</p>
       </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;text-align:center;padding:60px 20px;">
+        <div style="font-size:72px;margin-bottom:24px;animation:pulse-badge 2s infinite;">🏆</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;margin-bottom:12px;">Coming Soon</div>
+        <div style="font-size:14px;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:28px;">
+          We're building a monthly competition where top traders compete for real prizes —
+          including free funded accounts, fee rebates, and exclusive merchandise.
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;">
+          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:6px;">🥇</div>
+            <div style="font-size:13px;font-weight:700;">1st Place</div>
+            <div style="font-size:11px;color:var(--gold);">Free funded account</div>
+          </div>
+          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:6px;">🥈</div>
+            <div style="font-size:13px;font-weight:700;">2nd Place</div>
+            <div style="font-size:11px;color:var(--muted);">50% fee rebate</div>
+          </div>
+          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px 24px;text-align:center;">
+            <div style="font-size:24px;margin-bottom:6px;">🥉</div>
+            <div style="font-size:13px;font-weight:700;">3rd Place</div>
+            <div style="font-size:11px;color:var(--muted);">Exclusive merch</div>
+          </div>
+        </div>
+        <div style="background:var(--gold-dim);border:1px solid var(--border2);border-radius:12px;padding:14px 24px;font-size:13px;color:var(--gold);font-weight:600;">
+          🔔 Stay tuned — launching soon
+        </div>
+      </div>
+      <!-- Hide old competition content -->
+      <div style="display:none">
 
       <!-- Active Competition Card -->
       <div class="comp-hero" id="compHero">
@@ -1418,7 +1448,11 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   </div>
 
 <!-- REWARDS PANEL -->
-  <div class="panel" id="panel-rewards">
+      </div><!-- end hidden -->
+    </div>
+  </div>
+
+    <div class="panel" id="panel-rewards">
     <div class="panel-inner">
       <div class="panel-head">
         <h1>⭐ PFPoints Rewards</h1>
@@ -5675,89 +5709,21 @@ async function renderRewards() {
   });
 
   const ways = [
-    {
-      ico:'🏆',
-      title:'Weekly Leaderboard — 1st Place',
-      pts:'+500 pts',
-      ptsBadge:'500',
-      desc:'Finish #1 on the weekly payout leaderboard',
-      category:'Leaderboard',
-      highlight:true
-    },
-    {
-      ico:'🥈',
-      title:'Weekly Leaderboard — 2nd Place',
-      pts:'+300 pts',
-      ptsBadge:'300',
-      desc:'Finish #2 on the weekly payout leaderboard',
-      category:'Leaderboard'
-    },
-    {
-      ico:'🥉',
-      title:'Weekly Leaderboard — 3rd Place',
-      pts:'+100 pts',
-      ptsBadge:'100',
-      desc:'Finish #3 on the weekly payout leaderboard',
-      category:'Leaderboard'
-    },
-    {
-      ico:'💰',
-      title:'Submit First Payout Proof',
-      pts:'+200 pts',
-      ptsBadge:'200',
-      desc:'Submit your first verified payout proof to the community feed',
-      category:'Payout'
-    },
-    {
-      ico:'🚀',
-      title:'Total Payout Logged — $10,000+',
-      pts:'+500 pts',
-      ptsBadge:'500',
-      desc:'Log a total of $10,000 or more in verified payouts on Funded Hunt',
-      category:'Payout',
-      highlight:true
-    },
-    {
-      ico:'🛒',
-      title:'Buy a Challenge — Up to $49',
-      pts:'+50 pts',
-      ptsBadge:'50',
-      desc:'Purchase a prop firm challenge under $50 via Funded Hunt',
-      category:'Challenge'
-    },
-    {
-      ico:'🛒',
-      title:'Buy a Challenge — $50 to $99',
-      pts:'+100 pts',
-      ptsBadge:'100',
-      desc:'Purchase a prop firm challenge between $50–$99 via Funded Hunt',
-      category:'Challenge'
-    },
-    {
-      ico:'🛒',
-      title:'Buy a Challenge — $100 to $199',
-      pts:'+200 pts',
-      ptsBadge:'200',
-      desc:'Purchase a prop firm challenge between $100–$199 via Funded Hunt',
-      category:'Challenge'
-    },
-    {
-      ico:'🛒',
-      title:'Buy a Challenge — $200 to $499',
-      pts:'+350 pts',
-      ptsBadge:'350',
-      desc:'Purchase a prop firm challenge between $200–$499 via Funded Hunt',
-      category:'Challenge'
-    },
-    {
-      ico:'🛒',
-      title:'Buy a Challenge — $500+',
-      pts:'+500 pts',
-      ptsBadge:'500',
-      desc:'Purchase a prop firm challenge of $500 or more via Funded Hunt',
-      category:'Challenge',
-      highlight:true
-    },
+    { ico:'🎉', title:'Sign Up', ptsBadge:'100', desc:'Create your free FundedHunt account', category:'Auto', auto:true, done: !!_currentUser },
+    { ico:'🤖', title:'Complete AI Quiz', ptsBadge:'25', desc:'Answer 5 questions to find your perfect prop firm', category:'Auto', auto:true },
+    { ico:'🔍', title:'Open Firm Detail', ptsBadge:'10', desc:'Click on any firm card to view full details', category:'Auto', auto:true },
+    { ico:'⚖️', title:'Add to Compare', ptsBadge:'15', desc:'Add a firm to the comparison tool', category:'Auto', auto:true },
+    { ico:'🌐', title:'Visit a Firm Website', ptsBadge:'20', desc:'Click Visit Firm to go to a prop firm site', category:'Auto', auto:true },
+    { ico:'📓', title:'Add Logbook Entry', ptsBadge:'50', desc:'Log a prop firm challenge in your Challenge Logbook', category:'Auto', auto:true },
+    { ico:'📈', title:'Log a Trade', ptsBadge:'20', desc:'Add a trade entry to your Trading Journal', category:'Auto', auto:true },
+    { ico:'💸', title:'Log a Payout', ptsBadge:'75', desc:'Record a withdrawal payout in your Challenge Logbook', category:'Auto', auto:true, highlight:true },
+    { ico:'📥', title:'Export Journal', ptsBadge:'15', desc:'Export your trade journal to Excel', category:'Auto', auto:true },
+    { ico:'🔥', title:'Daily Login Streak', ptsBadge:'10', desc:'Log in every day — streak bonus added automatically', category:'Auto', auto:true },
+    { ico:'🏆', title:'Weekly Leaderboard — 1st Place', ptsBadge:'500', desc:'Finish #1 on the weekly verified payout leaderboard', category:'Leaderboard', auto:true, highlight:true },
+    { ico:'🥈', title:'Weekly Leaderboard — 2nd Place', ptsBadge:'300', desc:'Finish #2 on the weekly verified payout leaderboard', category:'Leaderboard', auto:true },
+    { ico:'🥉', title:'Weekly Leaderboard — 3rd Place', ptsBadge:'100', desc:'Finish #3 on the weekly verified payout leaderboard', category:'Leaderboard', auto:true },
+    { ico:'💰', title:'First Verified Payout', ptsBadge:'200', desc:'Submit your first payout proof — verified by our team', category:'Milestone', auto:true },
+    { ico:'🚀', title:'Total Payouts — $10,000+', ptsBadge:'500', desc:'Log a cumulative $10,000+ in verified payouts', category:'Milestone', auto:true, highlight:true },
   ];
 
   const categoryColors = {
@@ -5796,41 +5762,29 @@ async function renderRewards() {
 }
 
 function renderRewardsGrid(ways, categoryColors, pendingClaims) {
+  const catColors = {
+    'Auto':      '#3B82F6',
+    'Leaderboard':'#F5C518',
+    'Milestone': '#1DB954',
+  };
+
   document.getElementById('rewardsGrid').innerHTML = ways.map((w,idx)=>{
-    const claimKey = 'claim_'+idx;
-    const isPending = (pendingClaims||[]).includes(claimKey);
-
-    // Auto-awarded categories — no manual claim button
-    const isAutoAwarded = w.category === 'Leaderboard' ||
-                          w.title === 'Submit First Payout Proof' ||
-                          w.title === 'Total Payout Logged — $10,000+';
-
-    let btnHtml = '';
-    if(isPending){
-      btnHtml = `<button class="reward-claim-btn pending-approval" disabled style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);border-radius:8px;color:var(--muted);font-size:12px;font-weight:700;cursor:not-allowed;">⏳ Pending Approval</button>`;
-    } else if(w.category === 'Leaderboard'){
-      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>🏆 Auto-awarded on rank</button>`;
-    } else if(w.title === 'Submit First Payout Proof'){
-      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(29,185,84,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>💸 Auto-awarded on first verified payout</button>`;
-    } else if(w.title === 'Total Payout Logged — $10,000+'){
-      btnHtml = `<button class="reward-claim-btn" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(29,185,84,.04);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px;cursor:default;opacity:.6;" disabled>🚀 Auto-awarded when milestone reached</button>`;
-    } else {
-      btnHtml = `<button data-idx="${idx}" onclick="openClaimModal(this)" style="margin-top:10px;width:100%;padding:8px 0;background:rgba(245,197,24,0.1);border:1px solid var(--border2);border-radius:8px;color:var(--gold);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(245,197,24,0.2)'" onmouseout="this.style.background='rgba(245,197,24,0.1)'">🎯 Claim ${w.ptsBadge} Points</button>`;
-    }
+    const color = catColors[w.category] || '#888';
+    const autoBadge = `<div style="margin-top:10px;width:100%;padding:7px 0;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:8px;color:#60a5fa;font-size:11px;font-weight:600;text-align:center;">⚡ Points added automatically</div>`;
 
     return `
-    <div class="reward-card" style="${w.highlight?'border-color:var(--gold);background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,0.04))':''}">
+    <div class="reward-card" style="position:relative;${w.highlight?'border-color:var(--gold);background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,0.04))':''}">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
-        <div class="reward-icon" style="margin-bottom:0;font-size:28px;">${w.ico}</div>
-        <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:100px;background:${categoryColors[w.category]||'#555'}22;color:${categoryColors[w.category]||'#aaa'};border:1px solid ${categoryColors[w.category]||'#555'}44;">${w.category}</span>
+        <div style="font-size:26px;">${w.ico}</div>
+        <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:100px;background:${color}22;color:${color};border:1px solid ${color}44;white-space:nowrap;">${w.category}</span>
       </div>
-      <div class="reward-title" style="font-size:13px;margin-bottom:6px;">${w.title}</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;">${w.desc}</div>
-      <div style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:4px 14px;margin-bottom:2px;">
-        <span style="font-size:14px;font-weight:800;color:var(--gold);">+${w.ptsBadge}</span>
+      <div class="reward-title" style="font-size:13px;margin-bottom:5px;">${w.title}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5;">${w.desc}</div>
+      <div style="display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:4px 12px;">
+        <span style="font-size:13px;font-weight:800;color:var(--gold);">+${w.ptsBadge}</span>
         <span style="font-size:10px;color:var(--muted);font-weight:600;">PFPoints</span>
       </div>
-      ${btnHtml}
+      ${autoBadge}
     </div>`;
   }).join('');
 }
