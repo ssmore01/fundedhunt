@@ -5394,8 +5394,9 @@ function renderTracker() {
   const passRate        = (passedCount + failedCount) > 0
                           ? Math.round((passedCount / (passedCount + failedCount)) * 100)
                           : 0;
-  const avgAccountSize  = lb.length
-                          ? Math.round(lb.reduce((s,e)=>s+(parseFloat(e.accountSize)||0),0) / lb.length)
+  const entriesWithSize = lb.filter(e => parseFloat(e.accountSize) > 0);
+  const avgAccountSize  = entriesWithSize.length
+                          ? Math.round(entriesWithSize.reduce((s,e)=>s+(parseFloat(e.accountSize)||0),0) / entriesWithSize.length)
                           : 0;
 
   // ── Stat Cards ───────────────────────────────────────────────
@@ -5426,9 +5427,9 @@ function renderTracker() {
       <div class="tk-delta up">▲ Earned from firms</div>
     </div>
     <div class="tracker-card">
-      <div class="tk-val">$${avgAccountSize >= 1000 ? (avgAccountSize/1000).toFixed(0)+'K' : avgAccountSize}</div>
+      <div class="tk-val">${avgAccountSize > 0 ? '$'+(avgAccountSize >= 1000 ? (avgAccountSize/1000).toFixed(0)+'K' : avgAccountSize) : '—'}</div>
       <div class="tk-lbl">Avg Account Size</div>
-      <div class="tk-delta">Across all challenges</div>
+      <div class="tk-delta" style="font-size:10px">${avgAccountSize > 0 ? 'Across all challenges' : 'Edit entry to set account size'}</div>
     </div>`;
 
   // ── Equity Curve: cumulative net P&L over time ───────────────
@@ -5482,12 +5483,16 @@ function renderTracker() {
     const payouts  = (e.payouts||[]).reduce((s,p)=>s+(parseFloat(p.amount)||0),0);
     const fee      = parseFloat(e.fee)||0;
     const pnl      = payouts - fee;
-    const acct     = e.accountSize ? '$'+(parseFloat(e.accountSize)/1000).toFixed(0)+'K' : '—';
+    const acctSize = parseFloat(e.accountSize) || 0;
+    const acct     = acctSize ? '$'+(acctSize/1000).toFixed(0)+'K' : '—';
+    const pctReturn = acctSize > 0 && payouts > 0
+      ? ((payouts / acctSize) * 100).toFixed(1) + '%'
+      : acctSize > 0 ? '0%' : '<span style="font-size:10px;color:var(--muted2)">Set acct size</span>';
     return `<tr>
       <td>${(e.purchaseDate||e.createdAt||'—').slice(0,10)}</td>
       <td><strong>${firmName}</strong></td>
       <td style="color:${pnl>=0?'var(--green)':'var(--red)'}"><strong>${pnl>=0?'+':''}$${Math.abs(pnl).toLocaleString()}</strong></td>
-      <td>${acct}</td>
+      <td style="color:${parseFloat(pctReturn)>0?'var(--green)':'var(--muted)'}">${pctReturn}</td>
       <td>${statusMap[e.status] || e.status || '—'}</td>
     </tr>`;
   }).join('');
@@ -6773,12 +6778,23 @@ async function saveLogbookEntry() {
   const fee=parseFloat(document.getElementById('lbFee').value)||0;
   if(!firmId){alert('Please select a firm.');return;}
   if(fee<=0){alert('Please enter a valid fee amount.');return;}
+  // Read accountSize from button selection OR hidden input OR custom input
+  const accountSize = String(
+    _lbSelectedSize ||
+    document.getElementById('lbAccountSizeCustom').value ||
+    document.getElementById('lbAccountSize').value ||
+    ''
+  );
+  const plan = document.getElementById('lbPlan').value;
+  const purchaseDate = document.getElementById('lbPurchaseDate').value;
+  const status = document.getElementById('lbStatus').value || _lbSelectedStatus || 'evaluation';
+  const notes = document.getElementById('lbNotes').value.trim();
   const data=lbData();
   if(_editingLbId){
     const lb=data.find(d=>d.id===_editingLbId);
-    if(lb){lb.firmId=firmId;lb.firmName=firmName;lb.plan=document.getElementById('lbPlan').value;lb.accountSize=document.getElementById('lbAccountSize').value;lb.fee=fee;lb.purchaseDate=document.getElementById('lbPurchaseDate').value;lb.status=document.getElementById('lbStatus').value;lb.notes=document.getElementById('lbNotes').value.trim();}
+    if(lb){lb.firmId=firmId;lb.firmName=firmName;lb.plan=plan;lb.accountSize=accountSize;lb.fee=fee;lb.purchaseDate=purchaseDate;lb.status=status;lb.notes=notes;}
   } else {
-    data.unshift({id:'lb_'+Date.now(),firmId,firmName,plan:document.getElementById('lbPlan').value,accountSize:document.getElementById('lbAccountSize').value,fee,purchaseDate:document.getElementById('lbPurchaseDate').value,status:document.getElementById('lbStatus').value,notes:document.getElementById('lbNotes').value.trim(),payouts:[],createdAt:new Date().toISOString()});
+    data.unshift({id:'lb_'+Date.now(),firmId,firmName,plan,accountSize,fee,purchaseDate,status,notes,payouts:[],createdAt:new Date().toISOString()});
   }
   lbSave(data);
   closeLogbookModal();
