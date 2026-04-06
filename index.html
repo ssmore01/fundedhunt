@@ -9633,7 +9633,7 @@ async function migrateLocalDataToSupabase(userId) {
 
 // ── Sync: Save logbook entry to Supabase ──────────────────────
 async function syncLogbookEntryToSupabase(entry) {
-  if (!_currentUser) return;
+  if (!_currentUser) { console.warn('syncLogbook: no user'); return; }
   try {
     const payload = {
       user_id:      _currentUser.id,
@@ -9648,16 +9648,16 @@ async function syncLogbookEntryToSupabase(entry) {
       updated_at:   new Date().toISOString(),
     };
 
+    console.log('Saving logbook entry to Supabase:', payload);
+
     let result;
     if (entry.supaId) {
-      // Update existing entry
       result = await supa.from('logbook_entries')
         .update(payload)
         .eq('id', entry.supaId)
         .eq('user_id', _currentUser.id)
         .select();
     } else {
-      // Insert new entry
       result = await supa.from('logbook_entries')
         .insert(payload)
         .select();
@@ -9665,17 +9665,20 @@ async function syncLogbookEntryToSupabase(entry) {
 
     const { data: saved, error } = result;
     if (error) {
-      console.warn('Logbook save error:', error.message);
+      console.error('❌ Logbook save FAILED:', error.code, error.message, error.details, error.hint);
+      toast('Save failed: ' + error.message, '❌', 'error');
     } else if (saved && saved[0]) {
-      // Store supaId back into localStorage entry
+      console.log('✅ Logbook saved, supaId:', saved[0].id);
       const all = lbData();
       const idx = all.findIndex(e => e.id === entry.id);
       if (idx >= 0 && !all[idx].supaId) {
         all[idx].supaId = saved[0].id;
         lsSetJSON('lb_challenges', all);
       }
+    } else {
+      console.warn('⚠️ Logbook save returned no data — RLS may be blocking');
     }
-  } catch(e) { console.warn('Logbook save exception:', e); }
+  } catch(e) { console.error('Logbook save exception:', e); }
 }
 
 async function loadLogbookFromSupabase() {
@@ -9763,9 +9766,15 @@ async function syncPayoutToSupabase(logbookLocalId, payout) {
       return;
     }
 
+    // Get trader display name from profile
+    const traderName = (await supa.from('profiles').select('display_name').eq('id', _currentUser.id).single())?.data?.display_name || _currentUser.email?.split('@')[0] || 'Anonymous';
+    const firmName = lb?.firmName || lb?.firmId || 'Unknown';
+
     const { data: inserted, error } = await supa.from('payout_records').insert({
       user_id:        _currentUser.id,
       logbook_id:     supaLogbookId,
+      trader_name:    traderName,
+      firm_name:      firmName,
       amount:         parseFloat(payout.amount) || 0,
       date_received:  payout.date || null,
       payment_method: payout.method || null,
