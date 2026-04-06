@@ -4712,7 +4712,15 @@ function nav(panelId) {
   if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
-  if (panelId==='tracker') { if(_currentUser) loadLogbookFromSupabase().then(()=>renderTracker()); else renderTracker(); }
+  if (panelId==='tracker') {
+    if(_currentUser) {
+      loadLogbookFromSupabase().then(() => {
+        renderTracker();
+      });
+    } else {
+      renderTracker();
+    }
+  }
   if (panelId==='quiz') initQuiz();
   if (panelId==='legal') initLegalPanel();
   if(window.innerWidth <= 768) closeSidebar();
@@ -6759,7 +6767,7 @@ function openEditLogbook(id) {
 
 function closeLogbookModal(){document.getElementById('overlay-logbook-modal').classList.remove('open');document.body.style.overflow='';}
 
-function saveLogbookEntry() {
+async function saveLogbookEntry() {
   const firmId=document.getElementById('lbFirmSel').value;
   const firmName=firmId==='other'?document.getElementById('lbFirmOtherName').value.trim():'';
   const fee=parseFloat(document.getElementById('lbFee').value)||0;
@@ -6772,11 +6780,13 @@ function saveLogbookEntry() {
   } else {
     data.unshift({id:'lb_'+Date.now(),firmId,firmName,plan:document.getElementById('lbPlan').value,accountSize:document.getElementById('lbAccountSize').value,fee,purchaseDate:document.getElementById('lbPurchaseDate').value,status:document.getElementById('lbStatus').value,notes:document.getElementById('lbNotes').value.trim(),payouts:[],createdAt:new Date().toISOString()});
   }
-  lbSave(data); closeLogbookModal();
-  // Sync to Supabase if logged in
+  lbSave(data);
+  closeLogbookModal();
+  // AWAIT Supabase sync so supaId is stored before any payout can be linked
   const savedEntry = data.find(d=>d.id===(_editingLbId||data[0].id));
-  if(savedEntry) syncLogbookEntryToSupabase(savedEntry);
+  if(savedEntry && _currentUser) await syncLogbookEntryToSupabase(savedEntry);
   trackEvent('logbook_entry_saved', {firmId: firmId});
+  renderLogbook();
 }
 
 let _payoutTargetId=null;
@@ -6796,22 +6806,32 @@ function closePayoutModal(){
   resetPayoutModalBtn();
 }
 
-function savePayoutEntry() {
+async function savePayoutEntry() {
   const amount=parseFloat(document.getElementById('lbPayoutAmount').value);
   if(!amount||amount<=0){alert('Enter a valid payout amount.');return;}
   const data=lbData(); const lb=data.find(d=>d.id===_payoutTargetId); if(!lb) return;
-  const payoutEntry={amount,date:document.getElementById('lbPayoutDate').value,note:document.getElementById('lbPayoutNote').value.trim()};
+
+  // Get payment method from selected button
+  const methodBtn = document.querySelector('.lb-method-btn.selected');
+  const method = methodBtn?.dataset?.method || '';
+
+  const payoutEntry={
+    amount,
+    date: document.getElementById('lbPayoutDate').value,
+    note: document.getElementById('lbPayoutNote').value.trim(),
+    method,
+  };
   lb.payouts.push(payoutEntry);
   if(lb.status==='evaluation'||lb.status==='passed') lb.status='funded';
   lbSave(data);
-  // Push to live community payout feed
-  pushToPayoutFeed(lb, payoutEntry);
-  syncPayoutToSupabase(lb.id, payoutEntry);
-  trackEvent('payout_logged', {amount: payoutEntry.amount, firmId: lb.firmId});
   closePayoutModal();
   renderLogbook();
-  // Re-render tracker if open so stats update immediately
   if(state.currentPanel === 'tracker') renderTracker();
+  // Push to community feed
+  pushToPayoutFeed(lb, payoutEntry);
+  // Await Supabase sync so supaPayoutId is stored back
+  await syncPayoutToSupabase(lb.id, payoutEntry);
+  trackEvent('payout_logged', {amount: payoutEntry.amount, firmId: lb.firmId});
   toast('Payout saved! 💰','💰','success');
 }
 
@@ -9361,10 +9381,9 @@ async function onUserLoggedIn(user) {
 
   // Load logbook from Supabase to sync across devices
   await loadLogbookFromSupabase();
-  // Refresh tracker if it's currently open
+  // loadLogbookFromSupabase already calls renderLogbook + updateLogbookBadge
+  // Also refresh tracker if that panel is currently open
   if(state.currentPanel === 'tracker') renderTracker();
-  // Refresh logbook badge
-  updateLogbookBadge();
 }
 
 // ── When user logs out ─────────────────────────────────────────
@@ -9662,7 +9681,7 @@ async function syncLogbookEntryToSupabase(entry) {
 async function loadLogbookFromSupabase() {
   if (!_currentUser) return;
   try {
-    // Load logbook entries
+    // Step 1: Load logbook entries from Supabase
     const { data, error } = await supa
       .from('logbook_entries')
       .select('*')
@@ -9671,15 +9690,7 @@ async function loadLogbookFromSupabase() {
 
     if (error) { console.warn('Logbook load error:', error.message); return; }
 
-    lsSetJSON('lb_challenges', []);
-
-    if (!data || data.length === 0) {
-      renderLogbook();
-      updateLogbookBadge();
-      return;
-    }
-
-    // Also load all payouts for this user from payout_records
+    // Step 2: Load all payouts for this user
     let payoutMap = {};
     try {
       const { data: payoutData } = await supa
@@ -9690,28 +9701,40 @@ async function loadLogbookFromSupabase() {
 
       if (payoutData) {
         payoutData.forEach(p => {
+          // Match by logbook_id (Supabase UUID)
           const key = p.logbook_id;
+          if (!key) return; // skip orphaned payouts
           if (!payoutMap[key]) payoutMap[key] = [];
-          payoutMap[key].push({
-            supaPayoutId: p.id,
-            amount: parseFloat(p.amount) || 0,
-            date: p.date_received || '',
-            method: p.payment_method || '',
-            note: p.note || '',
-          });
+          // Avoid duplicates by supaPayoutId
+          if (!payoutMap[key].find(x => x.supaPayoutId === p.id)) {
+            payoutMap[key].push({
+              supaPayoutId: p.id,
+              amount: parseFloat(p.amount) || 0,
+              date: p.date_received || '',
+              method: p.payment_method || '',
+              note: p.note || '',
+            });
+          }
         });
       }
     } catch(e) { console.warn('Payout load error:', e); }
 
-    // Convert Supabase format back to local format, merging payouts
+    // Step 3: Build merged entries — only NOW overwrite localStorage
+    if (!data || data.length === 0) {
+      lsSetJSON('lb_challenges', []);
+      renderLogbook();
+      updateLogbookBadge();
+      return;
+    }
+
     const entries = data.map(r => ({
       id: 'lb_' + r.id,
       supaId: r.id,
       firmId: r.firm_id || '',
       firmName: r.firm_name || '',
       plan: r.plan || '',
-      accountSize: r.account_size || '',
-      fee: r.fee || 0,
+      accountSize: r.account_size ? String(r.account_size) : '',
+      fee: parseFloat(r.fee) || 0,
       purchaseDate: r.purchase_date || '',
       status: r.status || 'evaluation',
       notes: r.notes || '',
@@ -9719,6 +9742,7 @@ async function loadLogbookFromSupabase() {
       createdAt: r.created_at || new Date().toISOString(),
     }));
 
+    // Step 4: Write complete merged data, then render
     lsSetJSON('lb_challenges', entries);
     renderLogbook();
     updateLogbookBadge();
@@ -9733,6 +9757,11 @@ async function syncPayoutToSupabase(logbookLocalId, payout) {
     const all = lbData();
     const lb = all.find(e => e.id === logbookLocalId);
     const supaLogbookId = lb?.supaId || null;
+
+    if (!supaLogbookId) {
+      console.warn('syncPayoutToSupabase: no supaId for logbook entry, aborting');
+      return;
+    }
 
     const { data: inserted, error } = await supa.from('payout_records').insert({
       user_id:        _currentUser.id,
