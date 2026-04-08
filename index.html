@@ -9016,8 +9016,7 @@ function renderTicker(data) {
       const dateStr = p.submitted_at || p.created_at;
       const daysAgo = dateStr ? Math.floor((Date.now()-new Date(dateStr))/86400000) : 0;
       const timeStr = daysAgo===0?'Today':daysAgo===1?'Yesterday':daysAgo+' days ago';
-      const name = p.trader_name ? p.trader_name + ' ' : 'A trader ';
-      return `${emoji} <strong>${p.firm_name||'Prop Firm'}</strong> — ${name}received <span class="up">$${Number(p.amount).toLocaleString()}</span> · ${timeStr}`;
+      return `${emoji} <strong>${p.firm_name||'Prop Firm'}</strong> — A trader received <span class="up">$${Number(p.amount).toLocaleString()}</span> · ${timeStr}`;
     });
   } else {
     items = [
