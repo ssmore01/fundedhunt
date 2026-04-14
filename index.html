@@ -622,7 +622,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <span class="sb-label">Firms</span>
       <div class="sb-item" data-panel="firms" onclick="nav('firms')">
         <span class="ico">🏦</span> All Firms
-        <span class="badge">30</span>
+        <span class="badge">31</span>
       </div>
       <div class="sb-item" data-panel="challenges" onclick="nav('challenges')">
         <span class="ico">📋</span> Challenges
@@ -777,7 +777,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       </div>
 
       <div class="stat-row">
-        <div class="stat-chip"><div class="val">30+</div><div class="lbl">Firms Compared</div></div>
+        <div class="stat-chip"><div class="val">31+</div><div class="lbl">Firms Compared</div></div>
         <div class="stat-chip"><div class="val" id="statPayouts">$2.4M+</div><div class="lbl">Paid Today</div></div>
         <div class="stat-chip"><div class="val">100%</div><div class="lbl">Free Platform</div></div>
         <div class="stat-chip"><div class="val">⭐ Real</div><div class="lbl">Reward Points</div></div>
@@ -803,7 +803,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   <div class="panel" id="panel-firms">
     <div class="panel-inner">
       <div class="panel-head">
-        <h1>🏦 All 30 Funded Hunts</h1>
+        <h1>🏦 All 31 Funded Hunts</h1>
         <p>Every firm vetted, rated, and matched to your style. Discount codes included.</p>
       </div>
       <div class="filter-bar">
@@ -3013,7 +3013,7 @@ const FIRMS=[{id:'funding-pips',
 },{id:'funded-trading-plus',
   website:'fundedtradingplus.com',
   rating:4.7,reviewCount:2400,
-  discount:'20% OFF (up to $100K)',discountCode:'20CHAL',
+  discount:'10% OFF',discountCode:'HUNT',
   badge:'🌍 211K+ Accounts Issued',
   founded:2021,country:'UK',
   logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',
@@ -3027,7 +3027,7 @@ const FIRMS=[{id:'funding-pips',
   phases:'1-Step, 2-Step, or Instant Funding',
   payoutFreq:'Weekly (from Day 0)',
   allowScalping:true,allowNews:true,allowSwing:true,noTimeLimit:true,
-  website:'fundedtradingplus.com',websiteUrl:'https://www.fundedtradingplus.com/',
+  website:'fundedtradingplus.com',websiteUrl:'https://www.fundedtradingplus.com?ref=HUNT',
   challenges:[
     {size:'$10K',plan:'1-Step Express',fee:'$99',target:'10%',daily:'4% balance-based',maxDD:'6% trailing',split:'80%',payout:'Day 0 then weekly',popular:false,scalping:true,news:true,weekend:true},
     {size:'$25K',plan:'1-Step Express',fee:'$199',target:'10%',daily:'4% balance-based',maxDD:'6% trailing',split:'80%',payout:'Day 0 then weekly',popular:false,scalping:true,news:true,weekend:true},
@@ -4549,6 +4549,46 @@ const FIRMS=[{id:'funding-pips',
     '⚠️ 1-minute minimum hold time — restricts ultra-short scalpers',
     '⚠️ Some hidden rule complaints and payout delays reported',
   ]
+},{
+  id:'instant-funding',
+  rating:4.5,reviewCount:4000,
+  discount:'',discountCode:'',
+  badge:'⚡ No Evaluation · Weekly Payouts · 8 Industry Awards',
+  founded:2021,country:'UK',
+  logo:'https://www.google.com/s2/favicons?domain=instantfunding.com&sz=128',
+  name:'Instant Funding',emoji:'⚡',
+  color:'#7270FF',bg:'linear-gradient(135deg,#0A0A1A,#0F0F2A)',
+  tagline:'Since 2021 · 65,000+ Traders · 180+ Countries · Scale to $1.28M · 8 Industry Awards',
+  minCapital:'$625',maxCapital:'$300,000',
+  maxFunding:'$1,280,000',
+  profitSplit:'80–90%',
+  payoutSpeed:'Same Day',
+  payoutFreq:'Weekly (from Day 14)',
+  drawdown:'No Daily Limit | 10% Max',
+  phases:'Instant Funding | One-Phase | Two-Phase | IF Micro | IF1',
+  allowScalping:true,allowNews:true,allowSwing:true,noTimeLimit:true,
+  website:'instantfunding.com',websiteUrl:'https://instantfunding.com/',
+  maxFundedAccounts:'Multiple up to $1.28M scaled',
+  platforms:['MetaTrader 5','cTrader','Match Trader'],
+  instruments:['Forex','Indices','Commodities','Crypto'],
+  leverage:'1:100 Forex | 1:20 Indices | 1:2 Crypto',
+  about:'Instant Funding (Acello Ltd) is a UK-based prop firm founded in 2021 with over 65,000 traders across 180+ countries and $18.2M+ paid out to date. Their signature Instant Funding account requires no profit target — just lock in your Smart Drawdown by reaching 5% profit and start requesting weekly payouts from day 14. Accounts scale up to $1.28M. They also offer One-Phase and Two-Phase challenges with on-demand payouts and up to 90% profit split. Winner of 8 industry awards including Best Prop Firm and Best Customer Support from International Business Magazine UK 2024.',
+  pros:[
+    '✅ No evaluation required on Instant Funding accounts',
+    '✅ $18.2M+ paid out since 2023 — strong payout track record',
+    '✅ Scales to $1.28M on Instant Funding accounts',
+    '✅ 33-second average support response time',
+    '✅ On-demand payouts available on challenge accounts',
+    '✅ 8 industry awards including Best Prop Firm UK 2024',
+    '✅ No daily drawdown limit on Instant Funding accounts',
+    '✅ MT5, cTrader, and Match Trader supported',
+  ],
+  cons:[
+    '⚠️ First payout only available after 14 days on IF accounts',
+    '⚠️ Weekend holding not included by default — requires add-on',
+    '⚠️ Smart Drawdown tightens once 5% profit is reached',
+    '⚠️ Max drawdown drops to 5% after locking Smart Drawdown',
+  ]
 }];
 
 const NEWS_ITEMS=[{tag:'DISCOUNT',tagColor:'#E53E3E',title:'FTMO 10-Year Anniversary Deal',body:'19% off $100K FTMO Challenge. Use code FTMOTPF10 at checkout. Limited time.',code:'FTMOTPF10',firm:'FTMO',date:'2 hours ago'},{tag:'NEWS',tagColor:'#3B82F6',title:'FundedNext hits $158M+ in total payouts',body:'FundedNext announces milestone of $158M paid to traders across 170+ countries.',firm:'FundedNext',date:'1 day ago'},{tag:'DISCOUNT',tagColor:'#E53E3E',title:'Blueberry Funded — Use Code 8836',body:'Use code 8836 for discount on all Blueberry Funded challenges. ASIC-backed.',code:'8836',firm:'Blueberry Funded',date:'3 hours ago'},{tag:'UPDATE',tagColor:'#8B5CF6',title:'Topstep expands to new futures markets',body:'Topstep now supports micro contracts on ES, NQ, and new CL micro futures.',firm:'Topstep',date:'2 days ago'},{tag:'DISCOUNT',tagColor:'#E53E3E',title:'Apex Trader 80% OFF — Limited Sale',body:'Massive discount on Apex Performance Accounts. Code APEXTPF80.',code:'APEXTPF80',firm:'Apex Trader Funding',date:'5 hours ago'},{tag:'NEWS',tagColor:'#1DB954',title:'The 5%ers reaches 9 years of operation',body:'One of the oldest prop firms celebrates 9 years and $100M+ in trader payouts.',firm:'The 5%ers',date:'1 week ago'}];
@@ -4672,7 +4712,7 @@ let state = {
 const PANEL_TITLES = {
   home:['Dashboard','Welcome to Funded Hunt'],
   quiz:['Find My Firm','AI-powered matching'],
-  firms:['All Firms','30 vetted prop firms'],
+  firms:['All Firms','31 vetted prop firms'],
   challenges:['Challenges','Every plan, every firm'],
   compare:['Firm Comparison','Side-by-side analysis'],
   trust:['Trust Radar','AI trust scores'],
@@ -6633,6 +6673,7 @@ const KNOWN_FIRMS = [
   {id:'atfunded',name:'ATFunded',emoji:'🔷'},
   {id:'lark-funding',name:'Lark Funding',emoji:'🐦'},
   {id:'pipstone-capital',name:'Pipstone Capital',emoji:'🪨'},
+  {id:'instant-funding',name:'Instant Funding',emoji:'⚡'},
   {id:'other',name:'Other Firm',emoji:'🏢'}
 ];
 
@@ -9238,7 +9279,7 @@ function showQuizResults() {
       }).join('')}
       <div style="text-align:center;margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
         <button class="btn btn-outline" onclick="initQuiz()">← Retake Quiz</button>
-        <button class="btn btn-gold" onclick="nav('firms')">Browse All 30 Firms →</button>
+        <button class="btn btn-gold" onclick="nav('firms')">Browse All 31 Firms →</button>
       </div>
     </div>`;
   awardPoints(25,'AI quiz completed');
@@ -10637,7 +10678,7 @@ const BLOG_POSTS=[
       <h3>A Word on Patience</h3>
       <p>The hardest discipline of all in trading is not about cutting losses or following setups. It is about waiting. Waiting for the market to come to you. Waiting for the setup that truly meets your criteria instead of the one that almost does. Patience is discipline applied to time. And it is the rarest quality in trading.</p>
       <div class="pull-quote">"Stop measuring yourself by how much you traded. Start measuring yourself by how well you traded."</div>
-      <div class="blog-verdict-box"><h3>Your Discipline Got You Here</h3><p>When your discipline is built and your edge is proven, the only thing standing between you and a real trading income is capital. That is what prop firms give you. Compare 30 prop firms honestly at <a href="https://www.fundedhunt.com" style="color:var(--gold)">fundedhunt.com</a> — no paid rankings, no hidden agendas. 🐾</p></div>
+      <div class="blog-verdict-box"><h3>Your Discipline Got You Here</h3><p>When your discipline is built and your edge is proven, the only thing standing between you and a real trading income is capital. That is what prop firms give you. Compare 31 prop firms honestly at <a href="https://www.fundedhunt.com" style="color:var(--gold)">fundedhunt.com</a> — no paid rankings, no hidden agendas. 🐾</p></div>
     </div>`
 },{
   id:'honest-truth-about-building-trading-career',
@@ -10700,7 +10741,7 @@ const BLOG_POSTS=[
     <p>It is also one of the most rewarding things you can build for yourself. Complete autonomy. No ceiling on income. The ability to work from anywhere. A skill that does not expire and does not depend on someone else deciding what you are worth.</p>
     <p>The traders who eventually make it always look back on their worst periods as the most formative. The months of losses that forced them to fix the real problem. The blown accounts that finally taught them to respect risk. If you are in one of those periods right now, stay in the game. The breakthrough almost always comes just on the other side of the point where most people stop.</p>
 
-    <p>When you are ready to take your trading to the next level with a funded account, visit us at <strong>www.fundedhunt.com</strong> — we compare 30 prop firms honestly so you can find the right firm for your trading style. 🐾</p>
+    <p>When you are ready to take your trading to the next level with a funded account, visit us at <strong>www.fundedhunt.com</strong> — we compare 31 prop firms honestly so you can find the right firm for your trading style. 🐾</p>
 
     </div>
   `
@@ -11043,7 +11084,7 @@ function openBlogPost(id){
     </div>
     <div class="blog-sidebar-cta" style="margin-top:20px;">
       <h4>Find Your Firm 🎯</h4>
-      <p>Compare 30 prop firms honestly. Trust scores, verified payouts, discount codes — free.</p>
+      <p>Compare 31 prop firms honestly. Trust scores, verified payouts, discount codes — free.</p>
       <a href="#" onclick="nav('firms');return false;">Compare Firms →</a>
     </div>`;
   wrap.appendChild(sidebar);
