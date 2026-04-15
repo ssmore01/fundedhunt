@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Consistency Rule in Prop Trading — What It Is, How It Works | FundedHunt</title>
+  <meta name="description" content="Most traders ignore the consistency rule until it costs them a payout. Learn exactly what it is, how the 30% rule works with real numbers, and the precise precautions every prop trader must take.">
+  <meta name="keywords" content="consistency rule prop firm, prop firm consistency rule, 30 percent rule prop trading, funded account consistency, prop trading rules, FundedHunt">
+  <meta name="author" content="FundedHunt">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.fundedhunt.com/consistency-rule-prop-firm-trading">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Consistency Rule in Prop Trading — What It Is, How It Works">
+  <meta property="og:description" content="Most traders ignore the consistency rule until it costs them a payout. Learn exactly what it is, how the 30% rule works, and how to protect your account.">
+  <meta property="og:url" content="https://www.fundedhunt.com/consistency-rule-prop-firm-trading">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80">
+  <meta property="og:site_name" content="FundedHunt">
+  <meta property="article:published_time" content="2026-04-15">
+  <meta property="article:author" content="FundedHunt">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@fundedhunt">
+  <meta name="twitter:title" content="The Consistency Rule in Prop Trading — What It Is, How It Works">
+  <meta name="twitter:description" content="Most traders ignore the consistency rule until it costs them a payout. Learn exactly what it is and how to avoid getting burned.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80">
+
+  <!-- Schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Consistency Rule in Prop Trading — What It Is, How It Works, and What Every Trader Must Know",
+    "description": "Most traders focus on profit targets and drawdown limits. They completely ignore the one rule that quietly disqualifies thousands of payouts every month — the consistency rule.",
+    "image": "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80",
+    "datePublished": "2026-04-15",
+    "dateModified": "2026-04-15",
+    "author": {
+      "@type": "Organization",
+      "name": "FundedHunt",
+      "url": "https://www.fundedhunt.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FundedHunt",
+      "url": "https://www.fundedhunt.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.fundedhunt.com/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.fundedhunt.com/consistency-rule-prop-firm-trading"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #F5C518;
+      --gold2: #C8A84B;
+      --bg: #0C0C0E;
+      --bg2: #111114;
+      --bg3: #18181C;
+      --bg4: #1E1E24;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(245,197,24,0.2);
+      --gold-dim: rgba(245,197,24,0.10);
+      --text: #F0F0F4;
+      --muted: #72728A;
+      --green: #1DB954;
+      --red: #E53E3E;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12,12,14,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--gold);
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold2); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,12,14,1) 0%, rgba(12,12,14,0.6) 50%, rgba(12,12,14,0.2) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px 40px;
+      max-width: 900px;
+    }
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 4px 14px;
+      display: inline-block;
+    }
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      margin-top: 56px;
+      margin-bottom: 80px;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body p {
+      margin-bottom: 20px;
+      color: #D0D0DC;
+      font-size: 15.5px;
+      line-height: 1.8;
+    }
+    .article-body h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      margin: 40px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(245,197,24,0.2);
+    }
+    .article-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 16px 24px;
+      margin: 28px 0;
+      background: var(--gold-dim);
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .truth-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .truth-box .tb-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .truth-box p {
+      margin: 0 !important;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .verdict-box {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin: 40px 0 0;
+    }
+    .verdict-box h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+    .verdict-box p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 !important;
+    }
+    .verdict-box a { color: var(--gold); }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 80px; align-self: start; }
+    .sidebar-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    .sidebar-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .toc-item {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .toc-item:last-child { border-bottom: none; }
+    .toc-item:hover { color: var(--gold); }
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .share-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .cta-box {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .cta-box .emoji { font-size: 36px; margin-bottom: 12px; }
+    .cta-box h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .cta-box p { font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+    .cta-btn {
+      display: block;
+      background: var(--gold);
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--gold2); }
+
+    /* ── BACK & BREADCRUMB ── */
+    .breadcrumb {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: var(--muted2); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin: 12px 0; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 11px; color: var(--muted); margin-top: 10px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-wrap { grid-template-columns: 1fr; gap: 32px; padding: 0 20px; }
+      .sidebar { position: static; }
+      .hero { height: 340px; }
+      .hero-overlay { padding: 32px 20px; }
+      .nav { padding: 0 20px; }
+      .breadcrumb { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="https://www.fundedhunt.com" class="nav-brand">Funded<span>Hunt</span></a>
+    <div class="nav-right">
+      <a href="https://www.fundedhunt.com" class="nav-link">Home</a>
+      <a href="https://www.fundedhunt.com" class="nav-link">Compare Firms</a>
+      <a href="https://www.fundedhunt.com" class="nav-cta">Compare Firms →</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="https://www.fundedhunt.com">Home</a>
+    <span>›</span>
+    <a href="https://www.fundedhunt.com">Blog</a>
+    <span>›</span>
+    <span>Consistency Rule in Prop Trading</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1400&q=85" alt="Consistency rule in prop firm trading — charts and rules">
+    <div class="hero-overlay">
+      <div class="hero-tag">Prop Firm Rules · Risk Management · Trading Psychology</div>
+      <div class="hero-title">The Consistency Rule in Prop Trading — What It Is, How It Works, and What Every Trader Must Know</div>
+      <div class="hero-meta">
+        <span>📅 April 15, 2026</span>
+        <span>⏱ 15 min read</span>
+        <span>✍️ FundedHunt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrap">
+
+    <!-- ARTICLE -->
+    <article class="article-body">
+
+      <p>You passed the challenge. You got funded. You hit your profit target. You requested a payout — and the firm denied it.</p>
+      <p>Not because you broke a drawdown rule. Not because you traded during news. Not because of any technicality you had heard about. The firm said your trading was inconsistent and they could not approve the withdrawal.</p>
+      <p>This happens more than most people admit. And the rule responsible for it — the consistency rule — is one of the most misunderstood, most underestimated rules in all of prop trading. If you are serious about getting funded and staying funded, you need to understand this rule completely before you trade a single lot on an evaluation account.</p>
+
+      <h2>What Is the Consistency Rule?</h2>
+      <p>The consistency rule is a condition that some prop firms impose on traders requiring that no single trading day accounts for a disproportionately large percentage of the trader's total profit. The exact threshold varies by firm, but the most common version is the <strong>30% rule</strong> — meaning your best single day cannot be responsible for more than 30% of your total net profit at the time of payout.</p>
+      <p>In plain language: if you made $10,000 in total profit across your funded account, and $4,000 of that came from one exceptional trading day, you have likely violated the consistency rule. Even if every other metric looks perfect.</p>
+      <div class="pull-quote">"The consistency rule is not about how much you made. It is about whether any single day made too much of it."</div>
+      <p>The logic behind it is straightforward from the firm's perspective. They are not looking to fund a trader who got lucky once and parlayed a single aggressive session into a payout. They want proof that you can generate returns consistently over time — that your performance is repeatable, not fluky.</p>
+
+      <h2>Which Firms Use the Consistency Rule?</h2>
+      <p>Not every prop firm enforces a formal consistency rule. This is one of the most important distinctions you need to make when choosing a firm.</p>
+      <p>Firms like <strong>FundingPips</strong> have a well-known consistency rule built into their model — your best day cannot exceed 30% of your total profit. <strong>FTMO</strong> does not have a strict numerical consistency rule but does review trading behaviour during payouts and may flag accounts with highly irregular performance. Many newer firms are now adding consistency requirements as part of their payout review process even if they are not explicitly listed in the rules.</p>
+      <div class="truth-box"><div class="tb-label">Critical Point</div><p>Even if a firm does not call it a "consistency rule," many firms retain the right to review your trading and deny payouts if they determine your results are not based on consistent, repeatable performance. Always read the full terms and conditions, not just the headline metrics.</p></div>
+      <p>Before you choose a firm, search their terms specifically for words like "consistency," "proportional," "best trading day," and "repeatable performance." If these words appear, understand what threshold they are applying before you pay for any evaluation.</p>
+
+      <h2>How the 30% Rule Works — With Real Numbers</h2>
+      <p>Let us make this concrete. Say you are on a $100,000 funded account with a 10% profit target, meaning you need to make $10,000 to hit the target. Here is how the 30% consistency rule plays out in practice.</p>
+      <p><strong>Scenario 1 — You pass cleanly:</strong> Over 20 trading days, you make between $400 and $600 per day. Your best day is $650. Your total profit is $10,200. Your best day as a percentage of total profit is 6.4%. No consistency issue. Payout approved.</p>
+      <p><strong>Scenario 2 — You fail silently:</strong> You struggle for three weeks, making small profits and small losses. Then one day everything clicks. You catch a massive move, trade with full size, and make $4,500 in a single session. Your remaining days bring the total to $10,100. Your best day is 44.5% of your total profit. Consistency rule violated. Payout denied.</p>
+      <p><strong>Scenario 3 — The grey zone:</strong> You have a $3,200 day on a total profit of $10,500. That is 30.5%. Depending on the firm's exact wording — whether it is strictly greater than 30% or at least 30% — this may or may not be flagged. This grey zone is where traders get burned most often because they assumed they were safe.</p>
+      <div class="pull-quote">"A great trade that is too large relative to everything else is not a great trade. It is a problem."</div>
+
+      <h2>Why Firms Have This Rule — The Real Reason</h2>
+      <p>Understanding why the rule exists helps you follow it with the right mindset rather than treating it like an arbitrary obstacle.</p>
+      <p>Prop firms are not casinos. They are not hoping you lose. The successful business model for a legitimate prop firm is finding traders who can generate consistent, manageable returns that the firm profits from over a long period. A trader who produces steady 3–5% monthly returns is far more valuable to a prop firm than a trader who makes 20% in a week and then blows up the next month.</p>
+      <p>The consistency rule is designed to filter out a specific type of trader: the gambler who manages to win big once. This trader will eventually destroy the account — the data shows it clearly. By requiring consistent performance, firms protect themselves from funding traders whose results are not based on a repeatable edge.</p>
+      <div class="truth-box"><div class="tb-label">The Real Reason</div><p>From your perspective, this is actually a useful filter too. If you cannot make money consistently across multiple days without relying on one or two exceptional sessions, that is important information about your trading. The rule forces you to confront that reality before you request a payout and get disappointed.</p></div>
+
+      <h2>The Biggest Mistakes Traders Make With the Consistency Rule</h2>
+      <p><strong>Mistake 1 — Not knowing the rule exists.</strong> This sounds obvious but it is the most common failure. Traders pay for an evaluation, study the drawdown rules and profit targets, and completely skip the fine print around consistency. They trade normally, have one great session, and discover the rule only after their payout is denied.</p>
+      <p><strong>Mistake 2 — Upsizing after a losing streak.</strong> A trader has a rough two weeks. Losses are piling up. They are behind on their target with time running out. So they increase their position size dramatically for the next session, catch a good move, and make back everything in one day — and more. The P&L looks fine. The consistency calculation does not.</p>
+      <p><strong>Mistake 3 — Not tracking the percentage daily.</strong> You cannot manage what you do not measure. Traders who are subject to a consistency rule need to calculate their best day as a percentage of total profit at the end of every single trading session. This is not complicated — it is just arithmetic — but most traders do not do it.</p>
+      <p><strong>Mistake 4 — Assuming a great day is always a good thing.</strong> In normal trading, having your best day ever is a reason to celebrate. In a consistency-rule account, it can be a warning signal. You need to immediately check whether that exceptional session has pushed you dangerously close to or past the threshold.</p>
+      <div class="truth-box"><div class="tb-label">The Hard Truth</div><p>A single exceptional day that violates the consistency rule will erase every week of disciplined, patient trading you did before it. The rule does not care that you were responsible for 19 days. It only cares about the ratio.</p></div>
+
+      <h2>What Precautions Should You Take?</h2>
+      <p><strong>Know your number before you start trading.</strong> Calculate your maximum allowable single-day profit before you open the platform each morning. The formula: take your current total net profit, divide by 0.70 (if the rule is 30%), and subtract your current total profit. That is the maximum you should aim to make today without creating a consistency problem. If your total profit is $6,000 and the rule is 30%, your maximum single-day profit without breaching the rule is roughly $2,571.</p>
+      <p><strong>Keep position sizing consistent throughout the account.</strong> This is the most reliable way to prevent a single day from dominating your results. If you trade 0.5 lots on a $50K account, trade 0.5 lots every session. Do not size up because a setup looks exceptional. Consistent sizing produces consistent daily results.</p>
+      <p><strong>Set a daily profit cap and honour it.</strong> Decide before the session what you will do if you hit a large profit quickly. Have a rule: if I make more than X amount in a single session, I close the platform for the day. This is not leaving money on the table — it is protecting the account and protecting your payout.</p>
+      <p><strong>Monitor your consistency ratio after every session.</strong> Build the habit of calculating (best day profit ÷ total profit) × 100 at the end of every trading day. Keep this number visible. If it starts approaching 25%, that is your warning signal to be more conservative until your total profit grows and naturally dilutes the impact of your best day.</p>
+      <p><strong>Spread your trading across multiple sessions rather than concentrating it.</strong> A trader who makes $500 a day across 20 days will almost never have a consistency problem. A trader who makes nothing for two weeks and then $5,000 in two sessions will almost always have one.</p>
+      <p><strong>Read the rules of each specific firm carefully.</strong> Consistency rules vary. Some are exactly 30%. Some are 40%. Some firms apply the rule during the evaluation phase, some only at payout time, some at both stages. Some firms clearly publish the rule; others bury it in their terms. Know what applies to your account before you trade a single position.</p>
+
+      <h2>What Happens If You Violate the Consistency Rule?</h2>
+      <p>The consequences depend on the firm and when the violation is detected. In most cases, the firm will deny the payout request and ask you to continue trading until your overall profit distribution becomes more balanced — meaning you need to continue making money in smaller, more evenly distributed amounts until the proportion from your best day drops below the threshold.</p>
+      <p>In some firms, a consistency rule violation at the evaluation stage means a challenge reset or failure. In others, it only affects the payout approval on funded accounts. Again — read the specific terms for your firm.</p>
+      <p>What firms rarely do is give you a warning mid-challenge. The rule is applied at the point of review. By the time you find out you violated it, the damage is already done.</p>
+
+      <h2>Firms That Do Not Have a Consistency Rule</h2>
+      <p>If the consistency rule feels too restrictive for your trading style — particularly if you are a swing trader or someone who naturally has irregular but profitable sessions — there are firms that do not apply this rule at all.</p>
+      <p>FTMO, Blue Guardian, Funded Trading Plus, and several newer firms operate without strict consistency thresholds. If you trade in a style that produces uneven daily returns by nature — fewer but larger winning trades — choosing a firm without a consistency rule is the smarter decision.</p>
+      <div class="pull-quote">"Choosing the right firm is not about which has the best profit split. It is about which firm's rules match your actual trading behaviour."</div>
+
+      <h2>The Deeper Lesson Behind the Rule</h2>
+      <p>If you step back from the mechanics, the consistency rule is teaching you something about what professional trading actually looks like. Professionals do not rely on one spectacular session to define their month. They do not swing for maximum profit on any single day. They manage risk carefully, take setups consistently, and let their edge play out over a large sample of trades.</p>
+      <p>The traders who find the consistency rule most restrictive are usually the traders who have not yet developed a truly systematic edge. They are relying on reading the market well on good days and hoping for more good days. That is not an edge — it is a style. And styles do not scale.</p>
+      <p>The traders who never have to worry about the consistency rule are the ones trading with fixed position sizing, defined setups, and a clear risk per trade. Their daily results naturally stay within a normal distribution because their process is consistent. The rule does not constrain them — it validates what they are already doing.</p>
+
+      <div class="verdict-box">
+        <h3>Understand the Rules Before You Trade</h3>
+        <p>The consistency rule is not designed to trick you. It is designed to ensure that funded accounts go to traders who genuinely deserve them — traders whose profits come from a real, repeatable edge rather than a single lucky session. Understand the specific rules of every firm you trade before you spend a rupee on an evaluation fee. Compare all 32 prop firms including their full rule sets at <a href="https://www.fundedhunt.com">fundedhunt.com</a> — no paid rankings, no bias, just the information you need to choose right. 🐾</p>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <h4>Table of Contents</h4>
+        <a class="toc-item" href="#what-is-consistency-rule">What Is the Consistency Rule?</a>
+        <a class="toc-item" href="#which-firms">Which Firms Use It?</a>
+        <a class="toc-item" href="#30-percent-rule">How the 30% Rule Works</a>
+        <a class="toc-item" href="#why-firms">Why Firms Have This Rule</a>
+        <a class="toc-item" href="#mistakes">Biggest Mistakes Traders Make</a>
+        <a class="toc-item" href="#precautions">What Precautions To Take</a>
+        <a class="toc-item" href="#violations">What Happens If You Violate It</a>
+        <a class="toc-item" href="#no-rule-firms">Firms Without This Rule</a>
+        <a class="toc-item" href="#deeper-lesson">The Deeper Lesson</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Share This Article</h4>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=The%20Consistency%20Rule%20in%20Prop%20Trading%20—%20What%20Every%20Trader%20Must%20Know&url=https://www.fundedhunt.com/consistency-rule-prop-firm-trading&via=fundedhunt" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X (Twitter)
+        </a>
+        <a class="share-btn" href="https://t.me/share/url?url=https://www.fundedhunt.com/consistency-rule-prop-firm-trading&text=The%20Consistency%20Rule%20in%20Prop%20Trading" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.613c-.152.678-.555.843-1.123.524l-3.1-2.284-1.496 1.44c-.165.165-.304.304-.623.304l.222-3.157 5.74-5.185c.25-.222-.054-.345-.385-.123L7.09 14.191 4.03 13.22c-.67-.21-.683-.67.14-.992l10.887-4.197c.558-.202 1.046.136.505 2.217z"/></svg>
+          Share on Telegram
+        </a>
+      </div>
+
+      <div class="cta-box">
+        <div class="emoji">📏</div>
+        <h4>Compare Firm Rules Side by Side</h4>
+        <p>See which of 32 prop firms have a consistency rule, what threshold they use, and how it compares to everything else that matters.</p>
+        <a href="https://www.fundedhunt.com" class="cta-btn">Compare All Firms →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">Funded<span>Hunt</span></div>
+    <div class="footer-links">
+      <a href="https://www.fundedhunt.com">Home</a>
+      <a href="https://www.instagram.com/funded_hunt" target="_blank">Instagram</a>
+      <a href="https://twitter.com/fundedhunt" target="_blank">Twitter</a>
+      <a href="https://t.me/funded_hunt" target="_blank">Telegram</a>
+    </div>
+    <div class="footer-copy">© 2026 FundedHunt.com · Independent prop firm comparison platform · Not financial advice</div>
+  </footer>
+
+</body>
+</html>
