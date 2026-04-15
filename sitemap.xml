@@ -4,12 +4,19 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.fundedhunt.com/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog Posts -->
+  <url>
+    <loc>https://www.fundedhunt.com/consistency-rule-prop-firm-trading</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.fundedhunt.com/how-to-scale-prop-firm-account</loc>
     <lastmod>2026-04-14</lastmod>
