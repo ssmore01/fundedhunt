@@ -5247,34 +5247,31 @@ async function submitPayoutProof() {
   if (!amount || parseFloat(amount) <= 0) { showPPStatus('❌ Please enter a valid payout amount.', 'error'); return; }
   if (!date) { showPPStatus('❌ Please select the payout date.', 'error'); return; }
   if (!file) { showPPStatus('❌ Please upload your payout proof (screenshot or PDF).', 'error'); return; }
+  if (file.size > 4 * 1024 * 1024) { showPPStatus('❌ File too large. Please upload a file under 4MB.', 'error'); return; }
 
   btn.disabled = true;
-  btn.textContent = '⏳ Uploading proof...';
+  btn.textContent = '⏳ Processing...';
   showPPStatus('', '');
 
   try {
-    // 1. Upload file to Supabase Storage
-    const ext = file.name.split('.').pop().toLowerCase();
-    const fileName = `payout_${Date.now()}_${Math.random().toString(36).substr(2,6)}.${ext}`;
-    
-    const { data: uploadData, error: uploadError } = await supa.storage
-      .from('payout-proofs')
-      .upload(fileName, file, { cacheControl: '3600', upsert: false });
+    // 1. Convert file to base64 for storage in DB (avoids storage bucket dependency)
+    const toBase64 = f => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(f);
+    });
 
-    if (uploadError) throw new Error('Upload failed: ' + uploadError.message);
+    const base64Data = await toBase64(file);
 
-    // 2. Get public URL
-    const { data: urlData } = supa.storage.from('payout-proofs').getPublicUrl(fileName);
-    const proofUrl = urlData?.publicUrl || '';
-
-    // 3. Insert into payout_records with pending status
+    // 2. Insert into payout_records with proof as base64
     const { error: insertError } = await supa.from('payout_records').insert({
       trader_name:  name,
       firm_name:    firm,
       amount:       parseFloat(amount),
       payout_date:  date,
       message:      msg || null,
-      proof_url:    proofUrl,
+      proof_url:    base64Data,
       proof_type:   file.type,
       status:       'pending',
       is_public:    false,
@@ -10773,6 +10770,7 @@ function visitFirm(id) {
   if (url) {
     window.open(url, '_blank');
     awardPoints(50, 'Visited ' + firm.name);
+    trackFirmClick(firm.id, firm.name, firm.discountCode || null);
   }
 }
 
