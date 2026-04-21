@@ -960,7 +960,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           </div>
           <div>
             <label style="font-size:11px;color:var(--muted);display:block;margin-bottom:4px">Payout Date *</label>
-            <input id="pp-date" type="date" style="width:100%;padding:8px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-size:13px;box-sizing:border-box">
+            <input id="pp-date" type="date" max="${new Date().toISOString().split('T')[0]}" style="width:100%;padding:8px 10px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-size:13px;box-sizing:border-box">
           </div>
         </div>
         <div style="margin-bottom:12px">
@@ -5246,6 +5246,16 @@ async function submitPayoutProof() {
   if (!firm) { showPPStatus('❌ Please select a prop firm.', 'error'); return; }
   if (!amount || parseFloat(amount) <= 0) { showPPStatus('❌ Please enter a valid payout amount.', 'error'); return; }
   if (!date) { showPPStatus('❌ Please select the payout date.', 'error'); return; }
+
+  // Normalise date to YYYY-MM-DD regardless of browser locale
+  let formattedDate = date;
+  if (date.includes('/')) {
+    const parts = date.split('/');
+    if (parts.length === 3) {
+      // Could be DD/MM/YYYY or MM/DD/YYYY — assume DD/MM/YYYY (Indian format)
+      formattedDate = `${parts[2]}-${parts[1].padStart(2,'0')}-${parts[0].padStart(2,'0')}`;
+    }
+  }
   if (!file) { showPPStatus('❌ Please upload your payout proof (screenshot or PDF).', 'error'); return; }
   if (file.size > 4 * 1024 * 1024) { showPPStatus('❌ File too large. Please upload a file under 4MB.', 'error'); return; }
 
@@ -5259,7 +5269,7 @@ async function submitPayoutProof() {
       trader_name:  name,
       firm_name:    firm,
       amount:       parseFloat(amount),
-      payout_date:  date,
+      payout_date:  formattedDate,
       message:      msg || null,
       proof_url:    'pending_review',
       proof_type:   file.type,
