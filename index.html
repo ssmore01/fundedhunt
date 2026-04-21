@@ -5254,24 +5254,14 @@ async function submitPayoutProof() {
   showPPStatus('', '');
 
   try {
-    // 1. Convert file to base64 for storage in DB (avoids storage bucket dependency)
-    const toBase64 = f => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(f);
-    });
-
-    const base64Data = await toBase64(file);
-
-    // 2. Insert into payout_records with proof as base64
+    // Store submission metadata only — proof reviewed manually by admin
     const { error: insertError } = await supa.from('payout_records').insert({
       trader_name:  name,
       firm_name:    firm,
       amount:       parseFloat(amount),
       payout_date:  date,
       message:      msg || null,
-      proof_url:    base64Data,
+      proof_url:    'pending_review',
       proof_type:   file.type,
       status:       'pending',
       is_public:    false,
@@ -5282,7 +5272,7 @@ async function submitPayoutProof() {
 
     // Success!
     btn.textContent = '✅ Submitted!';
-    showPPStatus('🎉 Proof submitted! We will review and verify within 24 hours. Once approved it will appear on the live feed and leaderboard.', 'success');
+    showPPStatus('🎉 Submission received! Please also send your proof screenshot to fundedhunt@gmail.com with subject "Payout Proof - ' + name + '" so we can verify and approve it within 24 hours.', 'success');
     
     // Reset form
     setTimeout(() => {
