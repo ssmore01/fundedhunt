@@ -10727,14 +10727,18 @@ async function trackEvent(eventType, data={}) {
 // Track firm clicks for affiliate analytics
 async function trackFirmClick(firmId, firmName, discountCode) {
   try {
-    await supa.from('affiliate_clicks').insert({
-      firm_id:      firmId,
-      firm_name:    firmName,
-      user_id:      _currentUser?.id || null,
-      session_id:   getSessionId(),
+    const { error } = await supa.from('affiliate_clicks').insert({
+      firm_id:       firmId,
+      firm_name:     firmName,
+      user_id:       _currentUser?.id || null,
+      session_id:    getSessionId(),
       discount_code: discountCode || null,
+      clicked_at:    new Date().toISOString(),
     });
-  } catch(e) {}
+    if (error) console.warn('affiliate_clicks insert error:', error.message, error.details, error.hint);
+  } catch(e) {
+    console.warn('affiliate_clicks exception:', e.message);
+  }
 }
 
 let _sessionId = null;
