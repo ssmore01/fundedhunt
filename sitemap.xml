@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <!-- Homepage -->
   <url>
-    <loc>https://www.fundedhunt.com/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.fundedhunt.com</loc>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
   <!-- Blog Posts -->
   <url>
     <loc>https://www.fundedhunt.com/why-traders-lose-funded-accounts-in-30-days</loc>
@@ -16,68 +14,58 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/prop-firm-payouts-how-they-work</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/consistency-rule-prop-firm-trading</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/how-to-scale-prop-firm-account</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/why-self-discipline-is-important-in-trading</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/honest-truth-about-building-a-trading-career</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/what-happens-after-you-pass-a-prop-firm-challenge</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/why-did-i-fail-my-prop-firm-challenge</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/how-to-pass-prop-firm-challenge</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://www.fundedhunt.com/best-funded-accounts-india-2026</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
 </urlset>
