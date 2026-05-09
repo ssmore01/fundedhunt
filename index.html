@@ -5001,8 +5001,8 @@ const FIRMS=[
 },
 {id:'atfunded',
   rating:4.5,reviewCount:1200,
-  discount:'',discountCode:'',
-  badge:'🏦 ATFX Backed · Copy Trading · ATFunded Plus+',
+  discount:'15% OFF',discountCode:'ATF15',
+  badge:'🏦 15% OFF · Code: ATF15 · ATFX Backed · Copy Trading · ATFunded Plus+',
   founded:2025,country:'Saint Vincent',
   logo:'https://www.google.com/s2/favicons?domain=atfunded.com&sz=128',
   name:'ATFunded',emoji:'🔷',
@@ -5016,12 +5016,12 @@ const FIRMS=[
   drawdown:'No Daily DD (Pro) | Trailing Max',
   phases:'Pro (1-Step) | Legacy (2-Step)',
   allowScalping: true,allowNews: true,allowSwing: true,noTimeLimit: true,
-  website:'atfunded.com',websiteUrl:'https://atfunded.com/',
+  website:'atfunded.com',websiteUrl:'https://atfunded.com?affiliate=HUNT',
   maxFundedAccounts:'Multiple',
   platforms:['MT5','cTrader'],
   instruments:['Forex','Indices','Commodities','Crypto'],
   leverage:'1:100',
-  websiteUrl:'https://atfunded.com/',
+  websiteUrl:'https://dashboard.atfunded.com/',
   about:'ATFunded is a unique prop firm backed by ATFX, a globally recognized and regulated broker. This broker backing gives ATFunded credibility that most standalone prop firms cannot match. They offer two challenge types — the Pro Challenge (1-phase, inspired by futures prop firms) and the Legacy Challenge (classic 2-phase). Their standout feature is ATFunded Plus+, which lets successful funded traders share their trades on the ATFX copy trading platform and earn additional income from copiers. This creates a dual income stream for top performers — payout from funded trading plus copy trading commissions. Profit split starts at 50% and scales up to 80% as traders perform. Bi-weekly payouts with a 30% consistency rule.',
   pros:[
     '✅ Backed by ATFX — globally recognized regulated broker',
@@ -8009,6 +8009,9 @@ const KNOWN_FIRMS = [
   {id:'rebels-funding',name:'RebelsFunding',emoji:'🏴'},
   {id:'instant-funding',name:'Instant Funding',emoji:'⚡'},
   {id:'think-capital',name:'ThinkCapital',emoji:'💡'},
+  {id:'funded-squad',name:'FundedSquad',emoji:'🛡️'},
+  {id:'atlas-funded',name:'Atlas Funded',emoji:'🌍'},
+  {id:'qt-funded',name:'QT Funded',emoji:'⚡'},
   {id:'other',name:'Other Firm',emoji:'🏢'}
 ];
 
@@ -11141,7 +11144,8 @@ function lbGoStep(step) {
   // Validate current step before moving forward
   if(step > _lbCurrentStep) {
     if(_lbCurrentStep === 1) {
-      if(!document.getElementById('lbFirmSel').value) {
+      const firmVal = _lbSelectedFirm?.id || document.getElementById('lbFirmSel').value;
+      if(!firmVal) {
         alert('Please select a prop firm first.'); return;
       }
     }
