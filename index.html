@@ -810,9 +810,9 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 
       <div class="stat-row">
         <div class="stat-chip"><div class="val">35+</div><div class="lbl">Firms Compared</div></div>
-        <div class="stat-chip"><div class="val" id="statPayouts">$2.4M+</div><div class="lbl">Paid Today</div></div>
+        <div class="stat-chip"><div class="val">$4,500+</div><div class="lbl">Paid Till Date</div></div>
         <div class="stat-chip"><div class="val">100%</div><div class="lbl">Free Platform</div></div>
-        <div class="stat-chip"><div class="val">⭐ Real</div><div class="lbl">Reward Points</div></div>
+        <div class="stat-chip"><div class="val">📓 Journal</div><div class="lbl">Track Every Trade</div></div>
       </div>
 
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px;">Top Firms This Week</h2>
@@ -1483,422 +1483,51 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
     <div class="panel-inner">
       <div class="panel-head">
         <h1>⭐ PFPoints Rewards</h1>
-        <p>Earn PFPoints for every action on Funded Hunt. Climb the leaderboard and unlock exclusive perks.</p>
+        <p>Big things are coming. Be among the first to earn.</p>
       </div>
 
-      <!-- Points Hero -->
-      <div class="rewards-hero">
-        <div style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Your PFPoints Balance</div>
-        <div class="pts-big" id="ptsBig">0</div>
-        <div class="pts-sub">Every action earns you points — start earning now</div>
-        <div class="tier-badge" id="tierBadge">🔒 Sign Up to Start</div>
-      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;text-align:center;padding:40px 20px;">
 
-      <!-- Tier Progress -->
-      <div class="card" style="margin-bottom:28px;">
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;margin-bottom:16px;">🏅 Tier Progress</h3>
-        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;" id="tierProgress">
-          <div style="text-align:center;padding:12px 8px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);">
-            <div style="font-size:20px;margin-bottom:4px;">🥉</div>
-            <div style="font-size:11px;font-weight:700;">Bronze</div>
-            <div style="font-size:10px;color:var(--muted);">0+ pts</div>
+        <!-- Glow ring -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,rgba(245,197,24,0.15),rgba(245,197,24,0.03));border:2px solid rgba(245,197,24,0.3);display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:0 0 40px rgba(245,197,24,0.12);">🏆</div>
+        </div>
+
+        <!-- Heading -->
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;color:var(--gold);margin-bottom:12px;letter-spacing:-0.5px;">Coming Soon</div>
+
+        <!-- Subtext -->
+        <div style="font-size:15px;color:var(--muted);max-width:460px;line-height:1.8;margin-bottom:32px;">
+          The PFPoints Rewards system is almost here. Every challenge you log, every payout you track, and every trader you refer will earn you points. Redeem them for real perks, discounts, and exclusive funded account benefits.
+        </div>
+
+        <!-- Exciting features preview -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;width:100%;max-width:600px;margin-bottom:36px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🎯</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Earn Points</div>
+            <div style="font-size:11px;color:var(--muted);">Log trades, submit payouts, refer traders</div>
           </div>
-          <div style="text-align:center;padding:12px 8px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);">
-            <div style="font-size:20px;margin-bottom:4px;">🥈</div>
-            <div style="font-size:11px;font-weight:700;">Silver</div>
-            <div style="font-size:10px;color:var(--muted);">500+ pts</div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🏅</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Climb Tiers</div>
+            <div style="font-size:11px;color:var(--muted);">Hunter, Elite, Legend and beyond</div>
           </div>
-          <div style="text-align:center;padding:12px 8px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);">
-            <div style="font-size:20px;margin-bottom:4px;">🥇</div>
-            <div style="font-size:11px;font-weight:700;">Gold</div>
-            <div style="font-size:10px;color:var(--muted);">2,500+ pts</div>
-          </div>
-          <div style="text-align:center;padding:12px 8px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);">
-            <div style="font-size:20px;margin-bottom:4px;">💎</div>
-            <div style="font-size:11px;font-weight:700;">Diamond</div>
-            <div style="font-size:10px;color:var(--muted);">5,000+ pts</div>
-          </div>
-          <div style="text-align:center;padding:12px 8px;background:var(--gold-dim);border-radius:10px;border:1px solid var(--border2);">
-            <div style="font-size:20px;margin-bottom:4px;">👑</div>
-            <div style="font-size:11px;font-weight:700;color:var(--gold);">Elite</div>
-            <div style="font-size:10px;color:var(--gold);">10,000+ pts</div>
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;">
+            <div style="font-size:28px;margin-bottom:8px;">🎁</div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Redeem Rewards</div>
+            <div style="font-size:11px;color:var(--muted);">Discounts, perks and free challenges</div>
           </div>
         </div>
-      </div>
 
-      <!-- How to Earn -->
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;">💰 How to Earn PFPoints</h2>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Complete these actions to earn PFPoints. Points are tracked in your browser.</p>
-      <div class="rewards-grid" id="rewardsGrid"></div>
-
-    </div>
-  </div>
-
-  <!-- EDUCATION PANEL -->
-  <div class="panel" id="panel-education">
-    <div class="panel-inner">
-      <div class="panel-head">
-        <h1>🎓 Education Hub</h1>
-        <p>Everything you need to understand prop trading, pass challenges, and get funded.</p>
-      </div>
-      <div class="edu-grid" id="eduGrid"></div>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════ LOGBOOK PANEL ══════════════════ -->
-  <div class="panel" id="panel-logbook">
-    <div class="panel-inner">
-      <div class="panel-head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-        <div>
-          <h1>📓 Challenge Logbook</h1>
-          <p>Track every challenge — fees paid, payouts received, and your real P&amp;L across all firms.</p>
+        <!-- Badge -->
+        <div style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(245,197,24,0.12),rgba(245,197,24,0.04));border:1px solid rgba(245,197,24,0.3);border-radius:100px;padding:10px 24px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;animation:live-pulse 1.5s infinite;"></span>
+          <span style="font-size:13px;font-weight:700;color:var(--gold);">We are building this for you. Stay tuned.</span>
         </div>
-        <div style="display:flex;gap:8px;flex-shrink:0">
-          <label class="btn" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-size:13px;padding:8px 16px;border-radius:8px;color:var(--muted);" title="Import from Google Sheet CSV export">
-            📥 Import CSV
-            <input type="file" accept=".csv" style="display:none" onchange="importLogbookCSV(event)"/>
-          </label>
-          <button class="btn btn-gold" onclick="openNewLogbook()" style="">+ New Challenge</button>
-        </div>
-      </div>
 
-      <!-- Summary Strip -->
-      <div id="logbookSummary" style="display:none">
-        <div class="lb-summary-grid">
-          <div class="lb-stat-card lb-stat-fees">
-            <div class="lb-stat-ico">💸</div>
-            <div>
-              <div class="lb-stat-label">Total Fees Paid</div>
-              <div class="lb-stat-val" id="lbTotalFees">$0</div>
-            </div>
-          </div>
-          <div class="lb-stat-card lb-stat-payouts">
-            <div class="lb-stat-ico">💰</div>
-            <div>
-              <div class="lb-stat-label">Total Payouts Received</div>
-              <div class="lb-stat-val" id="lbTotalPayouts">$0</div>
-            </div>
-          </div>
-          <div class="lb-stat-card" id="lbPLCard">
-            <div class="lb-stat-ico" id="lbPLIco">📊</div>
-            <div>
-              <div class="lb-stat-label">Net P&amp;L</div>
-              <div class="lb-stat-val" id="lbNetPL">$0</div>
-            </div>
-          </div>
-          <div class="lb-stat-card">
-            <div class="lb-stat-ico">🏆</div>
-            <div>
-              <div class="lb-stat-label">Win Rate</div>
-              <div class="lb-stat-val" id="lbWinRate">—</div>
-            </div>
-          </div>
-          <div class="lb-stat-card">
-            <div class="lb-stat-ico">📋</div>
-            <div>
-              <div class="lb-stat-label">Total Challenges</div>
-              <div class="lb-stat-val" id="lbChallengeCount">0</div>
-            </div>
-          </div>
-          <div class="lb-stat-card">
-            <div class="lb-stat-ico">⚡</div>
-            <div>
-              <div class="lb-stat-label">Active / Funded</div>
-              <div class="lb-stat-val" id="lbActiveFunded">0 / 0</div>
-            </div>
-          </div>
-        </div>
-        <!-- ROI Progress Bar -->
-        <div class="lb-roi-bar-wrap">
-          <div class="lb-roi-label">
-            <span>Fee Recovery Progress</span>
-            <span id="lbROIText">0% recovered</span>
-          </div>
-          <div class="lb-roi-track">
-            <div class="lb-roi-fill" id="lbROIFill" style="width:0%"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="lb-filter-row" id="lbFilters" style="display:none">
-        <button class="lb-filter active" data-lbf="all" onclick="filterLogbook('all')">All</button>
-        <button class="lb-filter" data-lbf="evaluation" onclick="filterLogbook('evaluation')">🔄 In Evaluation</button>
-        <button class="lb-filter" data-lbf="funded" onclick="filterLogbook('funded')">💚 Funded</button>
-        <button class="lb-filter" data-lbf="passed" onclick="filterLogbook('passed')">✅ Passed</button>
-        <button class="lb-filter" data-lbf="failed" onclick="filterLogbook('failed')">❌ Failed</button>
-        <button class="lb-filter" data-lbf="completed" onclick="filterLogbook('completed')">🏁 Completed</button>
-      </div>
-
-      <!-- Logbook Cards -->
-      <div id="logbookGrid" class="lb-grid"></div>
-
-      <!-- Empty State -->
-      <div id="logbookEmpty" class="lb-empty">
-        <div class="lb-empty-ico">📓</div>
-        <h3>Your logbook is empty</h3>
-        <p>Start tracking your first challenge. Record fees, payouts, and watch your prop trading journey unfold in real time.</p>
-        <button class="btn btn-gold" onclick="openNewLogbook()">+ Add Your First Challenge</button>
       </div>
     </div>
-  </div>
-
-
-
-  
-<!-- ═══════════════════ BLOG PANEL ══════════════════════ -->
-<div class="panel" id="panel-blog">
-  <div id="blogListView">
-    <div class="panel-inner">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:4px;">
-        <h2 style="margin:0;">✍️ Funded Hunt Blog</h2>
-      </div>
-      <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">Trading insights, prop firm news, and guides — written by a trader, for traders.</p>
-      <div class="blog-grid" id="blogGrid"></div>
-    </div>
-  </div>
-  <div id="blogArticleView" style="display:none;">
-    <div style="max-width:1200px;margin:0 auto;padding:16px 32px 8px;">
-      <button class="blog-back" onclick="closeBlogArticle()">← Back to Blog</button>
-    </div>
-    <div id="blogArticleContent"></div>
-  </div>
-</div>
-
-<div class="panel" id="panel-legal">
-    <div class="legal-pg">
-
-      <div class="legal-tabs">
-        <button class="legal-tab active" onclick="showLegal('disclaimer',this)">📋 Disclaimer</button>
-        <button class="legal-tab" onclick="showLegal('affiliate',this)">💰 Affiliate</button>
-        <button class="legal-tab" onclick="showLegal('terms',this)">📜 Terms of Use</button>
-        <button class="legal-tab" onclick="showLegal('privacy',this)">🔒 Privacy</button>
-        <button class="legal-tab" onclick="showLegal('risk',this)">⚠️ Risk Warning</button>
-        <button class="legal-tab" onclick="showLegal('copyright',this)">©️ Copyright & IP</button>
-      </div>
-
-<!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 1 — GENERAL DISCLAIMER
-           Jurisdiction: India · IT Act 2000 compliant · Global reach
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-disclaimer" class="legal-doc show">
-        <div class="ld-title">General Disclaimer</div>
-        <div class="ld-sub">This disclaimer governs your use of Funded Hunt. By accessing or using this platform in any way, you unconditionally accept this disclaimer in full. If you disagree with any part, do not use this platform.</div>
-        <div class="ld-meta"><span><strong>Last Updated:</strong> March 2025</span><span><strong>Effective:</strong> Worldwide · All users · All devices</span></div>
-        <div class="lb warn"><p><strong>⚠️ NOT FINANCIAL ADVICE.</strong> Nothing on this website is financial advice, investment advice, or a solicitation to trade. Funded Hunt is a purely informational and comparison platform. No content here should be construed as a recommendation to purchase, sell, or hold any financial product or service.</p></div>
-        <div class="ls"><h2>1. Nature of This Platform</h2><p>Funded Hunt ("the Platform", "we", "us", "our") is an independent, privately operated online information and comparison platform. It aggregates publicly available data about proprietary trading evaluation firms ("prop firms") for informational and educational purposes only.</p><ul><li>Funded Hunt is <strong>not</strong> a regulated financial intermediary, investment advisor, stockbroker, or portfolio manager under SEBI Act, 1992, or any other financial regulatory framework globally.</li><li>Funded Hunt is <strong>not</strong> a prop trading firm. It does not fund traders, hold capital, manage accounts, or operate as a financial entity.</li><li>Funded Hunt operates as an information intermediary under the Information Technology Act, 2000 (India).</li></ul></div>
-        <div class="ls"><h2>2. No Financial, Legal, or Tax Advice</h2><p>All content on this Platform — including firm comparisons, Trust Radar scores, challenge data, payout figures, educational material, AI quiz results, and editorial commentary — is provided for <strong>general informational purposes only</strong>. It does not constitute financial advice, investment advice, legal advice, tax advice, or a solicitation to enter into any financial transaction. Always consult a qualified professional before making any financial decision.</p></div>
-        <div class="ls"><h2>3. Accuracy, Completeness &amp; Currency of Information</h2><p>Prop firm rules, fees, payout policies, challenge structures, drawdown limits, platforms, leverage, and discount codes change frequently — sometimes without notice. We cannot guarantee that any information is accurate, complete, or current at the time you read it. We accept no liability for errors, omissions, or outdated information. Data is sourced directly from each firm's official website but may not reflect real-time changes.</p><div class="lb warn"><p><strong>Always verify directly on the prop firm's official website before purchasing any challenge or plan.</strong></p></div></div>
-        <div class="ls"><h2>4. No Endorsement or Vetting of Prop Firms</h2><p>The presence of any prop firm on this Platform does not constitute an endorsement, recommendation, or guarantee of that firm's legitimacy, reliability, solvency, or payout behaviour. Trust Radar scores are our independent editorial assessments based on publicly available information only — not financial ratings, regulatory certifications, or due diligence reports. Funded Hunt is not responsible for any loss caused by a prop firm listed on this Platform.</p></div>
-        <div class="ls"><h2>5. Third-Party Links &amp; Affiliate Relationships</h2><p>This Platform contains links to third-party websites (prop firm official sites). We have no control over those sites and accept no responsibility for their content, privacy practices, or terms. Clicking a "Visit →" link may direct you through an affiliate tracking link, which may earn Funded Hunt a commission. See our Affiliate Disclosure for full details.</p></div>
-        <div class="ls"><h2>6. Past Performance Warning</h2><p>Any payout data or funded account figures shown are based on publicly available historical information. <strong>Past performance is not indicative of future results.</strong> Industry data suggests the majority of traders who attempt prop firm challenges do not pass. Funded Hunt makes no representation that you will achieve similar results.</p></div>
-        <div class="ls"><h2>7. Technology Disclaimer</h2><p>The AI Matching Quiz, Trust Radar, and comparison tools are informational tools only. They are not capable of providing personalised financial advice and their outputs should not be treated as such. Results are algorithmically generated based on user inputs and pre-set editorial criteria.</p></div>
-        <div class="ls"><h2>8. Limitation of Liability</h2><p>To the fullest extent permitted by applicable law — including the Indian Contract Act, 1872 and the Information Technology Act, 2000 — Funded Hunt and its operators shall not be liable for any direct, indirect, incidental, consequential, or punitive damages, loss of profit, revenue, or data arising from your use of this Platform or any purchase decision based on our content.</p></div>
-        <div class="ls"><h2>9. Governing Law</h2><p>This disclaimer and all disputes arising from it are governed by the laws of India. The exclusive jurisdiction for any legal proceedings shall be the courts of India. By using this Platform from any country, you agree that Indian law governs your use.</p></div>
-      </div>
-
-      <!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 2 — AFFILIATE & EARNINGS DISCLOSURE
-           FTC · ASA · ASCI · IT Act 2000 · GDPR Art. 13 compliant
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-affiliate" class="legal-doc">
-        <div class="ld-title">Affiliate &amp; Earnings Disclosure</div>
-        <div class="ld-sub">Full transparency on how Funded Hunt earns revenue, how we handle affiliate relationships, and how this may affect the content you see.</div>
-        <div class="ld-meta"><span><strong>Last Updated:</strong> March 2025</span><span><strong>Compliant With:</strong> FTC (US) · ASA (UK) · ASCI (India) · GDPR Art. 13</span></div>
-        <div class="lb green"><p><strong>✅ Short Version:</strong> We earn commissions when you buy through our links. This keeps the platform free. Our Trust Radar scores, ratings, and pros/cons are <em>not for sale</em> and are never influenced by commission rates.</p></div>
-        <div class="ls"><h2>1. Material Connection Disclosure</h2><p>Funded Hunt has material financial connections with certain prop firms featured on this Platform. We may receive compensation when you click an affiliate link or use a discount code and subsequently make a purchase. This is a "material connection" as defined by the US FTC under 16 CFR Part 255, and an "advertisement" under the ASCI Code (India). This disclosure is made prominently and in good faith in compliance with global affiliate disclosure requirements.</p></div>
-        <div class="ls"><h2>2. How We Earn — Revenue Model</h2><p>Revenue is earned through: (a) referral commissions paid by a prop firm when a user purchases after clicking our affiliate link; (b) discount code tracking — when a user applies a Funded Hunt code at checkout; (c) potential future sponsored/promoted placement, which will always be clearly labelled. Funded Hunt does not currently charge users any fee. The Platform is free to use.</p></div>
-        <div class="ls"><h2>3. Affiliate Code Independence</h2><p>All affiliate relationships, tracking links, and discount codes used on Funded Hunt are <strong>independently obtained directly from each prop firm's own affiliate or partnership programme</strong>. We confirm that: (a) we do not sub-source, resell, or redistribute affiliate codes belonging to any third-party comparison platform, aggregator, or intermediary; (b) we do not use another platform's unique tracking identifiers or branded affiliate codes; (c) each discount code displayed is either independently negotiated with the respective prop firm, or obtained through that firm's publicly available affiliate programme.</p></div>
-        <div class="ls"><h2>4. Firms We May Have Affiliate Relationships With</h2><p>We may have current or future affiliate relationships with any or all prop firms listed on this Platform: FTMO, FundingPips, The5ers, FXIFY, E8 Markets, Alpha Capital Group, FunderPro, FundedElite, Blueberry Funded, GOAT Funded Trader, Topstep, Apex Trader Funding, Funded Trading Plus, City Traders Imperium, TX3 Funding, FundedFirm, Calvoro Funding, Maven Trading, The Funded Room, For Traders, BrightFunded, QT Funded, FundedNext, and others added in future. The word "may" is used because affiliate agreements are subject to change.</p></div>
-        <div class="ls"><h2>5. What Affiliate Relationships Do &amp; Do NOT Affect</h2>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
-          <div style="background:rgba(72,199,142,.08);border:1px solid rgba(72,199,142,.25);border-radius:8px;padding:14px;"><div style="color:var(--green);font-weight:700;font-size:12px;margin-bottom:8px;">✅ MAY BE INFLUENCED</div><ul style="font-size:12px;color:var(--muted);margin:0;padding-left:16px;line-height:1.8;"><li>Which firms are featured</li><li>Listing order in "All Firms"</li><li>Promotional prominence</li><li>Sponsored placement labels</li></ul></div>
-          <div style="background:rgba(252,92,101,.08);border:1px solid rgba(252,92,101,.25);border-radius:8px;padding:14px;"><div style="color:var(--red);font-weight:700;font-size:12px;margin-bottom:8px;">❌ NEVER INFLUENCED</div><ul style="font-size:12px;color:var(--muted);margin:0;padding-left:16px;line-height:1.8;"><li>Trust Radar scores (0–100)</li><li>Star ratings or review counts</li><li>Pros &amp; Cons editorial lists</li><li>Risk warnings or red flags</li><li>Trust band (High/Mid/Low)</li></ul></div>
-        </div>
-        <p style="margin-top:12px;"><strong>We will never inflate a Trust Score, suppress a negative finding, or alter a pros/cons list in exchange for a higher affiliate commission or direct payment.</strong></p></div>
-        <div class="ls"><h2>6. Discount Code Validity</h2><p>Codes are verified at time of publication but may expire or be changed by the prop firm at any time without notice. <strong>Always verify on the firm's official website before completing your purchase.</strong></p></div>
-        <div class="ls"><h2>7. Global Compliance Statement</h2><p>This disclosure complies with: US FTC 16 CFR Part 255; India ASCI Code and Consumer Protection Act, 2019 (Section 21); EU Directive 2005/29/EC and GDPR Art. 13; UK ASA CAP Code Sections 2 and 3.</p></div>
-        <div class="ldivider"></div>
-        <div class="ccard"><h3>📬 Affiliate Enquiries</h3><div class="crow"><span class="clabel">Email</span><span class="cval"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7b0a5beb2a1b6b9b4b297a3bfb2a7a5b8a7b1a2b9b3beb9b0f9b4b8ba">[email&#160;protected]</a></span></div><div class="crow"><span class="clabel">Response</span><span class="cval">Within 5 business days</span></div></div>
-      </div>
-
-      <!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 3 — TERMS OF USE
-           Indian Contract Act 1872 · IT Act 2000 · DPDP Act 2023
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-terms" class="legal-doc">
-        <div class="ld-title">Terms of Use</div>
-        <div class="ld-sub">These Terms of Use ("Terms") constitute a legally binding agreement between you ("User") and Funded Hunt ("Platform", "we", "us"). By accessing or using this Platform in any way, you agree to be bound by these Terms. If you do not agree, you must immediately cease using this Platform.</div>
-        <div class="ld-meta"><span><strong>Effective Date:</strong> March 2025</span><span><strong>Governed By:</strong> Laws of India</span></div>
-        <div class="ls"><h2>1. Acceptance of Terms</h2><p>By accessing Funded Hunt you unconditionally represent and warrant that: (a) you are at least 18 years of age and have legal capacity to enter into binding agreements; (b) you have read, understood, and agreed to these Terms in their entirety; (c) you will comply with all applicable local, national, and international laws while using this Platform.</p></div>
-        <div class="ls"><h2>2. Nature and Scope of Service</h2><p>Funded Hunt is an independent online information and comparison platform. It does not: operate as a financial broker, investment advisor, or regulated financial intermediary; hold, manage, transfer, or access user funds or trading accounts; conduct prop trading or operate as a proprietary trading firm; guarantee the accuracy or currency of information about any prop firm; or act as agent for any prop firm listed unless explicitly stated. All transactions between users and prop firms occur directly on the prop firm's own platforms and are governed solely by that firm's terms.</p></div>
-        <div class="ls"><h2>3. Intellectual Property Rights</h2><p><strong>3.1 Ownership.</strong> All original content on this Platform is protected under the Indian Copyright Act, 1957, the Information Technology Act, 2000, and international conventions (Berne Convention, TRIPS Agreement). This includes: all original editorial text, firm descriptions, and taglines; Trust Radar 8-criteria framework and score assignments; AI Matching Quiz architecture and logic; tool designs (Logbook, Journal, Tracker, PFPoints); platform design, UI, and visual language; and the "Funded Hunt" brand and trade dress.</p><p><strong>3.2 Permitted Use.</strong> Personal non-commercial viewing; sharing links for non-commercial purposes; brief quotation (under 50 words) with attribution to Funded Hunt and a link back.</p><p><strong>3.3 Prohibited Without Written Permission.</strong> Copying, reproducing, or distributing our original content; using content to build a competing platform; automated scraping or data harvesting; commercial exploitation of our content; framing or mirroring this Platform; impersonating Funded Hunt.</p><p><strong>3.4 Third-Party Trademarks.</strong> Prop firm names and logos are used under nominative fair use for editorial identification and comparison only — not implying any affiliation.</p><p><strong>3.5 Data Sourcing.</strong> All factual prop firm data was independently sourced from each firm's official website. We do not copy, derive, or reproduce data from any third-party comparison platform, aggregator, or database.</p></div>
-        <div class="ls"><h2>4. Platform Independence Declaration</h2><p>Funded Hunt is independently created, owned, and operated. It has no affiliation with, partnership with, endorsement from, or legal connection to any other prop firm comparison website or aggregation service, including but not limited to PropFirmMatch, FX Scout, Funded Trader Report, or any similar service. All scoring frameworks, editorial methodologies, tools, and platform designs are original works of Funded Hunt.</p></div>
-        <div class="ls"><h2>5. Permitted and Prohibited Conduct</h2><p>You may: browse for personal non-commercial purposes; use tools for your own trading records; share links for non-commercial purposes.</p><p>You may not: violate any applicable law; engage in fraudulent or deceptive activity; transmit spam or malware; impersonate any person; attempt unauthorised access to Platform systems; interfere with Platform performance; harvest user information; or use this Platform in any way that damages Funded Hunt's reputation.</p></div>
-        <div class="ls"><h2>6. No Warranties</h2><p>This Platform is provided "as is" and "as available" without any warranty of any kind — express, implied, statutory, or otherwise. We disclaim all implied warranties of merchantability, fitness for purpose, non-infringement, and accuracy.</p></div>
-        <div class="ls"><h2>7. Limitation of Liability &amp; Indemnification</h2><p><strong>7.1 Cap.</strong> Funded Hunt's total liability to you shall not exceed INR 0 (zero), as the Platform is free of charge. <strong>7.2 Excluded Damages.</strong> We are not liable for indirect, incidental, special, consequential, or punitive damages. <strong>7.3 Indemnification.</strong> You agree to indemnify Funded Hunt from any claims arising from your violation of these Terms or your use of this Platform.</p></div>
-        <div class="ls"><h2>8. Modifications</h2><p>We reserve the right to modify these Terms at any time. Continued use of the Platform after modification constitutes your acceptance of revised Terms. We may modify, suspend, or discontinue the Platform at any time without notice or liability.</p></div>
-        <div class="ls"><h2>9. Severability &amp; Entire Agreement</h2><p>If any provision is found invalid or unenforceable, the remaining provisions continue in full force. These Terms, together with our Privacy Policy, Disclaimer, Affiliate Disclosure, Risk Warning, and Copyright Notice, constitute the entire agreement between you and Funded Hunt.</p></div>
-        <div class="ls"><h2>10. Governing Law &amp; Jurisdiction</h2><p>These Terms are governed by the laws of India, including the Indian Contract Act, 1872, Information Technology Act, 2000, and Digital Personal Data Protection Act, 2023. Any disputes shall be subject to the <strong>exclusive jurisdiction of the courts of India</strong>. Users accessing from outside India are solely responsible for compliance with their local laws.</p></div>
-        <div class="ls"><h2>11. IT Act 2000 — Intermediary Compliance</h2><p>Funded Hunt operates as an information intermediary under Section 2(1)(w) of the IT Act, 2000, and complies with the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021. Unlawful activity on this Platform may be reported to Indian law enforcement authorities.</p></div>
-        <div class="ldivider"></div>
-        <div class="ccard"><h3>📬 Legal Notices &amp; Grievance Officer</h3><div class="crow"><span class="clabel">Email</span><span class="cval"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f99e8b909c8f98979a9cb98d919c898b96899f8c979d90979ed79a9694">[email&#160;protected]</a></span></div><div class="crow"><span class="clabel">Acknowledgement</span><span class="cval">Within 24 hours</span></div><div class="crow"><span class="clabel">Resolution</span><span class="cval">Within 30 days (IT Rules 2021 compliant)</span></div></div>
-      </div>
-
-      <!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 4 — PRIVACY POLICY
-           DPDP Act 2023 · GDPR · IT Rules 2011 · FTC · CCPA
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-privacy" class="legal-doc">
-        <div class="ld-title">Privacy Policy</div>
-        <div class="ld-sub">This Privacy Policy explains how Funded Hunt collects, processes, stores, and protects information when you use our Platform. We are committed to protecting your privacy and complying with applicable data protection laws globally.</div>
-        <div class="ld-meta"><span><strong>Last Updated:</strong> March 2025</span><span><strong>Compliant With:</strong> DPDP Act 2023 (India) · GDPR (EU) · IT Rules 2011 · FTC · CCPA (California)</span></div>
-        <div class="lb green"><p><strong>✅ Plain English Summary:</strong> We collect only anonymous analytics via Google Analytics. We never collect your name, email, or financial data. Your Logbook and Journal data stays on your device only — we cannot see it. We never sell any data. Ever.</p></div>
-        <div class="ls"><h2>1. Data Controller</h2><p>Funded Hunt ("we", "us", "our") is the data controller under the Digital Personal Data Protection Act, 2023 (India) and GDPR. For privacy enquiries: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1671647f73607778757356627e7366647966706378727f78713875797b">[email&#160;protected]</a></strong></p></div>
-        <div class="ls"><h2>2. Data We Collect — and What We Do Not</h2><h3>2.1 Anonymous Analytics Only</h3><p>We use Google Analytics (GA4) to collect anonymous, aggregated usage data: pages visited, session duration, device type, browser type, operating system, approximate geographic region (country/city level), and referring website. This data cannot identify you personally.</p><h3>2.2 Device-Only Storage (We Cannot Access)</h3><p>Challenge Logbook, Trade Journal, Growth Tracker, PFPoints, Quiz results, and cookie consent preferences are stored exclusively in your browser's localStorage. This data never leaves your device. We have zero access to it.</p><h3>2.3 What We Explicitly Do NOT Collect</h3><ul><li>Name, email, phone number, or any contact information</li><li>Financial account details or payment data</li><li>Trading account credentials or prop firm login details</li><li>Sensitive personal data (DPDP Act 2023 / GDPR Article 9)</li><li>IP addresses stored against identifiable profiles</li><li>Any cookies other than Google Analytics</li></ul></div>
-        <div class="ls"><h2>3. Legal Basis for Processing</h2><ul><li><strong>Legitimate Interest (GDPR Art. 6(1)(f)):</strong> Anonymous analytics to improve Platform performance.</li><li><strong>Consent (GDPR Art. 6(1)(a) · DPDP Act Section 7):</strong> Google Analytics cookies are only set after you accept the consent banner.</li><li>We process no Special Category data (GDPR Art. 9) or Sensitive Personal Data (DPDP Act Section 2(t)).</li></ul></div>
-        <div class="ls"><h2>4. Cookies</h2><p>We use only Google Analytics cookies (<code>_ga</code>, <code>_ga_*</code>) — analytical, anonymous. We use no advertising, retargeting, social media tracking, or third-party marketing cookies. You can decline all cookies via the consent banner on first visit, or withdraw consent anytime by clearing browser cookies.</p></div>
-        <div class="ls"><h2>5. Data Sharing</h2><p>We do not sell, rent, trade, or share any user data with any third party except: (a) Google Analytics — anonymous aggregated data only; (b) legal authorities if required by law, court order, or government request under IT Act, 2000 (Section 69). When you click affiliate links to prop firm sites, those firms' own privacy policies apply — we have no control over their data practices.</p></div>
-        <div class="ls"><h2>6. Retention</h2><p>Google Analytics data: maximum 26 months (GA4 default). Device-stored data: retained until you clear it. We retain no server-side personal data.</p></div>
-        <div class="ls"><h2>7. Your Rights</h2><p><strong>India (DPDP Act 2023):</strong> Right of access, correction, erasure, grievance redressal, and nominee designation. <strong>EU/UK (GDPR):</strong> Right to access, rectification, erasure, restriction, portability, and objection. <strong>California (CCPA):</strong> Right to know, delete, and opt-out of sale (we do not sell data). Contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7215001b1704131c111732061a1702001d0214071c161b1c155c111d1f">[email&#160;protected]</a> to exercise any right. Response within 30 days.</p></div>
-        <div class="ls"><h2>8. Children's Privacy</h2><p>This Platform is not directed at individuals under 18. We do not knowingly collect any data from minors.</p></div>
-        <div class="ls"><h2>9. Security</h2><p>We implement appropriate technical and organisational measures consistent with our obligations under the IT Act, 2000 and DPDP Act, 2023. No internet transmission is 100% secure — use this Platform at your own risk.</p></div>
-        <div class="ldivider"></div>
-        <div class="ccard"><h3>📬 Data Protection &amp; Privacy Requests</h3><div class="crow"><span class="clabel">Email</span><span class="cval"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caadb8a3afbcaba4a9af8abea2afbab8a5baacbfa4aea3a4ade4a9a5a7">[email&#160;protected]</a></span></div><div class="crow"><span class="clabel">Response</span><span class="cval">Within 30 days (GDPR · DPDP Act compliant)</span></div></div>
-      </div>
-
-      <!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 5 — RISK WARNING
-           SEBI · FCA · ASIC · CFTC awareness compliant
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-risk" class="legal-doc">
-        <div class="ld-title">Risk Warning</div>
-        <div class="ld-sub">This Risk Warning is provided in the interest of full transparency. Please read it entirely before engaging with any prop firm or making any financial commitment based on information from this Platform.</div>
-        <div class="ld-meta"><span><strong>Last Updated:</strong> March 2025</span><span><strong>Mandatory Reading:</strong> All users</span></div>
-        <div class="lb warn"><p><strong>⚠️ CAPITAL AT RISK.</strong> Prop trading challenges involve the risk of losing your entire challenge fee. The majority of participants do not pass. Even funded traders face the risk of non-payment. Only commit money you can afford to lose entirely.</p></div>
-        <div class="ls"><h2>1. Challenge Fee Risk</h2><p>Prop firm evaluation challenges require payment of a fee — non-refundable in most cases. If you fail the profit target, breach a drawdown limit, violate a trading rule, or fail to meet minimum trading day requirements, your challenge fee is forfeited. <strong>Industry estimates suggest 80–95% of challenge attempts result in failure.</strong> Funded Hunt makes no representation that you will pass any challenge.</p></div>
-        <div class="ls"><h2>2. Funded Account Risk</h2><p>Passing a challenge does not guarantee payouts or funded status. Prop firms may: dispute specific trades and refuse payout; change terms, rules, or payout policies after you have passed; delay, reduce, or refuse payouts citing compliance; cease operations or enter insolvency; or terminate funded accounts without explicit reason. Funded Hunt is not responsible for any failure by any prop firm to honour its obligations.</p></div>
-        <div class="ls"><h2>3. Simulated Trading Environment</h2><p>Most prop firm challenges — and many funded accounts — operate in <strong>simulated (demo/paper) trading environments</strong>. Trades may not be executed in real markets. Prop trading challenges are <strong>not</strong> regulated financial products under SEBI Act, 1992, nor under the FCA (UK), CFTC (US), ASIC (Australia), or any other financial regulator. They are private commercial evaluation services and are not subject to investor protection schemes.</p></div>
-        <div class="ls"><h2>4. No Income Guarantee</h2><p>Prop trading is not a guaranteed or reliable source of income. Payout figures displayed on this Platform are for informational and illustrative purposes only. <strong>Past payout data is not indicative of future earnings.</strong> Funded Hunt makes no representation that you will generate any income from prop trading.</p></div>
-        <div class="ls"><h2>5. Platform Information Risk</h2><p>Data displayed on Funded Hunt may be outdated, incomplete, or inaccurate. Always read and understand the prop firm's own current terms and conditions in full before making any payment.</p></div>
-        <div class="ls"><h2>6. Regulatory Non-Status</h2><p>Funded Hunt is not regulated by SEBI, RBI, IRDAI, or any Indian financial regulator, nor by any foreign financial regulatory body. We are an information platform only. You have no investor protection rights in respect of information obtained from this Platform.</p></div>
-        <div class="ls"><h2>7. Risk Mitigation Recommendations</h2><ul><li>Read the prop firm's official Terms and Conditions in full before purchasing</li><li>Research independent reviews on Trustpilot and other neutral platforms</li><li>Start with the smallest available account size to test the firm</li><li>Never commit money you cannot afford to lose entirely</li><li>Practice on a personal demo account before spending on challenges</li><li>Diversify — do not rely on a single prop firm for income</li><li>Be sceptical of firms with no verifiable payout history</li></ul></div>
-      </div>
-
-      <!-- ═══════════════════════════════════════════════════════════
-           DOCUMENT 6 — COPYRIGHT & INTELLECTUAL PROPERTY
-           Indian Copyright Act 1957 · Berne Convention · TRIPS
-      ══════════════════════════════════════════════════════════════ -->
-      <div id="legal-copyright" class="legal-doc">
-        <div class="ld-title">Copyright &amp; Intellectual Property Notice</div>
-        <div class="ld-sub">This notice sets out the intellectual property rights subsisting in Funded Hunt, the permissible uses of our content, our data sourcing practices, and how to report infringement.</div>
-        <div class="ld-meta"><span><strong>Last Updated:</strong> March 2025</span><span><strong>Protected Under:</strong> Indian Copyright Act 1957 · Berne Convention · TRIPS Agreement</span></div>
-        <div class="ls"><h2>1. Copyright Ownership</h2><p>Funded Hunt owns the copyright in all original works published on this Platform, protected under the Indian Copyright Act, 1957 (Section 13) and internationally under the Berne Convention and TRIPS Agreement. Original copyrighted works include: all editorial text, firm descriptions, taglines, and written analysis; Trust Radar 8-criteria framework and score assignments; AI Matching Quiz architecture, question set, and weighting logic; Challenge Logbook, Trade Journal, Growth Tracker, and PFPoints reward system designs; overall platform UI, layout, dark theme colour system, typography, and navigation structure; and the "Funded Hunt" brand name and associated trade dress.</p></div>
-        <div class="ls"><h2>2. All Rights Reserved</h2><p>All rights are reserved. No part of this Platform or its content may be reproduced, distributed, transmitted, displayed, published, broadcast, adapted, or exploited in any form or by any means without prior written permission of Funded Hunt, except as expressly permitted in Section 3.</p><div class="lb warn"><p><strong>Violation of these rights may constitute infringement under the Indian Copyright Act, 1957 (Section 51), giving rise to civil claims for damages and injunctions, and criminal prosecution under Section 63.</strong></p></div></div>
-        <div class="ls"><h2>3. Permitted Uses — Fair Dealing</h2><p>The following uses are permitted under the Copyright Act, 1957 (Section 52) without requiring prior consent, subject to proper attribution: personal research or private study (non-commercial); criticism or review — quoting under 50 words with Funded Hunt credited as source and a link back; reporting of current events by journalists with attribution; sharing links to this Platform for non-commercial purposes.</p></div>
-        <div class="ls"><h2>4. Data Sourcing Declaration</h2><p><strong>4.1 Source Independence.</strong> All factual prop firm data — including challenge fees, profit targets, drawdown limits, payout splits, leverage, platforms, account sizes, and trading rules — was independently sourced directly from each prop firm's official website or official communications at time of data entry. We maintain internal records of the source URL and approximate date of data capture for each firm.</p><p><strong>4.2 No Derivation from Third-Party Platforms.</strong> Funded Hunt has not copied, derived, extracted, or reproduced any data, content, or database material from PropFirmMatch, FX Scout, Funded Trader Report, or any other prop firm comparison or aggregation platform. Our data was obtained at origin — from the prop firms themselves — not from any intermediary service.</p><p><strong>4.3 Factual Data and Copyright.</strong> Under the principle confirmed in <em>Eastern Book Company v. D.B. Modak</em> (2008) 1 SCC 1 (India) and <em>Feist Publications v. Rural Telephone Service</em> (1991) (US), raw factual data such as numerical trading rules does not attract copyright protection. However, our selection, arrangement, presentation, and editorial commentary applied to that data is our original expression and is fully protected.</p><p><strong>4.4 Database Rights.</strong> The compilation of prop firm data on this Platform constitutes a protectable database. Funded Hunt asserts database rights under applicable law including EU Directive 96/9/EC and equivalent protections in other jurisdictions.</p></div>
-        <div class="ls"><h2>5. Third-Party Trademarks — Nominative Fair Use</h2><p>Prop firm names, logos, and trademarks are the property of their respective owners. Their use on this Platform constitutes <strong>nominative fair use</strong> — use of a trademarked name solely to refer to the actual brand for editorial comparison, identification, and information. This does not imply any affiliation, sponsorship, partnership, or endorsement. Such use is protected under Trade Marks Act, 1999 (India) Section 30(1) and equivalent provisions globally.</p></div>
-        <div class="ls"><h2>6. Copyright Infringement — Takedown Procedure</h2><p>If you believe content on this Platform infringes your intellectual property rights, submit a written notice to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5d2c7dcd0c3d4dbd6d0f5c1ddd0c5c7dac5d3c0dbd1dcdbd29bd6dad8">[email&#160;protected]</a> containing: your name and contact information; identification of the copyrighted work you claim has been infringed; the specific URL on this Platform where the alleged infringing content appears; a statement of good-faith belief that the use is not authorised; and a declaration that the information is accurate. We will acknowledge within 24 hours and respond within 30 days. Where a claim is valid, we will take prompt corrective action.</p></div>
-        <div class="ls"><h2>7. Enforcement</h2><p>Funded Hunt reserves the right to pursue all available legal remedies against infringers, including injunctive relief, damages, and account of profits under the Indian Copyright Act, 1957 and equivalent international laws. We actively monitor for unauthorised reproduction of our original content.</p></div>
-        <div class="lb gold"><p><strong>© 2026 Funded Hunt. All original content, tools, scoring frameworks, and platform designs are protected by copyright under the Indian Copyright Act, 1957 and international conventions. Prop firm names, logos, and trademarks are property of their respective owners and are used here under nominative fair use for editorial and comparative purposes only. All rights reserved.</strong></p></div>
-      </div>
-
-
-    </div>
-  </div>
-
-
-<!-- ══════════════════ CONTACT PANEL ══════════════════ -->
-<div class="panel" id="panel-contact">
-  <div class="panel-inner">
-    <div class="panel-head">
-      <h1>✉️ Contact Us</h1>
-      <p>Have a question, partnership enquiry, or feedback? We'd love to hear from you.</p>
-    </div>
-
-    <!-- Contact Cards -->
-    <div class="grid-3" style="margin-bottom:36px;">
-
-      <!-- General Enquiries -->
-      <div class="card" style="border-color:rgba(245,197,24,0.15);text-align:center;padding:32px 24px;">
-        <div style="font-size:36px;margin-bottom:14px;">💬</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;">General Enquiries</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6;">Questions about the platform, firms, features, or anything else.</div>
-        <a href="mailto:fundedhunt@gmail.com" style="display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;color:var(--gold);text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,197,24,0.2)'" onmouseout="this.style.background='var(--gold-dim)'">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-          fundedhunt@gmail.com
-        </a>
-      </div>
-
-      <!-- Prop Firm Partnerships -->
-      <div class="card" style="border-color:rgba(245,197,24,0.15);text-align:center;padding:32px 24px;">
-        <div style="font-size:36px;margin-bottom:14px;">🤝</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;">Prop Firm Partnerships</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6;">Prop firms wanting to get listed, update details, or explore affiliate partnerships.</div>
-        <a href="mailto:s@fundedhunt.com" style="display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid var(--border2);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;color:var(--gold);text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,197,24,0.2)'" onmouseout="this.style.background='var(--gold-dim)'">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-          s@fundedhunt.com
-        </a>
-      </div>
-
-      <!-- Telegram -->
-      <div class="card" style="border-color:rgba(245,197,24,0.15);text-align:center;padding:32px 24px;">
-        <div style="font-size:36px;margin-bottom:14px;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.613c-.152.678-.555.843-1.123.524l-3.1-2.284-1.496 1.44c-.165.165-.304.304-.623.304l.222-3.157 5.74-5.185c.25-.222-.054-.345-.385-.123L7.09 14.191 4.03 13.22c-.67-.21-.683-.67.14-.992l10.887-4.197c.558-.202 1.046.136.505 2.217z"/></svg>
-        </div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;">Quick Help & Community</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6;">Fastest way to reach us. DM directly for quick questions or community support.</div>
-        <a href="https://t.me/Shubham_fundedhunt" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:rgba(34,158,217,0.1);border:1px solid rgba(34,158,217,0.3);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;color:#229ED9;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(34,158,217,0.18)'" onmouseout="this.style.background='rgba(34,158,217,0.1)'">
-          @Shubham_fundedhunt
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Contact Form -->
-    <div class="card" style="max-width:680px;margin:0 auto;">
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;margin-bottom:4px;">Send Us a Message</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">We read every message and typically respond within 24 hours.</div>
-
-      <div id="contactFormWrap">
-        <div class="form-row" style="margin-bottom:16px;">
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Your Name</label>
-            <input type="text" id="contactName" class="form-input" placeholder="e.g. Arjun Shah">
-          </div>
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Email Address</label>
-            <input type="email" id="contactEmail" class="form-input" placeholder="you@example.com">
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:16px;">
-          <label>Subject</label>
-          <select id="contactSubject" class="form-select">
-            <option value="">Select a topic...</option>
-            <option value="General Enquiry">General Enquiry</option>
-            <option value="Firm Partnership">Firm Partnership / Get Listed</option>
-            <option value="Affiliate">Affiliate Programme</option>
-            <option value="Bug Report">Bug / Technical Issue</option>
-            <option value="Feedback">Feedback & Suggestions</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-bottom:24px;">
-          <label>Message</label>
-          <textarea id="contactMessage" class="form-textarea" style="min-height:120px;" placeholder="Tell us what's on your mind..."></textarea>
-        </div>
-        <div id="contactStatus" style="display:none;margin-bottom:16px;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:500;"></div>
-        <button class="btn btn-gold" onclick="submitContactForm()" style="min-width:160px;">
-          Send Message ✉️
-        </button>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
 </div><!-- /main -->
 
 <!-- ═══════════════════ MODALS ══════════════════════════ -->
