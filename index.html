@@ -8185,8 +8185,8 @@ function openEditLogbook(id) {
 function closeLogbookModal(){document.getElementById('overlay-logbook-modal').classList.remove('open');document.body.style.overflow='';}
 
 async function saveLogbookEntry() {
-  const firmId=document.getElementById('lbFirmSel').value;
-  const firmName=firmId==='other'?document.getElementById('lbFirmOtherName').value.trim():'';
+  const firmId=_lbSelectedFirm?.id || document.getElementById('lbFirmSel').value;
+  const firmName=firmId==='other'?document.getElementById('lbFirmOtherName').value.trim():(_lbSelectedFirm?.name||'');
   const fee=parseFloat(document.getElementById('lbFee').value)||0;
   if(!firmId){alert('Please select a firm.');return;}
   if(fee<=0){alert('Please enter a valid fee amount.');return;}
@@ -11101,7 +11101,13 @@ function selectLbFirm(el, id, name) {
   document.querySelectorAll('.lb-firm-card').forEach(c=>c.classList.remove('selected'));
   el.classList.add('selected');
   _lbSelectedFirm = {id, name};
-  document.getElementById('lbFirmSel').value = id;
+  const sel = document.getElementById('lbFirmSel');
+  if(!sel.querySelector('option[value="'+id+'"]')) {
+    const opt = document.createElement('option');
+    opt.value = id; opt.text = name;
+    sel.appendChild(opt);
+  }
+  sel.value = id;
   document.getElementById('lbFirmOther').style.display = id==='other' ? 'block' : 'none';
 }
 
