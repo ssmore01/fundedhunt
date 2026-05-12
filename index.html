@@ -824,7 +824,157 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
     </div>
   </div>
 
-  <!-- QUIZ PANEL -->
+<!-- ══════ HOT DEALS PANEL ══════ -->
+  <div class="panel" id="panel-hotdeals">
+  <div class="panel-inner">
+
+    <div class="panel-head">
+      <h1>🔥 Hot Deals</h1>
+      <p>Limited time offers from top prop firms. Grab these before they expire.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;">
+
+      <!-- Blueberry Funded -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">⏰ 72 HRS ONLY</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🫐</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Blueberry Funded</div><div style="font-size:11px;color:var(--muted);">Prime Challenge Only</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">45% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">Valid on Prime Challenge accounts only</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">SPLASH45</div>
+          <button onclick="navigator.clipboard.writeText('SPLASH45').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://blueberryfunded.com/?utm_source=affiliate&ref=8991" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Blueberry Funded →</a>
+      </div>
+
+      <!-- GOAT Funded -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🐐</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">GOAT Funded</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">40% OFF + Free Account</div>
+        <div style="font-size:11px;color:var(--muted);">Free account of same size after first payout</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">BOGO40</div>
+          <button onclick="navigator.clipboard.writeText('BOGO40').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://app.goatfundedtrader.com/home?code=fundedhunt" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit GOAT Funded →</a>
+      </div>
+
+      <!-- Blue Guardian -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🛡️</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Blue Guardian</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">35% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">Flat 35% off on all accounts</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">HUNT</div>
+          <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://www.blueguardian.com/?afmc=HUNT" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Blue Guardian →</a>
+      </div>
+
+      <!-- FXIFY -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">⚡</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">FXIFY</div><div style="font-size:11px;color:var(--muted);">All evaluations</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">33% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">May anniversary — 33% off all accounts</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">EASY30</div>
+          <button onclick="navigator.clipboard.writeText('EASY30').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://fxify.com?affiliateCode=HUNT&discountCode=FXIFY3&affiliateId=7774" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FXIFY →</a>
+      </div>
+
+      <!-- FundedSquad -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🛡️</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">FundedSquad</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">50% OFF + BOGO</div>
+        <div style="font-size:11px;color:var(--muted);">Free account after first payout</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">B1G1</div>
+          <button onclick="navigator.clipboard.writeText('B1G1').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://fundedsquad.com/?squad=1302" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedSquad →</a>
+      </div>
+
+      <!-- Atlas Funded -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🌍</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Atlas Funded</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">25% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">$5 pay-after-pass entry available</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">MAY</div>
+          <button onclick="navigator.clipboard.writeText('MAY').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://atlasfunded.com/hunt?afmc=5pi" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Atlas Funded →</a>
+      </div>
+
+      <!-- AquaFunded -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">🌊</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">AquaFunded</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">40% OFF + BOGO</div>
+        <div style="font-size:11px;color:var(--muted);">120% fee refund after 4th payout</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">AQUA</div>
+          <button onclick="navigator.clipboard.writeText('AQUA').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://www.aquafunded.com/?afmc=6ty" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit AquaFunded →</a>
+      </div>
+
+      <!-- Top One Trader -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
+          <span style="font-size:26px;">⚡</span>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Top One Trader</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">Up to 70% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">90-min payouts · Prop Firm of the Year</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">CINCO</div>
+          <button onclick="navigator.clipboard.writeText('CINCO').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <a href="https://www.toponetrader.com/" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Top One Trader →</a>
+      </div>
+
+    </div>
+
+    <div style="margin-top:28px;padding:18px 22px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:12px;">
+      <span style="font-size:20px;">💡</span>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Deals change regularly. Follow us on <a href="https://t.me/funded_hunt" target="_blank" style="color:var(--gold);text-decoration:none;">Telegram</a> and <a href="https://www.instagram.com/funded_hunt" target="_blank" style="color:var(--gold);text-decoration:none;">Instagram</a> to get notified the moment new deals drop.</div>
+    </div>
+
+  </div>
+</div>
+<!-- ══════ END HOT DEALS PANEL ══════ -->
+
+    <!-- QUIZ PANEL -->
   <div class="panel" id="panel-quiz">
     <div class="panel-inner">
       <div class="panel-head">
@@ -12779,180 +12929,5 @@ document.addEventListener('DOMContentLoaded', function(){
 
 </body>
 </html
-<!-- ══════ HOT DEALS PANEL ══════ -->
-<div id="panel-hotdeals" class="panel">
-  <div class="panel-inner">
 
-    <div class="panel-head">
-      <h1>🔥 Hot Deals</h1>
-      <p>Limited time offers from top prop firms. Grab these before they expire.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;width:100%;">
-
-      <!-- Blueberry Funded -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">⏰ 72 HRS ONLY</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🫐</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">Blueberry Funded</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">Prime Challenge Only</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">45% OFF</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Valid on Prime Challenge accounts only</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">SPLASH45</div>
-          <button onclick="navigator.clipboard.writeText('SPLASH45').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://blueberryfunded.com/?utm_source=affiliate&ref=8991" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Blueberry Funded →</a>
-      </div>
-
-      <!-- GOAT Funded -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🐐</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">GOAT Funded</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">40% OFF + Free Account</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Free account of same size after first payout</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">BOGO40</div>
-          <button onclick="navigator.clipboard.writeText('BOGO40').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://app.goatfundedtrader.com/home?code=fundedhunt" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit GOAT Funded →</a>
-      </div>
-
-      <!-- Blue Guardian -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🛡️</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">Blue Guardian</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">35% OFF</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Flat 35% off on all accounts</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">HUNT</div>
-          <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://www.blueguardian.com/?afmc=HUNT" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Blue Guardian →</a>
-      </div>
-
-      <!-- FXIFY -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">⚡</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">FXIFY</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All evaluations</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">33% OFF</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">May anniversary — 33% off all accounts</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">EASY30</div>
-          <button onclick="navigator.clipboard.writeText('EASY30').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://fxify.com?affiliateCode=HUNT&discountCode=FXIFY3&affiliateId=7774" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FXIFY →</a>
-      </div>
-
-      <!-- FundedSquad -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🛡️</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">FundedSquad</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">50% OFF + BOGO</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Free account after first payout</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">B1G1</div>
-          <button onclick="navigator.clipboard.writeText('B1G1').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://fundedsquad.com/?squad=1302" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedSquad →</a>
-      </div>
-
-      <!-- Atlas Funded -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🌍</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">Atlas Funded</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">25% OFF</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">$5 pay-after-pass entry available</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">MAY</div>
-          <button onclick="navigator.clipboard.writeText('MAY').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://atlasfunded.com/hunt?afmc=5pi" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Atlas Funded →</a>
-      </div>
-
-      <!-- AquaFunded -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">🌊</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">AquaFunded</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">40% OFF + BOGO</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">120% fee refund after 4th payout</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">AQUA</div>
-          <button onclick="navigator.clipboard.writeText('AQUA').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://www.aquafunded.com/?afmc=6ty" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit AquaFunded →</a>
-      </div>
-
-      <!-- Top One Trader -->
-      <div style="background:var(--bg2);border:1px solid rgba(229,62,62,0.4);border-radius:16px;padding:22px;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:10px;font-weight:700;padding:5px 14px;border-radius:0 16px 0 10px;letter-spacing:1px;">LIMITED</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:8px;">
-          <span style="font-size:32px;">⚡</span>
-          <div>
-            <div style="font-size:16px;font-weight:700;color:var(--text);">Top One Trader</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:2px;">All challenge types</div>
-          </div>
-        </div>
-        <div style="font-size:28px;font-weight:800;color:#E53E3E;margin-bottom:4px;">Up to 70% OFF</div>
-        <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">90-minute average payout · Prop Firm of the Year</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;color:var(--gold);font-family:monospace;flex:1;text-align:center;letter-spacing:2px;">CINCO</div>
-          <button onclick="navigator.clipboard.writeText('CINCO').then(()=>{this.textContent='✓ Copied';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy Code';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Copy Code</button>
-        </div>
-        <a href="https://www.toponetrader.com/" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:11px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Top One Trader →</a>
-      </div>
-
-    </div>
-
-    <div style="margin-top:32px;padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:14px;width:100%;">
-      <span style="font-size:24px;">💡</span>
-      <div>
-        <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Deals change frequently</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Check back regularly for new limited time offers. Follow us on <a href="https://t.me/funded_hunt" target="_blank" style="color:var(--gold);">Telegram</a> and <a href="https://www.instagram.com/funded_hunt" target="_blank" style="color:var(--gold);">Instagram</a> to get notified instantly when new deals drop.</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-<!-- ══════ END HOT DEALS PANEL ══════ -->
 >
