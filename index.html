@@ -890,11 +890,17 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">FXIFY</div><div style="font-size:11px;color:var(--muted);">All evaluations</div></div>
         </div>
         <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">33% OFF</div>
-        <div style="font-size:11px;color:var(--muted);">May anniversary — 33% off all accounts</div>
+        <div style="font-size:11px;color:var(--muted);">Apply both codes at checkout for full discount</div>
         <div style="display:flex;gap:8px;align-items:center;">
           <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">EASY30</div>
           <button onclick="navigator.clipboard.writeText('EASY30').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
         </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:-4px;">Coupon code (33% OFF)</div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">HUNT</div>
+          <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:-4px;">Referral code (enter separately)</div>
         <a href="https://fxify.com?affiliateCode=HUNT&discountCode=FXIFY3&affiliateId=7774" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FXIFY →</a>
       </div>
 
@@ -12217,6 +12223,40 @@ function visitFirm(id) {
 
 // ── BLOG ─────────────────────────────────────────────────────────
 const BLOG_POSTS=[
+{
+  id:'static-vs-trailing-drawdown-funded-account',
+  title:'Static vs Trailing Drawdown in Funded Accounts: Which One is Better For You?',
+  excerpt:'Static drawdown and trailing drawdown work very differently. One wrong choice can cost you your funded account. This simple guide breaks down what each one means with real examples.',
+  tag:'rules',
+  emoji:'📊',
+  image:'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80',
+  date:'May 17, 2026',
+  readTime:'10 min read',
+  content:`
+    <div class="blog-article-hero">
+      <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=900&q=85" alt="Static vs trailing drawdown explained">
+    </div>
+    <p>When you buy a funded account challenge, one of the most important things to understand before you place your first trade is how the drawdown works. Not just how much drawdown you get, but what type it is.</p>
+    <p>There are two types: static drawdown and trailing drawdown. They sound similar but they behave very differently. Choosing the wrong one for your trading style can get your account closed even when you think you are well within your limits.</p>
+    <h3>What is Static Drawdown</h3>
+    <p>Static drawdown means the floor is set once at the beginning and never moves again. No matter how much profit you make, the floor stays exactly where it started.</p>
+    <p><strong>Example:</strong> $25,000 account, 10% static drawdown. Floor set at $22,500. You make $3,000 profit. Balance is $28,000. Floor stays at $22,500. You now have $5,500 of breathing room. The more profit you make, the safer you become.</p>
+    <h3>What is Trailing Drawdown</h3>
+    <p>Trailing drawdown means the floor moves up as your account grows. Every time your balance hits a new high, the floor rises to stay a fixed percentage below that new high.</p>
+    <p><strong>Example:</strong> Same $25,000 account, 10% trailing. You make $3,000 profit. Balance is $28,000. New floor is now $25,200. Your buffer is still only $2,800. The floor chased your profits upward.</p>
+    <h3>Intraday Trailing: The Strictest Version</h3>
+    <p>Intraday trailing is calculated based on your highest equity during the session, including on open trades. If a trade runs $500 in profit on paper and then reverses to breakeven, your floor already moved up even though you made nothing. This catches swing traders and news traders hard.</p>
+    <h3>Which One Should You Choose</h3>
+    <p><strong>Choose static drawdown</strong> if you hold trades for more than a few hours, trade overnight, trade news, or use strategies with deep pullbacks. Static is more forgiving and rewards you for growing your account.</p>
+    <p><strong>Choose trailing drawdown</strong> if you are a scalper who opens and closes trades in minutes and never holds overnight. Trailing accounts are often cheaper with lower profit targets for clean short-term traders.</p>
+    <h3>Quick Checklist Before Buying</h3>
+    <p>1. Is the drawdown static or trailing?</p>
+    <p>2. If trailing, is it intraday or end of day?</p>
+    <p>3. Does the trailing floor ever lock and become static?</p>
+    <p>4. Is the drawdown calculated from balance or peak equity?</p>
+    <p>Know what you are buying before you buy it. The wrong drawdown type for your style is one of the most common reasons traders blow funded accounts. Compare drawdown types for 35+ firms at FundedHunt.com. 🐾</p>
+  `
+},
 {
   id:'funded-account-hack-trade-your-drawdown',
   title:'Funded Account Hack: Stop Trading Your Balance. Trade Your Drawdown.',
