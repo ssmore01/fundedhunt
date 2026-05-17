@@ -617,6 +617,13 @@
 .blog-cta-box h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:8px;}
 .blog-cta-box p{color:var(--muted);font-size:13px;margin-bottom:16px;}
 @media(max-width:900px){.blog-article-wrap{grid-template-columns:1fr;gap:32px;}.blog-sidebar{position:relative;top:0;}.year-grid,.blog-year-grid{grid-template-columns:1fr;}.math-box,.blog-math-box{grid-template-columns:1fr;}.blog-article-hero{height:280px;}.blog-article-hero-overlay{padding:24px 20px;}}
+.info-box{background:var(--bg3);border:1px solid var(--border2);border-radius:12px;padding:20px 24px;margin:24px 0;}
+.info-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;}
+.info-box p{margin:0 0 6px 0 !important;font-size:14px;color:#D0D0DC;line-height:1.7;}
+.tip-box{background:linear-gradient(135deg,rgba(245,197,24,0.06),rgba(245,197,24,0.02));border:1px solid var(--border2);border-radius:14px;padding:24px 28px;margin:28px 0;}
+.tip-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;}
+.tip-box p{margin:0 !important;font-size:15px;color:var(--text);line-height:1.75;font-weight:500;}
+.warning-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:8px;}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12233,118 +12240,367 @@ const BLOG_POSTS=[
   date:'May 17, 2026',
   readTime:'10 min read',
   content:`
-    <div class="blog-article-hero">
-      <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=900&q=85" alt="Static vs trailing drawdown explained">
-    </div>
-
     <p>When you buy a funded account challenge, one of the most important things to understand before you place your first trade is how the drawdown works. Not just how much drawdown you get, but what type it is.</p>
 
-    <p>There are two types: static drawdown and trailing drawdown. They sound similar but they behave very differently. Choosing the wrong one for your trading style can get your account closed even when you think you are well within your limits.</p>
+      <p>There are two types: static drawdown and trailing drawdown. They sound similar but they behave very differently. Choosing the wrong one for your trading style can get your account closed even when you think you are well within your limits.</p>
 
-    <p>This guide breaks it down as simply as possible with real examples so you know exactly what you are getting into before you pay for a challenge.</p>
+      <p>This guide breaks it down as simply as possible with real examples so you know exactly what you are getting into before you pay for a challenge.</p>
 
-    <h3>What is Drawdown First</h3>
+      <h2 id="what-is-drawdown">What is Drawdown First</h2>
 
-    <p>Drawdown is the maximum amount of money you are allowed to lose before the prop firm closes your account. It is a safety limit that protects the firm's capital.</p>
+      <p>Drawdown is the maximum amount of money you are allowed to lose before the prop firm closes your account. It is a safety limit that protects the firm's capital.</p>
 
-    <p>For example, if you have a $25,000 account with a 10% maximum drawdown, the firm will close your account if your balance or equity drops by $2,500. That means your floor is $22,500. The question is: does that floor ever move? That is the entire difference between static and trailing.</p>
+      <p>For example, if you have a $25,000 account with a 10% maximum drawdown, the firm will close your account if your balance or equity drops by $2,500. That means your floor is $22,500.</p>
 
-    <h3>What is Static Drawdown</h3>
+      <p>The question is: does that floor ever move? That is the entire difference between static and trailing.</p>
 
-    <p>Static drawdown means the floor is set once at the beginning and never moves again. No matter how much profit you make, the floor stays exactly where it started.</p>
+      <h2 id="static-drawdown">What is Static Drawdown</h2>
 
-    <p><strong>Real example:</strong> $25,000 account, 10% static drawdown. Floor set at $22,500 on day one. You make $3,000 profit. Balance is now $28,000. Floor stays at $22,500. You can now lose up to $5,500 before the account closes. The more profit you make, the more breathing room you have.</p>
+      <p>Static drawdown means the floor is set once at the beginning and never moves again. No matter how much profit you make, the floor stays exactly where it started.</p>
 
-    <p>Think of it like a wall that never moves. You start $2,500 above it and every profitable trade pushes you further away. The wall never comes up to meet you. Static drawdown rewards traders who grow their accounts consistently.</p>
+      <div class="info-box">
+        <div class="box-label">Static Drawdown Example</div>
+        <p>Account size: $25,000</p>
+        <p>Maximum drawdown: 10% static</p>
+        <p>Floor set at: $22,500 (fixed from day one)</p>
+        <p>You make $3,000 profit. Balance is now $28,000.</p>
+        <p>Floor stays at: $22,500</p>
+        <p>You can now lose up to $5,500 before the account closes.</p>
+        <p>The more profit you make, the more breathing room you have.</p>
+      </div>
 
-    <h3>What is Trailing Drawdown</h3>
+      <p>Static drawdown is the more generous of the two types. Every dollar of profit you make above your starting balance increases your buffer. It rewards traders who grow their accounts consistently.</p>
 
-    <p>Trailing drawdown means the floor moves up as your account grows. Every time your balance or equity hits a new high, the floor rises to stay a fixed percentage below that new high.</p>
+      <p>Think of it like a wall that never moves. You start $2,500 above it and every profitable trade pushes you further away from that wall. The wall itself never comes up to meet you.</p>
 
-    <p><strong>Real example:</strong> Same $25,000 account, 10% trailing drawdown. Starting floor: $22,500. You make $3,000 profit. Balance is now $28,000. New floor: $25,200 (10% below $28,000). You can now only lose $2,800 before the account closes. The floor chased your profits upward.</p>
+      <h2 id="trailing-drawdown">What is Trailing Drawdown</h2>
 
-    <p>With trailing drawdown, your floor constantly follows your best performance. The more profit you make, the higher the floor rises. It sounds protective but in reality it means you can never fully relax even when you are winning.</p>
+      <p>Trailing drawdown means the floor moves up as your account grows. Every time your balance or equity hits a new high, the floor rises to stay a fixed percentage below that new high.</p>
 
-    <h3>Intraday Trailing: The Strictest Version</h3>
+      <div class="info-box">
+        <div class="box-label">Trailing Drawdown Example</div>
+        <p>Account size: $25,000</p>
+        <p>Maximum drawdown: 10% trailing</p>
+        <p>Starting floor: $22,500</p>
+        <p>You make $3,000 profit. Balance is now $28,000.</p>
+        <p>New floor: $25,200 (10% below $28,000)</p>
+        <p>You can now only lose $2,800 before the account closes.</p>
+        <p>The floor chased your profits upward.</p>
+      </div>
 
-    <p>This is where many traders get caught off guard. Intraday trailing drawdown calculates based on your peak equity at any point during the day, including on open trades that have not been closed yet.</p>
+      <p>With trailing drawdown, your floor constantly follows your best performance. The more profit you make, the higher the floor rises. This is a double-edged situation. It protects your profits in theory, but it also means you can never relax even when you are winning.</p>
 
-    <p><strong>What this looks like in practice:</strong> You open a trade and it runs to $500 profit on paper. Your equity is now $25,500 and the floor jumps to $23,000. Then the trade reverses and closes at breakeven. Your balance is back to $25,000 but your floor is now at $23,000. You just permanently lost $500 of breathing room without losing any real money.</p>
+      <p>The most dangerous version is intraday trailing drawdown, where the floor moves based on your highest equity during the session, not just your closing balance. That means even unrealised profits on open trades can move the floor up, and then if the trades reverse, you can get wiped out before you even close a position.</p>
 
-    <p>This catches swing traders particularly hard. Holding trades overnight with unrealised profits means the floor keeps rising even while you sleep. If the market opens against you, the floor is already higher than you expected.</p>
+      <h2 id="intraday-trailing">Intraday Trailing: The Strictest Version</h2>
 
-    <h3>Static vs Trailing Side by Side</h3>
+      <p>This is where many traders get caught off guard. Intraday trailing drawdown calculates based on your peak equity at any point during the day, including on open trades.</p>
 
-    <p><strong>Floor movement:</strong> Static never moves. Trailing rises with your equity.</p>
-    <p><strong>After making $3,000 profit on a $25K account:</strong> Static gives you $5,500 buffer. Trailing keeps buffer at $2,500.</p>
-    <p><strong>Risk as you profit:</strong> Static gets easier. Trailing stays the same.</p>
-    <p><strong>Danger for swing traders:</strong> Static is low risk. Trailing is high risk.</p>
-    <p><strong>Firms using static:</strong> FundedSquad, Lark Funding, Atlas Funded, AquaFunded, CTI.</p>
-    <p><strong>Firms using trailing:</strong> FundingPips, FTMO, Apex, Topstep.</p>
+      <div class="warning-box">
+        <div class="box-label">Real Scenario</div>
+        <p>You open a trade and it runs to $500 profit on paper. Your equity is now $25,500 and the floor jumps to $23,000. Then the trade reverses and closes at breakeven. Your balance is back to $25,000 but your floor is now at $23,000. You just permanently lost $500 of breathing room without losing any real money. You can only afford to lose $2,000 now instead of $2,500.</p>
+      </div>
 
-    <h3>Which One Should You Choose</h3>
+      <p>This catches swing traders particularly hard. Holding trades overnight or over weekends with unrealised profits means the floor keeps rising even while you sleep. If the market opens against you, the floor is already higher than you expected.</p>
 
-    <p><strong>Choose static drawdown if:</strong> You hold trades for more than a few hours. You trade news events. You trade overnight or over weekends. You use a strategy with deep pullbacks before hitting your target. Static drawdown gives you the same buffer every day regardless of whether you had a winning week or a losing week.</p>
+      <h2 id="side-by-side">Static vs Trailing Side by Side</h2>
 
-    <p><strong>Choose trailing drawdown if:</strong> You are a scalper who opens and closes trades within minutes. You never hold trades overnight. Your strategy has a very high win rate with small drawdowns. Trailing drawdown challenges are often cheaper to buy and have lower profit targets.</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Static Drawdown</th>
+            <th>Trailing Drawdown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Floor movement</td>
+            <td><span class="tag-green">Never moves</span></td>
+            <td><span class="tag-red">Rises with your equity</span></td>
+          </tr>
+          <tr>
+            <td>After profit of $3,000 on $25K account</td>
+            <td><span class="tag-green">Still $2,500 buffer</span></td>
+            <td><span class="tag-red">Buffer stays at $2,500</span></td>
+          </tr>
+          <tr>
+            <td>Risk as you profit</td>
+            <td><span class="tag-green">Gets easier</span></td>
+            <td><span class="tag-red">Stays the same or harder</span></td>
+          </tr>
+          <tr>
+            <td>Danger for swing traders</td>
+            <td><span class="tag-green">Low</span></td>
+            <td><span class="tag-red">High</span></td>
+          </tr>
+          <tr>
+            <td>Danger for news traders</td>
+            <td><span class="tag-green">Low</span></td>
+            <td><span class="tag-red">High</span></td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td><span class="tag-gold">All trading styles</span></td>
+            <td><span class="tag-gold">Scalpers and short-term traders</span></td>
+          </tr>
+          <tr>
+            <td>Common at firms</td>
+            <td>FundedSquad, Lark, Atlas, AquaFunded, CTI</td>
+            <td>FundingPips, FTMO, Apex, Topstep</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h3>Common Mistakes Traders Make</h3>
+      <h2 id="who-should-choose">Which One Should You Choose</h2>
 
-    <p><strong>Mistake 1: Ignoring whether it is intraday or end of day.</strong> Some firms trail based on end of day equity. Others trail based on peak intraday equity. The intraday version is significantly stricter. Always check which one your firm uses.</p>
+      <p>The answer depends almost entirely on your trading style.</p>
 
-    <p><strong>Mistake 2: Holding large positions overnight on trailing accounts.</strong> If you are up $1,000 on a trade and hold overnight, your floor rises. If the market gaps against you, you are in trouble before you have even checked your phone.</p>
+      <h3>Choose static drawdown if:</h3>
 
-    <p><strong>Mistake 3: Thinking trailing drawdown protects profits.</strong> It does not protect your profits. It just means your survival margin stays fixed while your account grows.</p>
+      <p>You hold trades for more than a few hours. You trade news events. You trade overnight or over weekends. You use a strategy with deep pullbacks before hitting your target. You want to grow your account without constantly watching your floor rise.</p>
 
-    <p><strong>Mistake 4: Not checking if the trailing locks after first payout.</strong> Some firms like Top One Trader lock the trailing floor at starting balance after your first payout. From that point it behaves like static. Always read the payout mechanics carefully.</p>
+      <p>Static drawdown gives you the same buffer every single day regardless of whether you had a winning week or a losing week. There is no punishment for making good trades. Your floor is a wall behind you and not a shadow following you.</p>
 
-    <h3>Quick Checklist Before Buying Any Challenge</h3>
+      <h3>Choose trailing drawdown if:</h3>
 
-    <p>1. Is the drawdown static or trailing?</p>
-    <p>2. If trailing, is it intraday or end of day?</p>
-    <p>3. Does the trailing floor ever lock and become static?</p>
-    <p>4. Is there a daily drawdown limit on top of the overall limit?</p>
-    <p>5. Is the drawdown calculated from balance, equity, or peak equity?</p>
+      <p>You are a scalper who opens and closes trades within minutes. You never hold trades overnight. Your strategy has a very high win rate with small drawdowns on individual trades. You are disciplined enough to lock in profits before they can reverse.</p>
 
-    <p>Know what you are buying before you buy it. The wrong drawdown type for your trading style is one of the most common reasons funded accounts get blown by traders who should have passed. Compare drawdown types across 35+ prop firms at <a href="https://www.fundedhunt.com">FundedHunt.com</a>. 🐾</p>
+      <p>Trailing drawdown challenges are often cheaper to buy and have lower profit targets. If you trade quickly and cleanly, the trailing floor might never come close to threatening your account.</p>
+
+      <div class="pull-quote">"The drawdown type is not just a rule. It is the entire personality of the challenge. Understand it before you trade a single lot."</div>
+
+      <h2 id="common-mistakes">Common Mistakes Traders Make</h2>
+
+      <p><strong>Mistake 1: Ignoring whether it is intraday or EOD.</strong> Some firms trail based on end of day equity. Others trail based on peak intraday equity. The intraday version is significantly stricter. Always check which one your firm uses before you buy.</p>
+
+      <p><strong>Mistake 2: Holding large positions overnight on trailing accounts.</strong> If you are up $1,000 on a trade and hold it overnight, your floor rises. If the market gaps against you in the morning, you are in trouble before you have even checked your phone.</p>
+
+      <p><strong>Mistake 3: Thinking trailing drawdown protects profits.</strong> It does not protect your profits. It just makes sure the firm also benefits when you are doing well. The floor rising as you profit does not mean the firm is keeping your gains safe. It means your survival margin stays fixed while your account grows.</p>
+
+      <p><strong>Mistake 4: Not checking if the trailing locks after first payout.</strong> Some firms, like Top One Trader, lock the trailing drawdown at the starting balance after your first payout. This is actually favorable because the floor stops trailing and becomes static from that point. Always read the payout mechanics carefully.</p>
+
+      <h2 id="real-firms">How This Looks at Real Firms</h2>
+
+      <p>FundingPips uses trailing drawdown on their standard challenge. The floor moves based on your highest balance. Once it locks at your starting balance after certain conditions, it behaves more like static. Their rules around this are specific so always verify on their dashboard.</p>
+
+      <p>FTMO uses a daily loss limit plus a maximum loss limit. Both are calculated from your starting balance, making it behave closer to static for the overall account. The daily limit resets each day.</p>
+
+      <p>FundedSquad, Lark Funding, and Atlas Funded use fully static drawdown. Your floor is set on day one and never moves. These are the most straightforward accounts to manage.</p>
+
+      <p>Apex Trader Funding uses trailing drawdown that locks at starting balance once you hit certain milestones. Topstep uses a similar mechanic where the trailing floor eventually locks as you progress.</p>
+
+      <h2 id="quick-checklist">Quick Checklist Before Buying Any Challenge</h2>
+
+      <p><strong>1.</strong> Is the drawdown static or trailing?</p>
+      <p><strong>2.</strong> If trailing, is it intraday or end of day?</p>
+      <p><strong>3.</strong> Does the trailing floor ever lock or become static?</p>
+      <p><strong>4.</strong> Is there a daily drawdown limit on top of the overall limit?</p>
+      <p><strong>5.</strong> Is the drawdown calculated from balance, equity, or peak equity?</p>
+
+      <p>Most firms answer these questions in their FAQ or rules page. If they do not, that is itself a red flag worth noting before you spend money.</p>
+
+      <div class="tip-box">
+        <div class="box-label">Bottom Line</div>
+        <p>Static drawdown is almost always better for the average trader. It is more forgiving, easier to manage, and does not punish you for holding trades. Trailing drawdown is not necessarily bad but it requires a specific trading style to work well with. Know what you are buying before you buy it.</p>
+      </div>
+
+      <div class="verdict-box">
+        <h3>Find Firms by Drawdown Type</h3>
+        <p>At FundedHunt, every firm listing shows the drawdown type clearly — static, trailing, or intraday trailing. Compare 35+ firms side by side and filter by the rules that match your trading style at <a href="https://www.fundedhunt.com">fundedhunt.com</a>. No confusion. No surprises. Just the right firm for how you trade. 🐾</p>
+      </div>
   `
 },
 {
   id:'funded-account-hack-trade-your-drawdown',
   title:'Funded Account Hack: Stop Trading Your Balance. Trade Your Drawdown.',
-  excerpt:'You think you have $25,000 to trade. You don\'t. You have $2,500. This one shift changes how you size positions, manage risk, and actually pass your prop firm challenge.',
+  excerpt:'You think you have $25,000 to trade. You do not. You have $2,500. This one shift changes how you size positions, manage risk, and actually pass your prop firm challenge.',
   tag:'strategy',
   emoji:'🎯',
   image:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
   date:'May 5, 2026',
   readTime:'12 min read',
   content:`
-    <div class="blog-article-hero">
-      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=85" alt="Funded account hack trade your drawdown">
-    </div>
-    <p>Here is a mistake almost every new prop trader makes. They buy a $25,000 funded account, see $25,000 on their dashboard, and start trading like they have $25,000 in real capital. They size their positions based on that number. They think in terms of that number. Their whole approach is shaped by that number.</p>
-    <p>But that number is not theirs to lose. Not even close.</p>
-    <p>The actual amount of capital they can afford to lose before the account is gone is usually just 10% of that balance. On a $25,000 account with a 10% maximum drawdown, you have $2,500 before the account closes. That is it. That is the real number.</p>
-    <h3>The Balance Illusion</h3>
-    <p>When you buy a funded account, the firm is not giving you $25,000 to trade freely. They are giving you access to a $25,000 notional account with a defined risk boundary. The $25,000 is the size of the positions you can take. The drawdown limit is the actual capital at stake.</p>
-    <p>Think of it like this. A shop owner has a store worth 50 lakhs. But the cash in the register at any given moment is maybe 5,000 rupees. You are not the shop owner. You are the guy minding the register. You have 5,000 rupees to work with. Not 50 lakhs.</p>
-    <h3>How This Changes Your Position Sizing</h3>
-    <p>If you are risking 1% of your account per trade, you need to ask: 1% of what? Most traders answer that with the balance on screen. So they risk 1% of $25,000, which is $250 per trade. But $250 per trade on a $2,500 drawdown buffer is 10% of your entire risk budget on a single trade. You can only afford 10 losing trades before the account is finished.</p>
-    <p>Always calculate your risk per trade as a percentage of your maximum drawdown, not your account balance. On a $25,000 account with a $2,500 drawdown, risking 1% of the drawdown per trade means risking $25. That gives you 100 losing trades before the account is gone.</p>
-    <h3>The Math That Actually Matters</h3>
-    <p><strong>Wrong approach:</strong> 1% of $25,000 balance = $250 risk per trade. With $2,500 max drawdown, you can only afford 10 losing trades.</p>
-    <p><strong>Right approach:</strong> 1% of $2,500 drawdown = $25 risk per trade. You can afford 100 losing trades.</p>
-    <p><strong>Conservative:</strong> 0.5% of $2,500 drawdown = $12.50 risk per trade. You can afford 200 losing trades.</p>
-    <h3>The Daily Drawdown Makes It Even More Critical</h3>
-    <p>Many challenges also have a daily drawdown limit. A $25,000 account with a 5% daily limit means you can only lose $1,250 in a single trading day. If you are risking $250 per trade and have five losing trades, you have hit the daily limit and your challenge is over. If you are risking $25 per trade and have five losing trades, you have lost $125. You come back tomorrow.</p>
-    <h3>Practical Rules to Implement Today</h3>
-    <p><strong>Rule 1:</strong> Write your maximum drawdown amount on a sticky note. That is your real account.</p>
-    <p><strong>Rule 2:</strong> Risk 0.5% to 1% of the drawdown per trade. Never the balance.</p>
-    <p><strong>Rule 3:</strong> Calculate your lot size before every trade. Never eyeball it.</p>
-    <p><strong>Rule 4:</strong> Set your personal daily stop at 50% of the firm daily limit.</p>
-    <p><strong>Rule 5:</strong> Never increase your position size mid-challenge regardless of how much buffer you have built.</p>
-    <p>Follow this and you will still be in the challenge six weeks later when traders who sized from their balance are buying their third evaluation.</p>
-  `
+<p>Here is a mistake almost every new prop trader makes. They buy a $25,000 funded account, see $25,000 on their dashboard, and start trading like they have $25,000 in real capital. They size their positions based on that number. They think in terms of that number. Their whole approach is shaped by that number.</p>
+
+      <p>But that number is not theirs to lose. Not even close.</p>
+
+      <p>The actual amount of capital they can afford to lose before the account is gone is usually just 10% of that balance. On a $25,000 account with a 10% maximum drawdown, you have $2,500 before the account closes. That is it. That is the real number.</p>
+
+      <p>Most traders never think about it this way. And that single blind spot is responsible for more blown funded accounts than bad strategy, bad entries, or bad markets combined.</p>
+
+      <h2 id='illusion'>The Balance Illusion</h2>
+
+      <p>When you buy a funded account, the firm is not giving you $25,000 to trade freely. They are giving you access to a $25,000 notional account with a defined risk boundary. The $25,000 is the size of the positions you can take. The drawdown limit is the actual capital at stake.</p>
+
+      <p>Think of it like this. A shop owner has a store worth 50 lakhs. But the cash in the register at any given moment is maybe 5,000 rupees. You are not the shop owner. You are the guy minding the register. You have 5,000 rupees to work with. Not 50 lakhs.</p>
+
+      <div class='example-box'>
+        <div class='ex-label'>Real Example</div>
+        <p>Account size: $25,000</p>
+        <p>Maximum drawdown: 10%</p>
+        <p>Actual capital you can lose: $2,500</p>
+        <p>Daily drawdown if applicable: 5% = $1,250 per day maximum loss</p>
+        <p>What most traders think they have: $25,000</p>
+        <p>What they actually have: $2,500</p>
+      </div>
+
+      <p>This is not a trick the firm is playing on you. It is just math. But it changes absolutely everything about how you should approach position sizing, risk per trade, and your overall strategy for the challenge.</p>
+
+      <h2 id='position-sizing'>How This Changes Your Position Sizing</h2>
+
+      <p>If you are risking 1% of your account per trade the way every trading book tells you to, you need to ask: 1% of what?</p>
+
+      <p>Most traders answer that question with the balance on screen. So they risk 1% of $25,000, which is $250 per trade. That sounds conservative. But $250 per trade on a $2,500 real drawdown buffer is actually 10% of your entire risk budget on a single trade. You can only afford 10 losing trades before the account is finished.</p>
+
+      <p>That is not risk management. That is gambling with a nice label on it.</p>
+
+      <div class='hack-box'>
+        <div class='hack-label'>The Hack</div>
+        <p>Always calculate your risk per trade as a percentage of your maximum drawdown, not your account balance. On a $25,000 account with a $2,500 drawdown, risking 1% of the drawdown per trade means risking $25. That gives you 100 losing trades before the account is gone. That is what real risk management looks like.</p>
+      </div>
+
+      <p>Twenty-five dollars per trade on a $25,000 account looks tiny. It feels wrong. Your brain tells you it is too small. That feeling is exactly why so many traders blow their funded accounts. The balance makes conservative risk feel irrational. But when you anchor to the drawdown, it becomes crystal clear.</p>
+
+      <h2 id='math'>The Math That Actually Matters</h2>
+
+      <p>Let us run the numbers side by side so the difference is impossible to ignore.</p>
+
+      <table class='compare-table'>
+        <thead>
+          <tr>
+            <th>Approach</th>
+            <th>Account Size</th>
+            <th>Risk Per Trade</th>
+            <th>Max Drawdown</th>
+            <th>Trades Before Account Closes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class='tag-red'>Wrong approach</span></td>
+            <td>$25,000</td>
+            <td>1% of balance = $250</td>
+            <td>$2,500 (10%)</td>
+            <td><span class='tag-red'>10 losing trades</span></td>
+          </tr>
+          <tr>
+            <td><span class='tag-green'>Right approach</span></td>
+            <td>$25,000</td>
+            <td>1% of drawdown = $25</td>
+            <td>$2,500 (10%)</td>
+            <td><span class='tag-green'>100 losing trades</span></td>
+          </tr>
+          <tr>
+            <td><span class='tag-gold'>Conservative</span></td>
+            <td>$25,000</td>
+            <td>0.5% of drawdown = $12.50</td>
+            <td>$2,500 (10%)</td>
+            <td><span class='tag-gold'>200 losing trades</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The trader risking 1% of balance has almost no margin for error. One bad week and the account is gone. The trader risking 1% of drawdown can have 100 consecutive losses and still be in the challenge. In real trading where even good strategies lose 40 to 50% of the time, the difference between these two approaches is the difference between lasting long enough to pass and failing in the first two weeks.</p>
+
+      <h2 id='daily-drawdown'>The Daily Drawdown Makes It Even More Critical</h2>
+
+      <p>Many challenges also have a daily drawdown limit on top of the maximum drawdown. This makes the wrong approach even more dangerous.</p>
+
+      <p>A $25,000 account with a 5% daily drawdown limit means you can only lose $1,250 in a single trading day before the account closes for that day or permanently, depending on the firm. On some firms, one bad day ends the challenge entirely regardless of how much total drawdown is still available.</p>
+
+      <p>If you are risking $250 per trade and you have five losing trades in a day, you have lost $1,250. The daily limit is hit. The account is closed or suspended. Your challenge is over.</p>
+
+      <p>If you are risking $25 per trade and you have five losing trades in a day, you have lost $125. You are still well within the daily limit. You come back tomorrow.</p>
+
+      <div class='truth-box'>
+        <div class='tb-label'>The Hard Truth</div>
+        <p>Streaks happen to every trader. Five losing trades in a day is not unusual. Ten losing trades in a week is not unusual. The only question is whether your risk per trade is small enough that a normal losing streak does not end your challenge. If it is not, it is not a question of if you blow the account. It is a question of when.</p>
+      </div>
+
+      <h2 id='profit-target'>How This Helps You Hit the Profit Target Too</h2>
+
+      <p>Here is the part most people miss. Trading smaller does not just protect your drawdown. It actually makes it easier to hit the profit target.</p>
+
+      <p>When you are risking too much per trade, every losing trade creates psychological pressure. You start chasing losses. You override your rules. You hold losing trades longer than you should hoping they come back. You take revenge trades. All of this because the loss feels significant relative to your goal.</p>
+
+      <p>When you are risking 1% of your drawdown per trade, a losing trade costs $25. That is nothing. You take it, close the trade, and move on. You do not need to recover it immediately. You do not feel panicked. You just follow your process.</p>
+
+      <p>That emotional neutrality is what lets good strategies actually produce their expected results. It is almost impossible to trade your edge consistently when your position size is large enough to make losses feel threatening. Trading your drawdown rather than your balance removes that psychological landmine from the equation.</p>
+
+      <div class='pull-quote'>'The goal in a funded challenge is not to make money fast. It is to not lose the account. If you stop losing the account, the profits come on their own timeline.'</div>
+
+      <h2 id='scaling'>How to Apply This Across Different Account Sizes</h2>
+
+      <p>The framework works the same regardless of your account size. Always start with your maximum drawdown in rupees or dollars, then size your risk from that number.</p>
+
+      <div class='example-box'>
+        <div class='ex-label'>Across Account Sizes</div>
+        <p><strong>$10,000 account, 10% drawdown:</strong> Real capital = $1,000. Risk 1% = $10 per trade. Risk 0.5% = $5 per trade.</p>
+        <p><strong>$25,000 account, 10% drawdown:</strong> Real capital = $2,500. Risk 1% = $25 per trade. Risk 0.5% = $12.50 per trade.</p>
+        <p><strong>$50,000 account, 8% drawdown:</strong> Real capital = $4,000. Risk 1% = $40 per trade. Risk 0.5% = $20 per trade.</p>
+        <p><strong>$100,000 account, 10% drawdown:</strong> Real capital = $10,000. Risk 1% = $100 per trade. Risk 0.5% = $50 per trade.</p>
+      </div>
+
+      <p>Notice that the absolute dollar amounts feel small for the larger accounts. That is the point. The large account balance is not your money to risk. Your drawdown is your real working capital. Keep that number front of mind every single session.</p>
+
+      <h2 id='lot-size'>Translating This Into Actual Lot Sizes</h2>
+
+      <p>So how do you convert a $25 risk per trade into an actual lot size? It depends on what you are trading and where your stop loss sits.</p>
+
+      <p>For forex, the calculation is straightforward. Lot size equals your risk amount divided by your stop loss in pips multiplied by the pip value.</p>
+
+      <p>If you are trading EURUSD with a $25 risk and a 20 pip stop loss, the pip value on a standard lot is $10. So: 25 divided by 20 multiplied by 10 equals 0.125 lots. You trade 0.12 lots.</p>
+
+      <p>That is a micro position on a $25,000 account. Many traders would laugh at it. But that trader will still be in the challenge six weeks later when the traders who sized too large have already failed and bought another evaluation.</p>
+
+      <div class='truth-box'>
+        <div class='tb-label'>A Thought</div>
+        <p>The traders consistently getting funded are not the ones taking 10 lot positions on a $25,000 account. They are the ones who have done this calculation, accepted what it means, and stuck to it every single session without exception. Small size, consistent process, passed challenge.</p>
+      </div>
+
+      <h2 id='mindset'>The Mindset Shift Required</h2>
+
+      <p>This is ultimately a mindset change more than a strategy change. You have to genuinely stop seeing the $25,000 as money you have. It is not yours. It is the firm's capital that you have been given temporary access to under specific conditions. Your job is to manage those conditions intelligently.</p>
+
+      <p>The $2,500 drawdown is the actual stake. That is the number you protect. That is the number you size from. That is the number you think about when you are deciding whether to take a trade or sit out a session.</p>
+
+      <p>Once you make that mental switch, a lot of impulsive trading decisions stop making sense on their own. You do not risk 20% of your real capital on a hunch. You do not size up because a setup looks good. You do not trade news events with large size because you are feeling confident. The math just does not support it anymore.</p>
+
+      <p>And when the math does not support a decision, a disciplined trader does not make that decision. That is the entire game.</p>
+
+      <h2 id='practical'>Practical Rules to Implement Today</h2>
+
+      <p><strong>Rule 1: Write your real number on a sticky note.</strong> Whatever your maximum drawdown is in dollars, write it down and put it somewhere visible when you trade. That is your real account. Not the balance on screen.</p>
+
+      <p><strong>Rule 2: Set your risk per trade at 0.5% to 1% of the drawdown.</strong> Not the balance. Never the balance again. Calculate this before you open your platform and do not deviate from it regardless of how confident you are about a trade.</p>
+
+      <p><strong>Rule 3: Calculate your lot size before every trade.</strong> Never eyeball it. Never round up. Do the math, enter the number, and take the trade at that size. Every time.</p>
+
+      <p><strong>Rule 4: Treat the daily drawdown as a daily stop loss.</strong> If your firm has a 5% daily drawdown, your personal daily stop is 50% of that. When you hit your personal daily stop, you stop trading for the day. No exceptions. This gives you a buffer before the firm's limit and prevents one bad session from ending the challenge.</p>
+
+      <p><strong>Rule 5: Never increase your position size mid-challenge.</strong> Some traders size up when they are in profit thinking they can afford more risk because they have a buffer. This is how they give back all the profit and breach the account in the same week. Your risk per trade stays the same from day one to the last trade of the challenge.</p>
+
+      <div class='hack-box'>
+        <div class='hack-label'>Quick Summary</div>
+        <p>Find your maximum drawdown in dollars. That is your real account. Risk 0.5% to 1% of that number per trade. Calculate your lot size from that risk amount before every entry. Keep your personal daily stop at half the firm's daily limit. Never size up during the challenge. Follow this for 20 to 30 trades and you will still be in the challenge when traders who sized from their balance are buying their third evaluation.</p>
+      </div>
+
+      <h2 id='choose-firm'>Choose a Firm That Gives You Enough Room</h2>
+
+      <p>Not all funded accounts are created equal when it comes to drawdown. Some firms offer 6% maximum drawdown. Some offer 10% or 12%. Some use trailing drawdown which is stricter than static. The amount of real working capital you have varies significantly from one firm to another even on the same nominal account size.</p>
+
+      <p>On a $25,000 account with 6% maximum drawdown, you have $1,500 of real capital. Risk 1% of that and you are trading $15 per trade.</p>
+
+      <p>On a $25,000 account with 12% maximum drawdown, you have $3,000 of real capital. Risk 1% and you are trading $30 per trade.</p>
+
+      <p>That difference matters. Especially if your strategy has a normal losing run of 8 to 10 trades. Choose a firm with drawdown limits that give your strategy enough room to breathe. And make sure the drawdown is static rather than trailing if your trading style involves holding through pullbacks.</p>
+
+      <div class='verdict-box'>
+        <h3>The Number That Changes Everything</h3>
+        <p>Your funded account balance is not your money. Your drawdown limit is. Once you start trading from that number instead of the balance on screen, your position sizes become rational, your emotions become manageable, and your chances of passing go up dramatically. Compare drawdown limits, structures, and full rule sets for 35+ prop firms side by side at <a href='https://www.fundedhunt.com'>fundedhunt.com</a>. Find the firm that gives your strategy the room it actually needs. 🐾</p>
+      </div>
+  '`
 },
 {
   id:'why-traders-lose-funded-accounts-in-30-days',
@@ -12408,7 +12664,7 @@ const BLOG_POSTS=[
       <p><strong>Define your trading session.</strong> Decide which hours you will trade and which you will not. Stick to this even on days when you feel like you are missing moves.</p>
       <p><strong>Write your setup criteria again, as if you are preparing for a new challenge.</strong> Read them before every session.</p>
       <p><strong>Have a rule for losing days decided before you start.</strong> The decision should be made before the loss happens, not after.</p>
-      <div class="blog-verdict-box"><h3>The Account Is Yours to Keep or Lose</h3><p>Getting funded is a genuine achievement. But the traders who build real income from prop firms treat the funded account with more discipline than the challenge, not less. The challenge was the audition. The funded account is the performance. Compare rules, drawdown limits, and payout structures for 35 prop firms at <a href="https://www.fundedhunt.com" style="color:var(--gold)">fundedhunt.com</a> before you begin. 🐾</p></div>
+      <div class="blog-verdict-box"><h3>The Account Is Yours to Keep or Lose</h3><p>Getting funded is a genuine achievement. But the traders who build real income from prop firms treat the funded account with more discipline than the challenge, not less. The challenge was the audition. The funded account is the performance. Compare rules, drawdown limits, and payout structures for 33 prop firms at <a href="https://www.fundedhunt.com" style="color:var(--gold)">fundedhunt.com</a> before you begin. 🐾</p></div>
     </div>`
 },
 {
@@ -12728,7 +12984,8 @@ const BLOG_POSTS=[
       <div class="pull-quote">"Stop measuring yourself by how much you traded. Start measuring yourself by how well you traded."</div>
       <div class="blog-verdict-box"><h3>Your Discipline Got You Here</h3><p>When your discipline is built and your edge is proven, the only thing standing between you and a real trading income is capital. That is what prop firms give you. Compare 33 prop firms honestly at <a href="https://www.fundedhunt.com" style="color:var(--gold)">fundedhunt.com</a> — no paid rankings, no hidden agendas. 🐾</p></div>
     </div>`
-},{
+},
+{
   id:'honest-truth-about-building-trading-career',
   title:'The Honest Truth About Building a Trading Career',
   excerpt:'Nobody warns you about year one. You come in with charts on your screen, a strategy you found online, and a genuine belief that this is the thing that is going to change your life. And then the market introduces itself.',
@@ -12793,7 +13050,8 @@ const BLOG_POSTS=[
 
     </div>
   `
-},{
+},
+{
   id:'what-happens-after-you-pass-prop-firm-challenge',
   title:'What Happens After You Pass a Prop Firm Challenge',
   excerpt:'Most content talks about how to pass. Nobody talks about what comes next. Here is everything that happens after you pass and how to approach it the right way.',
@@ -12864,7 +13122,8 @@ const BLOG_POSTS=[
 
     </div>
   `
-},{
+},
+{
   id:'why-did-i-fail-prop-firm-challenge',
   title:'Why Did I Fail My Prop Firm Challenge — 10 Real Reasons',
   excerpt:'Most traders who fail prop firm challenges do not fail because they cannot trade. They fail because of reasons that have nothing to do with their actual edge in the market.',
@@ -12935,7 +13194,8 @@ const BLOG_POSTS=[
 
     </div>
   `
-},{
+},
+{
   id:'how-to-pass-prop-firm-challenge-indian-traders',
   title:'How to Pass a Prop Firm Challenge — 7 Things Every Indian Trader Must Know',
   excerpt:'Thousands of traders fail prop firm challenges every month not because they cannot trade but because they did not understand the rules. Here is what actually matters.',
@@ -13051,9 +13311,8 @@ const BLOG_POSTS=[
 
     </div>
   `
-},
+}
 ]
-
 let currentBlogFilter='all';
 function renderBlog(){
   const grid=document.getElementById('blogGrid');
