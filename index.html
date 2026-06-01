@@ -634,6 +634,152 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 </head>
 <body>
 
+<!-- ══════════════════ GIVEAWAY POPUP ══════════════════ -->
+<div id="giveaway-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);">
+  <div style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:20px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 60px rgba(200,168,75,0.15);">
+
+    <!-- Gold top bar -->
+    <div style="height:4px;background:linear-gradient(90deg,#B8922A,#E8C96A,#B8922A);border-radius:20px 20px 0 0;"></div>
+
+    <!-- Close button -->
+    <button onclick="closeGiveaway()" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,0.08);border:none;color:#aaa;font-size:18px;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;line-height:1;">✕</button>
+
+    <div style="padding:28px 28px 24px;">
+
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C8A84B;margin-bottom:10px;">FundedHunt Community</div>
+        <div style="font-size:13px;font-weight:800;color:#ffffff;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">MASSIVE</div>
+        <div style="font-size:48px;font-weight:900;color:#ffffff;line-height:1;letter-spacing:-1px;margin-bottom:4px;">GIVEAWAY</div>
+        <div style="display:inline-block;background:linear-gradient(135deg,#B8922A,#E8C96A);padding:5px 18px;border-radius:20px;font-size:13px;font-weight:800;color:#0a0a0a;letter-spacing:1px;">IS LIVE! 🎉</div>
+      </div>
+
+      <!-- Prize box -->
+      <div style="background:linear-gradient(135deg,#111,#1a1500);border:1px solid #C8A84B;border-radius:14px;padding:18px;text-align:center;margin-bottom:18px;">
+        <div style="font-size:11px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">WIN UPTO</div>
+        <div style="font-size:44px;font-weight:900;color:#C8A84B;line-height:1;margin-bottom:4px;">$5,000</div>
+        <div style="font-size:16px;font-weight:700;color:#ffffff;margin-bottom:12px;">× 3 FUNDED ACCOUNTS</div>
+        <div style="background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.3);border-radius:8px;padding:8px 14px;display:inline-block;">
+          <span style="font-size:12px;color:#C8A84B;font-weight:700;">3 WINNERS · $5,000 EACH</span>
+        </div>
+      </div>
+
+      <!-- 3 pillars -->
+      <div style="display:flex;gap:8px;margin-bottom:18px;">
+        <div style="flex:1;background:#111;border:1px solid #222;border-radius:10px;padding:10px 8px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">🎯</div>
+          <div style="font-size:9px;font-weight:700;color:#C8A84B;letter-spacing:1px;text-transform:uppercase;line-height:1.3;">Real<br>Opportunity</div>
+        </div>
+        <div style="flex:1;background:#111;border:1px solid #222;border-radius:10px;padding:10px 8px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">📈</div>
+          <div style="font-size:9px;font-weight:700;color:#C8A84B;letter-spacing:1px;text-transform:uppercase;line-height:1.3;">Grow Your<br>Journey</div>
+        </div>
+        <div style="flex:1;background:#111;border:1px solid #222;border-radius:10px;padding:10px 8px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">🛡️</div>
+          <div style="font-size:9px;font-weight:700;color:#C8A84B;letter-spacing:1px;text-transform:uppercase;line-height:1.3;">Trade. Prove.<br>Get Funded.</div>
+        </div>
+      </div>
+
+      <!-- How to participate + Rules side by side -->
+      <div style="display:flex;gap:10px;margin-bottom:18px;">
+
+        <!-- How to participate -->
+        <div style="flex:1;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:12px;padding:14px;">
+          <div style="font-size:10px;font-weight:800;color:#C8A84B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid #1e1e1e;padding-bottom:8px;">How to Enter</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">🎬</span><span style="font-size:12px;color:#cccccc;">Like & Share the giveaway reel</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">📸</span><span style="font-size:12px;color:#cccccc;">Follow <span style="color:#C8A84B;">@funded_hunt</span> on Instagram</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">🌐</span><span style="font-size:12px;color:#cccccc;">Sign up on <span style="color:#C8A84B;">fundedhunt.com</span></span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:14px;">💬</span><span style="font-size:12px;color:#cccccc;">Comment & tag 2 friends</span></div>
+          </div>
+        </div>
+
+        <!-- Rules -->
+        <div style="flex:1;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:12px;padding:14px;">
+          <div style="font-size:10px;font-weight:800;color:#C8A84B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;border-bottom:1px solid #1e1e1e;padding-bottom:8px;">Giveaway Rules</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">Register with active email</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">One entry per person only</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">Private account? DM story screenshot</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">Incomplete entries not considered</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">Winners selected randomly</span></div>
+            <div style="display:flex;gap:6px;align-items:flex-start;"><span style="color:#C8A84B;font-size:10px;margin-top:2px;">✓</span><span style="font-size:11px;color:#888;line-height:1.4;">Winners verified by registered email</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Countdown -->
+      <div style="background:#0a0a0a;border:1px solid #1e1e1e;border-radius:12px;padding:14px;text-align:center;margin-bottom:16px;">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:10px;">Giveaway Ends In</div>
+        <div id="gw-countdown" style="display:flex;justify-content:center;gap:10px;">
+          <div style="background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="gw-days" style="font-size:24px;font-weight:800;color:#C8A84B;line-height:1;">00</div>
+            <div style="font-size:9px;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Days</div>
+          </div>
+          <div style="background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="gw-hours" style="font-size:24px;font-weight:800;color:#C8A84B;line-height:1;">00</div>
+            <div style="font-size:9px;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Hours</div>
+          </div>
+          <div style="background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="gw-mins" style="font-size:24px;font-weight:800;color:#C8A84B;line-height:1;">00</div>
+            <div style="font-size:9px;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Mins</div>
+          </div>
+          <div style="background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;min-width:52px;">
+            <div id="gw-secs" style="font-size:24px;font-weight:800;color:#C8A84B;line-height:1;">00</div>
+            <div style="font-size:9px;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Secs</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:11px;color:#555;">
+          📅 Ends: <span style="color:#C8A84B;font-weight:700;">4th June 2026</span> &nbsp;·&nbsp; 🏆 Winners: <span style="color:#C8A84B;font-weight:700;">5th June 2026</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="https://www.instagram.com/funded_hunt" target="_blank" style="display:block;text-align:center;background:linear-gradient(135deg,#B8922A,#E8C96A);color:#0a0a0a;font-size:14px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:14px;border-radius:10px;text-decoration:none;margin-bottom:10px;">🎁 Enter Giveaway on Instagram</a>
+      <p style="text-align:center;font-size:11px;color:#444;margin:0;">Like and share the giveaway reel to participate</p>
+
+    </div>
+
+    <!-- Bottom gold bar -->
+    <div style="height:4px;background:linear-gradient(90deg,#B8922A,#E8C96A,#B8922A);border-radius:0 0 20px 20px;"></div>
+  </div>
+</div>
+
+<script>
+// Giveaway popup — show after 3s, once per session
+function closeGiveaway(){
+  document.getElementById('giveaway-overlay').style.display='none';
+  sessionStorage.setItem('gw_closed','1');
+}
+setTimeout(function(){
+  if(!sessionStorage.getItem('gw_closed')){
+    document.getElementById('giveaway-overlay').style.display='flex';
+  }
+},3000);
+
+// Countdown to 4th June 2026 midnight IST
+function updateCountdown(){
+  var end=new Date('2026-06-04T23:59:59+05:30');
+  var now=new Date();
+  var diff=end-now;
+  if(diff<=0){
+    document.getElementById('gw-countdown').innerHTML='<span style="color:#C8A84B;font-weight:700;">Giveaway Ended!</span>';
+    return;
+  }
+  var d=Math.floor(diff/86400000);
+  var h=Math.floor((diff%86400000)/3600000);
+  var m=Math.floor((diff%3600000)/60000);
+  var s=Math.floor((diff%60000)/1000);
+  document.getElementById('gw-days').textContent=String(d).padStart(2,'0');
+  document.getElementById('gw-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('gw-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('gw-secs').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+</script>
+
 <!-- ═══════════════════ SIDEBAR ═══════════════════════ -->
 <div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
 <div class="sidebar" id="sidebar">
