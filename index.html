@@ -652,6 +652,10 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
         <span class="ico">🔥</span> Hot Deals
         <span class="badge" style="background:#E53E3E;color:#fff;">HOT</span>
       </div>
+      <div class="sb-item" data-panel="pricefinder" onclick="nav('pricefinder')">
+        <span class="ico">💰</span> Price Finder
+        <span class="badge" style="background:#22c55e;color:#fff;">NEW</span>
+      </div>
       <div class="sb-item" data-panel="quiz" onclick="nav('quiz')">
         <span class="ico">🎯</span> Find My Firm
         <span class="badge">AI</span>
@@ -995,6 +999,184 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
   </div>
 </div>
 <!-- ══════ END HOT DEALS PANEL ══════ -->
+
+<!-- ══════ PRICE FINDER PANEL ══════ -->
+<div class="panel" id="panel-pricefinder">
+  <div class="panel-header">
+    <h2>💰 Price Finder</h2>
+    <p class="panel-sub">Find the cheapest challenge for any account size — base price and discounted price side by side.</p>
+  </div>
+
+  <!-- Filter -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:24px;">
+    <p style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin:0 0 12px;">Select Account Size</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;" id="pf-size-btns">
+      <button onclick="pfFilter('5k')"  class="pf-btn pf-active">$5K</button>
+      <button onclick="pfFilter('10k')" class="pf-btn">$10K</button>
+      <button onclick="pfFilter('25k')" class="pf-btn">$25K</button>
+      <button onclick="pfFilter('50k')" class="pf-btn">$50K</button>
+      <button onclick="pfFilter('100k')" class="pf-btn">$100K</button>
+      <button onclick="pfFilter('200k')" class="pf-btn">$200K</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="pf-results" style="display:flex;flex-direction:column;gap:10px;"></div>
+</div>
+
+<style>
+.pf-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;}
+.pf-btn:hover,.pf-btn.pf-active{background:var(--gold);color:#000;border-color:var(--gold);}
+.pf-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;transition:border-color .2s;}
+.pf-card:hover{border-color:var(--gold);}
+.pf-rank{font-size:18px;font-weight:800;color:var(--gold);width:28px;text-align:center;flex-shrink:0;}
+.pf-logo{width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);flex-shrink:0;}
+.pf-name{font-size:14px;font-weight:700;color:var(--text);}
+.pf-plan{font-size:11px;color:var(--muted);margin-top:2px;}
+.pf-prices{margin-left:auto;text-align:right;flex-shrink:0;}
+.pf-base{font-size:12px;color:var(--muted);text-decoration:line-through;}
+.pf-disc{font-size:18px;font-weight:800;color:#22c55e;}
+.pf-code{font-size:10px;background:rgba(245,197,24,0.12);border:1px solid rgba(245,197,24,0.3);color:var(--gold);padding:2px 8px;border-radius:4px;font-family:monospace;margin-top:3px;display:inline-block;}
+.pf-visit{background:var(--gold);color:#000;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+</style>
+
+<script>
+const PF_DATA = {
+  '5k': [
+    {name:'GOAT Funded',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:50,disc:30,code:'GFT40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
+    {name:'FundingPips',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:60,disc:36,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
+    {name:'Maven Trading',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:19,disc:19,code:'',url:'https://mavenfunding.com'},
+    {name:'FXIFY',plan:'1-Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:53,disc:39,code:'GOAL26',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
+    {name:'FundedFirm',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:39,disc:39,code:'',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
+    {name:'Alpha Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=alphacapitalgroup.uk&sz=128',base:40,disc:40,code:'HUNT',url:'https://alphacapitalgroup.uk'},
+    {name:'FundedNext',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:49.99,disc:49.99,code:'FLEX',url:'https://fundednext.com/?ref=fundedhunt'},
+    {name:'Pipstone Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:49,disc:49,code:'FUNDEDHUNT',url:'https://pipstonecapital.com'},
+    {name:'Blueberry Funded',plan:'Prime Challenge',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:55,disc:33,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
+    {name:'CTI',plan:'Evaluation',logo:'https://www.google.com/s2/favicons?domain=citytradersinperium.com&sz=128',base:59,disc:59,code:'',url:'https://citytradersinperium.com'},
+    {name:'Top One Trader',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:59,disc:59,code:'SUMMER',url:'https://toponetrader.com'},
+    {name:'Funded Trading Plus',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:59,disc:59,code:'HUNT',url:'https://fundedtradingplus.com'},
+    {name:'Lark Funding',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=larkfunding.com&sz=128',base:60,disc:60,code:'MAY2026',url:'https://larkfunding.com'},
+    {name:'FundedSquad',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:79,disc:40,code:'B1G2',url:'https://fundedsquad.com/?squad=1302'},
+    {name:'Finotive Funding',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=finotive.com&sz=128',base:69,disc:69,code:'',url:'https://finotive.com'},
+    {name:'Blue Guardian',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=blueguardian.com&sz=128',base:99,disc:65,code:'HUNT',url:'https://blueguardian.com/?afmc=HUNT'},
+  ],
+  '10k': [
+    {name:'Maven Trading',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:37,disc:37,code:'',url:'https://mavenfunding.com'},
+    {name:'GOAT Funded',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:92,disc:55,code:'GFT40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
+    {name:'ATFunded',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=atfunded.com&sz=128',base:25,disc:25,code:'ATF15',url:'https://atfunded.com'},
+    {name:'FundingPips',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:112,disc:67,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
+    {name:'FundedNext',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:49.99,disc:49.99,code:'FLEX',url:'https://fundednext.com/?ref=fundedhunt'},
+    {name:'FXIFY',plan:'1-Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:107,disc:79,code:'GOAL26',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
+    {name:'Alpha Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=alphacapitalgroup.uk&sz=128',base:60,disc:60,code:'HUNT',url:'https://alphacapitalgroup.uk'},
+    {name:'FundedFirm',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:59,disc:59,code:'',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
+    {name:'QT Funded',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=qtfunded.com&sz=128',base:49,disc:49,code:'',url:'https://qtfunded.com'},
+    {name:'CTI',plan:'Evaluation',logo:'https://www.google.com/s2/favicons?domain=citytradersinperium.com&sz=128',base:99,disc:99,code:'',url:'https://citytradersinperium.com'},
+    {name:'Pipstone Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:89,disc:89,code:'FUNDEDHUNT',url:'https://pipstonecapital.com'},
+    {name:'Blueberry Funded',plan:'Prime Challenge',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:105,disc:63,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
+    {name:'Top One Trader',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:99,disc:99,code:'SUMMER',url:'https://toponetrader.com'},
+    {name:'FundedSquad',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:119,disc:60,code:'B1G2',url:'https://fundedsquad.com/?squad=1302'},
+    {name:'Funded Trading Plus',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:119,disc:119,code:'HUNT',url:'https://fundedtradingplus.com'},
+    {name:'FundedElite',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:99,disc:99,code:'MAY35',url:'https://fundedfirm.com'},
+    {name:'FTMO',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:155,disc:155,code:'',url:'https://ftmo.com'},
+    {name:'Lark Funding',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=larkfunding.com&sz=128',base:200,disc:200,code:'MAY2026',url:'https://larkfunding.com'},
+  ],
+  '25k': [
+    {name:'Maven Trading',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:68,disc:68,code:'',url:'https://mavenfunding.com'},
+    {name:'QT Funded',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=qtfunded.com&sz=128',base:80,disc:80,code:'',url:'https://qtfunded.com'},
+    {name:'GOAT Funded',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:200,disc:120,code:'GFT40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
+    {name:'FundingPips',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:245,disc:147,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
+    {name:'FundedFirm',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:119,disc:119,code:'',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
+    {name:'FundedNext',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:99.99,disc:99.99,code:'FLEX',url:'https://fundednext.com/?ref=fundedhunt'},
+    {name:'Alpha Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=alphacapitalgroup.uk&sz=128',base:130,disc:130,code:'HUNT',url:'https://alphacapitalgroup.uk'},
+    {name:'FXIFY',plan:'1-Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:188,disc:139,code:'GOAL26',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
+    {name:'CTI',plan:'Evaluation',logo:'https://www.google.com/s2/favicons?domain=citytradersinperium.com&sz=128',base:179,disc:179,code:'',url:'https://citytradersinperium.com'},
+    {name:'For Traders',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:179,disc:179,code:'NEW20',url:'https://fortraders.com'},
+    {name:'Pipstone Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:189,disc:189,code:'FUNDEDHUNT',url:'https://pipstonecapital.com'},
+    {name:'Blueberry Funded',plan:'Prime Challenge',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:200,disc:120,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
+    {name:'Top One Trader',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:219,disc:219,code:'SUMMER',url:'https://toponetrader.com'},
+    {name:'FundedElite',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:219,disc:219,code:'MAY35',url:'https://fundedfirm.com'},
+    {name:'FTMO',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:250,disc:250,code:'',url:'https://ftmo.com'},
+    {name:'Funded Trading Plus',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:249,disc:249,code:'HUNT',url:'https://fundedtradingplus.com'},
+    {name:'FundedSquad',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:259,disc:130,code:'B1G2',url:'https://fundedsquad.com/?squad=1302'},
+    {name:'AquaFunded',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:165,disc:99,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
+  ],
+  '50k': [
+    {name:'The Funded Room',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:129,disc:129,code:'',url:'https://thefundedroom.com'},
+    {name:'GOAT Funded',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:362,disc:217,code:'GFT40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
+    {name:'FundingPips',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:412,disc:247,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
+    {name:'FundedNext',plan:'Stellar 1-Phase',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:179.99,disc:179.99,code:'FLEX',url:'https://fundednext.com/?ref=fundedhunt'},
+    {name:'Alpha Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=alphacapitalgroup.uk&sz=128',base:230,disc:230,code:'HUNT',url:'https://alphacapitalgroup.uk'},
+    {name:'FXIFY',plan:'1-Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:337,disc:249,code:'GOAL26',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
+    {name:'Blueberry Funded',plan:'Prime Challenge',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:325,disc:195,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
+    {name:'For Traders',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:249,disc:249,code:'NEW20',url:'https://fortraders.com'},
+    {name:'ATFunded',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=atfunded.com&sz=128',base:149,disc:149,code:'ATF15',url:'https://atfunded.com'},
+    {name:'Pipstone Capital',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:349,disc:349,code:'FUNDEDHUNT',url:'https://pipstonecapital.com'},
+    {name:'FundedSquad',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:429,disc:215,code:'B1G2',url:'https://fundedsquad.com/?squad=1302'},
+    {name:'Top One Trader',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:359,disc:359,code:'SUMMER',url:'https://toponetrader.com'},
+    {name:'FTMO',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:345,disc:345,code:'',url:'https://ftmo.com'},
+    {name:'Funded Trading Plus',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:449,disc:449,code:'HUNT',url:'https://fundedtradingplus.com'},
+    {name:'AquaFunded',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:270,disc:162,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
+    {name:'Lark Funding',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=larkfunding.com&sz=128',base:500,disc:500,code:'MAY2026',url:'https://larkfunding.com'},
+  ],
+  '100k': [
+    {name:'ATFunded',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=atfunded.com&sz=128',base:149,disc:149,code:'ATF15',url:'https://atfunded.com'},
+    {name:'Topstep',plan:'Monthly',logo:'https://www.google.com/s2/favicons?domain=topstep.com&sz=128',base:99,disc:99,code:'',url:'https://topstep.com'},
+    {name:'FundedElite',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:549,disc:549,code:'MAY35',url:'https://fundedfirm.com'},
+    {name:'E8 Markets',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=e8markets.com&sz=128',base:489,disc:489,code:'',url:'https://e8markets.com'},
+    {name:'FTMO',plan:'Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:540,disc:540,code:'',url:'https://ftmo.com'},
+    {name:'AquaFunded',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:499,disc:299,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
+    {name:'Calvoro Funding',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:549,disc:357,code:'BOGO35',url:'https://calvorofunding.com'},
+    {name:'Apex Trader',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=apextraderfunding.com&sz=128',base:307,disc:307,code:'',url:'https://apextraderfunding.com'},
+  ],
+  '200k': [
+    {name:'AquaFunded',plan:'Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:860,disc:516,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
+  ]
+};
+
+let pfCurrent = '5k';
+
+function pfFilter(size) {
+  pfCurrent = size;
+  document.querySelectorAll('.pf-btn').forEach(function(b) { b.classList.remove('pf-active'); });
+  event.target.classList.add('pf-active');
+  pfRender();
+}
+
+function pfRender() {
+  var data = PF_DATA[pfCurrent] || [];
+  var sorted = data.slice().sort(function(a,b) { return (a.disc||a.base) - (b.disc||b.base); });
+  var container = document.getElementById('pf-results');
+  if (!sorted.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);">No firms found for this account size yet.</div>';
+    return;
+  }
+  container.innerHTML = sorted.map(function(f, i) {
+    var hasDisc = f.code && f.disc < f.base;
+    var savings = hasDisc ? Math.round(((f.base - f.disc) / f.base) * 100) : 0;
+    var baseHtml = hasDisc ? '<div class="pf-base">$' + f.base + '</div>' : '';
+    var codeHtml = hasDisc ? '<div class="pf-code">' + f.code + ' · ' + savings + '% OFF</div>' : (f.code ? '<div class="pf-code">' + f.code + '</div>' : '');
+    return '<div class="pf-card">' +
+      '<div class="pf-rank">#' + (i+1) + '</div>' +
+      '<img class="pf-logo" src="' + f.logo + '" alt="' + f.name + '">' +
+      '<div style="flex:1;min-width:0;">' +
+        '<div class="pf-name">' + f.name + '</div>' +
+        '<div class="pf-plan">' + f.plan + '</div>' +
+      '</div>' +
+      '<div class="pf-prices">' +
+        baseHtml +
+        '<div class="pf-disc">$' + f.disc + '</div>' +
+        codeHtml +
+      '</div>' +
+      '<a href="' + f.url + '" target="_blank" class="pf-visit">Visit &#8594;</a>' +
+    '</div>';
+  }).join('');
+}
+
+// init
+document.addEventListener('DOMContentLoaded', pfRender);
+setTimeout(pfRender, 500);
+</script>
+<!-- ══════ END PRICE FINDER PANEL ══════ -->
 
     <!-- QUIZ PANEL -->
   <div class="panel" id="panel-quiz">
@@ -6237,6 +6419,7 @@ const PANEL_TITLES = {
   blog:['Blog','Trading insights and guides'],
   contact:['Contact Us','Get in touch with us'],
   hotdeals:['Hot Deals','Limited time offers'],
+  pricefinder:['Price Finder','Cheapest to most expensive'],
 };
 
 function toggleSidebar(){
