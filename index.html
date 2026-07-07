@@ -11703,7 +11703,7 @@ async function doLogin() {
 async function doGoogleLogin() {
   await supa.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.href }
+    options: { redirectTo: 'https://www.fundedhunt.com' }
   });
 }
 
@@ -11713,7 +11713,7 @@ async function doForgot() {
   const msgEl = document.getElementById('forgotMsg');
   if (!email) return;
   const { error } = await supa.auth.resetPasswordForEmail(email, {
-    redirectTo: window.location.href
+    redirectTo: 'https://www.fundedhunt.com'
   });
   if (!error) {
     msgEl.textContent = '✅ Reset link sent! Check your email.';
