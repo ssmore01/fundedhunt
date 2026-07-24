@@ -847,16 +847,16 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 
       <!-- FundedSquad -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">EXPIRES 30 JUN</div>
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">FREE AFTER PAYOUT</div>
         <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
           <img src="https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="FundedSquad">
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">FundedSquad</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
         </div>
-        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">BOGO + 50% OFF</div>
-        <div style="font-size:11px;color:var(--muted);">Buy 1 Get 1 Free + 50% OFF · Code: CHAMPIONS</div>
+        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">50% OFF + BOGO</div>
+        <div style="font-size:11px;color:var(--muted);">50% OFF + Buy 1 Get 1 Free · Free Account After 1st Payout · Code: RETRY</div>
         <div style="display:flex;gap:8px;align-items:center;">
-          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">CHAMPIONS</div>
-          <button onclick="navigator.clipboard.writeText('CHAMPIONS').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">RETRY</div>
+          <button onclick="navigator.clipboard.writeText('RETRY').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
         </div>
         <a href="https://fundedsquad.com/?squad=1302" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedSquad →</a>
       </div>
@@ -959,13 +959,13 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 
       <!-- NYS Markets -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">FIRST 500 ONLY</div>
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED PERIOD</div>
         <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
           <img src="https://www.google.com/s2/favicons?domain=nysmarkets.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="NYS Markets">
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">NYS Markets</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
         </div>
-        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">Buy 1 Get 1 Free</div>
-        <div style="font-size:11px;color:var(--muted);">No coupon code needed · Auto-applied · First 500 accounts only</div>
+        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">Flat 60% OFF</div>
+        <div style="font-size:11px;color:var(--muted);">No coupon code · Discount via direct link · Limited period only</div>
         <div style="display:flex;gap:8px;align-items:center;">
           <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:1px;">NO CODE NEEDED</div>
         </div>
@@ -1190,9 +1190,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:165,disc:99,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:219,disc:197,code:'HUNT',url:'https://funderpro.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:219,disc:131,code:'SUMMER',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:329,disc:214,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:759,disc:493,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:259,disc:130,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:329,disc:164,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:759,disc:380,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:259,disc:130,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:249,disc:162,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'2-Step',name:'FundedFirm',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:99,disc:94,code:'AFF2709FF42',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:88,disc:88,code:'',url:'https://mavenfunding.com'},
@@ -1240,9 +1240,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:270,disc:162,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:359,disc:215,code:'SUMMER',url:'https://toponetrader.com'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:349,disc:314,code:'HUNT',url:'https://funderpro.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:629,disc:409,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1399,disc:909,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:429,disc:215,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:629,disc:314,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1399,disc:700,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:429,disc:214,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:369,disc:240,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:289,disc:260,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'2-Step',name:'The Funded Room',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:99,disc:99,code:'',url:'https://thefundedroom.com'},
@@ -1292,9 +1292,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:499,disc:299,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:549,disc:357,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:549,disc:329,code:'SUMMER',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1079,disc:701,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2499,disc:1624,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:679,disc:340,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1079,disc:540,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2499,disc:1250,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:679,disc:340,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:499,disc:449,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'2-Step',name:'The Funded Room',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:149,disc:149,code:'',url:'https://thefundedroom.com'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:440,disc:440,code:'',url:'https://mavenfunding.com'},
@@ -1306,7 +1306,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'Funded Friday',plan:'Two Step',logo:'https://www.google.com/s2/favicons?domain=fundedfriday.com&sz=128',base:349,disc:314,code:'HUNT',url:'https://fundedfriday.com'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:299,disc:179,code:'AQUA',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'2-Step',name:'Calvoro Funding',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:369,disc:240,code:'BOGO35',url:'https://calvorofunding.com'},
-    {cat:'2-Step',name:'FundedSquad',plan:'2-Step Fast',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:599,disc:300,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'2-Step',name:'FundedSquad',plan:'2-Step Fast',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:599,disc:300,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'2-Step',name:'FTMO',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:540,disc:540,code:'',url:'https://ftmo.com'},
     {cat:'3-Step',name:'Maven Trading',plan:'3-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:299,disc:299,code:'',url:'https://mavenfunding.com'},
     {cat:'3-Step',name:'For Traders',plan:'3-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:349,disc:279,code:'NEW20',url:'https://fortraders.com'},
@@ -1328,8 +1328,8 @@ const PF_DATA = {
     {cat:'1-Step',name:'FXIFY',plan:'One Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:849,disc:628,code:'NEW30',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:849,disc:764,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:999,disc:599,code:'SUMMER',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2079,disc:1351,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1219,disc:610,code:'CHAMPIONS',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2079,disc:1040,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1219,disc:610,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:549,disc:329,code:'BOGO40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:600,disc:600,code:'NEW25',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:1170,disc:702,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
@@ -3091,8 +3091,8 @@ const FIRMS=[
 },
   {id:'funded-squad',
   rating:4.5,reviewCount:1200,
-  discount:'BOGO + 50% OFF',discountCode:'CHAMPIONS',
-  badge:'🛡️ BOGO + 50% OFF · Code: CHAMPIONS · 12hr Payout · 100% Split',
+  discount:'50% OFF + BOGO',discountCode:'RETRY',
+  badge:'🛡️ 50% OFF + BOGO · Code: RETRY · Free Account After 1st Payout · 12hr Payout',
   founded:2024,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',
   name:'FundedSquad',emoji:'🛡️',
@@ -3108,9 +3108,9 @@ const FIRMS=[
   phases:'1-Step Challenge | 1-Step Pro | 2-Step Fast | 2-Step Squad | Instant Lite | Instant Pro',
   allowScalping: true,allowNews: false,allowSwing: true,noTimeLimit: true,
   websiteUrl:'https://fundedsquad.com/?squad=1302',
-  about:`FundedSquad is a Dubai-based proprietary trading firm founded in 2024. Built by a trader for traders, FundedSquad has paid out $178,200+ to traders across 68+ countries. Key differentiators: 12-hour guaranteed payout window ($1,000 bonus if missed), 100% fee refund on first payout, copy trading allowed across all models, and no consistency rule. Six models: 1-Step, 1-Step Pro, 2-Step Fast, 2-Step Squad, Instant Lite, and Instant Pro. Scale from $5K to $1,000,000 maximum allocation by doubling account with every 10% profit. Platforms: Match Trader and TradeLocker. News trading restricted (4-minute window) but holding through news is allowed. EAs and copy trading fully permitted.
+  about:`FundedSquad is a Dubai-based proprietary trading firm founded in 2024. Built by a trader for traders, FundedSquad has paid out $178,200+ to traders across 68+ countries. Key differentiators: 12-hour guaranteed payout window ($1,000 bonus if missed), 100% fee refund on first payout, free account after first payout (at no cost), copy trading allowed across all models, and no consistency rule. Six models: 1-Step, 1-Step Pro, 2-Step Fast, 2-Step Squad, Instant Lite, and Instant Pro. Scale from $5K to $1,000,000 maximum allocation by doubling account with every 10% profit. Platforms: Match Trader and TradeLocker. News trading restricted (4-minute window) but holding through news is allowed. EAs and copy trading fully permitted.
 
-🎯 DISCOUNT: Use code B1G2 at checkout. Evaluation accounts (1-Step, 2-Step) — 50% OFF on $25K and above. Instant accounts — 35% OFF on $25K and above. Buy 1 Get 2 Free after first payout. Valid till 30th June 2026.`,
+🎯 CURRENT OFFER: Use code RETRY at checkout — 50% OFF on all accounts. Buy 1 Get 1 Free — get a second account free on your first order. Free account after your first payout — at no extra cost. No expiry mentioned, grab it while it lasts.`,
   headquarters:'Dubai, UAE',
   platforms:'Match Trader, TradeLocker',
   instruments:'Forex, Metals, Indices, Crypto, Commodities',
@@ -3127,7 +3127,8 @@ const FIRMS=[
     'Scale to $1,000,000 by doubling with every 10% profit',
     'No lot size limits — trade freely without artificial caps',
     'News holding allowed — only opening/closing restricted during 4-min window',
-    '50% OFF Evaluation + 35% OFF Instant + B1G2 with code B1G2 (valid till 30 June)',
+    '50% OFF all accounts + BOGO with code RETRY — free second account on first order',
+    'Free account after first payout — at no additional cost',
     'Static drawdown on all challenge models — floor never moves',
     'Weekend holding allowed',
     '6 challenge types covering every trading style',
@@ -6180,13 +6181,13 @@ const FIRMS=[
 },
   {id:'nys-markets',
   rating:4.3,reviewCount:140,
-  discount:'Buy 1 Get 1 Free',discountCode:'',
-  badge:'🗽 Buy 1 Get 1 Free · No Code Required · Offer Valid for First 500 Accounts Only',
+  discount:'60% OFF',discountCode:'',
+  badge:'🗽 60% OFF All Accounts · No Code Required · Direct Link Deal · Limited Period Only',
   founded:2025,country:'Hong Kong / Saint Lucia',
   logo:'https://www.google.com/s2/favicons?domain=nysmarkets.com&sz=128',
   name:'NYS Markets',emoji:'🗽',
   color:'#2563EB',bg:'linear-gradient(135deg,#000814,#001233)',
-  tagline:'Buy 1 Get 1 Free · Free Trials · Up to $150K Funded · NYS Academy Included',
+  tagline:'60% OFF All Accounts · No Coupon Needed · Up to $150K Funded · NYS Academy Included',
   website:'nysmarkets.com',
   minCapital:'$5,000',maxCapital:'$150,000',
   maxFunding:'$150,000',
@@ -6199,7 +6200,7 @@ const FIRMS=[
   websiteUrl:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',
   about:`NYS Markets is a newer prop trading firm operating under NYS Corp Limited, based in Hong Kong, with NYS Markets Ltd incorporated in Saint Lucia. The firm offers funded forex accounts up to $150,000 with a straightforward 4-step process: choose your challenge, prove your trading skills within the risk rules, become a funded trader, and earn rewards from your performance. Every trader gets access to the NYS Dashboard, trading analytics, a personal Trading Journal, and the NYS Academy education hub from day one. The firm operates as a simulated trading environment, meaning accounts are not real trading accounts and balances are hypothetical, which is standard across most prop firms in the industry. NYS Markets does not currently accept traders from the US, Russia, UAE, or FATF-restricted jurisdictions.
 
-🎯 CURRENT OFFER: Buy 1 Get 1 Free on all challenges. No coupon code required, the offer is automatically applied through our referral link. This offer is valid for the first 500 accounts only, so it is first come first served.`,
+🎯 CURRENT OFFER: Flat 60% OFF on all accounts — no coupon code required. Discount is automatically applied when you use our direct referral link. This is a limited period offer, so grab it while it lasts.`,
   headquarters:'Hong Kong (NYS Corp Limited) / Saint Lucia (NYS Markets Ltd)',
   platforms:'MT5 (confirm with firm before purchase)',
   instruments:'Forex (confirm full instrument list with firm)',
@@ -6207,8 +6208,8 @@ const FIRMS=[
   minTradingDays:'As per selected challenge plan',
   scaling:'Performance-based account scaling within the NYS ecosystem',
   pros:[
-    'Buy 1 Get 1 Free — effectively two accounts for the price of one',
-    'No discount code required — automatically applied through referral link',
+    'Flat 60% OFF on all accounts — no coupon code required',
+    'Discount auto-applied via direct referral link — no manual steps needed',
     'Up to $150,000 maximum funded account size',
     'Free trials available for traders to test the platform',
     'NYS Academy included free — education hub from day one',
