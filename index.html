@@ -1701,68 +1701,61 @@ setTimeout(pfRender, 500);
   <!-- JOURNAL PANEL -->
   <div class="panel" id="panel-journal">
     <div class="panel-inner">
-      <div class="panel-head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+
+      <!-- HEADER -->
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:24px;">
         <div>
-          <h1>📓 Trade Journal</h1>
-          <p>Log every trade. Track your discipline, edge, and growth — not firm results, just your raw trading mind.</p>
+          <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;margin:0 0 4px;">📓 Trade Journal</h1>
+          <p style="font-size:13px;color:var(--muted);margin:0;">Log every trade. Track your edge, discipline and growth.</p>
         </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
           <select class="form-select" id="tjReportPeriod" style="width:auto;font-size:12px;padding:7px 12px;border-radius:8px;" onchange="renderTJReport()">
             <option value="daily">Daily Report</option>
             <option value="weekly" selected>Weekly Report</option>
             <option value="monthly">Monthly Report</option>
           </select>
-          <button class="btn btn-outline" onclick="exportJournalExcel()" style="font-size:12px;padding:7px 14px;gap:6px;">📥 Export Excel</button>
-          <button class="btn btn-gold" onclick="openTJModal()">+ Log Trade</button>
+          <button class="btn btn-outline" onclick="exportJournalExcel()" style="font-size:12px;padding:7px 14px;">📥 Export</button>
+          <button class="btn btn-gold" onclick="openTJModal()" style="padding:9px 20px;font-size:13px;">+ Log Trade</button>
         </div>
       </div>
 
       <!-- SUMMARY STRIP -->
-      <div class="stat-row" id="tjSummaryStrip" style="margin-bottom:24px;"></div>
+      <div id="tjSummaryStrip" style="margin-bottom:24px;"></div>
 
       <!-- REPORT CARD -->
-      <div id="tjReportCard" style="margin-bottom:28px;"></div>
+      <div id="tjReportCard" style="margin-bottom:24px;"></div>
 
       <!-- FILTER + SEARCH -->
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">
-        <div class="filter-bar" style="margin-bottom:0;flex:1;min-width:0;">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1;">
           <button class="filter-btn active" onclick="filterTJ('all',this)">All</button>
           <button class="filter-btn" onclick="filterTJ('long',this)">📈 Long</button>
           <button class="filter-btn" onclick="filterTJ('short',this)">📉 Short</button>
-          <button class="filter-btn" onclick="filterTJ('win',this)">✅ Win</button>
-          <button class="filter-btn" onclick="filterTJ('loss',this)">❌ Loss</button>
+          <button class="filter-btn" onclick="filterTJ('win',this)" style="color:var(--green);">✅ Win</button>
+          <button class="filter-btn" onclick="filterTJ('loss',this)" style="color:var(--red);">❌ Loss</button>
           <button class="filter-btn" onclick="filterTJ('be',this)">➖ B/E</button>
         </div>
-        <input class="form-input" id="tjSearch" placeholder="🔍 Search pair, setup, notes…" style="width:220px;font-size:12px;padding:7px 12px;border-radius:8px;" oninput="renderTJEntries()">
+        <input class="form-input" id="tjSearch" placeholder="🔍 Search pair, setup, notes..." style="width:200px;font-size:12px;padding:8px 12px;border-radius:8px;" oninput="renderTJEntries()">
       </div>
 
-      <!-- ENTRIES TABLE -->
-      <div class="card" style="padding:0;overflow:hidden;">
-        <table class="challenge-table" id="tjTable" style="font-size:13px;">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Pair / Asset</th>
-              <th>Dir</th>
-              <th>Entry</th>
-              <th>SL</th>
-              <th>TP</th>
-              <th>R:R</th>
-              <th>Setup</th>
-              <th>Outcome</th>
-              <th>$ Gained</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="tjTableBody"></tbody>
-        </table>
-        <div id="tjEmptyState" style="display:none;text-align:center;padding:60px 20px;color:var(--muted);">
-          <div style="font-size:48px;margin-bottom:12px;">📓</div>
-          <div style="font-size:15px;font-weight:600;margin-bottom:6px;">No trades logged yet</div>
-          <div style="font-size:13px;">Every great trader tracks every trade. Start now.</div>
-        </div>
+      <!-- TRADE CARDS -->
+      <div id="tjCardsGrid" style="display:flex;flex-direction:column;gap:12px;"></div>
+
+      <!-- EMPTY STATE -->
+      <div id="tjEmptyState" style="display:none;text-align:center;padding:80px 20px;">
+        <div style="font-size:56px;margin-bottom:16px;">📓</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">No trades logged yet</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;">Every great trader tracks every trade.<br>Your first logged trade is the most important one.</div>
+        <button class="btn btn-gold" onclick="openTJModal()" style="padding:12px 28px;font-size:14px;">+ Log Your First Trade</button>
       </div>
+
     </div>
+
+    <!-- FLOATING LOG TRADE BUTTON -->
+    <button onclick="openTJModal()" id="fabLogTrade" style="position:fixed;bottom:28px;right:24px;background:var(--gold);color:#000;border:none;border-radius:50px;padding:14px 22px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 32px rgba(245,197,24,.4);z-index:200;display:none;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      ✏️ Log Trade
+    </button>
+
   </div>
 
   <!-- TRADE JOURNAL MODAL -->
@@ -6479,6 +6472,9 @@ function nav(panelId) {
   if (panelId==='education') renderEducation();
   if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); if(_currentUser) loadLogbookFromSupabase(); }
   if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
+  // Show FAB only on journal panel
+  const fab = document.getElementById('fabLogTrade');
+  if (fab) fab.style.display = panelId === 'journal' ? 'flex' : 'none';
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
   if (panelId==='tracker') {
@@ -8128,27 +8124,47 @@ function renderTJSummary() {
   const totalPL = rArr.reduce((a,b)=>a+b, 0);
   const avgPL   = rArr.length ? (totalPL/rArr.length).toFixed(2) : '0.00';
   const streakData = calcStreak(data);
-  const plColor = totalPL >= 0 ? 'var(--green)' : 'var(--red)';
-  const avgColor = parseFloat(avgPL) >= 0 ? 'var(--green)' : 'var(--red)';
+  const plColor  = totalPL >= 0 ? '#1db954' : '#e53e3e';
+  const avgColor = parseFloat(avgPL) >= 0 ? '#1db954' : '#e53e3e';
+  const wrColor  = wr >= 60 ? '#1db954' : wr >= 45 ? '#F5C518' : '#e53e3e';
+  const wrBg     = wr >= 60 ? 'rgba(29,185,84,.08)' : wr >= 45 ? 'rgba(245,197,24,.08)' : 'rgba(229,62,62,.08)';
 
-  // Format dollar amounts — no K abbreviation, exact figures
   function fmtR(val) {
     const v = parseFloat(val);
-    if (isNaN(v)) return '$0';
+    if (isNaN(v)) return '$0.00';
     const abs = Math.abs(v);
     const sign = v >= 0 ? '+' : '-';
     return sign + '$' + abs.toFixed(2);
   }
 
   el.innerHTML = `
-    <div class="stat-chip"><div class="val">${data.length}</div><div class="lbl">Total Trades</div></div>
-    <div class="stat-chip"><div class="val" style="color:var(--green)">${wr}%</div><div class="lbl">Win Rate</div></div>
-    <div class="stat-chip"><div class="val" style="color:${plColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(totalPL)}</div><div class="lbl">Total P/L</div></div>
-    <div class="stat-chip"><div class="val" style="color:${avgColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(avgPL)}</div><div class="lbl">Avg P/L</div></div>
-    <div class="stat-chip"><div class="val" style="color:var(--green)">${wins.length}</div><div class="lbl">Wins</div></div>
-    <div class="stat-chip"><div class="val" style="color:var(--red)">${losses.length}</div><div class="lbl">Losses</div></div>
-    <div class="stat-chip"><div class="val" style="color:${streakData.color}">${streakData.label}</div><div class="lbl">Streak</div></div>
-  `;
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;">
+
+    <div style="background:${wrBg};border:1px solid ${wrColor}33;border-radius:14px;padding:16px;text-align:center;">
+      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Win Rate</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:900;color:${wrColor};line-height:1;">${wr}%</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">${wins.length}W / ${losses.length}L</div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
+      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Total P/L</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:900;color:${plColor};line-height:1;">${fmtR(totalPL)}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Avg ${fmtR(avgPL)}</div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
+      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Total Trades</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:900;color:var(--gold);line-height:1;">${data.length}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">${closed.length} closed</div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
+      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Streak</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:900;color:${streakData.color};line-height:1;">${streakData.label}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Current run</div>
+    </div>
+
+  </div>`;
 }
 
 function calcStreak(data) {
@@ -8263,9 +8279,9 @@ function renderTJReport() {
 
 /* ── ENTRIES TABLE ── */
 function renderTJEntries() {
-  const tbody = document.getElementById('tjTableBody');
+  const grid = document.getElementById('tjCardsGrid');
   const empty = document.getElementById('tjEmptyState');
-  if (!tbody) return;
+  if (!grid) return;
 
   const search = (document.getElementById('tjSearch')?.value||'').toLowerCase();
   let data = tjData();
@@ -8287,46 +8303,119 @@ function renderTJEntries() {
   }
 
   if (!data.length) {
-    tbody.innerHTML = '';
+    grid.innerHTML = '';
     if (empty) empty.style.display = 'block';
+    const fab = document.getElementById('fabLogTrade');
+    if (fab) fab.style.display = 'none';
     return;
   }
   if (empty) empty.style.display = 'none';
+  const fab = document.getElementById('fabLogTrade');
+  if (fab) fab.style.display = 'flex';
 
   const OUTCOME_CONFIG = {
-    win:     {label:'✅ Win',    color:'var(--green)',  bg:'rgba(29,185,84,.1)'},
-    loss:    {label:'❌ Loss',   color:'var(--red)',    bg:'rgba(229,62,62,.1)'},
-    be:      {label:'➖ B/E',    color:'var(--muted)',  bg:'rgba(255,255,255,.05)'},
-    partial: {label:'🟡 Partial',color:'var(--gold)',   bg:'rgba(245,197,24,.1)'},
-    manual:  {label:'⚪ Manual', color:'var(--muted)',  bg:'rgba(255,255,255,.05)'},
-    open:    {label:'🔵 Open',   color:'var(--blue)',   bg:'rgba(59,130,246,.1)'},
+    win:     {label:'✅ Win',     color:'#1db954', bg:'rgba(29,185,84,.12)',  border:'rgba(29,185,84,.3)'},
+    loss:    {label:'❌ Loss',    color:'#e53e3e', bg:'rgba(229,62,62,.12)',  border:'rgba(229,62,62,.3)'},
+    be:      {label:'➖ B/E',     color:'#888',    bg:'rgba(255,255,255,.05)',border:'rgba(255,255,255,.1)'},
+    partial: {label:'🟡 Partial', color:'#F5C518', bg:'rgba(245,197,24,.1)', border:'rgba(245,197,24,.3)'},
+    manual:  {label:'⚪ Manual',  color:'#888',    bg:'rgba(255,255,255,.05)',border:'rgba(255,255,255,.1)'},
+    open:    {label:'🔵 Open',    color:'#3b82f6', bg:'rgba(59,130,246,.1)', border:'rgba(59,130,246,.3)'},
   };
 
-  tbody.innerHTML = data.map(t => {
+  grid.innerHTML = data.map(t => {
     const oc = OUTCOME_CONFIG[t.outcome] || OUTCOME_CONFIG.open;
-    const dirIcon = t.dir === 'long' ? '📈' : '📉';
-    const dateStr = t.date ? new Date(t.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short'}) : '—';
-    const rVal = (t.rGained||'').replace('+','');
-    const rNum = parseFloat(rVal) || 0;
-    const rColor = rNum > 0 ? 'var(--green)' : rNum < 0 ? 'var(--red)' : 'var(--muted)';
-    return `<tr style="cursor:pointer;" onclick="openTJDetail('${t.id}')">
-      <td style="color:var(--muted);font-size:12px;">${dateStr}</td>
-      <td><strong style="font-family:'Plus Jakarta Sans',sans-serif;">${t.pair||'—'}</strong>${t.tf ? `<span style="font-size:10px;color:var(--muted);margin-left:6px;">${t.tf}</span>` : ''}</td>
-      <td>${dirIcon}</td>
-      <td style="font-size:12px;">${t.entry||'—'}</td>
-      <td style="font-size:12px;color:var(--red);">${t.sl||'—'}</td>
-      <td style="font-size:12px;color:var(--green);">${t.tp||'—'}</td>
-      <td style="font-size:12px;color:var(--muted);">${t.rr||'—'}</td>
-      <td style="font-size:11px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);">${t.setup||'—'}</td>
-      <td><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;color:${oc.color};background:${oc.bg};">${oc.label}</span></td>
-      <td style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:${rColor};">${t.rGained ? (rNum>0?'+':'-')+'$'+Math.abs(rNum).toFixed(2) : '—'}</td>
-      <td onclick="event.stopPropagation()">
-        <div style="display:flex;gap:4px;">
-          <button class="btn btn-sm btn-outline" onclick="openTJModal('${t.id}')" style="padding:4px 10px;font-size:11px;">✏️</button>
-          <button class="btn btn-sm btn-outline" onclick="deleteTJ('${t.id}')" style="padding:4px 10px;font-size:11px;color:var(--red);border-color:rgba(229,62,62,.3);">🗑</button>
+    const dirIcon  = t.dir === 'long' ? '📈' : '📉';
+    const dirLabel = t.dir === 'long' ? 'LONG' : 'SHORT';
+    const dirColor = t.dir === 'long' ? '#1db954' : '#e53e3e';
+    const dirBg    = t.dir === 'long' ? 'rgba(29,185,84,.12)' : 'rgba(229,62,62,.12)';
+    const dateStr  = t.date ? new Date(t.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'2-digit'}) : 'No date';
+    const timeStr  = t.date ? new Date(t.date).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}) : '';
+    const rVal     = (t.rGained||'').replace('+','');
+    const rNum     = parseFloat(rVal) || 0;
+    const rColor   = rNum > 0 ? '#1db954' : rNum < 0 ? '#e53e3e' : '#888';
+    const rDisplay = t.rGained ? (rNum >= 0 ? '+' : '') + '$' + Math.abs(rNum).toFixed(2) : 'Open';
+
+    return `
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,box-shadow .2s;cursor:pointer;" onclick="openTJDetail('${t.id}')" onmouseover="this.style.borderColor='rgba(245,197,24,.3)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+
+      <!-- TOP ROW: Pair + Direction + Outcome + PL + Actions -->
+      <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+          <!-- Direction badge -->
+          <div style="background:${dirBg};border:1px solid ${dirColor}33;border-radius:8px;padding:6px 10px;text-align:center;flex-shrink:0;">
+            <div style="font-size:16px;line-height:1;">${dirIcon}</div>
+            <div style="font-size:8px;font-weight:800;color:${dirColor};letter-spacing:1px;margin-top:2px;">${dirLabel}</div>
+          </div>
+          <!-- Pair + meta -->
+          <div style="min-width:0;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--text);">${t.pair||'Unknown'}</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:1px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span>${dateStr}${timeStr ? ' ' + timeStr : ''}</span>
+              ${t.session ? `<span style="color:var(--gold);">🕐 ${t.session}</span>` : ''}
+              ${t.tf ? `<span>⏱ ${t.tf}</span>` : ''}
+            </div>
+          </div>
         </div>
-      </td>
-    </tr>`;
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          <!-- Outcome badge -->
+          <span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;color:${oc.color};background:${oc.bg};border:1px solid ${oc.border};">${oc.label}</span>
+          <!-- P&L -->
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:${rColor};min-width:60px;text-align:right;">${rDisplay}</span>
+          <!-- Edit + Delete -->
+          <div style="display:flex;gap:4px;" onclick="event.stopPropagation()">
+            <button onclick="openTJModal('${t.id}')" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted);" title="Edit">✏️</button>
+            <button onclick="deleteTJ('${t.id}')" style="background:var(--bg3);border:1px solid rgba(229,62,62,.3);border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--red);" title="Delete">🗑</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div style="height:1px;background:var(--border);margin:0 18px;"></div>
+
+      <!-- BOTTOM ROW: Entry / SL / TP / RR / Setup / Emotion -->
+      <div style="padding:12px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px 16px;">
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Entry</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);">${t.entry||'—'}</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Stop Loss</div>
+          <div style="font-size:12px;font-weight:700;color:#e53e3e;">${t.sl||'—'}</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Take Profit</div>
+          <div style="font-size:12px;font-weight:700;color:#1db954;">${t.tp||'—'}</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">R:R</div>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);">${t.rr||'—'}</div>
+        </div>
+        ${t.lot ? `<div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Lot Size</div>
+          <div style="font-size:12px;font-weight:700;color:var(--text);">${t.lot}</div>
+        </div>` : ''}
+        ${t.setup ? `<div style="grid-column:span 2;">
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Setup</div>
+          <div style="font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.setup}</div>
+        </div>` : ''}
+        ${t.emotion ? `<div>
+          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Emotion</div>
+          <div style="font-size:12px;font-weight:600;color:var(--text);">${t.emotion}</div>
+        </div>` : ''}
+        ${t.mistake && t.mistake !== '' ? `<div>
+          <div style="font-size:9px;color:#e53e3e;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Mistake</div>
+          <div style="font-size:12px;font-weight:600;color:#e53e3e;">${t.mistake}</div>
+        </div>` : ''}
+      </div>
+
+      <!-- NOTES ROW — only if notes or reason exist -->
+      ${(t.reason||t.notes) ? `
+      <div style="padding:0 18px 14px;">
+        ${t.reason ? `<div style="background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px;"><span style="font-weight:700;color:var(--gold);">Reason: </span>${t.reason}</div>` : ''}
+        ${t.notes ? `<div style="background:var(--bg3);border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;padding:8px 12px;font-size:12px;color:var(--muted);line-height:1.6;"><span style="font-weight:700;color:#3b82f6;">Notes: </span>${t.notes}</div>` : ''}
+      </div>` : ''}
+
+    </div>`;
   }).join('');
 }
 
