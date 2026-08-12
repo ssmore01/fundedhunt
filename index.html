@@ -694,9 +694,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <div class="sb-item" data-panel="news" onclick="nav('news')">
         <span class="ico">📡</span> News
       </div>
-      <div class="sb-item" data-panel="awards" onclick="nav('awards')">
-        <span class="ico">🏆</span> Awards 2025
-      </div>
+
     </div>
 
     <div class="sb-divider"></div>
@@ -1687,16 +1685,7 @@ setTimeout(pfRender, 500);
     </div>
   </div>
 
-  <!-- AWARDS PANEL -->
-  <div class="panel" id="panel-awards">
-    <div class="panel-inner">
-      <div class="panel-head">
-        <h1>🏆 Firm Awards</h1>
-        <p>Our annual awards for the best prop firms across every category.</p>
-      </div>
-      <div class="awards-grid" id="awardsGrid"></div>
-    </div>
-  </div>
+
 
   <!-- JOURNAL PANEL -->
   <div class="panel" id="panel-journal">
@@ -6406,7 +6395,7 @@ const PANEL_TITLES = {
   trust:['Trust Radar','AI trust scores'],
   payouts:['Live Payouts','Real-time feed'],
   news:['News & Deals','Latest updates'],
-  awards:['Awards 2025','Data-driven recognition'],
+
   journal:['Trade Journal','Your trading edge & discipline'],
   tracker:['Growth Tracker','Performance metrics'],
   leaderboard:['Leaderboard','Top traders'],
@@ -6466,7 +6455,7 @@ function nav(panelId) {
   if (panelId==='trust') renderTrust();
   if (panelId==='payouts' && !window._payoutsStarted) { startPayouts(); window._payoutsStarted=true; }
   if (panelId==='news') { if(!window._calLoaded) loadCalendar(); }
-  if (panelId==='awards') renderAwards();
+
   if (panelId==='leaderboard') renderLeaderboard();
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
@@ -7169,27 +7158,6 @@ function formatTimeAgo(date) {
 }
 
 
-function renderAwards() {
-  const awards = [
-    {trophy:'🏆',cat:'Most Trusted',winner:'FTMO',reason:'10 years operating, 4.8★, $400M+ in verified payouts. The undisputed gold standard.'},
-    {trophy:'📈',cat:'Best Scaling Program',winner:'Funding Pips',reason:'4 tiers to $2M, weekly payouts, 100% split option. Built for serious career traders.'},
-    {trophy:'🛡️',cat:'Most Credible (Broker-Backed)',winner:'Blueberry Funded',reason:'Backed by ASIC-regulated broker. Unique regulatory layer most firms lack.'},
-    {trophy:'💰',cat:'Best Value',winner:'Alpha Capital Group',reason:'UK-registered, on-demand payouts, competitive fees. Exceptional value per dollar.'},
-    {trophy:'🎯',cat:'Most Flexible Rules',winner:'GOAT Funded Trader',reason:'Refundable fees, no time limit, 1-step option. Maximum freedom for traders.'},
-    {trophy:'⚡',cat:'Fastest Payouts',winner:'FundedNext',reason:'Guaranteed 24-hour payouts or $1,000 compensation. Fastest in the industry.'},
-    {trophy:'📊',cat:'Best Analytics',winner:'E8 Markets',reason:'Industry-leading dashboard with risk tracking, performance metrics, and analytics.'},
-    {trophy:'🔝',cat:'Best Futures Firm',winner:'Topstep',reason:'12+ years in futures, CFTC-compliant, same-day payouts. The futures gold standard.'},
-    {trophy:'🚀',cat:'Highest Scaling Cap',winner:'FunderPro',reason:'Scale to $5M — the highest ceiling of any prop firm. Daily payouts on Pro plan.'},
-    {trophy:'🎓',cat:'Best for Education',winner:'City Traders Imperium',reason:'Live capital, built-in education platform, long-term career focused. Est. 2018.'},
-  ];
-  document.getElementById('awardsGrid').innerHTML = awards.map(a=>`
-    <div class="award-card">
-      <div class="award-trophy">${a.trophy}</div>
-      <div class="award-cat">${a.cat}</div>
-      <div class="award-winner">${a.winner}</div>
-      <div class="award-reason">${a.reason}</div>
-    </div>`).join('');
-}
 
 
 
