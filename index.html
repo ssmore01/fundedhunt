@@ -151,17 +151,6 @@
   .panel-inner{padding:16px 12px 90px;}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
   .hero{padding:24px 16px;}
-  @media(max-width:700px){
-    .hero{padding:28px 20px !important;}
-    .hero h1{font-size:26px !important;}
-    .hero p{font-size:14px !important;}
-    .hero-actions{flex-direction:column !important;}
-    .hero-actions .btn{width:100%;text-align:center;}
-  }
-  @media(max-width:600px){
-    #panel-home .panel-inner > div:nth-child(2){grid-template-columns:repeat(2,1fr) !important;}
-    #panel-home .panel-inner > div:nth-child(3){grid-template-columns:repeat(2,1fr) !important;}
-  }
   .modal-overlay{align-items:flex-end;}
   .modal-box{width:100% !important;max-width:100% !important;border-radius:20px 20px 0 0 !important;max-height:92vh;margin:0;}
   .tabs{overflow-x:auto;flex-wrap:nowrap;}
@@ -839,8 +828,8 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">Traders Joined</div>
         </div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">8+</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">Exclusive Codes</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">$6000+</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">In Payouts</div>
         </div>
         <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
           <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">100%</div>
@@ -872,7 +861,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
         </div>
       </div>
 
-      <!-- TOP FIRMS HEADING -->
+      <!-- TOP FIRMS -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;margin:0;">Top Firms This Week</h2>
         <button onclick="nav('firms')" style="background:transparent;border:1px solid var(--border);border-radius:8px;padding:7px 16px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">View All Firms</button>
@@ -6509,39 +6498,64 @@ function nav(panelId) {
 function firmCardHTML(f, showScore) {
   const stars = '★'.repeat(Math.round(f.rating)) + '☆'.repeat(5-Math.round(f.rating));
   const parsedSplit = parseInt((f.profitSplit||'80').replace(/[^0-9]/g,''));
+  const splitColor = parsedSplit >= 90 ? 'var(--green)' : parsedSplit >= 80 ? 'var(--gold)' : 'var(--text)';
   return `
-  <div class="firm-card" onclick="openFirmDetail('${f.id}')">
-    <div class="firm-card-top">
-      <div class="firm-logo-wrap">
-        <img class="firm-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};"  alt="${f.name}">
-        <div class="firm-logo-fallback" style="background:${f.bg};display:none;">${f.emoji}</div>
-        <div>
-          <div class="firm-name">${f.name}</div>
-          <div class="firm-stars"><span class="stars">${stars}</span><span class="count">${f.rating} (${(f.reviewCount/1000).toFixed(1)}k)</span></div>
-          <div class="firm-tagline">${f.tagline}</div>
+  <div class="firm-card" onclick="openFirmDetail('${f.id}')" style="border-radius:18px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;">
+
+    <!-- TOP: Logo + Name + Discount badge -->
+    <div style="padding:18px 20px 14px;display:flex;align-items:center;gap:14px;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0;">
+        <div style="position:relative;flex-shrink:0;">
+          <img class="firm-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};" alt="${f.name}" style="width:46px;height:46px;border-radius:12px;object-fit:contain;background:#fff;padding:4px;">
+          <div class="firm-logo-fallback" style="background:${f.bg};display:none;width:46px;height:46px;border-radius:12px;align-items:center;justify-content:center;font-size:22px;">${f.emoji}</div>
+        </div>
+        <div style="min-width:0;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${f.name}</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:2px;">
+            <span style="color:var(--gold);font-size:10px;">${stars}</span>
+            <span style="font-size:10px;color:var(--muted);">${f.rating} (${(f.reviewCount/1000).toFixed(1)}k)</span>
+          </div>
         </div>
       </div>
-      ${f.discount?`<div class="firm-discount">${f.discount}</div>`:''}
+      ${f.discount ? `<div style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:20px;white-space:nowrap;letter-spacing:.3px;flex-shrink:0;">${f.discount}</div>` : ''}
     </div>
-    <div class="firm-card-stats">
-      <div class="fstat"><div class="v">${f.maxFunding}</div><div class="k">Max Funding</div></div>
-      <div class="fstat"><div class="v">${f.profitSplit}</div><div class="k">Profit Split</div></div>
-      <div class="fstat"><div class="v">${f.payoutFreq}</div><div class="k">Payout</div></div>
-    </div>
-    <div class="firm-card-tags">
-      ${f.allowNews?'<span class="tag green">✅ News</span>':'<span class="tag">❌ News</span>'}
-      ${f.allowScalping?'<span class="tag green">⚡ Scalping</span>':''}
-      ${f.noTimeLimit?'<span class="tag gold">⏱️ No Limit</span>':''}
-      <span class="tag">${f.badge}</span>
-    </div>
-    <div class="firm-card-footer">
-      ${f.discountCode?`<div class="code-box">🎁 ${f.discountCode}</div>`:'<div></div>'}
-      <span class="aff-badge" title="Affiliate link — we may earn a commission">🔗 Affiliate</span>
-      <div class="firm-cta">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();addToCompare('${f.id}')">Compare</button>
-        <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')">Visit →</button>
+
+    <!-- DIVIDER -->
+    <div style="height:1px;background:var(--border);margin:0 20px;"></div>
+
+    <!-- STATS ROW: 3 key metrics -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);padding:14px 20px;gap:8px;">
+      <div style="text-align:center;">
+        <div style="font-size:14px;font-weight:800;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;">${f.maxFunding}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Max Fund</div>
+      </div>
+      <div style="text-align:center;border-left:1px solid var(--border);border-right:1px solid var(--border);">
+        <div style="font-size:14px;font-weight:800;color:${splitColor};font-family:'Plus Jakarta Sans',sans-serif;">${f.profitSplit}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Profit Split</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:14px;font-weight:800;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;">${f.payoutFreq}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Payout</div>
       </div>
     </div>
+
+    <!-- DIVIDER -->
+    <div style="height:1px;background:var(--border);margin:0 20px;"></div>
+
+    <!-- TAGS ROW -->
+    <div style="padding:10px 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+      ${f.allowNews ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">✅ News OK</span>' : '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);">❌ No News</span>'}
+      ${f.allowScalping ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">⚡ Scalping</span>' : ''}
+      ${f.noTimeLimit ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(245,197,24,.3);color:var(--gold);">⏱ No Limit</span>' : ''}
+      ${f.discountCode ? `<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(245,197,24,.4);color:var(--gold);font-family:monospace;font-weight:700;letter-spacing:1px;background:var(--gold-dim);">🏷 ${f.discountCode}</span>` : ''}
+    </div>
+
+    <!-- FOOTER: CTA Buttons -->
+    <div style="padding:12px 20px 16px;display:flex;gap:8px;">
+      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();addToCompare('${f.id}')" style="flex:1;padding:9px 0;font-size:12px;border-radius:10px;text-align:center;">+ Compare</button>
+      <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')" style="flex:1;padding:9px 0;font-size:12px;border-radius:10px;text-align:center;">Visit Firm</button>
+    </div>
+
   </div>`;
 }
 
