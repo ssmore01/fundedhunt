@@ -6547,8 +6547,17 @@ function firmCardHTML(f, showScore) {
       ${f.allowNews ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">✅ News OK</span>' : '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);">❌ No News</span>'}
       ${f.allowScalping ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">⚡ Scalping</span>' : ''}
       ${f.noTimeLimit ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(245,197,24,.3);color:var(--gold);">⏱ No Limit</span>' : ''}
-      ${f.discountCode ? `<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(245,197,24,.4);color:var(--gold);font-family:monospace;font-weight:700;letter-spacing:1px;background:var(--gold-dim);">🏷 ${f.discountCode}</span>` : ''}
     </div>
+
+    <!-- DISCOUNT CODE HIGHLIGHT — only shown when code exists -->
+    ${f.discountCode ? `
+    <div style="margin:0 20px 14px;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(245,197,24,.06));border:1px solid rgba(245,197,24,.35);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+      <div>
+        <div style="font-size:9px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;">Exclusive Code</div>
+        <div style="font-family:monospace;font-size:15px;font-weight:800;color:#fff;letter-spacing:2px;">${f.discountCode}</div>
+      </div>
+      <button onclick="event.stopPropagation();navigator.clipboard.writeText('${f.discountCode}').then(()=>{this.textContent='Copied!';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;">Copy</button>
+    </div>` : ''}
 
     <!-- FOOTER: CTA Buttons -->
     <div style="padding:12px 20px 16px;display:flex;gap:8px;">
