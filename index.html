@@ -694,7 +694,9 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <div class="sb-item" data-panel="news" onclick="nav('news')">
         <span class="ico">📡</span> News
       </div>
-
+      <div class="sb-item" data-panel="awards" onclick="nav('awards')">
+        <span class="ico">🏆</span> Awards 2025
+      </div>
     </div>
 
     <div class="sb-divider"></div>
@@ -886,11 +888,11 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           <img src="https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="FundedSquad">
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">FundedSquad</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
         </div>
-        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">50% OFF + BOGO</div>
-        <div style="font-size:11px;color:var(--muted);">50% OFF + Buy 1 Get 1 Free · Free Account After 1st Payout · Code: RETRY</div>
+        <div style="font-size:22px;font-weight:800;color:#E53E3E;line-height:1.2;">50% OFF + Buy 1 Get 2</div>
+        <div style="font-size:11px;color:var(--muted);">50% OFF + Buy 1 Get 2 Free · Free Account After 1st Payout · Code: INDEPENDENCE</div>
         <div style="display:flex;gap:8px;align-items:center;">
-          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">RETRY</div>
-          <button onclick="navigator.clipboard.writeText('RETRY').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">INDEPENDENCE</div>
+          <button onclick="navigator.clipboard.writeText('INDEPENDENCE').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
         </div>
         <a href="https://fundedsquad.com/?squad=1302" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedSquad →</a>
       </div>
@@ -1224,9 +1226,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:165,disc:91,code:'MIDSUMMER',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:219,disc:197,code:'HUNT',url:'https://funderpro.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:219,disc:131,code:'2.0',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:329,disc:164,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:759,disc:380,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:259,disc:130,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:329,disc:164,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:759,disc:380,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:259,disc:130,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:249,disc:162,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'2-Step',name:'FundedFirm',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:99,disc:94,code:'AFF2709FF42',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:88,disc:88,code:'',url:'https://mavenfunding.com'},
@@ -1274,9 +1276,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:270,disc:148,code:'MIDSUMMER',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:359,disc:215,code:'2.0',url:'https://toponetrader.com'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:349,disc:314,code:'HUNT',url:'https://funderpro.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:629,disc:314,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1399,disc:700,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:429,disc:214,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:629,disc:314,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1399,disc:700,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:429,disc:214,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:369,disc:240,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:289,disc:260,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'2-Step',name:'The Funded Room',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:99,disc:99,code:'',url:'https://thefundedroom.com'},
@@ -1326,9 +1328,9 @@ const PF_DATA = {
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:499,disc:274,code:'MIDSUMMER',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:549,disc:357,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:549,disc:329,code:'2.0',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1079,disc:540,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2499,disc:1250,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:679,disc:340,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1079,disc:540,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2499,disc:1250,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:679,disc:340,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:499,disc:449,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'2-Step',name:'The Funded Room',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:149,disc:149,code:'',url:'https://thefundedroom.com'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:440,disc:440,code:'',url:'https://mavenfunding.com'},
@@ -1340,7 +1342,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'Funded Friday',plan:'Two Step',logo:'https://www.google.com/s2/favicons?domain=fundedfriday.com&sz=128',base:349,disc:314,code:'HUNT',url:'https://fundedfriday.com'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:299,disc:164,code:'MIDSUMMER',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'2-Step',name:'Calvoro Funding',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:369,disc:240,code:'BOGO35',url:'https://calvorofunding.com'},
-    {cat:'2-Step',name:'FundedSquad',plan:'2-Step Fast',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:599,disc:300,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'2-Step',name:'FundedSquad',plan:'2-Step Fast',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:599,disc:300,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'2-Step',name:'FTMO',plan:'2-Step Challenge',logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',base:540,disc:540,code:'',url:'https://ftmo.com'},
     {cat:'3-Step',name:'Maven Trading',plan:'3-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:299,disc:299,code:'',url:'https://mavenfunding.com'},
     {cat:'3-Step',name:'For Traders',plan:'3-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:349,disc:279,code:'NEW20',url:'https://fortraders.com'},
@@ -1362,8 +1364,8 @@ const PF_DATA = {
     {cat:'1-Step',name:'FXIFY',plan:'One Phase',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:849,disc:679,code:'HOT20',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Experienced (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:849,disc:764,code:'HUNT',url:'https://fundedtradingplus.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:999,disc:599,code:'2.0',url:'https://toponetrader.com'},
-    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2079,disc:1040,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
-    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1219,disc:610,code:'RETRY',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2079,disc:1040,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
+    {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1219,disc:610,code:'INDEPENDENCE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:549,disc:329,code:'BOGO40',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:600,disc:600,code:'JLYBOGO',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:1170,disc:702,code:'PRIME40',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
@@ -1596,7 +1598,7 @@ setTimeout(pfRender, 500);
               <option>GOAT Funded Trader</option><option>Funded Trading Plus</option>
               <option>City Traders Imperium</option><option>TX3 Funding</option>
               <option>FundedFirm</option><option>Calvoro Funding</option><option>Maven Trading</option>
-              <option>The Funded Room</option><option>For Traders</option><option>BrightFunded</option>
+              <option>The Funded Room</option><option>For Traders</option><option>Legion Funding</option>
               <option>Other</option>
             </select>
           </div>
@@ -1685,66 +1687,82 @@ setTimeout(pfRender, 500);
     </div>
   </div>
 
-
+  <!-- AWARDS PANEL -->
+  <div class="panel" id="panel-awards">
+    <div class="panel-inner">
+      <div class="panel-head">
+        <h1>🏆 Firm Awards</h1>
+        <p>Our annual awards for the best prop firms across every category.</p>
+      </div>
+      <div class="awards-grid" id="awardsGrid"></div>
+    </div>
+  </div>
 
   <!-- JOURNAL PANEL -->
   <div class="panel" id="panel-journal">
     <div class="panel-inner">
-
-      <!-- HEADER -->
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:24px;">
+      <div class="panel-head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
         <div>
-          <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;margin:0 0 4px;">📓 Trade Journal</h1>
-          <p style="font-size:13px;color:var(--muted);margin:0;">Log every trade. Track your edge, discipline and growth.</p>
+          <h1>📓 Trade Journal</h1>
+          <p>Log every trade. Track your discipline, edge, and growth — not firm results, just your raw trading mind.</p>
         </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <select class="form-select" id="tjReportPeriod" style="width:auto;font-size:12px;padding:7px 12px;border-radius:8px;" onchange="renderTJReport()">
             <option value="daily">Daily Report</option>
             <option value="weekly" selected>Weekly Report</option>
             <option value="monthly">Monthly Report</option>
           </select>
-          <button class="btn btn-outline" onclick="exportJournalExcel()" style="font-size:12px;padding:7px 14px;">📥 Export</button>
-          <button class="btn btn-gold" onclick="openTJModal()" style="padding:9px 20px;font-size:13px;">+ Log Trade</button>
+          <button class="btn btn-outline" onclick="exportJournalExcel()" style="font-size:12px;padding:7px 14px;gap:6px;">📥 Export Excel</button>
+          <button class="btn btn-gold" onclick="openTJModal()">+ Log Trade</button>
         </div>
       </div>
 
       <!-- SUMMARY STRIP -->
-      <div id="tjSummaryStrip" style="margin-bottom:24px;"></div>
+      <div class="stat-row" id="tjSummaryStrip" style="margin-bottom:24px;"></div>
 
       <!-- REPORT CARD -->
-      <div id="tjReportCard" style="margin-bottom:24px;"></div>
+      <div id="tjReportCard" style="margin-bottom:28px;"></div>
 
       <!-- FILTER + SEARCH -->
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">
-        <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1;">
+        <div class="filter-bar" style="margin-bottom:0;flex:1;min-width:0;">
           <button class="filter-btn active" onclick="filterTJ('all',this)">All</button>
           <button class="filter-btn" onclick="filterTJ('long',this)">📈 Long</button>
           <button class="filter-btn" onclick="filterTJ('short',this)">📉 Short</button>
-          <button class="filter-btn" onclick="filterTJ('win',this)" style="color:var(--green);">✅ Win</button>
-          <button class="filter-btn" onclick="filterTJ('loss',this)" style="color:var(--red);">❌ Loss</button>
+          <button class="filter-btn" onclick="filterTJ('win',this)">✅ Win</button>
+          <button class="filter-btn" onclick="filterTJ('loss',this)">❌ Loss</button>
           <button class="filter-btn" onclick="filterTJ('be',this)">➖ B/E</button>
         </div>
-        <input class="form-input" id="tjSearch" placeholder="🔍 Search pair, setup, notes..." style="width:200px;font-size:12px;padding:8px 12px;border-radius:8px;" oninput="renderTJEntries()">
+        <input class="form-input" id="tjSearch" placeholder="🔍 Search pair, setup, notes…" style="width:220px;font-size:12px;padding:7px 12px;border-radius:8px;" oninput="renderTJEntries()">
       </div>
 
-      <!-- TRADE CARDS -->
-      <div id="tjCardsGrid" style="display:flex;flex-direction:column;gap:12px;"></div>
-
-      <!-- EMPTY STATE -->
-      <div id="tjEmptyState" style="display:none;text-align:center;padding:80px 20px;">
-        <div style="font-size:56px;margin-bottom:16px;">📓</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">No trades logged yet</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;">Every great trader tracks every trade.<br>Your first logged trade is the most important one.</div>
-        <button class="btn btn-gold" onclick="openTJModal()" style="padding:12px 28px;font-size:14px;">+ Log Your First Trade</button>
+      <!-- ENTRIES TABLE -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table class="challenge-table" id="tjTable" style="font-size:13px;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Pair / Asset</th>
+              <th>Dir</th>
+              <th>Entry</th>
+              <th>SL</th>
+              <th>TP</th>
+              <th>R:R</th>
+              <th>Setup</th>
+              <th>Outcome</th>
+              <th>$ Gained</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tjTableBody"></tbody>
+        </table>
+        <div id="tjEmptyState" style="display:none;text-align:center;padding:60px 20px;color:var(--muted);">
+          <div style="font-size:48px;margin-bottom:12px;">📓</div>
+          <div style="font-size:15px;font-weight:600;margin-bottom:6px;">No trades logged yet</div>
+          <div style="font-size:13px;">Every great trader tracks every trade. Start now.</div>
+        </div>
       </div>
-
     </div>
-
-    <!-- FLOATING LOG TRADE BUTTON -->
-    <button onclick="openTJModal()" id="fabLogTrade" style="position:fixed;bottom:28px;right:24px;background:var(--gold);color:#000;border:none;border-radius:50px;padding:14px 22px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 8px 32px rgba(245,197,24,.4);z-index:200;display:none;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      ✏️ Log Trade
-    </button>
-
   </div>
 
   <!-- TRADE JOURNAL MODAL -->
@@ -2308,7 +2326,7 @@ setTimeout(pfRender, 500);
         <div class="ls"><h2>1. Material Connection Disclosure</h2><p>Funded Hunt has material financial connections with certain prop firms featured on this Platform. We may receive compensation when you click an affiliate link or use a discount code and subsequently make a purchase. This is a "material connection" as defined by the US FTC under 16 CFR Part 255, and an "advertisement" under the ASCI Code (India). This disclosure is made prominently and in good faith in compliance with global affiliate disclosure requirements.</p></div>
         <div class="ls"><h2>2. How We Earn — Revenue Model</h2><p>Revenue is earned through: (a) referral commissions paid by a prop firm when a user purchases after clicking our affiliate link; (b) discount code tracking — when a user applies a Funded Hunt code at checkout; (c) potential future sponsored/promoted placement, which will always be clearly labelled. Funded Hunt does not currently charge users any fee. The Platform is free to use.</p></div>
         <div class="ls"><h2>3. Affiliate Code Independence</h2><p>All affiliate relationships, tracking links, and discount codes used on Funded Hunt are <strong>independently obtained directly from each prop firm's own affiliate or partnership programme</strong>. We confirm that: (a) we do not sub-source, resell, or redistribute affiliate codes belonging to any third-party comparison platform, aggregator, or intermediary; (b) we do not use another platform's unique tracking identifiers or branded affiliate codes; (c) each discount code displayed is either independently negotiated with the respective prop firm, or obtained through that firm's publicly available affiliate programme.</p></div>
-        <div class="ls"><h2>4. Firms We May Have Affiliate Relationships With</h2><p>We may have current or future affiliate relationships with any or all prop firms listed on this Platform: FTMO, FundingPips, The5ers, FXIFY, E8 Markets, Alpha Capital Group, FunderPro, FundedElite, Blueberry Funded, GOAT Funded Trader, Topstep, Apex Trader Funding, Funded Trading Plus, City Traders Imperium, TX3 Funding, FundedFirm, Calvoro Funding, Maven Trading, The Funded Room, For Traders, BrightFunded, FundedNext, and others added in future. The word "may" is used because affiliate agreements are subject to change.</p></div>
+        <div class="ls"><h2>4. Firms We May Have Affiliate Relationships With</h2><p>We may have current or future affiliate relationships with any or all prop firms listed on this Platform: FTMO, FundingPips, The5ers, FXIFY, E8 Markets, Alpha Capital Group, FunderPro, FundedElite, Blueberry Funded, GOAT Funded Trader, Topstep, Apex Trader Funding, Funded Trading Plus, City Traders Imperium, TX3 Funding, FundedFirm, Calvoro Funding, Maven Trading, The Funded Room, For Traders, Legion Funding, FundedNext, and others added in future. The word "may" is used because affiliate agreements are subject to change.</p></div>
         <div class="ls"><h2>5. What Affiliate Relationships Do &amp; Do NOT Affect</h2>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
           <div style="background:rgba(72,199,142,.08);border:1px solid rgba(72,199,142,.25);border-radius:8px;padding:14px;"><div style="color:var(--green);font-weight:700;font-size:12px;margin-bottom:8px;">✅ MAY BE INFLUENCED</div><ul style="font-size:12px;color:var(--muted);margin:0;padding-left:16px;line-height:1.8;"><li>Which firms are featured</li><li>Listing order in "All Firms"</li><li>Promotional prominence</li><li>Sponsored placement labels</li></ul></div>
@@ -2802,7 +2820,7 @@ setTimeout(pfRender, 500);
         <option value="maven-trading">Maven Trading</option>
         <option value="the-funded-room">The Funded Room</option>
         <option value="for-traders">For Traders</option>
-        <option value="bright-funded">BrightFunded</option>
+        <option value="legion-funding">Legion Funding</option>
                 <option value="fundednext">FundedNext</option>
         <option value="other">Other Firm</option>
       </select>
@@ -3109,8 +3127,8 @@ const FIRMS=[
 },
   {id:'funded-squad',
   rating:4.5,reviewCount:1200,
-  discount:'50% OFF + BOGO',discountCode:'RETRY',
-  badge:'🛡️ 50% OFF + BOGO · Code: RETRY · Free Account After 1st Payout · 12hr Payout',
+  discount:'50% OFF + BOGO',discountCode:'INDEPENDENCE',
+  badge:'🛡️ 50% OFF + Buy 1 Get 2 · Code: RETRY · Free Account After 1st Payout · 12hr Payout',
   founded:2024,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',
   name:'FundedSquad',emoji:'🛡️',
@@ -4154,98 +4172,89 @@ const FIRMS=[
     {rule:'Futures Accounts',detail:'Bolt ($50K, one-size), Rapid ($25K–$100K), Legacy ($25K–$100K) via Tradovate. No overnight or weekend holds. 80% split. EOD trailing drawdown.',type:'allowed'},
   ]
 },
-  {id:'bright-funded',
-  rating:4.6,reviewCount:3500,
-  discount:'10% OFF',discountCode:'2HKgq6sUSTyZd1RKg0wkLQ',
-  badge:'🌟 15% Eval Profit Reward · 24hr Payout · 10% OFF · Code: 2HKgq6sUSTyZd1RKg0wkLQ',
-  founded:2023,country:'UAE',
-  logo:'https://www.google.com/s2/favicons?domain=brightfunded.com&sz=128',
-  name:'BrightFunded',emoji:'🌟',
-  color:'#00AAD4',bg:'linear-gradient(135deg,#020C14,#030F1A)',
-  tagline:'$7M+ Paid · No Consistency Rule · 15% Eval Reward · Scale to $400K · 100% Split',
+  {id:'legion-funding',
+  rating:4.4,reviewCount:56,
+  discount:'5% OFF',discountCode:'LEIGON',
+  badge:'⚔️ New Firm · 80% Split · 24hr Payouts · Scale to $400K · 5% OFF · Code: LEIGON',
+  founded:2026,country:'US',
+  logo:'https://www.google.com/s2/favicons?domain=legionfunding.com&sz=128',
+  name:'Legion Funding',emoji:'⚔️',
+  color:'#8B0000',bg:'linear-gradient(135deg,#0a0000,#1a0000)',
+  tagline:'Trade With Our Capital. Keep The Profits. Scale to $400K. 80% Split. 24hr Payouts.',
   minCapital:'$5K',maxCapital:'$400K',
   maxFunding:'$400,000',
-  profitSplit:'80–100%',
-  payoutSpeed:'24hr Guaranteed',
-  payoutFreq:'Bi-weekly default (first payout: 30 days after first funded trade) | Weekly add-on available',
-  drawdown:'Static — 5% Daily / 10% Total | EOD high-water mark calculation',
-  phases:'2-Step Evaluation only',
+  profitSplit:'80%',
+  payoutSpeed:'24hr',
+  payoutFreq:'On Demand — request anytime after minimum $100 threshold',
+  drawdown:'1-Step: 6% Max DD | 2-Step: 8% Max DD | Instant: 5% Trailing DD',
+  phases:'1-Step, 2-Step, and Instant Funding',
   allowScalping: true,allowNews: true,allowSwing: true,noTimeLimit: true,
-  websiteUrl:'https://app.brightfunded.com/dashboard',
-  about:`BrightFunded is a proprietary trading firm founded in 2023 by Bright Global FZCO (Dubai, UAE). With $7M+ paid to 27,500+ active traders across 150+ instruments, BrightFunded is one of the cleaner prop firms in the space. Single evaluation format: a 2-step challenge with Phase 1 requiring 8% profit and Phase 2 requiring 5%, both with 5% daily and 10% static max drawdown. No time limit, no consistency rule at any stage. Unique feature: a 15% Evaluation Profit Reward — earn 15% of profits made during the evaluation phase, paid on your first funded withdrawal. Scaling is structured: account size grows 30% every 4 months with consistent performance, split rises from 80% to 90% after first scale, then to 100% after the third — one of the best long-term upside structures in the industry. Platforms: MT5 (added Sep 2025), cTrader, and DXtrade. Trade2Earn loyalty program rewards every trade with tokens redeemable for free evaluations and split upgrades.
+  websiteUrl:'https://checkout.legionfunding.com/ref/177/',
+  about:`Legion Funding is a new prop trading firm built for serious traders. Trade up to $400K maximum allocation with an 80% profit split and 24-hour payouts. Three evaluation types: 1-Step (10% target, 6% max drawdown), 2-Step (8% and 6% targets, 8% max drawdown), and Instant Funding (no evaluation, 5% trailing drawdown). No time limits. On-demand payouts with a $100 minimum threshold. Payouts via bank transfer or crypto (BTC, ETH, USDT). Scaling every 3 months of profitable trading — 25% account size increase up to $400K maximum. Active in 50+ countries. Real-time live chat support with under 2 minute average response time.
 
-🎯 DISCOUNT: Use code 2HKgq6sUSTyZd1RKg0wkLQ at checkout for 10% OFF.`,
-  headquarters:'Bright Global FZCO, Dubai, UAE',
-  platforms:'MetaTrader 5 (MT5), cTrader, DXtrade',
-  instruments:'Forex, Crypto, Indices, Commodities (150+ instruments)',
-  leverage:'Up to 1:100 (varies by instrument)',
-  minTradingDays:'5 trading days per phase (add-on available to remove this)',
-  scaling:'30% account size increase every 4 months — split: 80% → 90% → 90% → 100% (after 3rd scale) — max $400K total allocation',
+🎯 DISCOUNT: Use code LEIGON at checkout for 5% OFF your challenge.`,
+  headquarters:'United States',
+  platforms:'Proprietary Platform',
+  instruments:'Forex, Metals, Indices, Crypto',
+  leverage:'Standard prop firm leverage',
+  minTradingDays:'No minimum trading days',
+  scaling:'25% account size increase every 3 months of profitable trading — max $400K allocation',
   pros:[
-    '$7M+ paid out to 27,500+ active traders — strong verified track record',
-    '24hr guaranteed payout — among the fastest commitments in the industry',
-    'No consistency rule at any stage — evaluation or funded account',
-    '15% Evaluation Profit Reward — genuinely unique, earn on evaluation profits too',
-    'Static drawdown — floor never moves, always calculated from starting balance',
-    'EOD high-water mark — intraday equity spikes do not permanently tighten your floor',
-    'Scaling to 100% profit split after consistent performance — one of the best in industry',
-    '3 platforms: MT5 + cTrader + DXtrade — solid choice for most traders',
-    'Trade2Earn loyalty program — earn tokens on every trade, redeem for free challenges',
-    'News trading allowed during evaluation — no restriction in challenge phases',
-    'EAs permitted on both evaluation and funded accounts',
-    '150+ instruments — Forex, Crypto, Indices, Commodities',
-    '10% OFF with code 2HKgq6sUSTyZd1RKg0wkLQ at checkout',
+    '3 evaluation types — 1-Step, 2-Step, and Instant Funding for all trader styles',
+    '80% profit split from day one — strong baseline',
+    'On-demand payouts — request anytime, no fixed schedule',
+    '24-hour payout processing on business days',
+    'No time limits on evaluation — trade at your own pace',
+    'Crypto payouts available — BTC, ETH, USDT — borderless and decentralized',
+    'Scaling program — 25% account increase every 3 months up to $400K',
+    'Active in 50+ countries — truly global',
+    '100% fee refund on payout — challenge fee returned on first withdrawal',
+    'Live chat support — under 2 minute average response time',
+    '5% OFF with code LEIGON at checkout',
   ],
   cons:[
-    '2-Step only — no 1-Step or Instant Funding option',
-    'Fee refund is an optional add-on — NOT included by default (easy to miss at checkout)',
-    'Weekly payouts require a paid add-on — default is bi-weekly',
-    'First funded payout requires 30-day wait after first funded trade',
-    'News trading restricted on funded accounts — ±5 min window around high-impact events',
-    'No trades allowed 11:30–11:59 PM CET (daily rollover window) — breach risk if caught open',
-    '90% profit split requires paid add-on (+20% to challenge fee) — not free',
-    'Fees charged in EUR — USD traders face conversion variance',
-    'Founded 2023 — newer firm with 2 years of track record',
+    'New firm — limited track record, only 56 Trustpilot reviews as of August 2026',
+    'Legal entity and registration details not prominently published',
+    'No regulatory backing — private firm, unregulated',
+    '80% split does not scale to 90%+ based on available info',
+    'Pricing calculator discrepancy noted between FAQ and checkout for 2-Step plan',
   ],
-  trustScore:80,
+  trustScore:62,
   trustItems:[
-    '✅ $7M+ paid to 27,500+ active traders — strong verified payout track record',
-    '✅ 24hr guaranteed payout commitment — among the fastest in the industry',
-    '✅ No consistency rule at any stage — evaluation and funded accounts both free',
-    '✅ 15% Evaluation Profit Reward — genuinely unique trader-friendly feature',
-    '✅ Static drawdown (EOD) — intraday equity spikes never tighten your floor',
-    '✅ Scaling to 100% profit split — one of the best long-term structures available',
-    '✅ Trade2Earn loyalty program — rewards every trade placed',
-    '✅ Bright Global FZCO — Dubai entity, publicly stated',
-    '⚠️ Founded 2023 — newer firm, 2 years of track record',
-    '⚠️ Fee refund is an add-on (not free) — missed by many traders at checkout',
-    '⚠️ News trading restricted on funded accounts — ±5 min window around high-impact events',
-    '⚠️ 11:30–11:59 PM CET rollover window — no open trades allowed, breach risk',
-    '⚠️ 2-Step only — no 1-Step or Instant Funding for traders who want faster paths',
+    '✅ 100% fee refund on payout — challenge fee returned on first withdrawal',
+    '✅ On-demand payouts — request anytime after $100 threshold',
+    '✅ 24-hour payout processing — fast commitment',
+    '✅ 3 evaluation types — flexible for different trader styles',
+    '✅ Crypto payouts — BTC, ETH, USDT available',
+    '✅ Scaling to $400K — 25% increase every 3 months',
+    '⚠️ New firm — launched 2026, very limited track record',
+    '⚠️ Only 56 Trustpilot reviews — small sample size',
+    '⚠️ Legal entity and incorporation details not clearly published',
+    '⚠️ Pricing discrepancy between FAQ and calculator for 2-Step plan — verify before purchasing',
+    '⚠️ No regulatory oversight — standard for most prop firms',
   ],
   challenges:[
-    {size:'$5K',  plan:'2-Step (Pluto)',  fee:'€55',  target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
-    {size:'$10K', plan:'2-Step (Mars)',   fee:'€99',  target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
-    {size:'$25K', plan:'2-Step (Venus)',  fee:'€195', target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
-    {size:'$50K', plan:'2-Step (Neptune)',fee:'€295', target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
-    {size:'$100K',plan:'2-Step (Saturn)', fee:'€495', target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:true, scalping:true,news:true,weekend:true},
-    {size:'$200K',plan:'2-Step (Jupiter)',fee:'€975', target:'8%+5%',daily:'5%',maxDD:'10% static',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$5K',   plan:'1-Step',    fee:'Check site', target:'10%',  daily:'N/A',maxDD:'6% static',  split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$10K',  plan:'1-Step',    fee:'Check site', target:'10%',  daily:'N/A',maxDD:'6% static',  split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$25K',  plan:'1-Step',    fee:'Check site', target:'10%',  daily:'N/A',maxDD:'6% static',  split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$50K',  plan:'2-Step',    fee:'Check site', target:'8%+6%',daily:'N/A',maxDD:'8% static',  split:'80%',payout:'On Demand',popular:true, scalping:true,news:true,weekend:true},
+    {size:'$100K', plan:'2-Step',    fee:'Check site', target:'8%+6%',daily:'N/A',maxDD:'8% static',  split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$200K', plan:'Instant',   fee:'Check site', target:'N/A',  daily:'N/A',maxDD:'5% trailing',split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$400K', plan:'Instant',   fee:'Check site', target:'N/A',  daily:'N/A',maxDD:'5% trailing',split:'80%',payout:'On Demand',popular:false,scalping:true,news:true,weekend:true},
   ],
   rules:[
-    {rule:'2-Step Evaluation Only',detail:'BrightFunded offers a single evaluation format. Phase 1: 8% profit target. Phase 2: 5% profit target. Both phases have 5% daily drawdown and 10% total static drawdown. Minimum 5 trading days per phase. No time limit. No consistency rule.',type:'requirement'},
-    {rule:'Static Drawdown (EOD)',detail:'Drawdown is static and always calculated from your starting account balance. The floor never moves regardless of profits made. For accounts opened after September 22, 2025, the daily drawdown uses an end-of-day high-water mark method. Intraday equity peaks do not tighten your floor. Daily limit resets 11:30-11:59 PM CET.',type:'allowed'},
-    {rule:'Daily Rollover Window',detail:'No open trades allowed between 11:30 PM and 11:59 PM CET. This 29-minute window is the daily drawdown rollover. Any open position during this period risks a breach. Close all trades by 11:25 PM CET to be safe.',type:'warning'},
-    {rule:'15% Evaluation Profit Reward',detail:'Earn 15% of profits generated during the evaluation phase, paid on your first funded account withdrawal. On a $100K account with $8,000 evaluation profit, that is an extra $1,200 added to your first payout.',type:'allowed'},
-    {rule:'Fee Refund (Add-On)',detail:'Challenge fee refund is NOT included by default. It must be selected as a paid add-on at checkout. If you forget, it cannot be added retroactively. With the add-on, your full challenge fee is refunded at your first funded payout.',type:'warning'},
-    {rule:'Payout Schedule',detail:'Default payout cycle is bi-weekly. First payout requires a 30-day wait after your first funded trade. Weekly payouts are available as a paid add-on (+25% to challenge fee). 24-hour processing guaranteed. Available via crypto (USDT) or bank transfer. No minimum withdrawal amount.',type:'requirement'},
-    {rule:'News Trading',detail:'No news restrictions during evaluation. On funded accounts, trades opened or closed within 5 minutes before or after high-impact news events may result in a soft breach on first offense. Exception: swing trades held for 48+ hours before the event are exempt.',type:'warning'},
-    {rule:'Scaling Plan',detail:'Account size increases by 30% every 4 months with consistent trading. Profit split progression: 80% (base) → 90% (after 1st scale) → 90% (after 2nd scale) → 100% (after 3rd scale). Maximum total allocation capped at $400,000 across all accounts.',type:'allowed'},
-    {rule:'90% Profit Split Add-On',detail:'Base profit split is 80%. To access 90% from day one, select the 90% split add-on at checkout, which adds 20% to the challenge fee. Without the add-on, split increases through the scaling plan over time.',type:'warning'},
-    {rule:'Trade2Earn Loyalty Program',detail:'Earn BrightFunded Tokens for every trade placed. 0.2 tokens per $100K of Forex/Indices/Commodities volume or per $20K of crypto volume. Redeem tokens for free challenges, profit split upgrades, reduced targets, and more.',type:'allowed'},
-    {rule:'Platforms',detail:'MetaTrader 5 (MT5 — added September 2025), cTrader, and DXtrade. Platform chosen at account creation applies to both phases and funded account. EAs permitted on all platforms within risk management rules.',type:'allowed'},
-    {rule:'Discount Code',detail:'Use code 2HKgq6sUSTyZd1RKg0wkLQ at checkout for 10% OFF.',type:'allowed'},
+    {rule:'1-Step Evaluation',detail:'Single phase evaluation. Profit target: 10%. Maximum drawdown: 6% static. No time limit. No minimum trading days. Pass and receive funded account.',type:'requirement'},
+    {rule:'2-Step Evaluation',detail:'Two phase evaluation. Phase 1: 8% profit target. Phase 2: 6% profit target. Maximum drawdown: 8% static. No time limit. No minimum trading days.',type:'requirement'},
+    {rule:'Instant Funding',detail:'No evaluation required. Start trading a funded account immediately. 5% trailing drawdown applies. Maximum drawdown trails from your highest equity point.',type:'requirement'},
+    {rule:'On-Demand Payouts',detail:'Request a withdrawal at any time once your funded account has a minimum of $100 in profit. Payouts processed within 24 hours on business days. No fixed payout schedule.',type:'allowed'},
+    {rule:'Payout Methods',detail:'Bank transfer and cryptocurrency (BTC, ETH, USDT and more). Crypto payouts are borderless and decentralized — available to traders in all supported countries.',type:'allowed'},
+    {rule:'100% Fee Refund',detail:'Challenge fee is fully refunded on your first funded account payout. The refund is included — verify at checkout.',type:'allowed'},
+    {rule:'Scaling Program',detail:'After every 3 months of profitable trading, funded account size increases by 25% up to a maximum allocation of $400,000. Profit split also increases as the account scales.',type:'allowed'},
+    {rule:'No Time Limit',detail:'No deadline to complete the evaluation. Trade at your own pace without pressure from a time-based cutoff.',type:'allowed'},
+    {rule:'Discount Code',detail:'Use code LEIGON at checkout for 5% OFF your challenge fee.',type:'allowed'},
   ]
 },
+
   {id:'funded-friday',
   rating:4.7,reviewCount:850,
   discount:'10% OFF',discountCode:'HUNT',
@@ -6395,7 +6404,7 @@ const PANEL_TITLES = {
   trust:['Trust Radar','AI trust scores'],
   payouts:['Live Payouts','Real-time feed'],
   news:['News & Deals','Latest updates'],
-
+  awards:['Awards 2025','Data-driven recognition'],
   journal:['Trade Journal','Your trading edge & discipline'],
   tracker:['Growth Tracker','Performance metrics'],
   leaderboard:['Leaderboard','Top traders'],
@@ -6455,15 +6464,12 @@ function nav(panelId) {
   if (panelId==='trust') renderTrust();
   if (panelId==='payouts' && !window._payoutsStarted) { startPayouts(); window._payoutsStarted=true; }
   if (panelId==='news') { if(!window._calLoaded) loadCalendar(); }
-
+  if (panelId==='awards') renderAwards();
   if (panelId==='leaderboard') renderLeaderboard();
   if (panelId==='rewards') renderRewards();
   if (panelId==='education') renderEducation();
   if (panelId==='logbook') { renderLogbook(); updateLogbookBadge(); if(_currentUser) loadLogbookFromSupabase(); }
   if (panelId==='journal') { renderTJPanel(); if(_currentUser) loadTJFromSupabase(); }
-  // Show FAB only on journal panel
-  const fab = document.getElementById('fabLogTrade');
-  if (fab) fab.style.display = panelId === 'journal' ? 'flex' : 'none';
   if (panelId==='compare') renderCompare();
   if (panelId==='challenges') renderChallenges();
   if (panelId==='tracker') {
@@ -6483,78 +6489,44 @@ function nav(panelId) {
 function firmCardHTML(f, showScore) {
   const stars = '★'.repeat(Math.round(f.rating)) + '☆'.repeat(5-Math.round(f.rating));
   const parsedSplit = parseInt((f.profitSplit||'80').replace(/[^0-9]/g,''));
-  const splitColor = parsedSplit >= 90 ? 'var(--green)' : parsedSplit >= 80 ? 'var(--gold)' : 'var(--text)';
   return `
-  <div class="firm-card" onclick="openFirmDetail('${f.id}')" style="border-radius:18px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;">
-
-    <!-- TOP: Logo + Name + Discount badge -->
-    <div style="padding:18px 20px 14px;display:flex;align-items:center;gap:14px;justify-content:space-between;">
-      <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0;">
-        <div style="position:relative;flex-shrink:0;">
-          <img class="firm-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};" alt="${f.name}" style="width:46px;height:46px;border-radius:12px;object-fit:contain;background:#fff;padding:4px;">
-          <div class="firm-logo-fallback" style="background:${f.bg};display:none;width:46px;height:46px;border-radius:12px;align-items:center;justify-content:center;font-size:22px;">${f.emoji}</div>
-        </div>
-        <div style="min-width:0;">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${f.name}</div>
-          <div style="display:flex;align-items:center;gap:4px;margin-top:2px;">
-            <span style="color:var(--gold);font-size:10px;">${stars}</span>
-            <span style="font-size:10px;color:var(--muted);">${f.rating} (${(f.reviewCount/1000).toFixed(1)}k)</span>
-          </div>
+  <div class="firm-card" onclick="openFirmDetail('${f.id}')">
+    <div class="firm-card-top">
+      <div class="firm-logo-wrap">
+        <img class="firm-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};"  alt="${f.name}">
+        <div class="firm-logo-fallback" style="background:${f.bg};display:none;">${f.emoji}</div>
+        <div>
+          <div class="firm-name">${f.name}</div>
+          <div class="firm-stars"><span class="stars">${stars}</span><span class="count">${f.rating} (${(f.reviewCount/1000).toFixed(1)}k)</span></div>
+          <div class="firm-tagline">${f.tagline}</div>
         </div>
       </div>
-      ${f.discount ? `<div style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:20px;white-space:nowrap;letter-spacing:.3px;flex-shrink:0;">${f.discount}</div>` : ''}
+      ${f.discount?`<div class="firm-discount">${f.discount}</div>`:''}
     </div>
-
-    <!-- DIVIDER -->
-    <div style="height:1px;background:var(--border);margin:0 20px;"></div>
-
-    <!-- STATS ROW: 3 key metrics -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);padding:14px 20px;gap:8px;">
-      <div style="text-align:center;">
-        <div style="font-size:14px;font-weight:800;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;">${f.maxFunding}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Max Fund</div>
-      </div>
-      <div style="text-align:center;border-left:1px solid var(--border);border-right:1px solid var(--border);">
-        <div style="font-size:14px;font-weight:800;color:${splitColor};font-family:'Plus Jakarta Sans',sans-serif;">${f.profitSplit}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Profit Split</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:14px;font-weight:800;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;">${f.payoutFreq}</div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.4px;">Payout</div>
+    <div class="firm-card-stats">
+      <div class="fstat"><div class="v">${f.maxFunding}</div><div class="k">Max Funding</div></div>
+      <div class="fstat"><div class="v">${f.profitSplit}</div><div class="k">Profit Split</div></div>
+      <div class="fstat"><div class="v">${f.payoutFreq}</div><div class="k">Payout</div></div>
+    </div>
+    <div class="firm-card-tags">
+      ${f.allowNews?'<span class="tag green">✅ News</span>':'<span class="tag">❌ News</span>'}
+      ${f.allowScalping?'<span class="tag green">⚡ Scalping</span>':''}
+      ${f.noTimeLimit?'<span class="tag gold">⏱️ No Limit</span>':''}
+      <span class="tag">${f.badge}</span>
+    </div>
+    <div class="firm-card-footer">
+      ${f.discountCode?`<div class="code-box">🎁 ${f.discountCode}</div>`:'<div></div>'}
+      <span class="aff-badge" title="Affiliate link — we may earn a commission">🔗 Affiliate</span>
+      <div class="firm-cta">
+        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();addToCompare('${f.id}')">Compare</button>
+        <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')">Visit →</button>
       </div>
     </div>
-
-    <!-- DIVIDER -->
-    <div style="height:1px;background:var(--border);margin:0 20px;"></div>
-
-    <!-- TAGS ROW -->
-    <div style="padding:10px 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
-      ${f.allowNews ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">✅ News OK</span>' : '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);">❌ No News</span>'}
-      ${f.allowScalping ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(29,185,84,.3);color:var(--green);">⚡ Scalping</span>' : ''}
-      ${f.noTimeLimit ? '<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 9px;border-radius:20px;border:1px solid rgba(245,197,24,.3);color:var(--gold);">⏱ No Limit</span>' : ''}
-    </div>
-
-    <!-- DISCOUNT CODE HIGHLIGHT — only shown when code exists -->
-    ${f.discountCode ? `
-    <div style="margin:0 20px 14px;background:linear-gradient(135deg,rgba(245,197,24,.12),rgba(245,197,24,.06));border:1px solid rgba(245,197,24,.35);border-radius:12px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-      <div>
-        <div style="font-size:9px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px;">Exclusive Code</div>
-        <div style="font-family:monospace;font-size:15px;font-weight:800;color:#fff;letter-spacing:2px;">${f.discountCode}</div>
-      </div>
-      <button onclick="event.stopPropagation();navigator.clipboard.writeText('${f.discountCode}').then(()=>{this.textContent='Copied!';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;">Copy</button>
-    </div>` : ''}
-
-    <!-- FOOTER: CTA Buttons -->
-    <div style="padding:12px 20px 16px;display:flex;gap:8px;">
-      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();addToCompare('${f.id}')" style="flex:1;padding:9px 0;font-size:12px;border-radius:10px;text-align:center;">+ Compare</button>
-      <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')" style="flex:1;padding:9px 0;font-size:12px;border-radius:10px;text-align:center;">Visit Firm</button>
-    </div>
-
   </div>`;
 }
 
 function renderHomeFirms() {
-  const TOP6_IDS = ['funding-pips','the-5pers','goat-funded','alpha-capital','bright-funded','blue-guardian'];
+  const TOP6_IDS = ['funding-pips','the-5pers','goat-funded','alpha-capital','legion-funding','blue-guardian'];
   const top6 = TOP6_IDS.map(id => FIRMS.find(f => f.id === id)).filter(Boolean);
   document.getElementById('homeFirmsGrid').innerHTML = top6.map(f=>firmCardHTML(f)).join('');
 }
@@ -6921,7 +6893,7 @@ async function fetchVerifiedPayouts() {
     }
 
     // Render feed
-    const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡','Topstep':'🔴','Apex Trader Funding':'🧡','The5ers':'💜','BrightFunded':'✨'};
+    const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡','Topstep':'🔴','Apex Trader Funding':'🧡','The5ers':'💜','Legion Funding':'⚔️'};
     list.innerHTML = data.map(p => {
       const emoji = firmEmojis[p.firm_name] || '💰';
       const daysAgo = Math.floor((Date.now() - new Date(p.submitted_at)) / 86400000);
@@ -7158,6 +7130,27 @@ function formatTimeAgo(date) {
 }
 
 
+function renderAwards() {
+  const awards = [
+    {trophy:'🏆',cat:'Most Trusted',winner:'FTMO',reason:'10 years operating, 4.8★, $400M+ in verified payouts. The undisputed gold standard.'},
+    {trophy:'📈',cat:'Best Scaling Program',winner:'Funding Pips',reason:'4 tiers to $2M, weekly payouts, 100% split option. Built for serious career traders.'},
+    {trophy:'🛡️',cat:'Most Credible (Broker-Backed)',winner:'Blueberry Funded',reason:'Backed by ASIC-regulated broker. Unique regulatory layer most firms lack.'},
+    {trophy:'💰',cat:'Best Value',winner:'Alpha Capital Group',reason:'UK-registered, on-demand payouts, competitive fees. Exceptional value per dollar.'},
+    {trophy:'🎯',cat:'Most Flexible Rules',winner:'GOAT Funded Trader',reason:'Refundable fees, no time limit, 1-step option. Maximum freedom for traders.'},
+    {trophy:'⚡',cat:'Fastest Payouts',winner:'FundedNext',reason:'Guaranteed 24-hour payouts or $1,000 compensation. Fastest in the industry.'},
+    {trophy:'📊',cat:'Best Analytics',winner:'E8 Markets',reason:'Industry-leading dashboard with risk tracking, performance metrics, and analytics.'},
+    {trophy:'🔝',cat:'Best Futures Firm',winner:'Topstep',reason:'12+ years in futures, CFTC-compliant, same-day payouts. The futures gold standard.'},
+    {trophy:'🚀',cat:'Highest Scaling Cap',winner:'FunderPro',reason:'Scale to $5M — the highest ceiling of any prop firm. Daily payouts on Pro plan.'},
+    {trophy:'🎓',cat:'Best for Education',winner:'City Traders Imperium',reason:'Live capital, built-in education platform, long-term career focused. Est. 2018.'},
+  ];
+  document.getElementById('awardsGrid').innerHTML = awards.map(a=>`
+    <div class="award-card">
+      <div class="award-trophy">${a.trophy}</div>
+      <div class="award-cat">${a.cat}</div>
+      <div class="award-winner">${a.winner}</div>
+      <div class="award-reason">${a.reason}</div>
+    </div>`).join('');
+}
 
 
 
@@ -7375,7 +7368,7 @@ async function renderLeaderboard() {
     const medals  = ['🥇', '🥈', '🥉'];
     const rankCls = ['gold', 'silver', 'bronze'];
     const avatars = ['👑', '🔥', '💎', '⚡', '🚀', '🌟', '💪', '🎯', '🏆', '💰'];
-    const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡','Topstep':'🔴','BrightFunded':'✨'};
+    const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡','Topstep':'🔴','Legion Funding':'⚔️'};
 
     // TOP 3 PODIUM
     const top3 = sorted.slice(0, 3);
@@ -8092,47 +8085,27 @@ function renderTJSummary() {
   const totalPL = rArr.reduce((a,b)=>a+b, 0);
   const avgPL   = rArr.length ? (totalPL/rArr.length).toFixed(2) : '0.00';
   const streakData = calcStreak(data);
-  const plColor  = totalPL >= 0 ? '#1db954' : '#e53e3e';
-  const avgColor = parseFloat(avgPL) >= 0 ? '#1db954' : '#e53e3e';
-  const wrColor  = wr >= 60 ? '#1db954' : wr >= 45 ? '#F5C518' : '#e53e3e';
-  const wrBg     = wr >= 60 ? 'rgba(29,185,84,.08)' : wr >= 45 ? 'rgba(245,197,24,.08)' : 'rgba(229,62,62,.08)';
+  const plColor = totalPL >= 0 ? 'var(--green)' : 'var(--red)';
+  const avgColor = parseFloat(avgPL) >= 0 ? 'var(--green)' : 'var(--red)';
 
+  // Format dollar amounts — no K abbreviation, exact figures
   function fmtR(val) {
     const v = parseFloat(val);
-    if (isNaN(v)) return '$0.00';
+    if (isNaN(v)) return '$0';
     const abs = Math.abs(v);
     const sign = v >= 0 ? '+' : '-';
     return sign + '$' + abs.toFixed(2);
   }
 
   el.innerHTML = `
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;">
-
-    <div style="background:${wrBg};border:1px solid ${wrColor}33;border-radius:14px;padding:16px;text-align:center;">
-      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Win Rate</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:900;color:${wrColor};line-height:1;">${wr}%</div>
-      <div style="font-size:10px;color:var(--muted);margin-top:4px;">${wins.length}W / ${losses.length}L</div>
-    </div>
-
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
-      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Total P/L</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:900;color:${plColor};line-height:1;">${fmtR(totalPL)}</div>
-      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Avg ${fmtR(avgPL)}</div>
-    </div>
-
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
-      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Total Trades</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:900;color:var(--gold);line-height:1;">${data.length}</div>
-      <div style="font-size:10px;color:var(--muted);margin-top:4px;">${closed.length} closed</div>
-    </div>
-
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
-      <div style="font-size:9px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Streak</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:900;color:${streakData.color};line-height:1;">${streakData.label}</div>
-      <div style="font-size:10px;color:var(--muted);margin-top:4px;">Current run</div>
-    </div>
-
-  </div>`;
+    <div class="stat-chip"><div class="val">${data.length}</div><div class="lbl">Total Trades</div></div>
+    <div class="stat-chip"><div class="val" style="color:var(--green)">${wr}%</div><div class="lbl">Win Rate</div></div>
+    <div class="stat-chip"><div class="val" style="color:${plColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(totalPL)}</div><div class="lbl">Total P/L</div></div>
+    <div class="stat-chip"><div class="val" style="color:${avgColor};font-size:clamp(11px,1.1vw,18px);word-break:break-all;white-space:normal;line-height:1.2;">${fmtR(avgPL)}</div><div class="lbl">Avg P/L</div></div>
+    <div class="stat-chip"><div class="val" style="color:var(--green)">${wins.length}</div><div class="lbl">Wins</div></div>
+    <div class="stat-chip"><div class="val" style="color:var(--red)">${losses.length}</div><div class="lbl">Losses</div></div>
+    <div class="stat-chip"><div class="val" style="color:${streakData.color}">${streakData.label}</div><div class="lbl">Streak</div></div>
+  `;
 }
 
 function calcStreak(data) {
@@ -8247,9 +8220,9 @@ function renderTJReport() {
 
 /* ── ENTRIES TABLE ── */
 function renderTJEntries() {
-  const grid = document.getElementById('tjCardsGrid');
+  const tbody = document.getElementById('tjTableBody');
   const empty = document.getElementById('tjEmptyState');
-  if (!grid) return;
+  if (!tbody) return;
 
   const search = (document.getElementById('tjSearch')?.value||'').toLowerCase();
   let data = tjData();
@@ -8271,119 +8244,46 @@ function renderTJEntries() {
   }
 
   if (!data.length) {
-    grid.innerHTML = '';
+    tbody.innerHTML = '';
     if (empty) empty.style.display = 'block';
-    const fab = document.getElementById('fabLogTrade');
-    if (fab) fab.style.display = 'none';
     return;
   }
   if (empty) empty.style.display = 'none';
-  const fab = document.getElementById('fabLogTrade');
-  if (fab) fab.style.display = 'flex';
 
   const OUTCOME_CONFIG = {
-    win:     {label:'✅ Win',     color:'#1db954', bg:'rgba(29,185,84,.12)',  border:'rgba(29,185,84,.3)'},
-    loss:    {label:'❌ Loss',    color:'#e53e3e', bg:'rgba(229,62,62,.12)',  border:'rgba(229,62,62,.3)'},
-    be:      {label:'➖ B/E',     color:'#888',    bg:'rgba(255,255,255,.05)',border:'rgba(255,255,255,.1)'},
-    partial: {label:'🟡 Partial', color:'#F5C518', bg:'rgba(245,197,24,.1)', border:'rgba(245,197,24,.3)'},
-    manual:  {label:'⚪ Manual',  color:'#888',    bg:'rgba(255,255,255,.05)',border:'rgba(255,255,255,.1)'},
-    open:    {label:'🔵 Open',    color:'#3b82f6', bg:'rgba(59,130,246,.1)', border:'rgba(59,130,246,.3)'},
+    win:     {label:'✅ Win',    color:'var(--green)',  bg:'rgba(29,185,84,.1)'},
+    loss:    {label:'❌ Loss',   color:'var(--red)',    bg:'rgba(229,62,62,.1)'},
+    be:      {label:'➖ B/E',    color:'var(--muted)',  bg:'rgba(255,255,255,.05)'},
+    partial: {label:'🟡 Partial',color:'var(--gold)',   bg:'rgba(245,197,24,.1)'},
+    manual:  {label:'⚪ Manual', color:'var(--muted)',  bg:'rgba(255,255,255,.05)'},
+    open:    {label:'🔵 Open',   color:'var(--blue)',   bg:'rgba(59,130,246,.1)'},
   };
 
-  grid.innerHTML = data.map(t => {
+  tbody.innerHTML = data.map(t => {
     const oc = OUTCOME_CONFIG[t.outcome] || OUTCOME_CONFIG.open;
-    const dirIcon  = t.dir === 'long' ? '📈' : '📉';
-    const dirLabel = t.dir === 'long' ? 'LONG' : 'SHORT';
-    const dirColor = t.dir === 'long' ? '#1db954' : '#e53e3e';
-    const dirBg    = t.dir === 'long' ? 'rgba(29,185,84,.12)' : 'rgba(229,62,62,.12)';
-    const dateStr  = t.date ? new Date(t.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'2-digit'}) : 'No date';
-    const timeStr  = t.date ? new Date(t.date).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}) : '';
-    const rVal     = (t.rGained||'').replace('+','');
-    const rNum     = parseFloat(rVal) || 0;
-    const rColor   = rNum > 0 ? '#1db954' : rNum < 0 ? '#e53e3e' : '#888';
-    const rDisplay = t.rGained ? (rNum >= 0 ? '+' : '') + '$' + Math.abs(rNum).toFixed(2) : 'Open';
-
-    return `
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,box-shadow .2s;cursor:pointer;" onclick="openTJDetail('${t.id}')" onmouseover="this.style.borderColor='rgba(245,197,24,.3)';this.style.boxShadow='0 4px 20px rgba(0,0,0,.3)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-
-      <!-- TOP ROW: Pair + Direction + Outcome + PL + Actions -->
-      <div style="padding:14px 18px;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
-          <!-- Direction badge -->
-          <div style="background:${dirBg};border:1px solid ${dirColor}33;border-radius:8px;padding:6px 10px;text-align:center;flex-shrink:0;">
-            <div style="font-size:16px;line-height:1;">${dirIcon}</div>
-            <div style="font-size:8px;font-weight:800;color:${dirColor};letter-spacing:1px;margin-top:2px;">${dirLabel}</div>
-          </div>
-          <!-- Pair + meta -->
-          <div style="min-width:0;">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--text);">${t.pair||'Unknown'}</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:1px;display:flex;gap:8px;flex-wrap:wrap;">
-              <span>${dateStr}${timeStr ? ' ' + timeStr : ''}</span>
-              ${t.session ? `<span style="color:var(--gold);">🕐 ${t.session}</span>` : ''}
-              ${t.tf ? `<span>⏱ ${t.tf}</span>` : ''}
-            </div>
-          </div>
+    const dirIcon = t.dir === 'long' ? '📈' : '📉';
+    const dateStr = t.date ? new Date(t.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short'}) : '—';
+    const rVal = (t.rGained||'').replace('+','');
+    const rNum = parseFloat(rVal) || 0;
+    const rColor = rNum > 0 ? 'var(--green)' : rNum < 0 ? 'var(--red)' : 'var(--muted)';
+    return `<tr style="cursor:pointer;" onclick="openTJDetail('${t.id}')">
+      <td style="color:var(--muted);font-size:12px;">${dateStr}</td>
+      <td><strong style="font-family:'Plus Jakarta Sans',sans-serif;">${t.pair||'—'}</strong>${t.tf ? `<span style="font-size:10px;color:var(--muted);margin-left:6px;">${t.tf}</span>` : ''}</td>
+      <td>${dirIcon}</td>
+      <td style="font-size:12px;">${t.entry||'—'}</td>
+      <td style="font-size:12px;color:var(--red);">${t.sl||'—'}</td>
+      <td style="font-size:12px;color:var(--green);">${t.tp||'—'}</td>
+      <td style="font-size:12px;color:var(--muted);">${t.rr||'—'}</td>
+      <td style="font-size:11px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);">${t.setup||'—'}</td>
+      <td><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;color:${oc.color};background:${oc.bg};">${oc.label}</span></td>
+      <td style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:${rColor};">${t.rGained ? (rNum>0?'+':'-')+'$'+Math.abs(rNum).toFixed(2) : '—'}</td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:4px;">
+          <button class="btn btn-sm btn-outline" onclick="openTJModal('${t.id}')" style="padding:4px 10px;font-size:11px;">✏️</button>
+          <button class="btn btn-sm btn-outline" onclick="deleteTJ('${t.id}')" style="padding:4px 10px;font-size:11px;color:var(--red);border-color:rgba(229,62,62,.3);">🗑</button>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-          <!-- Outcome badge -->
-          <span style="font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;color:${oc.color};background:${oc.bg};border:1px solid ${oc.border};">${oc.label}</span>
-          <!-- P&L -->
-          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:${rColor};min-width:60px;text-align:right;">${rDisplay}</span>
-          <!-- Edit + Delete -->
-          <div style="display:flex;gap:4px;" onclick="event.stopPropagation()">
-            <button onclick="openTJModal('${t.id}')" style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--muted);" title="Edit">✏️</button>
-            <button onclick="deleteTJ('${t.id}')" style="background:var(--bg3);border:1px solid rgba(229,62,62,.3);border-radius:8px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--red);" title="Delete">🗑</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- DIVIDER -->
-      <div style="height:1px;background:var(--border);margin:0 18px;"></div>
-
-      <!-- BOTTOM ROW: Entry / SL / TP / RR / Setup / Emotion -->
-      <div style="padding:12px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px 16px;">
-        <div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Entry</div>
-          <div style="font-size:12px;font-weight:700;color:var(--text);">${t.entry||'—'}</div>
-        </div>
-        <div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Stop Loss</div>
-          <div style="font-size:12px;font-weight:700;color:#e53e3e;">${t.sl||'—'}</div>
-        </div>
-        <div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Take Profit</div>
-          <div style="font-size:12px;font-weight:700;color:#1db954;">${t.tp||'—'}</div>
-        </div>
-        <div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">R:R</div>
-          <div style="font-size:12px;font-weight:700;color:var(--gold);">${t.rr||'—'}</div>
-        </div>
-        ${t.lot ? `<div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Lot Size</div>
-          <div style="font-size:12px;font-weight:700;color:var(--text);">${t.lot}</div>
-        </div>` : ''}
-        ${t.setup ? `<div style="grid-column:span 2;">
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Setup</div>
-          <div style="font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.setup}</div>
-        </div>` : ''}
-        ${t.emotion ? `<div>
-          <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Emotion</div>
-          <div style="font-size:12px;font-weight:600;color:var(--text);">${t.emotion}</div>
-        </div>` : ''}
-        ${t.mistake && t.mistake !== '' ? `<div>
-          <div style="font-size:9px;color:#e53e3e;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;">Mistake</div>
-          <div style="font-size:12px;font-weight:600;color:#e53e3e;">${t.mistake}</div>
-        </div>` : ''}
-      </div>
-
-      <!-- NOTES ROW — only if notes or reason exist -->
-      ${(t.reason||t.notes) ? `
-      <div style="padding:0 18px 14px;">
-        ${t.reason ? `<div style="background:var(--bg3);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px;"><span style="font-weight:700;color:var(--gold);">Reason: </span>${t.reason}</div>` : ''}
-        ${t.notes ? `<div style="background:var(--bg3);border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;padding:8px 12px;font-size:12px;color:var(--muted);line-height:1.6;"><span style="font-weight:700;color:#3b82f6;">Notes: </span>${t.notes}</div>` : ''}
-      </div>` : ''}
-
-    </div>`;
+      </td>
+    </tr>`;
   }).join('');
 }
 
@@ -8469,7 +8369,7 @@ const KNOWN_FIRMS = [
   {id:'maven-trading',name:'Maven Trading',emoji:'🟢'},
   {id:'the-funded-room',name:'The Funded Room',emoji:'🏠'},
   {id:'for-traders',name:'For Traders',emoji:'⚡'},
-  {id:'bright-funded',name:'BrightFunded',emoji:'🌟'},
+  {id:'legion-funding',name:'Legion Funding',emoji:'⚔️'},
   {id:'blue-guardian',name:'Blue Guardian',emoji:'🛡️'},
   {id:'funded-friday',name:'Funded Friday',emoji:'📅'},
   {id:'finotive-funding',name:'Finotive Funding',emoji:'💎'},
@@ -10043,8 +9943,8 @@ const FIRM_EXTRA = {
     {rule:'Discount: MATCH (7% off + 120% first payout reward for new Stellar users)',type:'allowed'},
   ]
  },
- 'bright-funded':{
-  about:`BrightFunded is a proprietary trading firm offering funded accounts up to $400,000 with a 24-hour guaranteed payout commitment. With $7M+ paid to 27,500+ active traders across 150+ instruments on MT5, BrightFunded stands out for its zero consistency rules policy at every stage, weekly payout schedule, and a 15% Evaluation Profit Reward — traders earn 15% of profits made during their evaluation phase as a bonus. Their Trade2Earn loyalty program lets traders accumulate rewards on every trade and unlock free evaluations. Scaling is unlimited — with up to 100% profit split at higher tiers. Discount codes: NEW15 (15% off new) | BF10 (10% off existing).`,
+ 'legion-funding':{
+  about:`Legion Funding is a proprietary trading firm offering funded accounts up to $400,000 with a 24-hour guaranteed payout commitment. With $7M+ paid to 27,500+ active traders across 150+ instruments on MT5, Legion Funding stands out for its zero consistency rules policy at every stage, weekly payout schedule, and a 15% Evaluation Profit Reward — traders earn 15% of profits made during their evaluation phase as a bonus. Their Trade2Earn loyalty program lets traders accumulate rewards on every trade and unlock free evaluations. Scaling is unlimited — with up to 100% profit split at higher tiers. Discount codes: NEW15 (15% off new) | BF10 (10% off existing).`,
   headquarters:'International — jurisdiction not prominently disclosed',
   platforms:'MetaTrader 5 (MT5)',
   instruments:'Forex, Indices, Commodities, Crypto — 150+ instruments total',
@@ -10077,7 +9977,7 @@ const FIRM_EXTRA = {
     {rule:'15% Evaluation Profit Reward — 15% bonus on all profits earned during evaluation phases',type:'allowed'},
     {rule:'Trade2Earn — earn loyalty rewards on every single trade, unlock free evaluations',type:'allowed'},
     {rule:'Scale to unlimited — demonstrate consistency, grow account size to any level with 100% split',type:'allowed'},
-    {rule:'1-Step Challenge — single phase evaluation | check brightfunded.com for exact targets/DD',type:'target'},
+    {rule:'1-Step Challenge — single phase evaluation | check legionfunding.com for exact targets/DD',type:'target'},
     {rule:'2-Step Challenge — two phase evaluation up to $400K | check site for current rules',type:'target'},
     {rule:'Instant Funding — skip evaluation, get funded immediately | check site for terms',type:'target'},
     {rule:'Up to $400,000 in funded capital — among highest account sizes in industry',type:'allowed'},
@@ -10977,7 +10877,7 @@ const MATCH_SCORES = {
     conservative:78, moderate:92, aggressive:86, unsure:90,
     india:88, global:92
   },
-  'bright-funded':{
+  'legion-funding':{
     // 24hr payouts, unlimited scaling, EAs fully allowed
     beginner:80, intermediate:84, advanced:82, professional:78,
     scalping:84, daytrading:86, swing:82, news:72,
@@ -11300,7 +11200,7 @@ function renderTicker(data) {
   if(!wrap) return;
 
   const firmEmojis = {'FTMO':'🏆','FundedNext':'⭐','FundingPips':'🔵','E8 Markets':'🟢','FXIFY':'🟡',
-    'Topstep':'🔴','Apex Trader Funding':'🧡','The5ers':'💜','BrightFunded':'✨',
+    'Topstep':'🔴','Apex Trader Funding':'🧡','The5ers':'💜','Legion Funding':'⚔️',
     'GOAT Funded Trader':'🐐','Blue Guardian':'🛡️','Blueberry Funded':'🫐','Funded Friday':'📅',
     'FundedFirm':'🏦','FunderPro':'⚡','AquaFunded':'💧','Top One Trader':'🥇'};
 
@@ -13550,7 +13450,7 @@ const BLOG_POSTS=[
       <p>The rules stay the same — daily loss limits, max drawdown, consistency requirements — but the emotional weight behind each trade increases. A trader who was calm on a $10K account often becomes anxious, overconfident, or revenge-trading on a $50K account. Not because the market changed. Because their mind changed.</p>
       <p><strong>Strategy adjustment required:</strong> Do not increase your risk percentage just because the account is larger. Stay at 0.5–1% per trade. What increases is your position size in lots — not your percentage. $100K at 1% risk = $1,000 per trade. That should still feel the same emotionally as $10K at 1% = $100. If it does not, your position sizing mindset needs work before you scale further.</p>
       <p><strong>Scaling rules at major firms in 2026:</strong></p>
-      <p>FTMO scales accounts by 25% after 4 consecutive months of profitability, with a ceiling of $2,000,000 per trader. FundingPips allows scaling to $2,000,000 with splits ranging from 60% to 100% depending on payout frequency. The5ers run a structured Bootcamp model where accounts double at each milestone, going from $20K all the way to $4,000,000. BrightFunded offers 30% account increases every 4 months when you hit a 10% profit target and have 2 profitable months with 2 payouts.</p>
+      <p>FTMO scales accounts by 25% after 4 consecutive months of profitability, with a ceiling of $2,000,000 per trader. FundingPips allows scaling to $2,000,000 with splits ranging from 60% to 100% depending on payout frequency. The5ers run a structured Bootcamp model where accounts double at each milestone, going from $20K all the way to $4,000,000. Legion Funding offers 30% account increases every 4 months when you hit a 10% profit target and have 2 profitable months with 2 payouts.</p>
 
       <div class="pull-quote">"On a $100K account, your job is not to make $10,000. Your job is to prove you can manage $100K the same way you managed $10K — with the same percentage risk, the same patience, the same process."</div>
 
@@ -13594,7 +13494,7 @@ const BLOG_POSTS=[
       <p><strong>FTMO</strong> — 25% account increase after 4 consecutive profitable months. Maximum $2,000,000 per strategy. Best for disciplined swing and day traders who can maintain monthly consistency.</p>
       <p><strong>FundingPips</strong> — Scale to $2,000,000 with profit splits up to 100%. The consistency rule on On-Demand payouts requires your best day not to exceed 35% of total profits. Best for traders who understand and can manage consistency requirements.</p>
       <p><strong>FundedNext</strong> — Scale to $300,000 per account with 24-hour guaranteed payouts. Also offers a 15% profit reward during the challenge phase itself. Best for active traders who want fast payouts while building their track record.</p>
-      <p><strong>BrightFunded</strong> — 30% account increase every 4 months with no limit on how high you can go. Unlimited scaling ceiling combined with 24-hour payouts. Best for traders who want consistent, predictable growth without arbitrary caps.</p>
+      <p><strong>Legion Funding</strong> — 30% account increase every 4 months with no limit on how high you can go. Unlimited scaling ceiling combined with 24-hour payouts. Best for traders who want consistent, predictable growth without arbitrary caps.</p>
       <p>Compare all scaling plans in detail using the <strong>FundedHunt comparison tool</strong> — filter by scaling plan, max funding, and profit split to find the right fit for your trading style.</p>
 
       <h2>The Mindset Shift That Makes Everything Else Possible</h2>
