@@ -979,16 +979,16 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 
       <!-- Atlas Funded -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">JULY DEAL</div>
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">BOGO40 DEAL</div>
         <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
           <img src="https://www.google.com/s2/favicons?domain=atlasfunded.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="Atlas Funded">
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">Atlas Funded</div><div style="font-size:11px;color:var(--muted);">All challenge types</div></div>
         </div>
-        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">40% OFF + 125% Refund</div>
-        <div style="font-size:11px;color:var(--muted);">40% OFF + 125% fee refund on first payout · Code: JULY</div>
+        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">BOGO + 40% OFF + 125% Refund</div>
+        <div style="font-size:11px;color:var(--muted);">Buy One Get One + 40% OFF + 125% fee refund on first payout · Code: BOGO40</div>
         <div style="display:flex;gap:8px;align-items:center;">
-          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">JULY</div>
-          <button onclick="navigator.clipboard.writeText('JULY').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">BOGO40</div>
+          <button onclick="navigator.clipboard.writeText('BOGO40').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
         </div>
         <a href="https://atlasfunded.com/hunt?afmc=5pi" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Atlas Funded →</a>
       </div>
@@ -6001,8 +6001,8 @@ const FIRMS=[
 },
   {id:'atlas-funded',
   rating:4.3,reviewCount:813,
-  discount:'40% OFF',discountCode:'WC40',
-  badge:'🌍 40% OFF · Code: WC40 · No Trailing DD · 100% Split',
+  discount:'BOGO + 40% OFF + 125% Refund',discountCode:'BOGO40',
+  badge:'🌍 BOGO + 40% OFF + 125% Fee Refund · Code: BOGO40 · No Trailing DD · 100% Split',
   founded:2025,country:'Saint Lucia',
   logo:'https://www.google.com/s2/favicons?domain=atlasfunded.com&sz=128',
   name:'Atlas Funded',emoji:'🌍',
@@ -6020,7 +6020,7 @@ const FIRMS=[
   websiteUrl:'https://atlasfunded.com/hunt?afmc=5pi',
   about:`Atlas Funded (Atlas Funded LTD) is a Saint Lucia-registered proprietary trading firm founded in 2025. Company number 2025-00597, headquartered at Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia. With 813+ Trustpilot reviews at 4.3 stars and a 27,000+ member Discord community, Atlas Funded has gained rapid traction for its ultra-accessible pricing and trader-friendly rules. Standout feature: the Atlas Access challenge costs just $5 (broker fee only) — paid only after passing — making it the most accessible funded challenge in the industry. Four models: Atlas Access (pay-after-pass, $5), 1-Step Standard (11% target), 2-Step Standard (8%+5%), 3-Step (gradual), and Instant Funding (no evaluation, from $40). No trailing drawdown on any account — all drawdowns are static balance-based. No consistency rule. Scale to $2,000,000. Platforms: MT5, cTrader, TradeLocker.
 
-🎯 DISCOUNT: Use code MAY at checkout for 25% OFF all challenges.`,
+🎯 DISCOUNT: Use code BOGO40 at checkout — Buy One Get One + 40% OFF all challenges + 125% fee refund on your first payout.`,
   headquarters:'Ground Floor, The Sotheby Building, Rodney Bay, Gros-Islet, Saint Lucia',
   platforms:'MetaTrader 5 (MT5), cTrader, TradeLocker',
   instruments:'Forex, Gold (XAUUSD), Silver (XAGUSD), Indices, Crypto',
@@ -6102,7 +6102,7 @@ const FIRMS=[
     {rule:'Free Retry Add-On',detail:'Available at checkout. Gives one free restart if account is breached during evaluation. Free retry has tighter drawdown (5% max instead of 7%) while daily drawdown stays at 4%.',type:'allowed'},
     {rule:'Platforms',detail:'MT5, cTrader, and TradeLocker. All three available for all account types. US traders fully accepted on all platforms.',type:'allowed'},
     {rule:'Prohibited Strategies',detail:'HFT, latency arbitrage, and tick scalping prohibited. EAs, copy trading, news trading, scalping, and weekend holding all fully allowed.',type:'warning'},
-    {rule:'Discount Code',detail:'Use code MAY at checkout for 25% OFF all challenge types.',type:'allowed'},
+    {rule:'Discount Code',detail:'Use code BOGO40 at checkout for Buy One Get One + 40% OFF all challenge types + 125% fee refund on your first payout.',type:'allowed'},
   ]
 },
   {id:'x-fine',
@@ -14118,6 +14118,13 @@ function openBlogPost(id){
   document.getElementById('blogListView').style.display = 'none';
   document.getElementById('blogArticleView').style.display = 'block';
 
+  // Update the URL so this post has a real, shareable, bookmarkable link
+  const newPath = '/' + id;
+  if (window.location.pathname !== newPath) {
+    history.pushState({ blogId: id }, '', newPath);
+  }
+  document.title = post.title + ' | FundedHunt';
+
   // Clear previous content
   const container = document.getElementById('blogArticleContent');
   container.innerHTML = '';
@@ -14189,7 +14196,36 @@ function openBlogPost(id){
 function closeBlogArticle(){
   document.getElementById('blogListView').style.display='block';
   document.getElementById('blogArticleView').style.display='none';
+  const isPostURL = BLOG_POSTS.some(p => window.location.pathname === '/' + p.id);
+  if (isPostURL) {
+    history.pushState({}, '', '/');
+  }
+  document.title = 'FundedHunt — The Prop Firm Discovery Platform';
 }
+
+// ── Deep-link routing: open the right blog post directly from the URL ──
+function routeFromURL(){
+  const path = window.location.pathname;
+  const match = path.match(/^\/([a-z0-9-]+)\/?$/);
+  if (match) {
+    const slug = match[1];
+    const post = BLOG_POSTS.find(p => p.id === slug);
+    if (post) {
+      nav('blog');
+      setTimeout(() => openBlogPost(slug), 60);
+      return true;
+    }
+  }
+  return false;
+}
+window.addEventListener('popstate', () => {
+  if (!routeFromURL()) {
+    closeBlogArticle();
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(routeFromURL, 200);
+});
 
 
 // ══════ CLAIM POINTS MODAL SYSTEM ══════
