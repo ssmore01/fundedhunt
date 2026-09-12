@@ -1235,7 +1235,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'FXIFY',plan:'Two Phase Standard',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:109,disc:71,code:'35FLASH',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:140,disc:77,code:'GFT45',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:165,disc:83,code:'PRIME50',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
-    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:100,disc:100,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:100,disc:50,code:'START6K',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'For Traders',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:205,disc:164,code:'NEW20',url:'https://fortraders.com'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:99,disc:59,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'2-Step',name:'FunderPro',plan:'Classic (2-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:179,disc:161,code:'HUNT',url:'https://funderpro.com'},
@@ -4063,8 +4063,8 @@ const FIRMS=[
 },
   {id:'fundednext',
   rating:4.5,reviewCount:63000,
-  discount:'Up to 55% OFF Futures Accounts',discountCode:'AUGFLEX',
-  badge:'⭐ Up to 55% OFF Futures Accounts · Code: AUGFLEX · $150M+ Paid · 43K+ Funded',
+  discount:'Up to 55% OFF Futures · 50% OFF Stellar 2-Step $6K · 30% OFF Stellar Instant',discountCode:'AUGFLEX',
+  badge:'⭐ 55% OFF Futures: AUGFLEX · 50% OFF Stellar 2-Step $6K: START6K · 30% OFF Stellar Instant: INSTANT30',
   founded:2022,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',
   name:'FundedNext',emoji:'⭐',
@@ -4080,7 +4080,13 @@ const FIRMS=[
   phases:'Stellar Lite (2-Step) | Stellar 1-Step | Stellar 2-Step | Stellar Instant | Futures (Bolt/Rapid/Legacy)',
   allowScalping: true,allowNews: true,allowSwing: true,noTimeLimit: true,
   websiteUrl:'https://fundednext.com/?fpr=shubham70',
-  about:`FundedNext is a UAE-based proprietary trading firm founded in 2022. Winner of Prop Firm of the Year 2025 (Finance Magnates), Best Trading Experience 2025 (PropFirmMatch), and Highest Verified Payout Amount 2025. With $150M+ total rewarded, 43,000+ funded traders, and 125,000+ accounts, FundedNext is one of the largest prop firms globally. 24-hour guaranteed payout with a $1,000 penalty if missed. Up to 95% profit split. Five CFD challenge types: Stellar Lite (2-Step, budget-friendly), Stellar 2-Step (with 15% challenge reward), Stellar 1-Step, Stellar Instant, and Stellar Lite. Also offers Futures accounts via Tradovate (Bolt, Rapid, Legacy). Platforms: MT4, MT5, cTrader, Match Trader. Fee refunded on first funded payout.`,
+  about:`FundedNext is a UAE-based proprietary trading firm founded in 2022. Winner of Prop Firm of the Year 2025 (Finance Magnates), Best Trading Experience 2025 (PropFirmMatch), and Highest Verified Payout Amount 2025. With $150M+ total rewarded, 43,000+ funded traders, and 125,000+ accounts, FundedNext is one of the largest prop firms globally. 24-hour guaranteed payout with a $1,000 penalty if missed. Up to 95% profit split. Five CFD challenge types: Stellar Lite (2-Step, budget-friendly), Stellar 2-Step (with 15% challenge reward), Stellar 1-Step, Stellar Instant, and Stellar Lite. Also offers Futures accounts via Tradovate (Bolt, Rapid, Legacy). Platforms: MT4, MT5, cTrader, Match Trader. Fee refunded on first funded payout.
+
+🎯 START6K OFFER: Use code START6K at checkout for 50% OFF the Stellar 2-Step $6K account, the most accessible entry point into FundedNext.
+
+🎯 INSTANT30 OFFER: Use code INSTANT30 at checkout for a flat 30% OFF Stellar Instant accounts.
+
+🎯 AUGFLEX OFFER: Use code AUGFLEX at checkout for up to 55% OFF Futures accounts (Bolt/Rapid/Legacy).`,
   headquarters:'FundedNext LLC — UAE',
   platforms:'MetaTrader 4 (MT4), MetaTrader 5 (MT5), cTrader, Match Trader',
   instruments:'Forex, Indices, Metals, Commodities, Crypto',
@@ -4096,6 +4102,8 @@ const FIRMS=[
     'Fee refunded on first funded payout — zero net cost if you pass',
     '4 platforms: MT4, MT5, cTrader, Match Trader',
     'Stellar Lite starts at $32.99 for $6K account — very accessible entry',
+    '50% OFF the Stellar 2-Step $6K account with code START6K',
+    '30% OFF Stellar Instant accounts with code INSTANT30',
     'Futures accounts available via Tradovate (Bolt, Rapid, Legacy)',
     'No time limit on any challenge',
     'Free trial account available',
@@ -4151,6 +4159,8 @@ const FIRMS=[
     {rule:'15% Challenge Reward',detail:'Stellar 2-Step: FundedNext pays 15% of your evaluation phase profits as a bonus with your first funded withdrawal. Example: $10,000 Phase 1 profit = extra $1,500 bonus. Stellar 1-Step: same calculation but paid with 3rd withdrawal, not 1st.',type:'allowed'},
     {rule:'24-Hour Payout Guarantee',detail:'All payouts guaranteed within 24 hours of request. If FundedNext misses this window, they pay an additional $1,000 penalty. Multiple Trustpilot reviews confirm same-day processing.',type:'allowed'},
     {rule:'Fee Refund',detail:'Challenge fee refunded with first funded account payout on all Stellar models. Zero net evaluation cost for successful traders.',type:'allowed'},
+    {rule:'START6K Discount Code',detail:'Use code START6K at checkout for 50% OFF the Stellar 2-Step $6K account.',type:'allowed'},
+    {rule:'INSTANT30 Discount Code',detail:'Use code INSTANT30 at checkout for a flat 30% OFF Stellar Instant accounts.',type:'allowed'},
     {rule:'Pro Scale-Up Program',detail:'Earn 30% account size increase and 90% split by meeting performance milestones on funded accounts. Continues to 95% split with further scaling.',type:'allowed'},
     {rule:'VPN and IP Policy',detail:'Using VPN, VPS, or switching IP addresses near payout time has triggered account flags per Trustpilot reports. Use consistent IP and verify with support before using VPS.',type:'warning'},
     {rule:'US Traders',detail:'US traders accepted via Match Trader only. MT4 and MT5 not available to US traders due to MetaQuotes restrictions.',type:'warning'},
