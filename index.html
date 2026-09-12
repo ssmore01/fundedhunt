@@ -927,41 +927,26 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       </div>
 
       <!-- FundedNext -->
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:10px;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">3 DEALS</div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">ONE CODE</div>
         <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
           <img src="https://www.google.com/s2/favicons?domain=fundednext.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="FundedNext">
-          <div><div style="font-size:14px;font-weight:700;color:var(--text);">FundedNext</div><div style="font-size:11px;color:var(--muted);">3 active offers</div></div>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">FundedNext</div><div style="font-size:11px;color:var(--muted);">Up to 50% OFF, all with one code</div></div>
         </div>
 
-        <div style="border-top:1px solid var(--border);padding-top:10px;">
-          <div style="font-size:13px;font-weight:700;color:#E53E3E;">Flat 50% OFF Futures</div>
-          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">Bolt / Rapid / Legacy accounts</div>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">FNFLEX</div>
-            <button onclick="navigator.clipboard.writeText('FNFLEX').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
-          </div>
+        <div style="background:var(--bg3);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">Futures accounts</span><span style="color:#E53E3E;font-weight:700;">50% OFF</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">Stellar 2-Step $6K account</span><span style="color:#E53E3E;font-weight:700;">50% OFF</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">Stellar Instant accounts</span><span style="color:#E53E3E;font-weight:700;">30% OFF</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">All other accounts</span><span style="color:#E53E3E;font-weight:700;">7% OFF</span></div>
         </div>
 
-        <div style="border-top:1px solid var(--border);padding-top:10px;">
-          <div style="font-size:13px;font-weight:700;color:#E53E3E;">50% OFF Stellar 2-Step $6K</div>
-          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">Most accessible entry account</div>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">START6K</div>
-            <button onclick="navigator.clipboard.writeText('START6K').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
-          </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">HUNT</div>
+          <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
         </div>
 
-        <div style="border-top:1px solid var(--border);padding-top:10px;">
-          <div style="font-size:13px;font-weight:700;color:#E53E3E;">Flat 30% OFF Stellar Instant</div>
-          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">All Stellar Instant accounts</div>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">INSTANT30</div>
-            <button onclick="navigator.clipboard.writeText('INSTANT30').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:7px 14px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
-          </div>
-        </div>
-
-        <a href="https://fundednext.com/?ref=fundedhunt" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;margin-top:2px;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedNext →</a>
+        <a href="https://fundednext.com/?ref=fundedhunt" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit FundedNext →</a>
       </div>
 
       <!-- Blue Guardian -->
@@ -1198,7 +1183,7 @@ const PF_DATA = {
     {cat:'Instant',name:'FundedSquad',plan:'Instant Pro',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:399,disc:399,code:'',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:119,disc:119,code:'',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'Funded Trading Plus',plan:'Prestige Lite',logo:'https://www.google.com/s2/favicons?domain=fundedtradingplus.com&sz=128',base:59,disc:53,code:'HUNT',url:'https://fundedtradingplus.com'},
-    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:120,disc:120,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:120,disc:112,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'1-Step',name:'Lark Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=larkfunding.com&sz=128',base:200,disc:200,code:'MAY2026',url:'https://larkfunding.com'},
     {cat:'2-Step',name:'FundedFirm',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=fundedfirm.com&sz=128',base:49,disc:47,code:'AFF2709FF42',url:'https://fundedfirm.com/?ref=AF8C888C7AFB'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:44,disc:44,code:'',url:'https://mavenfunding.com'},
@@ -1241,7 +1226,7 @@ const PF_DATA = {
     {cat:'1-Step',name:'FundingPips',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:210,disc:168,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'1-Step',name:'Blueberry Funded',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:150,disc:150,code:'',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:170,disc:170,code:'',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
-    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:180,disc:180,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:180,disc:167,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:165,disc:99,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:219,disc:197,code:'HUNT',url:'https://funderpro.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:219,disc:131,code:'2.0',url:'https://toponetrader.com'},
@@ -1257,7 +1242,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'FXIFY',plan:'Two Phase Standard',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:109,disc:71,code:'35FLASH',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:140,disc:77,code:'GFT45',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:165,disc:83,code:'PRIME50',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
-    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:100,disc:50,code:'START6K',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:100,disc:50,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'For Traders',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:205,disc:164,code:'NEW20',url:'https://fortraders.com'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:99,disc:59,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'2-Step',name:'FunderPro',plan:'Classic (2-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:179,disc:161,code:'HUNT',url:'https://funderpro.com'},
@@ -1291,7 +1276,7 @@ const PF_DATA = {
     {cat:'1-Step',name:'For Traders',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:249,disc:199,code:'NEW20',url:'https://fortraders.com'},
     {cat:'1-Step',name:'Blueberry Funded',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:275,disc:275,code:'',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:315,disc:315,code:'',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
-    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:350,disc:350,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:350,disc:326,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:270,disc:162,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:359,disc:215,code:'2.0',url:'https://toponetrader.com'},
     {cat:'1-Step',name:'FunderPro',plan:'One Phase (1-Step)',logo:'https://www.google.com/s2/favicons?domain=funderpro.com&sz=128',base:349,disc:314,code:'HUNT',url:'https://funderpro.com'},
@@ -1307,7 +1292,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'FundingPips',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:299,disc:239,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'2-Step',name:'FundingPips',plan:'2-Step Pro',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:224,disc:179,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'2-Step',name:'FXIFY',plan:'Two Phase Standard',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:199,disc:129,code:'35FLASH',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
-    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:180,disc:180,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:180,disc:167,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:325,disc:163,code:'PRIME50',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
     {cat:'2-Step',name:'Funded Friday',plan:'Two Step',logo:'https://www.google.com/s2/favicons?domain=fundedfriday.com&sz=128',base:199,disc:179,code:'HUNT',url:'https://fundedfriday.com'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:179,disc:107,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
@@ -1343,7 +1328,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'FundingPips',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:544,disc:435,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'2-Step',name:'FundingPips',plan:'2-Step Pro',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:422,disc:338,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'1-Step',name:'For Traders',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fortraders.com&sz=128',base:469,disc:375,code:'NEW20',url:'https://fortraders.com'},
-    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:550,disc:550,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'1-Step',name:'FundedNext',plan:'Stellar 1-Step',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:550,disc:512,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'1-Step',name:'AquaFunded',plan:'1-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:499,disc:299,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
     {cat:'1-Step',name:'Calvoro Funding',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=calvorofunding.com&sz=128',base:549,disc:357,code:'BOGO35',url:'https://calvorofunding.com'},
     {cat:'1-Step',name:'Top One Trader',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128',base:549,disc:329,code:'2.0',url:'https://toponetrader.com'},
@@ -1354,7 +1339,7 @@ const PF_DATA = {
     {cat:'2-Step',name:'The Funded Room',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:149,disc:149,code:'',url:'https://thefundedroom.com'},
     {cat:'2-Step',name:'Maven Trading',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=mavenfunding.com&sz=128',base:440,disc:440,code:'',url:'https://mavenfunding.com'},
     {cat:'2-Step',name:'Pipstone Capital',plan:'2-Step',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:269,disc:256,code:'FUNDEDHUNT',url:'https://pipstonecapital.com'},
-    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:350,disc:350,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:350,disc:326,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'FXIFY',plan:'Two Phase Standard',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:349,disc:227,code:'35FLASH',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:284,disc:156,code:'GFT45',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:650,disc:325,code:'PRIME50',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
@@ -1386,7 +1371,7 @@ const PF_DATA = {
     {cat:'Instant',name:'FundedSquad',plan:'Instant Lite',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:2079,disc:1040,code:'CHARGE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'1-Step',name:'FundedSquad',plan:'1-Step',logo:'https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128',base:1219,disc:610,code:'CHARGE',url:'https://fundedsquad.com/?squad=1302'},
     {cat:'2-Step',name:'GOAT Funded',plan:'2-Step Goat',logo:'https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128',base:549,disc:302,code:'GFT45',url:'https://goatfundedtrader.com/?ref=fundedhunt'},
-    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:600,disc:600,code:'',url:'https://fundednext.com/?ref=fundedhunt'},
+    {cat:'2-Step',name:'FundedNext',plan:'Stellar Lite (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',base:600,disc:558,code:'HUNT',url:'https://fundednext.com/?ref=fundedhunt'},
     {cat:'2-Step',name:'Blueberry Funded',plan:'Prime 2-Step',logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',base:1170,disc:585,code:'PRIME50',url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
     {cat:'2-Step',name:'FXIFY',plan:'Two Phase Standard',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:649,disc:422,code:'35FLASH',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
     {cat:'2-Step',name:'AquaFunded',plan:'2-Step Standard',logo:'https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128',base:562,disc:337,code:'SUMMERCLEAR',url:'https://www.aquafunded.com/?afmc=6ty'},
@@ -4085,8 +4070,8 @@ const FIRMS=[
 },
   {id:'fundednext',
   rating:4.5,reviewCount:63000,
-  discount:'Flat 50% OFF Futures · 50% OFF Stellar 2-Step $6K · 30% OFF Stellar Instant',discountCode:'FNFLEX',
-  badge:'⭐ Flat 50% OFF Futures: FNFLEX · 50% OFF Stellar 2-Step $6K: START6K · 30% OFF Stellar Instant: INSTANT30',
+  discount:'Up to 50% OFF — Code: HUNT',discountCode:'HUNT',
+  badge:'⭐ Code HUNT: 50% OFF Futures & Stellar 2-Step $6K · 30% OFF Instant · 7% OFF Everything Else',
   founded:2022,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundednext.com&sz=128',
   name:'FundedNext',emoji:'⭐',
@@ -4104,11 +4089,7 @@ const FIRMS=[
   websiteUrl:'https://fundednext.com/?fpr=shubham70',
   about:`FundedNext is a UAE-based proprietary trading firm founded in 2022. Winner of Prop Firm of the Year 2025 (Finance Magnates), Best Trading Experience 2025 (PropFirmMatch), and Highest Verified Payout Amount 2025. With $150M+ total rewarded, 43,000+ funded traders, and 125,000+ accounts, FundedNext is one of the largest prop firms globally. 24-hour guaranteed payout with a $1,000 penalty if missed. Up to 95% profit split. Five CFD challenge types: Stellar Lite (2-Step, budget-friendly), Stellar 2-Step (with 15% challenge reward), Stellar 1-Step, Stellar Instant, and Stellar Lite. Also offers Futures accounts via Tradovate (Bolt, Rapid, Legacy). Platforms: MT4, MT5, cTrader, Match Trader. Fee refunded on first funded payout.
 
-🎯 START6K OFFER: Use code START6K at checkout for 50% OFF the Stellar 2-Step $6K account, the most accessible entry point into FundedNext.
-
-🎯 INSTANT30 OFFER: Use code INSTANT30 at checkout for a flat 30% OFF Stellar Instant accounts.
-
-🎯 FNFLEX OFFER: Use code FNFLEX at checkout for a flat 50% OFF Futures accounts (Bolt/Rapid/Legacy).`,
+🎯 DISCOUNT: One code for everything, use HUNT at checkout. 50% OFF Futures accounts (Bolt/Rapid/Legacy). 50% OFF the Stellar 2-Step $6K account specifically. 30% OFF Stellar Instant accounts. 7% OFF every other account size and challenge type.`,
   headquarters:'FundedNext LLC — UAE',
   platforms:'MetaTrader 4 (MT4), MetaTrader 5 (MT5), cTrader, Match Trader',
   instruments:'Forex, Indices, Metals, Commodities, Crypto',
@@ -4124,8 +4105,7 @@ const FIRMS=[
     'Fee refunded on first funded payout — zero net cost if you pass',
     '4 platforms: MT4, MT5, cTrader, Match Trader',
     'Stellar Lite starts at $32.99 for $6K account — very accessible entry',
-    '50% OFF the Stellar 2-Step $6K account with code START6K',
-    '30% OFF Stellar Instant accounts with code INSTANT30',
+    'One code (HUNT) covers every discount tier: 50% OFF Futures & Stellar 2-Step $6K, 30% OFF Instant, 7% OFF everything else',
     'Futures accounts available via Tradovate (Bolt, Rapid, Legacy)',
     'No time limit on any challenge',
     'Free trial account available',
@@ -4181,8 +4161,7 @@ const FIRMS=[
     {rule:'15% Challenge Reward',detail:'Stellar 2-Step: FundedNext pays 15% of your evaluation phase profits as a bonus with your first funded withdrawal. Example: $10,000 Phase 1 profit = extra $1,500 bonus. Stellar 1-Step: same calculation but paid with 3rd withdrawal, not 1st.',type:'allowed'},
     {rule:'24-Hour Payout Guarantee',detail:'All payouts guaranteed within 24 hours of request. If FundedNext misses this window, they pay an additional $1,000 penalty. Multiple Trustpilot reviews confirm same-day processing.',type:'allowed'},
     {rule:'Fee Refund',detail:'Challenge fee refunded with first funded account payout on all Stellar models. Zero net evaluation cost for successful traders.',type:'allowed'},
-    {rule:'START6K Discount Code',detail:'Use code START6K at checkout for 50% OFF the Stellar 2-Step $6K account.',type:'allowed'},
-    {rule:'INSTANT30 Discount Code',detail:'Use code INSTANT30 at checkout for a flat 30% OFF Stellar Instant accounts.',type:'allowed'},
+    {rule:'HUNT Discount Code',detail:'Use code HUNT at checkout for tiered savings: 50% OFF Futures accounts (Bolt/Rapid/Legacy). 50% OFF the Stellar 2-Step $6K account specifically. 30% OFF Stellar Instant accounts. 7% OFF every other account size and challenge type. One code covers all tiers automatically at checkout.',type:'allowed'},
     {rule:'Pro Scale-Up Program',detail:'Earn 30% account size increase and 90% split by meeting performance milestones on funded accounts. Continues to 95% split with further scaling.',type:'allowed'},
     {rule:'VPN and IP Policy',detail:'Using VPN, VPS, or switching IP addresses near payout time has triggered account flags per Trustpilot reports. Use consistent IP and verify with support before using VPS.',type:'warning'},
     {rule:'US Traders',detail:'US traders accepted via Match Trader only. MT4 and MT5 not available to US traders due to MetaQuotes restrictions.',type:'warning'},
