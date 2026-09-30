@@ -902,7 +902,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
           <div><div style="font-size:14px;font-weight:700;color:var(--text);">Blueberry Funded</div><div style="font-size:11px;color:var(--muted);">Prime Challenges</div></div>
         </div>
         <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">50% OFF</div>
-        <div style="font-size:11px;color:var(--muted);">50% off Prime (new users) · 30% off Prime (existing) with PRIME30</div>
+        <div style="font-size:11px;color:var(--muted);">50% off Prime (new users) · 35% off + BOGO Prime (existing) with PRIMEBG</div>
         <div style="display:flex;gap:8px;align-items:center;">
           <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">PRIME50</div>
           <button onclick="navigator.clipboard.writeText('PRIME50').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
@@ -3517,8 +3517,8 @@ const FIRMS=[
   {id:'blueberry-funded',
   market:'CFD',
   rating:3.8,reviewCount:2100,
-  discount:'50% OFF Prime (New) · 30% OFF Prime (Existing)',discountCode:'PRIME50',
-  badge:'🇦🇺 50% OFF Prime (New Users) · 30% OFF Prime (Existing Users) · Code: PRIME50 / PRIME30 · ASIC Broker-Backed · 7 Account Types',
+  discount:'50% OFF Prime (New) · 35% OFF Prime + BOGO (Existing)',discountCode:'PRIME50',
+  badge:'🇦🇺 PRIME50: 50% OFF Prime (New) · PRIMEBG: 35% OFF + BOGO Prime (Existing) · ELITEFAST: BOGO Instant Elite · LITE35: 35% OFF Instant Lite',
   founded:2024,country:'Australia',
   logo:'https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128',
   name:'Blueberry Funded',emoji:'🫐',
@@ -3536,7 +3536,7 @@ const FIRMS=[
   websiteUrl:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991',
   about:`Blueberry Funded is an Australian broker-backed proprietary trading firm launched in 2024 by Blueberry Markets, an ASIC-regulated CFD broker with over 8 years of operation. As a true broker-backed firm, traders get genuine brokerage infrastructure behind every account — real execution on MT4, MT5, DXtrade, and TradeLocker — not just a simulated environment on a third-party platform. The firm has paid out $7M+ to 15,000+ active traders. Blueberry Funded offers 7 distinct challenge types covering every trading style and budget: Prime 2-Step (tightest drawdown control, tightest spreads on XAU/USD), 2-Step (most popular, widest account range), 1-Step (single phase, fastest evaluation), Instant Elite (no evaluation, no daily drawdown), and Instant Lite (entry-level instant funding, smallest accounts from $1,250). All static-drawdown evaluation accounts (Prime, 2-Step, 1-Step) have no time limit, no consistency rule, and allow martingale and grid trading. Accounts scale up to $2,000,000 through a 10% net profit over 3 consecutive months with 4 payouts in the period. Blueberry Funded also offers Stocks and Synthetics challenges with unique rulesets. One important note: news trading has a strict 2-minute window restriction on all accounts — positions cannot be opened or closed within 2 minutes before or after high-impact news events.
 
-🎯 DISCOUNT: New users get 50% OFF Prime 2-Step challenges with code PRIME50. Existing users get 30% OFF Prime 2-Step challenges with code PRIME30. Both codes apply to Prime 2-Step accounts only.`,
+🎯 DISCOUNT: New users get 50% OFF Prime 2-Step challenges with code PRIME50. Existing users get 35% OFF Prime 2-Step challenges plus Buy One Get One with code PRIMEBG. Instant Elite accounts get Buy One Get One with code ELITEFAST. Instant Lite accounts get a flat 35% OFF with code LITE35.`,
   headquarters:'Australia — backed by Blueberry Markets (ASIC-regulated)',
   platforms:'MetaTrader 4 (MT4), MetaTrader 5 (MT5), DXtrade, TradeLocker',
   instruments:'1,100+ including 45 Forex pairs, 52 Crypto, Indices, Commodities, Stocks, Synthetics',
@@ -3554,7 +3554,9 @@ const FIRMS=[
     'Smallest spread on XAU/USD in the industry (per firm claims)',
     'Instant Elite has NO daily drawdown limit — unique in the industry',
     'Accounts from $1,250 (Instant Lite) — very low barrier to entry',
-    '50% OFF Prime Challenges with code PRIME50 (new users) or 30% OFF with code PRIME30 (existing users)',
+    '50% OFF Prime Challenges with code PRIME50 (new users), or 35% OFF + Buy One Get One with code PRIMEBG (existing users)',
+    'Buy One Get One on Instant Elite accounts with code ELITEFAST',
+    'Flat 35% OFF Instant Lite accounts with code LITE35',
     'Scale to $2,000,000',
   ],
   cons:[
@@ -3629,7 +3631,9 @@ const FIRMS=[
     {rule:'Martingale and Grid Trading',detail:'Fully allowed across all challenge types. No restrictions on these strategies.',type:'allowed'},
     {rule:'Payout Minimum',detail:'Minimum $100 gross profit before requesting a payout on all standard accounts. Payout processed within the 14-day cycle. 7-day and on-demand options available as paid add-ons.',type:'requirement'},
     {rule:'Max Risk Per Trade',detail:'1.5% maximum risk per trade idea on funded accounts for 1-Step, 2-Step, Instant Elite, and Instant Lite (as of March 12, 2026). Prime and Synthetic challenges have no max risk per trade restriction.',type:'warning'},
-    {rule:'Discount Code — Prime Challenges Only',detail:'New users: use code PRIME50 at checkout for 50% OFF Prime 2-Step challenges. Existing users: use code PRIME30 for 30% OFF Prime 2-Step challenges. Standard 2-Step, 1-Step, and Instant accounts do not qualify for this discount.',type:'allowed'},
+    {rule:'Discount Code — Prime Challenges',detail:'New users: use code PRIME50 at checkout for 50% OFF Prime 2-Step challenges. Existing users: use code PRIMEBG for 35% OFF Prime 2-Step challenges plus Buy One Get One.',type:'allowed'},
+    {rule:'Discount Code — Instant Elite',detail:'Use code ELITEFAST at checkout for Buy One Get One on Instant Elite accounts (the "Instant No Eval" plan).',type:'allowed'},
+    {rule:'Discount Code — Instant Lite',detail:'Use code LITE35 at checkout for a flat 35% OFF Instant Lite accounts (the "Instant Entry" plan).',type:'allowed'},
   ]
 },
   {id:'ftmo',
