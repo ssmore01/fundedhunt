@@ -896,17 +896,48 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 
       <!-- Blueberry Funded -->
       <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
-        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">LIMITED</div>
+        <div style="position:absolute;top:0;right:0;background:#E53E3E;color:#fff;font-size:9px;font-weight:700;padding:4px 12px;border-radius:0 16px 0 8px;letter-spacing:1px;">4 DEALS</div>
         <div style="display:flex;align-items:center;gap:10px;padding-top:4px;">
           <img src="https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:var(--bg3);" alt="Blueberry Funded">
-          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Blueberry Funded</div><div style="font-size:11px;color:var(--muted);">Prime Challenges</div></div>
+          <div><div style="font-size:14px;font-weight:700;color:var(--text);">Blueberry Funded</div><div style="font-size:11px;color:var(--muted);">Prime, Instant Elite & Instant Lite</div></div>
         </div>
-        <div style="font-size:26px;font-weight:800;color:#E53E3E;line-height:1;">50% OFF</div>
-        <div style="font-size:11px;color:var(--muted);">50% off Prime (new users) · 35% off + BOGO Prime (existing) with PRIMEBG</div>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <div style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px;font-size:13px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:2px;">PRIME50</div>
-          <button onclick="navigator.clipboard.writeText('PRIME50').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copy</button>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;">Prime — New Users</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">50% OFF Prime 2-Step challenges</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:1px;">PRIME50</div>
+            <button onclick="navigator.clipboard.writeText('PRIME50').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
+          </div>
         </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;">Prime — Existing Users</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">35% OFF + Buy One Get One</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:1px;">PRIMEBG</div>
+            <button onclick="navigator.clipboard.writeText('PRIMEBG').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;">Instant Elite</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">Buy One Get One</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:1px;">ELITEFAST</div>
+            <button onclick="navigator.clipboard.writeText('ELITEFAST').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;">Instant Lite</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;">Flat 35% OFF</div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:6px;font-size:12px;font-weight:700;color:var(--gold);font-family:monospace;text-align:center;letter-spacing:1px;">LITE35</div>
+            <button onclick="navigator.clipboard.writeText('LITE35').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;">Copy</button>
+          </div>
+        </div>
+
         <a href="https://blueberryfunded.com/?utm_source=affiliate&ref=8991" target="_blank" style="display:block;text-align:center;border:1px solid var(--border);border-radius:8px;padding:10px;font-size:12px;font-weight:600;color:var(--text);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">Visit Blueberry Funded →</a>
       </div>
 
