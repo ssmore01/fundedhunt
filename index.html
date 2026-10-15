@@ -650,6 +650,69 @@
 .tip-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;}
 .tip-box p{margin:0 !important;font-size:15px;color:var(--text);line-height:1.75;font-weight:500;}
 .warning-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:8px;}
+
+/* ══ HOT DEALS v3 — responsive spotlight + grid ══ */
+.hd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.hd-hero{grid-column:1 / span 2;grid-row:span 3;position:relative;border-radius:20px;border:1px solid rgba(245,197,24,.4);background:radial-gradient(120% 110% at 0 0,rgba(245,197,24,.2),transparent 55%),var(--bg2);overflow:hidden;display:flex}
+.hd-hero.swap{animation:hdIn .35s ease}
+@keyframes hdIn{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hd-hero-in{padding:24px;display:flex;flex-direction:column;gap:14px;width:100%}
+.hd-tag{position:absolute;top:0;right:0;background:var(--gold);color:#000;font-size:10px;font-weight:800;letter-spacing:1px;padding:6px 14px;border-radius:0 20px 0 12px}
+.hd-firm{display:flex;align-items:center;gap:12px}
+.hd-logo{width:44px;height:44px;border-radius:12px;background:var(--bg3);object-fit:contain;flex:none}
+.hd-fname{font-size:17px;font-weight:800;line-height:1.2}.hd-fsub{font-size:11.5px;color:var(--muted)}
+.hd-pre{font-size:12px;letter-spacing:2px;font-weight:800;color:var(--muted);margin-top:14px}
+.hd-big{font-size:76px;font-weight:900;line-height:.95;letter-spacing:-3px;background:linear-gradient(180deg,#FFE066,#F5C518 60%,#E8A800);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:2px}
+.hd-big small{font-size:.32em;letter-spacing:0}
+.hd-big.long{font-size:46px;letter-spacing:-1.5px;line-height:1}
+.hd-hr{display:flex;flex-direction:column;gap:12px;flex:1;justify-content:flex-end}
+.hd-desc{font-size:13px;color:var(--muted);line-height:1.55}
+.hd-codes{display:flex;flex-direction:column;gap:8px}
+.hd-code{display:flex;align-items:stretch;border:1px dashed rgba(245,197,24,.6);border-radius:10px;overflow:hidden}
+.hd-code em{font-style:normal;font-size:11px;color:var(--text);opacity:.85;padding:0 11px;display:flex;align-items:center;background:var(--bg3);flex:1.3;line-height:1.3}
+.hd-code b{flex:1;text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:2px;font-size:14px;color:var(--gold);padding:11px 8px;background:rgba(245,197,24,.06);display:flex;align-items:center;justify-content:center}
+.hd-copy{border:0;background:var(--gold);color:#000;font-weight:800;font-size:12px;padding:0 18px;cursor:pointer;white-space:nowrap}
+.hd-copy.ok,.hd-ccode i.ok{background:#1a7a3a;color:#fff}
+.hd-note{font-size:11.5px;color:var(--gold);background:rgba(245,197,24,.08);border-radius:8px;padding:8px 10px}
+.hd-go{display:block;text-align:center;background:var(--gold);color:#000;font-weight:800;font-size:13.5px;padding:13px;border-radius:11px;text-decoration:none}
+.hd-go:hover{background:var(--gold2)}
+.hd-rows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hd-rg{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px}
+.hd-rt{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:6px}
+.hd-rr{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;padding:2px 0}.hd-rr strong{color:#E53E3E}
+.hd-prog{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0;animation:hdPg 6s linear}
+@keyframes hdPg{to{width:100%}}
+.hd-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s,transform .15s;min-width:0}
+.hd-card:hover{border-color:rgba(245,197,24,.55);transform:translateY(-2px)}
+.hd-card.on{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,197,24,.35) inset;background:var(--bg3)}
+.hd-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hd-ch{display:flex;align-items:center;gap:8px;min-width:0}
+.hd-clogo{width:24px;height:24px;border-radius:7px;background:var(--bg4);object-fit:contain;flex:none}
+.hd-cname{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd-coffer{font-size:21px;font-weight:900;color:var(--gold);line-height:1.1;letter-spacing:-.5px;margin-top:2px}
+.hd-csub{font-size:11px;color:var(--muted);line-height:1.35;min-height:15px}
+.hd-cc{display:flex;align-items:center;gap:6px;margin-top:auto;flex-wrap:wrap}
+.hd-ccode{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;letter-spacing:1.2px;color:var(--gold);border:1px dashed rgba(245,197,24,.55);border-radius:7px;padding:4px 4px 4px 9px;display:inline-flex;align-items:center;gap:7px;max-width:100%}
+.hd-ccode i{font-style:normal;font-size:9px;background:var(--gold);color:#000;font-weight:800;padding:3px 6px;border-radius:5px;font-family:system-ui,sans-serif;letter-spacing:.3px}
+.hd-more{font-size:10px;color:var(--muted);font-weight:700}
+.hd-tg{grid-column:span 2;display:flex;align-items:center;gap:12px;border:1px dashed var(--border);border-radius:14px;padding:13px 16px;text-decoration:none;color:var(--text)}
+.hd-tg span{font-size:22px}.hd-tg b{display:block;font-size:13px}.hd-tg small{color:var(--gold);font-size:11.5px}
+@media(max-width:1000px){
+  .hd-grid{grid-template-columns:repeat(2,1fr)}
+  .hd-hero{grid-column:1 / -1;grid-row:auto}
+  .hd-hero-in{padding:20px}
+  .hd-big{font-size:68px}.hd-big.long{font-size:42px}
+  .hd-tg{grid-column:1 / -1}
+}
+@media(max-width:520px){
+  .hd-grid{gap:9px}
+  .hd-hero-in{padding:18px 16px}
+  .hd-big{font-size:60px;letter-spacing:-2px}.hd-big.long{font-size:38px}
+  .hd-rows{grid-template-columns:1fr}
+  .hd-code em{font-size:10.5px;padding:0 8px}.hd-code b{font-size:13px;letter-spacing:1.5px}
+  .hd-card{padding:11px}.hd-coffer{font-size:18px}.hd-cname{font-size:12px}
+  .hd-ccode{font-size:10.5px;letter-spacing:.8px}
+}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -902,298 +965,92 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <p>Limited time offers from top prop firms. Grab these before they expire.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+    <div id="hdRoot" class="hd" aria-live="polite"></div>
 
-      <!-- FundedSquad -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">WIN AN IPHONE</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=fundedsquad.com&sz=128" class="hotdeal-logo" alt="FundedSquad">
-          <div class="hotdeal-name">FundedSquad</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Flat 40% OFF</div>
-          <div class="hotdeal-desc">All 6 models · Chance to win an iPhone bundle · Free account with eligible bundle · Valid till 15 Oct</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">2YEARS</div>
-            <button onclick="navigator.clipboard.writeText('2YEARS').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://fundedsquad.com/?squad=1302" target="_blank" class="hotdeal-visit">Visit FundedSquad →</a>
-        </div>
-      </div>
-
-      <!-- Blueberry Funded -->
-      <div class="hotdeal-row" style="flex-wrap:wrap;">
-        <div class="hotdeal-ribbon">4 DEALS</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=blueberryfunded.com&sz=128" class="hotdeal-logo" alt="Blueberry Funded">
-          <div class="hotdeal-name">Blueberry Funded</div>
-          <div class="hotdeal-sub">Prime, Instant Elite & Instant Lite</div>
-        </div>
-        <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-width:520px;">
-          <div class="hotdeal-subcard">
-            <div class="hotdeal-subcard-title">Prime — New Users</div>
-            <div class="hotdeal-subcard-desc">50% OFF</div>
-            <div class="hotdeal-codewrap"><div class="hotdeal-code" style="font-size:12px;padding:7px;">PRIME50</div><button onclick="navigator.clipboard.writeText('PRIME50').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy" style="padding:7px 10px;">Copy</button></div>
-          </div>
-          <div class="hotdeal-subcard">
-            <div class="hotdeal-subcard-title">Prime — Existing</div>
-            <div class="hotdeal-subcard-desc">35% OFF + BOGO</div>
-            <div class="hotdeal-codewrap"><div class="hotdeal-code" style="font-size:12px;padding:7px;">PRIMEBG</div><button onclick="navigator.clipboard.writeText('PRIMEBG').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy" style="padding:7px 10px;">Copy</button></div>
-          </div>
-          <div class="hotdeal-subcard">
-            <div class="hotdeal-subcard-title">Instant Elite</div>
-            <div class="hotdeal-subcard-desc">30% OFF + BOGO</div>
-            <div class="hotdeal-codewrap"><div class="hotdeal-code" style="font-size:12px;padding:7px;">ELITEFAST</div><button onclick="navigator.clipboard.writeText('ELITEFAST').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy" style="padding:7px 10px;">Copy</button></div>
-          </div>
-          <div class="hotdeal-subcard">
-            <div class="hotdeal-subcard-title">Instant Lite</div>
-            <div class="hotdeal-subcard-desc">Flat 35% OFF</div>
-            <div class="hotdeal-codewrap"><div class="hotdeal-code" style="font-size:12px;padding:7px;">LITE35</div><button onclick="navigator.clipboard.writeText('LITE35').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy" style="padding:7px 10px;">Copy</button></div>
-          </div>
-        </div>
-        <div class="hotdeal-right" style="justify-content:center;">
-          <a href="https://blueberryfunded.com/?utm_source=affiliate&ref=8991" target="_blank" class="hotdeal-visit">Visit Blueberry Funded →</a>
-        </div>
-      </div>
-
-      <!-- GOAT Funded -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">LIMITED</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=goatfundedtrader.com&sz=128" class="hotdeal-logo" alt="GOAT Funded">
-          <div class="hotdeal-name">GOAT Funded</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">45% OFF / 50% OFF New</div>
-          <div class="hotdeal-desc">GFT45 for 45% off everyone · FIRSTGFT for 50% off first-time users</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code" style="font-size:12px;">GFT45</div>
-            <button onclick="navigator.clipboard.writeText('GFT45').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code" style="font-size:12px;">FIRSTGFT</div>
-            <button onclick="navigator.clipboard.writeText('FIRSTGFT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://app.goatfundedtrader.com/home?code=fundedhunt" target="_blank" class="hotdeal-visit">Visit GOAT Funded →</a>
-        </div>
-      </div>
-
-      <!-- FundedNext -->
-      <div class="hotdeal-row" style="flex-wrap:wrap;">
-        <div class="hotdeal-ribbon">ONE CODE</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=fundednext.com&sz=128" class="hotdeal-logo" alt="FundedNext">
-          <div class="hotdeal-name">FundedNext</div>
-          <div class="hotdeal-sub">Up to 50% OFF, one code</div>
-        </div>
-        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:460px;">
-          <div class="hotdeal-subcard" style="text-align:left;">
-            <div class="hotdeal-subcard-title" style="text-transform:uppercase;letter-spacing:1px;font-size:9.5px;">CFD Accounts</div>
-            <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">$6K 2-Step Stellar</span><span style="color:#E53E3E;font-weight:700;">41%</span></div>
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">$6K 1-Step Stellar</span><span style="color:#E53E3E;font-weight:700;">31%</span></div>
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">$5K Stellar Lite</span><span style="color:#E53E3E;font-weight:700;">9%</span></div>
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">$2K Stellar Instant</span><span style="color:#E53E3E;font-weight:700;">16%</span></div>
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">All other CFD</span><span style="color:#E53E3E;font-weight:700;">7%</span></div>
-            </div>
-          </div>
-          <div class="hotdeal-subcard" style="text-align:left;">
-            <div class="hotdeal-subcard-title" style="text-transform:uppercase;letter-spacing:1px;font-size:9.5px;">Futures Accounts</div>
-            <div style="display:flex;flex-direction:column;gap:4px;margin-top:4px;">
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">Futures Flex</span><span style="color:#E53E3E;font-weight:700;">50%</span></div>
-              <div style="display:flex;justify-content:space-between;font-size:11.5px;"><span style="color:var(--text);">All other Futures</span><span style="color:#E53E3E;font-weight:700;">10%</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">HUNT</div>
-            <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://fundednext.com/?fpr=HUNT" target="_blank" class="hotdeal-visit">Visit FundedNext →</a>
-        </div>
-      </div>
-
-      <!-- Finotive Funding -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">50% OFF</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=finotivefunding.com&sz=128" class="hotdeal-logo" alt="Finotive Funding">
-          <div class="hotdeal-name">Finotive Funding</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Flat 50% OFF</div>
-          <div class="hotdeal-desc">50% off all challenges, valid till 30 Sept</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">FUNDEDHUNT</div>
-            <button onclick="navigator.clipboard.writeText('FUNDEDHUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://finotivefunding.com/FUNDEDHUNT" target="_blank" class="hotdeal-visit">Visit Finotive Funding →</a>
-        </div>
-      </div>
-
-      <!-- Blue Guardian -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">LIMITED</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=blueguardian.com&sz=128" class="hotdeal-logo" alt="Blue Guardian">
-          <div class="hotdeal-name">Blue Guardian</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">35% OFF</div>
-          <div class="hotdeal-desc">Flat 35% off on all accounts</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">HUNT</div>
-            <button onclick="navigator.clipboard.writeText('HUNT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://www.blueguardian.com/?afmc=HUNT" target="_blank" class="hotdeal-visit">Visit Blue Guardian →</a>
-        </div>
-      </div>
-
-      <!-- FXIFY -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">LIMITED</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=fxify.com&sz=128" class="hotdeal-logo" alt="FXIFY">
-          <div class="hotdeal-name">FXIFY</div>
-          <div class="hotdeal-sub">All challenges</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">35% OFF / 25% OFF</div>
-          <div class="hotdeal-desc">ONESTEP35 for One Phase · REWARD25 for everything else · Also enter affiliate code HUNT separately</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code" style="font-size:12px;">ONESTEP35</div>
-            <button onclick="navigator.clipboard.writeText('ONESTEP35').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code" style="font-size:12px;">REWARD25</div>
-            <button onclick="navigator.clipboard.writeText('REWARD25').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://fxify.com?affiliateCode=HUNT&affiliateId=7774" target="_blank" class="hotdeal-visit">Visit FXIFY →</a>
-        </div>
-      </div>
-
-      <!-- Atlas Funded -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">OCTOBER</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=atlasfunded.com&sz=128" class="hotdeal-logo" alt="Atlas Funded">
-          <div class="hotdeal-name">Atlas Funded</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Flat 35% OFF</div>
-          <div class="hotdeal-desc">35% OFF all challenges</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">OCT</div>
-            <button onclick="navigator.clipboard.writeText('OCT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://atlasfunded.com/hunt?afmc=5pi" target="_blank" class="hotdeal-visit">Visit Atlas Funded →</a>
-        </div>
-      </div>
-
-      <!-- NYS Markets -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">BUY 1 GET 3</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=nysmarkets.com&sz=128" class="hotdeal-logo" alt="NYS Markets">
-          <div class="hotdeal-name">NYS Markets</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Buy 1 Get 3</div>
-          <div class="hotdeal-desc">Free same-size account + free Instant account: $99 or less → 5K · $100–$299 → 10K · $300+ → 20K</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">B1G3</div>
-            <button onclick="navigator.clipboard.writeText('B1G3').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://nysmarkets.com?cxd=G9PMNGH1+22300_88" target="_blank" class="hotdeal-visit">Visit NYS Markets →</a>
-        </div>
-      </div>
-
-      <!-- Pipstone Capital -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">INSTANT BOGO</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128" class="hotdeal-logo" alt="Pipstone Capital">
-          <div class="hotdeal-name">Pipstone Capital</div>
-          <div class="hotdeal-sub">Instant accounts</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Buy 1 Get 1 Free</div>
-          <div class="hotdeal-desc">Free Instant account of the same size added to your order</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">EXPOBOGO</div>
-            <button onclick="navigator.clipboard.writeText('EXPOBOGO').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://pipstonecapital.com" target="_blank" class="hotdeal-visit">Visit Pipstone Capital →</a>
-        </div>
-      </div>
-
-      <!-- AquaFunded -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">AUTUMN</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=aquafunded.com&sz=128" class="hotdeal-logo" alt="AquaFunded">
-          <div class="hotdeal-name">AquaFunded</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Flat 25% OFF</div>
-          <div class="hotdeal-desc">25% off all challenges</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">AUTUMN</div>
-            <button onclick="navigator.clipboard.writeText('AUTUMN').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://www.aquafunded.com/?afmc=6ty" target="_blank" class="hotdeal-visit">Visit AquaFunded →</a>
-        </div>
-      </div>
-
-      <!-- Top One Trader -->
-      <div class="hotdeal-row">
-        <div class="hotdeal-ribbon">UP TO 70% OFF</div>
-        <div class="hotdeal-left">
-          <img src="https://www.google.com/s2/favicons?domain=toponetrader.com&sz=128" class="hotdeal-logo" alt="Top One Trader">
-          <div class="hotdeal-name">Top One Trader</div>
-          <div class="hotdeal-sub">All challenge types</div>
-        </div>
-        <div class="hotdeal-mid">
-          <div class="hotdeal-offer">Up to 70% OFF</div>
-          <div class="hotdeal-desc">Biggest discount in prop space · 90-min payouts · Prop Firm of the Year</div>
-        </div>
-        <div class="hotdeal-right">
-          <div class="hotdeal-codewrap">
-            <div class="hotdeal-code">SEPT</div>
-            <button onclick="navigator.clipboard.writeText('SEPT').then(()=>{this.textContent='✓';this.style.background='#1a5c1a';setTimeout(()=>{this.textContent='Copy';this.style.background='var(--gold)'},2000)})" class="hotdeal-copy">Copy</button>
-          </div>
-          <a href="https://www.toponetrader.com/" target="_blank" class="hotdeal-visit">Visit Top One Trader →</a>
-        </div>
-      </div>
-
-    </div>
+    <script>
+    (function(){
+      var fav=function(d){return 'https://www.google.com/s2/favicons?domain='+d+'&sz=128';};
+      var DEALS=[
+        {id:'toponetrader',name:'Top One Trader',dom:'toponetrader.com',tag:'BIGGEST DISCOUNT',pre:'UP TO',big:'70%',post:'OFF',card:'Up to 70% OFF',sub:'All challenge types',desc:'Biggest discount in prop space · 90-min payouts · Prop Firm of the Year',codes:[['','SEPT','']],url:'https://www.toponetrader.com/'},
+        {id:'nys',name:'NYS Markets',dom:'nysmarkets.com',tag:'BUY 1 GET 3',pre:'',big:'BUY 1 GET 3',post:'',card:'Buy 1 Get 3',sub:'All challenge types',desc:'Free same-size account + free Instant account: $99 or less → 5K · $100–$299 → 10K · $300+ → 20K',codes:[['','B1G3','']],url:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',long:1},
+        {id:'goat',name:'GOAT Funded',dom:'goatfundedtrader.com',tag:'2 CODES',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'All challenge types',desc:'GFT45 for 45% off everyone · FIRSTGFT for 50% off first-time users',codes:[['Everyone · 45% OFF','GFT45',''],['First-time users · 50% OFF','FIRSTGFT','']],url:'https://app.goatfundedtrader.com/home?code=fundedhunt'},
+        {id:'fundedsquad',name:'FundedSquad',dom:'fundedsquad.com',tag:'WIN AN IPHONE',pre:'FLAT',big:'40%',post:'OFF',card:'Flat 40% OFF',sub:'All challenge types',desc:'All 6 models · Chance to win an iPhone bundle · Free account with eligible bundle · Valid till 15 Oct',codes:[['','2YEARS','']],url:'https://fundedsquad.com/?squad=1302'},
+        {id:'blueberry',name:'Blueberry Funded',dom:'blueberryfunded.com',tag:'4 DEALS',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'Prime, Instant Elite & Instant Lite',desc:'Four separate codes depending on your account type. Pick yours below.',codes:[['Prime — New Users · 50% OFF','PRIME50',''],['Prime — Existing · 35% OFF + BOGO','PRIMEBG',''],['Instant Elite · 30% OFF + BOGO','ELITEFAST',''],['Instant Lite · Flat 35% OFF','LITE35','']],url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
+        {id:'fundednext',name:'FundedNext',dom:'fundednext.com',tag:'ONE CODE',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'CFD & Futures · one code',desc:'One code for every FundedNext account. Biggest savings below.',codes:[['','HUNT','']],url:'https://fundednext.com/?fpr=HUNT',
+          rows:[['CFD Accounts',[['$6K 2-Step Stellar','41%'],['$6K 1-Step Stellar','31%'],['$5K Stellar Lite','9%'],['$2K Stellar Instant','16%'],['All other CFD','7%']]],['Futures Accounts',[['Futures Flex','50%'],['All other Futures','10%']]]]},
+        {id:'fxify',name:'FXIFY',dom:'fxify.com',tag:'2 CODES',pre:'UP TO',big:'35%',post:'OFF',card:'Up to 35% OFF',sub:'All challenges',desc:'ONESTEP35 for One Phase · REWARD25 for everything else · Also enter affiliate code HUNT separately',codes:[['One Phase · 35% OFF','ONESTEP35',''],['Everything else · 25% OFF','REWARD25','']],url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774',note:'Also enter affiliate code HUNT separately at checkout.'},
+        {id:'blueguardian',name:'Blue Guardian',dom:'blueguardian.com',tag:'LIMITED',pre:'FLAT',big:'35%',post:'OFF',card:'35% OFF',sub:'All challenge types',desc:'Flat 35% off on all accounts',codes:[['','HUNT','']],url:'https://www.blueguardian.com/?afmc=HUNT'},
+        {id:'atlas',name:'Atlas Funded',dom:'atlasfunded.com',tag:'OCTOBER',pre:'FLAT',big:'35%',post:'OFF',card:'Flat 35% OFF',sub:'All challenge types',desc:'35% OFF all challenges',codes:[['','OCT','']],url:'https://atlasfunded.com/hunt?afmc=5pi'},
+        {id:'aqua',name:'AquaFunded',dom:'aquafunded.com',tag:'AUTUMN',pre:'FLAT',big:'25%',post:'OFF',card:'Flat 25% OFF',sub:'All challenge types',desc:'25% off all challenges',codes:[['','AUTUMN','']],url:'https://www.aquafunded.com/?afmc=6ty'},
+        {id:'pipstone',name:'Pipstone Capital',dom:'pipstonecapital.com',tag:'INSTANT BOGO',pre:'',big:'BUY 1 GET 1',post:'',card:'Buy 1 Get 1 Free',sub:'Instant accounts',desc:'Free Instant account of the same size added to your order',codes:[['','EXPOBOGO','']],url:'https://pipstonecapital.com',long:1},
+        {id:'finotive',name:'Finotive Funding',dom:'finotivefunding.com',tag:'50% OFF',pre:'FLAT',big:'50%',post:'OFF',card:'Flat 50% OFF',sub:'All challenge types',desc:'50% off all challenges, valid till 30 Sept',codes:[['','FUNDEDHUNT','']],url:'https://finotivefunding.com/FUNDEDHUNT'}
+      ];
+      var root=document.getElementById('hdRoot'); if(!root) return;
+      var sel=0, userPicked=false, timer=null, hovering=false;
+      function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      function codeLine(c){
+        return '<div class="hd-code">'+(c[0]?'<em>'+esc(c[0])+'</em>':'')+'<b>'+esc(c[1])+'</b><button type="button" class="hd-copy" data-code="'+esc(c[1])+'">Copy</button></div>';
+      }
+      function heroHTML(d){
+        var rows='';
+        if(d.rows){rows='<div class="hd-rows">'+d.rows.map(function(g){return '<div class="hd-rg"><div class="hd-rt">'+esc(g[0])+'</div>'+g[1].map(function(r){return '<div class="hd-rr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>';}).join('')+'</div>';}).join('')+'</div>';}
+        return '<div class="hd-hero-in">'
+          +(d.tag?'<div class="hd-tag">'+esc(d.tag)+'</div>':'')
+          +'<div class="hd-hl"><div class="hd-firm"><img src="'+fav(d.dom)+'" alt="'+esc(d.name)+'" class="hd-logo"><div><div class="hd-fname">'+esc(d.name)+'</div><div class="hd-fsub">'+esc(d.sub)+'</div></div></div>'
+          +(d.pre?'<div class="hd-pre">'+esc(d.pre)+'</div>':'<div class="hd-pre">&nbsp;</div>')
+          +'<div class="hd-big'+(d.long?' long':'')+'">'+esc(d.big)+(d.post?'<small> '+esc(d.post)+'</small>':'')+'</div></div>'
+          +'<div class="hd-hr"><div class="hd-desc">'+esc(d.desc)+'</div>'+rows
+          +'<div class="hd-codes">'+d.codes.map(codeLine).join('')+'</div>'
+          +(d.note?'<div class="hd-note">'+esc(d.note)+'</div>':'')
+          +'<a class="hd-go" href="'+esc(d.url)+'" target="_blank" rel="noopener">Claim this deal at '+esc(d.name)+' →</a></div>'
+          +'</div><div class="hd-prog" id="hdProg"></div>';
+      }
+      function cardHTML(d,i){
+        var c=d.codes[0][1], more=d.codes.length>1?'<span class="hd-more">+'+(d.codes.length-1)+' code'+(d.codes.length>2?'s':'')+'</span>':'';
+        return '<div class="hd-card'+(i===sel?' on':'')+'" role="button" tabindex="0" data-i="'+i+'" aria-label="Show '+esc(d.name)+' deal">'
+          +'<div class="hd-ch"><img src="'+fav(d.dom)+'" alt="" class="hd-clogo"><span class="hd-cname">'+esc(d.name)+'</span></div>'
+          +'<div class="hd-coffer">'+esc(d.card)+'</div>'
+          +'<div class="hd-csub">'+esc(d.sub)+'</div>'
+          +'<div class="hd-cc"><span class="hd-ccode" data-code="'+esc(c)+'" title="Tap to copy">'+esc(c)+'<i>COPY</i></span>'+more+'</div></div>';
+      }
+      function build(){
+        root.innerHTML='<div class="hd-grid">'
+          +'<div class="hd-hero" id="hdHero">'+heroHTML(DEALS[sel])+'</div>'
+          +DEALS.map(cardHTML).join('')
+          +'<a class="hd-tg" href="https://t.me/funded_hunt" target="_blank" rel="noopener"><span>📣</span><div><b>New deals drop every week</b><small>Get them first on our Telegram channel →</small></div></a>'
+          +'</div>';
+      }
+      function setSel(i,scroll){
+        sel=i;
+        var hero=document.getElementById('hdHero'); hero.innerHTML=heroHTML(DEALS[i]); hero.classList.remove('swap'); void hero.offsetWidth; hero.classList.add('swap');
+        root.querySelectorAll('.hd-card').forEach(function(c,k){c.classList.toggle('on',k===i);});
+        if(userPicked){var pg=document.getElementById('hdProg'); if(pg) pg.style.display='none';}
+        if(scroll){var r=hero.getBoundingClientRect(); if(r.top<0||r.top>window.innerHeight*0.5){hero.scrollIntoView({behavior:'smooth',block:'start'});}}
+      }
+      function copy(code,btn){
+        var done=function(){var o=btn.getAttribute('data-o')||btn.innerHTML; btn.setAttribute('data-o',o); btn.innerHTML=btn.tagName==='I'?'✓':'Copied ✓'; btn.classList.add('ok'); setTimeout(function(){btn.innerHTML=o; btn.classList.remove('ok');},1800);};
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(done,function(){fb();});} else fb();
+        function fb(){var t=document.createElement('textarea');t.value=code;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+      }
+      root.addEventListener('click',function(e){
+        var b=e.target.closest('.hd-copy'); if(b){e.stopPropagation();copy(b.getAttribute('data-code'),b);return;}
+        var cc=e.target.closest('.hd-ccode'); if(cc){e.stopPropagation();copy(cc.getAttribute('data-code'),cc.querySelector('i'));return;}
+        var c=e.target.closest('.hd-card'); if(c){userPicked=true;setSel(parseInt(c.getAttribute('data-i'),10),true);}
+      });
+      root.addEventListener('keydown',function(e){
+        if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('hd-card')){e.preventDefault();userPicked=true;setSel(parseInt(e.target.getAttribute('data-i'),10),true);}
+      });
+      root.addEventListener('mouseenter',function(){hovering=true;});
+      root.addEventListener('mouseleave',function(){hovering=false;});
+      root.addEventListener('touchstart',function(){userPicked=true;},{passive:true});
+      var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!reduce){timer=setInterval(function(){
+        if(userPicked||hovering||root.offsetParent===null||document.hidden) return;
+        setSel((sel+1)%DEALS.length,false);
+      },6000);}
+      build();
+    })();
+    </script>
 
     <div style="margin-top:28px;padding:18px 22px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:12px;">
       <span style="font-size:20px;">💡</span>
