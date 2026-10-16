@@ -651,68 +651,59 @@
 .tip-box p{margin:0 !important;font-size:15px;color:var(--text);line-height:1.75;font-weight:500;}
 .warning-box .box-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);margin-bottom:8px;}
 
-/* ══ HOT DEALS v3 — responsive spotlight + grid ══ */
-.hd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
-.hd-hero{grid-column:1 / span 2;grid-row:span 3;position:relative;border-radius:20px;border:1px solid rgba(245,197,24,.4);background:radial-gradient(120% 110% at 0 0,rgba(245,197,24,.2),transparent 55%),var(--bg2);overflow:hidden;display:flex}
-.hd-hero.swap{animation:hdIn .35s ease}
-@keyframes hdIn{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
-.hd-hero-in{padding:24px;display:flex;flex-direction:column;gap:14px;width:100%}
-.hd-tag{position:absolute;top:0;right:0;background:var(--gold);color:#000;font-size:10px;font-weight:800;letter-spacing:1px;padding:6px 14px;border-radius:0 20px 0 12px}
-.hd-firm{display:flex;align-items:center;gap:12px}
-.hd-logo{width:44px;height:44px;border-radius:12px;background:var(--bg3);object-fit:contain;flex:none}
-.hd-fname{font-size:17px;font-weight:800;line-height:1.2}.hd-fsub{font-size:11.5px;color:var(--muted)}
-.hd-pre{font-size:12px;letter-spacing:2px;font-weight:800;color:var(--muted);margin-top:14px}
-.hd-big{font-size:76px;font-weight:900;line-height:.95;letter-spacing:-3px;background:linear-gradient(180deg,#FFE066,#F5C518 60%,#E8A800);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:2px}
-.hd-big small{font-size:.32em;letter-spacing:0}
-.hd-big.long{font-size:46px;letter-spacing:-1.5px;line-height:1}
-.hd-hr{display:flex;flex-direction:column;gap:12px;flex:1;justify-content:flex-end}
-.hd-desc{font-size:13px;color:var(--muted);line-height:1.55}
-.hd-codes{display:flex;flex-direction:column;gap:8px}
-.hd-code{display:flex;align-items:stretch;border:1px dashed rgba(245,197,24,.6);border-radius:10px;overflow:hidden}
-.hd-code em{font-style:normal;font-size:11px;color:var(--text);opacity:.85;padding:0 11px;display:flex;align-items:center;background:var(--bg3);flex:1.3;line-height:1.3}
-.hd-code b{flex:1;text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:2px;font-size:14px;color:var(--gold);padding:11px 8px;background:rgba(245,197,24,.06);display:flex;align-items:center;justify-content:center}
-.hd-copy{border:0;background:var(--gold);color:#000;font-weight:800;font-size:12px;padding:0 18px;cursor:pointer;white-space:nowrap}
-.hd-copy.ok,.hd-ccode i.ok{background:#1a7a3a;color:#fff}
-.hd-note{font-size:11.5px;color:var(--gold);background:rgba(245,197,24,.08);border-radius:8px;padding:8px 10px}
-.hd-go{display:block;text-align:center;background:var(--gold);color:#000;font-weight:800;font-size:13.5px;padding:13px;border-radius:11px;text-decoration:none}
-.hd-go:hover{background:var(--gold2)}
-.hd-rows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hd-rg{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px}
-.hd-rt{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:6px}
-.hd-rr{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;padding:2px 0}.hd-rr strong{color:#E53E3E}
-.hd-prog{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0;animation:hdPg 6s linear}
-@keyframes hdPg{to{width:100%}}
-.hd-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border-color .15s,transform .15s;min-width:0}
-.hd-card:hover{border-color:rgba(245,197,24,.55);transform:translateY(-2px)}
-.hd-card.on{border-color:var(--gold);box-shadow:0 0 0 1px rgba(245,197,24,.35) inset;background:var(--bg3)}
-.hd-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.hd-ch{display:flex;align-items:center;gap:8px;min-width:0}
-.hd-clogo{width:24px;height:24px;border-radius:7px;background:var(--bg4);object-fit:contain;flex:none}
-.hd-cname{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hd-coffer{font-size:21px;font-weight:900;color:var(--gold);line-height:1.1;letter-spacing:-.5px;margin-top:2px}
-.hd-csub{font-size:11px;color:var(--muted);line-height:1.35;min-height:15px}
-.hd-cc{display:flex;align-items:center;gap:6px;margin-top:auto;flex-wrap:wrap}
-.hd-ccode{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;letter-spacing:1.2px;color:var(--gold);border:1px dashed rgba(245,197,24,.55);border-radius:7px;padding:4px 4px 4px 9px;display:inline-flex;align-items:center;gap:7px;max-width:100%}
-.hd-ccode i{font-style:normal;font-size:9px;background:var(--gold);color:#000;font-weight:800;padding:3px 6px;border-radius:5px;font-family:system-ui,sans-serif;letter-spacing:.3px}
-.hd-more{font-size:10px;color:var(--muted);font-weight:700}
-.hd-tg{grid-column:span 2;display:flex;align-items:center;gap:12px;border:1px dashed var(--border);border-radius:14px;padding:13px 16px;text-decoration:none;color:var(--text)}
-.hd-tg span{font-size:22px}.hd-tg b{display:block;font-size:13px}.hd-tg small{color:var(--gold);font-size:11.5px}
-@media(max-width:1000px){
-  .hd-grid{grid-template-columns:repeat(2,1fr)}
-  .hd-hero{grid-column:1 / -1;grid-row:auto}
-  .hd-hero-in{padding:20px}
-  .hd-big{font-size:68px}.hd-big.long{font-size:42px}
-  .hd-tg{grid-column:1 / -1}
-}
-@media(max-width:520px){
-  .hd-grid{gap:9px}
-  .hd-hero-in{padding:18px 16px}
-  .hd-big{font-size:60px;letter-spacing:-2px}.hd-big.long{font-size:38px}
-  .hd-rows{grid-template-columns:1fr}
-  .hd-code em{font-size:10.5px;padding:0 8px}.hd-code b{font-size:13px;letter-spacing:1.5px}
-  .hd-card{padding:11px}.hd-coffer{font-size:18px}.hd-cname{font-size:12px}
-  .hd-ccode{font-size:10.5px;letter-spacing:.8px}
-}
+/* ══ HOT DEALS v4 — premium card grid ══ */
+.hd{--h1:#101217;--h2:#151820;--h3:#1B1F28;--hl:rgba(255,255,255,.07);--hl2:rgba(255,255,255,.12);--hm:#8A90A0;--hd:#5E6473;--hg:#34D399;--hr:#F87171;font-variant-numeric:tabular-nums}
+.hd svg{display:block}.hd .ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.hd-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.hd-seg{display:inline-flex;background:var(--h1);border:1px solid var(--hl);border-radius:11px;padding:3px}
+.hd-seg button{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--hm);padding:7px 13px;border-radius:8px;display:flex;gap:6px;align-items:center}
+.hd-seg button i{font-style:normal;font-size:10.5px;color:var(--hd);background:var(--h3);border-radius:99px;padding:1px 7px}
+.hd-seg button.on{background:var(--h3);color:var(--text);box-shadow:0 0 0 1px var(--hl2) inset}.hd-seg button.on i{background:var(--gold);color:#000}
+.hd-seg button:focus-visible{outline:2px solid var(--gold)}
+.hd-disc{display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--hd);margin:0 0 16px}
+.hd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.hd-grid.has-open .hd-card:not(.open){align-self:start}
+.hd-card{position:relative;background:linear-gradient(180deg,var(--h2),var(--h1));border:1px solid var(--hl);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}
+.hd-card:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent)}
+.hd-card:hover{border-color:var(--hl2);transform:translateY(-2px);box-shadow:0 18px 40px -22px #000}
+.hd-ct{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.hd-who{display:flex;align-items:center;gap:11px;min-width:0}.hd-who b{font-size:14.5px;display:block;letter-spacing:-.1px;color:var(--text)}.hd-who small{font-size:11.5px;color:var(--hm)}
+.hd-mono{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:12.5px;letter-spacing:.3px;color:#fff;flex:none;background:linear-gradient(145deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));box-shadow:0 0 0 1px rgba(255,255,255,.1) inset;position:relative;overflow:hidden}
+.hd-mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:5px;border-radius:11px}
+.hd-st{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--hm);white-space:nowrap}
+.hd-st:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hg)}
+.hd-st.warn{color:var(--gold2)}.hd-st.warn:before{background:var(--gold)}
+.hd-st.hot{color:var(--hr)}.hd-st.hot:before{background:var(--hr);animation:hdpl 1.3s infinite}@keyframes hdpl{50%{opacity:.3}}
+.hd-offer{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hd-n{font-size:46px;font-weight:800;letter-spacing:-2px;line-height:1;color:var(--text)}
+.hd-u{font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.2px}
+.hd-pre{font-size:11px;font-weight:700;letter-spacing:1.4px;color:var(--hm);align-self:center;margin-right:2px}
+.hd-offer.t .hd-n{font-size:30px;letter-spacing:-1px;padding:8px 0 7px}
+.hd-desc{font-size:12.5px;color:var(--hm);margin-top:-6px;line-height:1.5}
+.hd-hair{height:1px;background:var(--hl)}
+.hd-code{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--hl2);border-radius:10px;padding:4px 4px 4px 14px}
+.hd-code b{flex:1;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.8px;font-size:13.5px;color:var(--gold);font-weight:700;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd-cw{display:flex;flex-direction:column;gap:5px}.hd-clab{font-size:11px;color:var(--hm);font-weight:600}
+.hd-cbtn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;background:var(--h3);color:var(--text);border-radius:8px;padding:8px 12px;border:1px solid var(--hl2);transition:.15s;white-space:nowrap}
+.hd-cbtn:hover{background:var(--gold);color:#000;border-color:var(--gold)}.hd-cbtn.ok{background:var(--hg);color:#04130B;border-color:var(--hg)}
+.hd-cbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hd-more{all:unset;cursor:pointer;font-size:11.5px;color:var(--gold2);font-weight:600;display:flex;align-items:center;gap:6px}
+.hd-more:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hd-more .ic{transition:transform .2s}.hd-card.open .hd-more .ic{transform:rotate(180deg)}
+.hd-extra{display:none;flex-direction:column;gap:8px}.hd-card.open .hd-extra{display:flex}
+.hd-rg{background:var(--h2);border:1px solid var(--hl);border-radius:10px;padding:10px 12px}
+.hd-rt{font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:var(--hd);margin-bottom:6px}
+.hd-rr{display:flex;justify-content:space-between;gap:8px;font-size:12px;padding:2px 0;color:var(--text)}.hd-rr strong{color:var(--gold)}
+.hd-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:8px}
+.hd-link{font-size:12px;font-weight:600;color:var(--hm);display:inline-flex;gap:6px;align-items:center;text-decoration:none}.hd-link:hover{color:var(--gold)}
+.hd-kind{font-size:12px;color:var(--hd)}
+.hd-ended{margin-top:22px;border:1px solid var(--hl);border-radius:14px;background:var(--h1)}
+.hd-ended summary{cursor:pointer;padding:13px 16px;font-size:13px;font-weight:700;color:var(--hm);list-style:none;display:flex;justify-content:space-between}
+.hd-ended summary::-webkit-details-marker{display:none}
+.hd-erow{display:flex;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--hl);opacity:.7;flex-wrap:wrap}
+.hd-erow b{font-size:13.5px}.hd-erow s{color:var(--hm);font-size:15px;font-weight:800}.hd-erow small{color:var(--hm);font-size:11.5px;margin-left:auto}
+@media(max-width:1000px){.hd-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.hd-grid{grid-template-columns:1fr}.hd-n{font-size:42px}.hd-seg button{padding:7px 10px}}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -965,90 +956,78 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <p>Limited time offers from top prop firms. Grab these before they expire.</p>
     </div>
 
-    <div id="hdRoot" class="hd" aria-live="polite"></div>
+    <div id="hdRoot" class="hd"></div>
 
     <script>
     (function(){
-      var fav=function(d){return 'https://www.google.com/s2/favicons?domain='+d+'&sz=128';};
+      /* To add/edit a deal: change this list. Optional "expires":"YYYY-MM-DD" hides the deal automatically after that day
+         (it moves to "Recently ended"). Without "expires" a deal shows as Active until you remove it. */
       var DEALS=[
-        {id:'toponetrader',name:'Top One Trader',dom:'toponetrader.com',tag:'BIGGEST DISCOUNT',pre:'UP TO',big:'70%',post:'OFF',card:'Up to 70% OFF',sub:'All challenge types',desc:'Biggest discount in prop space · 90-min payouts · Prop Firm of the Year',codes:[['','SEPT','']],url:'https://www.toponetrader.com/'},
-        {id:'nys',name:'NYS Markets',dom:'nysmarkets.com',tag:'BUY 1 GET 3',pre:'',big:'BUY 1 GET 3',post:'',card:'Buy 1 Get 3',sub:'All challenge types',desc:'Free same-size account + free Instant account: $99 or less → 5K · $100–$299 → 10K · $300+ → 20K',codes:[['','B1G3','']],url:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',long:1},
-        {id:'goat',name:'GOAT Funded',dom:'goatfundedtrader.com',tag:'2 CODES',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'All challenge types',desc:'GFT45 for 45% off everyone · FIRSTGFT for 50% off first-time users',codes:[['Everyone · 45% OFF','GFT45',''],['First-time users · 50% OFF','FIRSTGFT','']],url:'https://app.goatfundedtrader.com/home?code=fundedhunt'},
-        {id:'fundedsquad',name:'FundedSquad',dom:'fundedsquad.com',tag:'WIN AN IPHONE',pre:'FLAT',big:'40%',post:'OFF',card:'Flat 40% OFF',sub:'All challenge types',desc:'All 6 models · Chance to win an iPhone bundle · Free account with eligible bundle · Valid till 15 Oct',codes:[['','2YEARS','']],url:'https://fundedsquad.com/?squad=1302'},
-        {id:'blueberry',name:'Blueberry Funded',dom:'blueberryfunded.com',tag:'4 DEALS',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'Prime, Instant Elite & Instant Lite',desc:'Four separate codes depending on your account type. Pick yours below.',codes:[['Prime — New Users · 50% OFF','PRIME50',''],['Prime — Existing · 35% OFF + BOGO','PRIMEBG',''],['Instant Elite · 30% OFF + BOGO','ELITEFAST',''],['Instant Lite · Flat 35% OFF','LITE35','']],url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991'},
-        {id:'fundednext',name:'FundedNext',dom:'fundednext.com',tag:'ONE CODE',pre:'UP TO',big:'50%',post:'OFF',card:'Up to 50% OFF',sub:'CFD & Futures · one code',desc:'One code for every FundedNext account. Biggest savings below.',codes:[['','HUNT','']],url:'https://fundednext.com/?fpr=HUNT',
-          rows:[['CFD Accounts',[['$6K 2-Step Stellar','41%'],['$6K 1-Step Stellar','31%'],['$5K Stellar Lite','9%'],['$2K Stellar Instant','16%'],['All other CFD','7%']]],['Futures Accounts',[['Futures Flex','50%'],['All other Futures','10%']]]]},
-        {id:'fxify',name:'FXIFY',dom:'fxify.com',tag:'2 CODES',pre:'UP TO',big:'35%',post:'OFF',card:'Up to 35% OFF',sub:'All challenges',desc:'ONESTEP35 for One Phase · REWARD25 for everything else · Also enter affiliate code HUNT separately',codes:[['One Phase · 35% OFF','ONESTEP35',''],['Everything else · 25% OFF','REWARD25','']],url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774',note:'Also enter affiliate code HUNT separately at checkout.'},
-        {id:'blueguardian',name:'Blue Guardian',dom:'blueguardian.com',tag:'LIMITED',pre:'FLAT',big:'35%',post:'OFF',card:'35% OFF',sub:'All challenge types',desc:'Flat 35% off on all accounts',codes:[['','HUNT','']],url:'https://www.blueguardian.com/?afmc=HUNT'},
-        {id:'atlas',name:'Atlas Funded',dom:'atlasfunded.com',tag:'OCTOBER',pre:'FLAT',big:'35%',post:'OFF',card:'Flat 35% OFF',sub:'All challenge types',desc:'35% OFF all challenges',codes:[['','OCT','']],url:'https://atlasfunded.com/hunt?afmc=5pi'},
-        {id:'aqua',name:'AquaFunded',dom:'aquafunded.com',tag:'AUTUMN',pre:'FLAT',big:'25%',post:'OFF',card:'Flat 25% OFF',sub:'All challenge types',desc:'25% off all challenges',codes:[['','AUTUMN','']],url:'https://www.aquafunded.com/?afmc=6ty'},
-        {id:'pipstone',name:'Pipstone Capital',dom:'pipstonecapital.com',tag:'INSTANT BOGO',pre:'',big:'BUY 1 GET 1',post:'',card:'Buy 1 Get 1 Free',sub:'Instant accounts',desc:'Free Instant account of the same size added to your order',codes:[['','EXPOBOGO','']],url:'https://pipstonecapital.com',long:1},
-        {id:'finotive',name:'Finotive Funding',dom:'finotivefunding.com',tag:'50% OFF',pre:'FLAT',big:'50%',post:'OFF',card:'Flat 50% OFF',sub:'All challenge types',desc:'50% off all challenges, valid till 30 Sept',codes:[['','FUNDEDHUNT','']],url:'https://finotivefunding.com/FUNDEDHUNT'}
+        {n:'Top One Trader',dom:'toponetrader.com',c:'#C99A12',m:'T1',type:'pct',pre:'UP TO',big:'70',u:'% OFF',desc:'Biggest discount in prop space · 90-min payouts · Prop Firm of the Year',codes:[['','SEPT']],url:'https://www.toponetrader.com/',ap:'All challenge types',kind:'Percentage off'},
+        {n:'NYS Markets',dom:'nysmarkets.com',c:'#2F6BFF',m:'NY',type:'bogo',pre:'',big:'Buy 1 Get 3',u:'',t:1,desc:'Free same-size account + free Instant account: $99 or less → 5K · $100–$299 → 10K · $300+ → 20K',codes:[['','B1G3']],url:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',ap:'All challenge types',kind:'Free accounts'},
+        {n:'GOAT Funded',dom:'goatfundedtrader.com',c:'#E5484D',m:'GF',type:'pct',pre:'UP TO',big:'50',u:'% OFF',desc:'GFT45 for 45% off everyone · FIRSTGFT for 50% off first-time users',codes:[['New users · 50%','FIRSTGFT'],['Everyone · 45%','GFT45']],url:'https://app.goatfundedtrader.com/home?code=fundedhunt',ap:'All challenge types',kind:'Percentage off'},
+        {n:'FundedSquad',dom:'fundedsquad.com',c:'#7C5CFF',m:'FS',type:'pct',pre:'FLAT',big:'40',u:'% OFF',desc:'All 6 models · Chance to win an iPhone bundle · Free account with eligible bundle · Valid till 15 Oct',codes:[['','2YEARS']],url:'https://fundedsquad.com/?squad=1302',ap:'All challenge types',kind:'Percentage off',expires:'2026-10-15'},
+        {n:'Blueberry Funded',dom:'blueberryfunded.com',c:'#3B82F6',m:'BB',type:'pct',pre:'UP TO',big:'50',u:'% OFF',desc:'Prime, Instant Elite and Instant Lite: four separate codes depending on your account.',codes:[['Prime · new users · 50% OFF','PRIME50'],['Prime · existing · 35% OFF + BOGO','PRIMEBG'],['Instant Elite · 30% OFF + BOGO','ELITEFAST'],['Instant Lite · flat 35% OFF','LITE35']],url:'https://blueberryfunded.com/?utm_source=affiliate&ref=8991',ap:'Prime, Instant Elite & Lite',kind:'Percentage off'},
+        {n:'FundedNext',dom:'fundednext.com',c:'#14B8A6',m:'FN',type:'pct',pre:'UP TO',big:'50',u:'% OFF',desc:'One code for every FundedNext account. Futures Flex gets the biggest saving.',codes:[['','HUNT']],url:'https://fundednext.com/?fpr=HUNT',ap:'CFD & Futures',kind:'Percentage off',
+          rows:[['CFD Accounts',[['$6K 2-Step Stellar','41%'],['$6K 1-Step Stellar','31%'],['$5K Stellar Lite','9%'],['$2K Stellar Instant','16%'],['All other CFD','7%']]],['Futures Accounts',[['Futures Flex','50%'],['All other Futures','10%']]]],},
+        {n:'FXIFY',dom:'fxify.com',c:'#F97316',m:'FX',type:'pct',pre:'UP TO',big:'35',u:'% OFF',desc:'ONESTEP35 for One Phase · REWARD25 for everything else · Also enter affiliate code HUNT separately',codes:[['One Phase · 35%','ONESTEP35'],['Everything else · 25%','REWARD25']],url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774',ap:'All challenges',kind:'Percentage off'},
+        {n:'Blue Guardian',dom:'blueguardian.com',c:'#1D4ED8',m:'BG',type:'pct',pre:'FLAT',big:'35',u:'% OFF',desc:'Flat 35% off on all accounts',codes:[['','HUNT']],url:'https://www.blueguardian.com/?afmc=HUNT',ap:'All challenge types',kind:'Percentage off'},
+        {n:'Atlas Funded',dom:'atlasfunded.com',c:'#0EA5E9',m:'AF',type:'pct',pre:'FLAT',big:'35',u:'% OFF',desc:'35% OFF all challenges',codes:[['','OCT']],url:'https://atlasfunded.com/hunt?afmc=5pi',ap:'All challenge types',kind:'Percentage off'},
+        {n:'AquaFunded',dom:'aquafunded.com',c:'#06B6D4',m:'AQ',type:'pct',pre:'FLAT',big:'25',u:'% OFF',desc:'25% off all challenges',codes:[['','AUTUMN']],url:'https://www.aquafunded.com/?afmc=6ty',ap:'All challenge types',kind:'Percentage off'},
+        {n:'Pipstone Capital',dom:'pipstonecapital.com',c:'#A855F7',m:'PS',type:'bogo',pre:'',big:'Buy 1 Get 1',u:'',t:1,desc:'Free Instant account of the same size added to your order',codes:[['','EXPOBOGO']],url:'https://pipstonecapital.com',ap:'Instant accounts',kind:'Free accounts'},
+        {n:'Finotive Funding',dom:'finotivefunding.com',c:'#4F46E5',m:'FF',type:'pct',pre:'FLAT',big:'50',u:'% OFF',desc:'50% off all challenges, valid till 30 Sept',codes:[['','FUNDEDHUNT']],url:'https://finotivefunding.com/FUNDEDHUNT',ap:'All challenge types',kind:'Percentage off',expires:'2026-09-30'}
       ];
       var root=document.getElementById('hdRoot'); if(!root) return;
-      var sel=0, userPicked=false, timer=null, hovering=false;
+      var I={copy:'<svg class="ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>',chk:'<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',ext:'<svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>',down:'<svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>',info:'<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M12 11v5"/></svg>'};
+      var F={all:'All',pct:'Discounts',bogo:'Free accounts'}, f='all', open={};
       function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      function codeLine(c){
-        return '<div class="hd-code">'+(c[0]?'<em>'+esc(c[0])+'</em>':'')+'<b>'+esc(c[1])+'</b><button type="button" class="hd-copy" data-code="'+esc(c[1])+'">Copy</button></div>';
+      function daysLeft(d){ if(!d.expires) return null; var t=new Date(); t.setHours(0,0,0,0); var e=new Date(d.expires+'T00:00:00'); return Math.round((e-t)/86400000); }
+      var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      function fmt(iso){var p=iso.split('-');return parseInt(p[2],10)+' '+MON[parseInt(p[1],10)-1];}
+      function status(d){
+        var dl=daysLeft(d);
+        if(dl===null) return ['Active',''];
+        if(dl===0) return ['Ends today','hot'];
+        if(dl===1) return ['Ends tomorrow','hot'];
+        if(dl<=14) return [dl+' days left','warn'];
+        return ['Ends '+fmt(d.expires),''];
       }
-      function heroHTML(d){
-        var rows='';
-        if(d.rows){rows='<div class="hd-rows">'+d.rows.map(function(g){return '<div class="hd-rg"><div class="hd-rt">'+esc(g[0])+'</div>'+g[1].map(function(r){return '<div class="hd-rr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>';}).join('')+'</div>';}).join('')+'</div>';}
-        return '<div class="hd-hero-in">'
-          +(d.tag?'<div class="hd-tag">'+esc(d.tag)+'</div>':'')
-          +'<div class="hd-hl"><div class="hd-firm"><img src="'+fav(d.dom)+'" alt="'+esc(d.name)+'" class="hd-logo"><div><div class="hd-fname">'+esc(d.name)+'</div><div class="hd-fsub">'+esc(d.sub)+'</div></div></div>'
-          +(d.pre?'<div class="hd-pre">'+esc(d.pre)+'</div>':'<div class="hd-pre">&nbsp;</div>')
-          +'<div class="hd-big'+(d.long?' long':'')+'">'+esc(d.big)+(d.post?'<small> '+esc(d.post)+'</small>':'')+'</div></div>'
-          +'<div class="hd-hr"><div class="hd-desc">'+esc(d.desc)+'</div>'+rows
-          +'<div class="hd-codes">'+d.codes.map(codeLine).join('')+'</div>'
-          +(d.note?'<div class="hd-note">'+esc(d.note)+'</div>':'')
-          +'<a class="hd-go" href="'+esc(d.url)+'" target="_blank" rel="noopener">Claim this deal at '+esc(d.name)+' →</a></div>'
-          +'</div><div class="hd-prog" id="hdProg"></div>';
+      function active(){return DEALS.filter(function(d){var dl=daysLeft(d);return dl===null||dl>=0;});}
+      function ended(){return DEALS.filter(function(d){var dl=daysLeft(d);return dl!==null&&dl<0;});}
+      function cnt(k){return active().filter(function(d){return k==='all'||d.type===k;}).length;}
+      function mono(d){return '<span class="hd-mono" style="--c:'+d.c+'">'+esc(d.m)+'</span>';}
+      function codeRow(c){return '<div class="hd-cw">'+(c[0]?'<div class="hd-clab">'+esc(c[0])+'</div>':'')+'<div class="hd-code"><b>'+esc(c[1])+'</b><button type="button" class="hd-cbtn" data-code="'+esc(c[1])+'">'+I.copy+'Copy</button></div></div>';}
+      function rowsHTML(d){return d.rows.map(function(g){return '<div class="hd-rg"><div class="hd-rt">'+esc(g[0])+'</div>'+g[1].map(function(r){return '<div class="hd-rr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>';}).join('')+'</div>';}).join('');}
+      function card(d){
+        var st=status(d), extraCodes=d.codes.slice(1), hasMore=extraCodes.length>0||d.rows, key=d.n;
+        var label=d.rows?d.rowsLabel:(open[key]?'Hide':'View')+' '+extraCodes.length+' more code'+(extraCodes.length>1?'s':'');
+        if(d.rows) label=(open[key]?'Hide':'View')+' savings by account';
+        return '<div class="hd-card'+(open[key]?' open':'')+'" style="--c:'+d.c+'">'
+          +'<div class="hd-ct"><div class="hd-who">'+mono(d)+'<div><b>'+esc(d.n)+'</b><small>'+esc(d.ap)+'</small></div></div><span class="hd-st '+st[1]+'">'+esc(st[0])+'</span></div>'
+          +'<div class="hd-offer'+(d.t?' t':'')+'">'+(d.pre?'<span class="hd-pre">'+esc(d.pre)+'</span>':'')+'<span class="hd-n">'+esc(d.big)+'</span>'+(d.u?'<span class="hd-u">'+esc(d.u)+'</span>':'')+'</div>'
+          +'<div class="hd-desc">'+esc(d.desc)+'</div><div class="hd-hair"></div>'
+          +codeRow(d.codes[0])
+          +(hasMore?'<button type="button" class="hd-more" data-more="'+esc(key)+'" aria-expanded="'+(open[key]?'true':'false')+'">'+I.down+esc(label)+'</button><div class="hd-extra">'+extraCodes.map(codeRow).join('')+(d.rows?rowsHTML(d):'')+'</div>':'')
+          +'<div class="hd-foot"><a class="hd-link" href="'+esc(d.url)+'" target="_blank" rel="noopener">Visit '+esc(d.n)+' '+I.ext+'</a><span class="hd-kind">'+esc(d.kind)+'</span></div></div>';
       }
-      function cardHTML(d,i){
-        var c=d.codes[0][1], more=d.codes.length>1?'<span class="hd-more">+'+(d.codes.length-1)+' code'+(d.codes.length>2?'s':'')+'</span>':'';
-        return '<div class="hd-card'+(i===sel?' on':'')+'" role="button" tabindex="0" data-i="'+i+'" aria-label="Show '+esc(d.name)+' deal">'
-          +'<div class="hd-ch"><img src="'+fav(d.dom)+'" alt="" class="hd-clogo"><span class="hd-cname">'+esc(d.name)+'</span></div>'
-          +'<div class="hd-coffer">'+esc(d.card)+'</div>'
-          +'<div class="hd-csub">'+esc(d.sub)+'</div>'
-          +'<div class="hd-cc"><span class="hd-ccode" data-code="'+esc(c)+'" title="Tap to copy">'+esc(c)+'<i>COPY</i></span>'+more+'</div></div>';
+      function render(){
+        var L=active().filter(function(d){return f==='all'||d.type===f;}), E=ended();
+        root.innerHTML='<div class="hd-top"><div class="hd-seg" role="tablist">'+Object.keys(F).map(function(k){return '<button type="button" role="tab" class="'+(f===k?'on':'')+'" aria-selected="'+(f===k)+'" data-f="'+k+'">'+F[k]+'<i>'+cnt(k)+'</i></button>';}).join('')+'</div></div>'
+          +'<div class="hd-disc">'+I.info+'Affiliate links. We may earn a commission at no extra cost to you.</div>'
+          +'<div class="hd-grid'+(Object.keys(open).some(function(k){return open[k];})?' has-open':'')+'">'+L.map(card).join('')+'</div>'
+          +(E.length?'<details class="hd-ended"><summary><span>Recently ended ('+E.length+')</span><span>▾</span></summary>'+E.map(function(d){return '<div class="hd-erow">'+mono(d)+'<b>'+esc(d.n)+'</b><s>'+esc(d.pre==='UP TO'?'up to ':'')+esc(d.big)+esc(d.u)+'</s><small>Ended '+fmt(d.expires)+'</small></div>';}).join('')+'</details>':'');
       }
-      function build(){
-        root.innerHTML='<div class="hd-grid">'
-          +'<div class="hd-hero" id="hdHero">'+heroHTML(DEALS[sel])+'</div>'
-          +DEALS.map(cardHTML).join('')
-          +'<a class="hd-tg" href="https://t.me/funded_hunt" target="_blank" rel="noopener"><span>📣</span><div><b>New deals drop every week</b><small>Get them first on our Telegram channel →</small></div></a>'
-          +'</div>';
-      }
-      function setSel(i,scroll){
-        sel=i;
-        var hero=document.getElementById('hdHero'); hero.innerHTML=heroHTML(DEALS[i]); hero.classList.remove('swap'); void hero.offsetWidth; hero.classList.add('swap');
-        root.querySelectorAll('.hd-card').forEach(function(c,k){c.classList.toggle('on',k===i);});
-        if(userPicked){var pg=document.getElementById('hdProg'); if(pg) pg.style.display='none';}
-        if(scroll){var r=hero.getBoundingClientRect(); if(r.top<0||r.top>window.innerHeight*0.5){hero.scrollIntoView({behavior:'smooth',block:'start'});}}
-      }
-      function copy(code,btn){
-        var done=function(){var o=btn.getAttribute('data-o')||btn.innerHTML; btn.setAttribute('data-o',o); btn.innerHTML=btn.tagName==='I'?'✓':'Copied ✓'; btn.classList.add('ok'); setTimeout(function(){btn.innerHTML=o; btn.classList.remove('ok');},1800);};
-        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(done,function(){fb();});} else fb();
-        function fb(){var t=document.createElement('textarea');t.value=code;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+      function copy(code,b){
+        var ok=function(){var o=b.getAttribute('data-o')||b.innerHTML;b.setAttribute('data-o',o);b.innerHTML=I.chk+'Copied';b.classList.add('ok');setTimeout(function(){b.innerHTML=o;b.classList.remove('ok');},1600);};
+        function fb(){var t=document.createElement('textarea');t.value=code;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);ok();}
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(ok,fb);}else fb();
       }
       root.addEventListener('click',function(e){
-        var b=e.target.closest('.hd-copy'); if(b){e.stopPropagation();copy(b.getAttribute('data-code'),b);return;}
-        var cc=e.target.closest('.hd-ccode'); if(cc){e.stopPropagation();copy(cc.getAttribute('data-code'),cc.querySelector('i'));return;}
-        var c=e.target.closest('.hd-card'); if(c){userPicked=true;setSel(parseInt(c.getAttribute('data-i'),10),true);}
+        var c=e.target.closest('[data-code]'); if(c){copy(c.getAttribute('data-code'),c);return;}
+        var fl=e.target.closest('[data-f]'); if(fl){f=fl.getAttribute('data-f');render();return;}
+        var m=e.target.closest('[data-more]'); if(m){var k=m.getAttribute('data-more');open[k]=!open[k];render();var again=root.querySelector('[data-more="'+k.replace(/"/g,'\\"')+'"]');if(again)again.focus();}
       });
-      root.addEventListener('keydown',function(e){
-        if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('hd-card')){e.preventDefault();userPicked=true;setSel(parseInt(e.target.getAttribute('data-i'),10),true);}
-      });
-      root.addEventListener('mouseenter',function(){hovering=true;});
-      root.addEventListener('mouseleave',function(){hovering=false;});
-      root.addEventListener('touchstart',function(){userPicked=true;},{passive:true});
-      var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(!reduce){timer=setInterval(function(){
-        if(userPicked||hovering||root.offsetParent===null||document.hidden) return;
-        setSel((sel+1)%DEALS.length,false);
-      },6000);}
-      build();
+      render();
     })();
     </script>
 
