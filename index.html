@@ -743,6 +743,7 @@
 .fc2-btn.g{background:var(--gold);color:#000;border:0}
 .fc2-aff{padding:0 16px 12px;font-size:9.5px;color:var(--muted2)}
 @media(max-width:560px){.firms-grid{grid-template-columns:1fr}.fc2-cv{max-width:90px}}
+.tp-warn{color:var(--gold);cursor:help;font-size:11px}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1587,7 +1588,7 @@ setTimeout(pfRender, 500);
           </div>
           <div style="background:var(--bg);border-radius:8px;padding:12px 14px;">
             <div style="font-size:11px;font-weight:700;color:var(--fg);margin-bottom:3px;">🌐 Community Size & Sentiment</div>
-            <div style="font-size:11px;color:var(--muted);">Discord/social community size and Trustpilot sentiment — weighted by review volume, not raw star rating.</div>
+            <div style="font-size:11px;color:var(--muted);">Trustpilot sentiment — rating, review volume, share of one-star reviews and any Trustpilot warning — plus community size. Re-checked 17 Oct 2026. Where Trustpilot withholds a rating (⚠), we show the average implied by the star distribution and discount the score.</div>
           </div>
           <div style="background:var(--bg);border-radius:8px;padding:12px 14px;">
             <div style="font-size:11px;font-weight:700;color:var(--fg);margin-bottom:3px;">🏛️ Regulatory & Legal Clarity</div>
@@ -3053,14 +3054,14 @@ setTimeout(pfRender, 500);
 const FIRMS=[
   {id:'funding-pips',
   market:'CFD',
-  rating:4.5,reviewCount:53018,
+  rating:4.5,reviewCount:70702,tpDist:[82,7,2,0.5,8],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🔥 $200M+ Paid · 10% OFF · Code: HUNT · Scale to $2M',
   founded:2022,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',
   name:'FundingPips',emoji:'🔥',
   color:'#00D4FF',bg:'linear-gradient(135deg,#000d1a,#001a2d)',
-  tagline:'$200M+ Paid · 53K+ Reviews · 4 Account Types · Scale to $2M · 100% Split',
+  tagline:'$200M+ Paid · 70K+ Reviews · 4 Account Types · Scale to $2M · 100% Split',
   minCapital:'$5,000',maxCapital:'$100,000',
   maxFunding:'$2,000,000',
   profitSplit:'60–100%',
@@ -3071,7 +3072,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'fundingpips.com',
   websiteUrl:'https://app.fundingpips.com/register?ref=HUNT',
-  about:`FundingPips is a Dubai-based proprietary trading firm founded in 2022 by CEO Khaled Ayesh and one of the fastest-growing prop firms in the world. The firm has paid out over $200 million across 127,000+ verified payouts as confirmed by Payout Junction, and holds a 4.5 out of 5 rating on Trustpilot from over 53,000 reviews — the largest review volume of any forex/CFD prop firm globally. FundingPips operates out of IFZA Business Park, Dubai and is registered as FP Funding LLC. The firm offers five distinct challenge types: 2 Step Standard (most popular, safest path), 2 Step Flex (relaxed evaluation with flexible rules), 2 Step Pro (tighter rules, daily payouts), 1 Step Flex (single phase, faster funding), and Zero (instant funding, no evaluation). All accounts except Zero use static drawdowns — one of the most trader-friendly features in the industry. Profit splits range from 60% to 100% depending on payout frequency chosen. The Hot Seat scaling program is the pinnacle — 16 successful payable periods plus 40% cumulative profit unlocks Hot Seat, giving traders 100% profit split, doubled initial balance, and up to $2,000,000 in capital. Platforms supported include MT5, cTrader, Match-Trader, and TradeLocker.
+  about:`FundingPips is a Dubai-based proprietary trading firm founded in 2022 by CEO Khaled Ayesh and one of the fastest-growing prop firms in the world. The firm has paid out over $200 million across 127,000+ verified payouts as confirmed by Payout Junction, and holds a 4.5 out of 5 rating on Trustpilot from over 70,000 reviews — one of the largest review volumes of any prop firm. FundingPips operates out of IFZA Business Park, Dubai and is registered as FP Funding LLC. The firm offers five distinct challenge types: 2 Step Standard (most popular, safest path), 2 Step Flex (relaxed evaluation with flexible rules), 2 Step Pro (tighter rules, daily payouts), 1 Step Flex (single phase, faster funding), and Zero (instant funding, no evaluation). All accounts except Zero use static drawdowns — one of the most trader-friendly features in the industry. Profit splits range from 60% to 100% depending on payout frequency chosen. The Hot Seat scaling program is the pinnacle — 16 successful payable periods plus 40% cumulative profit unlocks Hot Seat, giving traders 100% profit split, doubled initial balance, and up to $2,000,000 in capital. Platforms supported include MT5, cTrader, Match-Trader, and TradeLocker.
 
 🎯 DISCOUNT: Use code HUNT at checkout for 10% OFF.`,
   headquarters:'IFZA Business Park, DDP Dubai, UAE — FP Funding LLC',
@@ -3082,7 +3083,7 @@ const FIRMS=[
   scaling:'Hot Seat: 16 payable periods + 40% cumulative profit = 100% split + doubled balance + $2M capital',
   pros:[
     '$200M+ paid out via Payout Junction — one of the strongest payout track records in the industry',
-    '53,000+ Trustpilot reviews at 4.5/5 — largest review volume of any forex prop firm',
+    '70,000+ Trustpilot reviews at 4.5/5 — one of the largest review volumes of any prop firm',
     'Static drawdown on 2 Step Standard, 2 Step Flex, 2 Step Pro, and 1 Step Flex — drawdown floor never moves up',
     'Hot Seat scaling to $2,000,000 with 100% profit split for elite performers',
     'Five distinct challenge types covering every trading style',
@@ -3106,11 +3107,11 @@ const FIRMS=[
     'Minimum withdrawal is 1% of initial account balance',
     'Crypto commissions ($45/lot) significantly higher than other asset classes',
   ],
-  trustScore:91,
+  trustScore:89,
   trustItems:[
     '✅ $200M+ paid out via Payout Junction — independently verified',
     '✅ 127,000+ verified payouts — largest documented payout volume',
-    '✅ 4.5 out of 5 Trustpilot from 53,000+ reviews — most reviewed prop firm globally',
+    '✅ 4.5 out of 5 Trustpilot from 70,000+ reviews — among the most reviewed prop firms',
     '✅ Founded 2022 — 3+ years in operation',
     '✅ IFZA Dubai registered — FP Funding LLC',
     '✅ Payouts every Tuesday, processed in 1-3 business days',
@@ -3171,7 +3172,7 @@ const FIRMS=[
 },
   {id:'funded-squad',
   market:'CFD',
-  rating:4.5,reviewCount:1200,
+  rating:2.4,reviewCount:399,tpWarn:true,tpDist:[27,6,4,1,62],
   discount:'45% OFF + Buy 1 Get 1',discountCode:'2YEARS',
   badge:'🛡️ Code 2YEARS: 45% OFF + Buy 1 Get 1 · Chance to Win an Apple Bundle',
   founded:2024,country:'UAE',
@@ -3224,8 +3225,9 @@ const FIRMS=[
     'Some negative Trustpilot reports around "group trading" rule enforcement',
     'Cost averaging strategy restricted on 2-Step accounts',
     'Martingale, HFT, and arbitrage strictly prohibited',
+    'Trustpilot: 62% of 399 reviews are one-star, rating withheld',
   ],
-  trustScore:75,
+  trustScore:50,
   trustItems:[
     '✅ Dubai-based — UAE entity',
     '✅ 12-hour guaranteed payout — $1,000 bonus if missed',
@@ -3240,6 +3242,7 @@ const FIRMS=[
     '⚠️ Negative reports around "group trading" rule enforcement',
     '⚠️ News trading restricted (4-min window)',
     '⚠️ Match Trader/TradeLocker only — no MT4/MT5',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 399 reviews, 62% one-star',
   ],
   challenges:[
     {size:'$5K',  plan:'1-Step',        fee:'$89',   target:'8%',    daily:'3%',maxDD:'7% static', split:'80%',payout:'On-demand',popular:false,scalping:true,news:false,weekend:true},
@@ -3301,7 +3304,7 @@ const FIRMS=[
 },
   {id:'the-5pers',
   market:'CFD',
-  rating:4.8,reviewCount:25014,
+  rating:4.7,reviewCount:39790,tpDist:[90,6,0.5,0.5,3],
   discount:'5% OFF',discountCode:'H0CWY7YFS9',
   badge:'🚀 Since 2016 · Scale to $4M · 100% Split · 5% OFF · Code: H0CWY7YFS9',
   founded:2016,country:'Israel',
@@ -3319,7 +3322,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'the5ers.com',
   websiteUrl:'https://www.the5ers.com/?afmc=19cn',
-  about:`The5ers is an Israel-based proprietary trading firm founded in 2016 and one of the most established and trusted prop firms in the industry. With 4.8 out of 5 on Trustpilot from 25,000+ reviews and nine years of continuous operation, The5ers is known for its genuine commitment to trader development — offering performance coaching, educational webinars, and a structured growth environment that goes beyond just challenge fees. The firm offers three distinct programs: Hyper Growth (instant funded account, no evaluation, scales up every 10% profit up to $4M), High Stakes (2-step evaluation for experienced traders, up to 1:100 leverage, up to $100K starting), and Bootcamp (3-step gradual evaluation for beginners, starting from $20K). All programs have no time limits. The fee is not refunded on passing — the firm keeps fees low as compensation. Profit splits range from 50% to 100% depending on the program and scaling level. Bi-weekly payouts are processed in 1-3 business days via bank wire, Wise, or crypto. The5ers supports MT5 and cTrader across desktop, web, and mobile.
+  about:`The5ers is an Israel-based proprietary trading firm founded in 2016 and one of the most established and trusted prop firms in the industry. With 4.7 out of 5 on Trustpilot from 39,000+ reviews and nine years of continuous operation, The5ers is known for its genuine commitment to trader development — offering performance coaching, educational webinars, and a structured growth environment that goes beyond just challenge fees. The firm offers three distinct programs: Hyper Growth (instant funded account, no evaluation, scales up every 10% profit up to $4M), High Stakes (2-step evaluation for experienced traders, up to 1:100 leverage, up to $100K starting), and Bootcamp (3-step gradual evaluation for beginners, starting from $20K). All programs have no time limits. The fee is not refunded on passing — the firm keeps fees low as compensation. Profit splits range from 50% to 100% depending on the program and scaling level. Bi-weekly payouts are processed in 1-3 business days via bank wire, Wise, or crypto. The5ers supports MT5 and cTrader across desktop, web, and mobile.
 
 🎯 DISCOUNT: Use code H0CWY7YFS9 at checkout for 5% OFF your challenge fee on all programs.`,
   headquarters:'Israel — The5ers Ltd',
@@ -3330,7 +3333,7 @@ const FIRMS=[
   scaling:'Hyper Growth: Double account every 10% profit up to $4M. High Stakes: Scale by 25-100% per milestone. Bootcamp: Structured 3-phase scaling.',
   pros:[
     'Founded 2016 — 9 years operating, among the oldest active prop firms',
-    '4.8 out of 5 Trustpilot from 25,000+ reviews — excellent community trust',
+    '4.7 out of 5 Trustpilot from 39,000+ reviews — excellent community trust',
     'Scale to $4,000,000 — one of the highest scaling ceilings in the industry',
     'Up to 100% profit split at advanced levels — keep all your profits',
     'No time limits on any program — zero calendar pressure',
@@ -3354,10 +3357,10 @@ const FIRMS=[
     'Spreads on some instruments can be wider than pure ECN brokers',
     'Maximum evaluation capital capped per program type',
   ],
-  trustScore:91,
+  trustScore:92,
   trustItems:[
     '✅ Founded 2016 — 9 years of continuous operation',
-    '✅ 4.8 out of 5 Trustpilot from 25,000+ reviews',
+    '✅ 4.7 out of 5 Trustpilot from 39,000+ reviews',
     '✅ Israel-based company with transparent ownership',
     '✅ Scale to $4,000,000 — documented and achievable through scaling milestones',
     '✅ No time limits on any program',
@@ -3404,7 +3407,7 @@ const FIRMS=[
 },
   {id:'goat-funded',
   market:'CFD',
-  rating:3.4,reviewCount:5800,
+  rating:3.2,reviewCount:4350,tpWarn:true,tpDist:[46,8,3,3,40],
   discount:'Flat 45% OFF (50% OFF First-Time Users)',discountCode:'GFT45',
   badge:'🐐 Code GFT45: Flat 45% OFF · First-Time Users: FIRSTGFT for Flat 50% OFF · No Trailing Drawdown',
   founded:2023,country:'Spain',
@@ -3422,7 +3425,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'goatfundedtrader.com',
   websiteUrl:'https://app.goatfundedtrader.com/home?code=fundedhunt',
-  about:`GOAT Funded Trader is a Spain-based proprietary trading firm founded in May 2023 by CEO Edward XL. Despite being flagged on Trustpilot for suspected fake reviews (rating dropped from 4.8 to 3.4), the firm has genuine scale — $13M+ paid out to 250,000+ traders globally. GOAT Funded Trader offers one of the widest lineups of challenge types in the prop firm industry: 1-Step, 2-Step (three variants: Goat, Standard, Pro), 3-Step, Blitz, and two Instant Funding models (Goat and Standard), plus the unique Goat $1 entry-level account from just $1. Platforms supported are MT5, Match-Trader, TradeLocker, cTrader, and Volumetrica (MT5 license obtained April 2025). The firm does NOT offer MT4 only. All accounts use trailing drawdown except Standard 2-Step which uses static. Minimum 3 trading days per phase/payout cycle are required. News trading is allowed but profits from trades within 2 minutes of a high-impact event are capped at 1% of account balance per day. Scaling reaches up to $2M across 4 levels with profit splits rising to 95% at GOAT Trader level.
+  about:`GOAT Funded Trader is a Spain-based proprietary trading firm founded in May 2023 by CEO Edward XL. Despite Trustpilot flagging the profile for fake reviews and withholding its overall rating (the star distribution averages roughly 3.2 out of 5, with about 40% one-star reviews), the firm has genuine scale — $13M+ paid out to 250,000+ traders globally. GOAT Funded Trader offers one of the widest lineups of challenge types in the prop firm industry: 1-Step, 2-Step (three variants: Goat, Standard, Pro), 3-Step, Blitz, and two Instant Funding models (Goat and Standard), plus the unique Goat $1 entry-level account from just $1. Platforms supported are MT5, Match-Trader, TradeLocker, cTrader, and Volumetrica (MT5 license obtained April 2025). The firm does NOT offer MT4 only. All accounts use trailing drawdown except Standard 2-Step which uses static. Minimum 3 trading days per phase/payout cycle are required. News trading is allowed but profits from trades within 2 minutes of a high-impact event are capped at 1% of account balance per day. Scaling reaches up to $2M across 4 levels with profit splits rising to 95% at GOAT Trader level.
 
 🎯 DEAL: Use code GFT45 at checkout for a flat 45% OFF your evaluation fee. First-time GOAT Funded traders get an even better rate: use code FIRSTGFT instead for a flat 50% OFF.`,
   headquarters:'Spain',
@@ -3446,7 +3449,7 @@ const FIRMS=[
     'Accepts US traders',
   ],
   cons:[
-    'Trustpilot flagged for suspected fake reviews — rating dropped from 4.8 to 3.4',
+    'Trustpilot flagged fake reviews and withholds the rating — star distribution averages ~3.2/5, 40% one-star',
     'Most accounts use trailing drawdown — not static (exception: Standard 2-Step)',
     'No MT4 support — MT5, Match-Trader, TradeLocker, cTrader, Volumetrica available',
     'News trading has 1% profit cap on restricted windows — not fully free',
@@ -3457,14 +3460,14 @@ const FIRMS=[
     'Withdrawal cap on Goat $1 — max $100 total lifetime',
     'Trustpilot concerns suggest caution — verify before buying large accounts',
   ],
-  trustScore:70,
+  trustScore:55,
   trustItems:[
     '✅ $13M+ paid out to 250,000+ traders since 2023',
     '✅ Founded May 2023 — 2+ years operating',
     '✅ On-demand first payout available',
     '✅ 8 distinct account types — most comprehensive lineup',
     '✅ Scaling to $2M with transparent 4-level plan',
-    '⚠️ 3.4 Trustpilot rating — flagged for suspected fake reviews by Trustpilot',
+    '⚠️ ~3.2 implied Trustpilot average — 40% of 4,350 reviews are one-star',
     '⚠️ Trailing drawdown on most accounts — riskier than static',
     '✅ 5 platforms supported — MT5, Match-Trader, TradeLocker, cTrader, Volumetrica',
     '⚠️ News trading has 1% profit cap during restricted windows',
@@ -3530,7 +3533,7 @@ const FIRMS=[
 },
   {id:'blueberry-funded',
   market:'CFD',
-  rating:3.8,reviewCount:2100,
+  rating:3.4,reviewCount:1752,tpWarn:true,tpDist:[53,7,3,2,35],
   discount:'30% OFF Prime · 15% OFF Synthetic',discountCode:'PRIME30',
   badge:'🇦🇺 PRIME30: 30% OFF Prime Accounts · SYN15: 15% OFF Synthetic Indices',
   founded:2024,country:'Australia',
@@ -3577,12 +3580,12 @@ const FIRMS=[
     'External signal/copy trading not allowed — only personal Blueberry accounts',
     'Instant Elite and Lite use trailing lock drawdown — not static',
     'Relatively new firm — launched 2024, limited long-term track record',
-    '3.8 Trustpilot rating — lower than top-tier firms, some complaints about payments',
+    'Trustpilot rating withheld; star distribution averages ~3.4/5 with 35% one-star — some complaints about payments',
     'Max 1:2 leverage on crypto — very limited for crypto traders',
     '$7 commission per lot on forex and metals (some accounts)',
     'Payout minimum: $100 (standard) — reasonable but applies per cycle',
   ],
-  trustScore:70,
+  trustScore:58,
   trustItems:[
     '✅ Backed by Blueberry Markets — ASIC-regulated broker, 8+ years operating',
     '✅ $7M+ paid out to 15,000+ active traders',
@@ -3591,7 +3594,7 @@ const FIRMS=[
     '✅ No consistency rule on any account type',
     '✅ Scale to $2,000,000 through structured scaling plan',
     '⚠️ Launched 2024 — limited multi-year track record',
-    '⚠️ 3.8 Trustpilot rating — some payment and rule enforcement complaints',
+    '⚠️ ~3.4 implied Trustpilot average — payment and rule enforcement complaints',
     '⚠️ News trading restricted with strict 2-minute window on ALL accounts',
     '⚠️ Trailing lock drawdown on Instant accounts — understand before buying',
     '⚠️ External copy/signal services not allowed',
@@ -3650,14 +3653,14 @@ const FIRMS=[
 },
   {id:'ftmo',
   market:'CFD',
-  rating:4.8,reviewCount:42147,
+  rating:4.8,reviewCount:54654,tpDist:[92,4,0.5,0.5,3],
   discount:'19% OFF $100K 2-Step',discountCode:'',
   badge:'🏆 $200M+ Paid Since 2015 · 1-Step NEW · Scale to $2M · 19% OFF $100K 2-Step',
   founded:2015,country:'Czech Republic',
   logo:'https://www.google.com/s2/favicons?domain=ftmo.com&sz=128',
   name:'FTMO',emoji:'🏆',
   color:'#1A1A2E',bg:'linear-gradient(135deg,#0a0a1a,#1a1a2e)',
-  tagline:'Founded 2015 · $200M+ Paid · 42K+ Reviews · 4 Platforms · Scale to $2M',
+  tagline:'Founded 2015 · $200M+ Paid · 54K+ Reviews · 4 Platforms · Scale to $2M',
   minCapital:'$10,000',maxCapital:'$200,000',
   maxFunding:'$2,000,000',
   profitSplit:'80–90%',
@@ -3668,7 +3671,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'ftmo.com',
   websiteUrl:'https://trader.ftmo.com/?affiliates=UtHttwUZhrPcEZnkgNhe',
-  about:`FTMO is the gold standard of proprietary trading firms. Founded in 2015 in Prague, Czech Republic by Otakar Suffner and Marek Vencl, FTMO pioneered the modern prop trading challenge model that the entire industry now follows. With over $200 million paid to traders across 180+ countries and 42,000+ Trustpilot reviews at 4.8 out of 5, FTMO has the most proven track record of any prop firm in existence. The firm has operated continuously since 2015 through multiple market crises, industry collapses, and competitor failures without a single payout denial scandal. In 2026, FTMO launched a new 1-Step Challenge — a single-phase evaluation for traders who want the fastest path to funding without a Verification phase. The classic 2-Step Challenge remains available and includes the fee refund on first payout. A Swing account type allows weekend and news trading on funded accounts. Traders scale up to $2,000,000 through a structured Scaling Plan. Platforms include MT4, MT5, cTrader, and DXtrade. Tools include the App Suite (Trading Journal, Performance App, Equity Simulator, Mentor App) and access to Performance Coaches.
+  about:`FTMO is the gold standard of proprietary trading firms. Founded in 2015 in Prague, Czech Republic by Otakar Suffner and Marek Vencl, FTMO pioneered the modern prop trading challenge model that the entire industry now follows. With over $200 million paid to traders across 180+ countries and 54,000+ Trustpilot reviews at 4.8 out of 5, FTMO has the most proven track record of any prop firm in existence. The firm has operated continuously since 2015 through multiple market crises, industry collapses, and competitor failures without a single payout denial scandal. In 2026, FTMO launched a new 1-Step Challenge — a single-phase evaluation for traders who want the fastest path to funding without a Verification phase. The classic 2-Step Challenge remains available and includes the fee refund on first payout. A Swing account type allows weekend and news trading on funded accounts. Traders scale up to $2,000,000 through a structured Scaling Plan. Platforms include MT4, MT5, cTrader, and DXtrade. Tools include the App Suite (Trading Journal, Performance App, Equity Simulator, Mentor App) and access to Performance Coaches.
 
 🎯 AFFILIATE DEAL: Get 19% OFF on the $100K 2-Step Challenge through our affiliate link. No coupon code needed — discount applies automatically at checkout.`,
   headquarters:'Prague, Czech Republic — FTMO s.r.o.',
@@ -3679,7 +3682,7 @@ const FIRMS=[
   scaling:'10% net profit over 4 months (min 2 profitable) = +25% balance increase. Split rises from 80% to 90%. Up to $2M.',
   pros:[
     '$200M+ paid to traders since 2015 — most proven payout track record in the industry',
-    '4.8 out of 5 Trustpilot from 42,000+ reviews — highest rated major prop firm',
+    '4.8 out of 5 Trustpilot from 54,000+ reviews — highest rated major prop firm',
     'Founded 2015 — 10 years operating, survived every industry crisis',
     'NEW 1-Step Challenge — fastest path to FTMO funding in a single phase',
     'No time limit on either phase of 2-Step Challenge',
@@ -3704,11 +3707,11 @@ const FIRMS=[
     'No copy trading allowed',
     'Crypto leverage limited to 1:2 on most accounts',
   ],
-  trustScore:92,
+  trustScore:93,
   trustItems:[
     '✅ Founded 2015 — 10 years of continuous operation',
     '✅ $200M+ paid out to traders across 180+ countries',
-    '✅ 4.8 out of 5 Trustpilot from 42,000+ reviews — highest rated major prop firm',
+    '✅ 4.8 out of 5 Trustpilot from 54,000+ reviews — highest rated major prop firm',
     '✅ Registered Czech company — FTMO s.r.o., Prague',
     '✅ Survived every industry crisis including MyForexFunds collapse without interruption',
     '✅ Fee refunded on first payout for 2-Step Challenge',
@@ -3759,7 +3762,7 @@ const FIRMS=[
 },
   {id:'blue-guardian',
   market:'CFD',
-  rating:3.5,reviewCount:2483,
+  rating:3.9,reviewCount:2112,tpWarn:true,tpDist:[63,8,4,2,23],
   discount:'35% OFF',discountCode:'HUNT',
   badge:'🛡️ 35% OFF · 24hr Payout Guarantee · Instant Funding from $10 · Scale to $4M · Code: HUNT',
   founded:2021,country:'UAE',
@@ -3801,7 +3804,7 @@ const FIRMS=[
     'Featured in Nasdaq, Bloomberg, MarketWatch, FXStreet',
   ],
   cons:[
-    '3.5 Trustpilot rating — lower than top-tier firms, some complaints about consistency rule enforcement',
+    'Trustpilot rating withheld; star distribution averages ~3.9/5 (23% one-star) — some complaints about consistency rule enforcement',
     'News trading restricted on funded accounts — only allowed during challenge phase',
     'Scalping has 2-minute minimum trade hold requirement',
     'Consistency rule on Instant Standard (20%) and 2-Step Pro (25%) can delay payouts',
@@ -3811,7 +3814,7 @@ const FIRMS=[
     'All accounts inactive for 30+ days are automatically deactivated',
     'Not regulated by FCA or tier-1 regulator',
   ],
-  trustScore:67,
+  trustScore:61,
   trustItems:[
     '✅ $20M+ paid to 85,000+ traders across 160+ countries',
     '✅ Founded September 2021 — 3+ years operating',
@@ -3821,7 +3824,7 @@ const FIRMS=[
     '✅ Featured in Nasdaq, Bloomberg, MarketWatch, FXStreet',
     '✅ Now offers Futures division alongside Forex',
     '✅ Scale to $4,000,000 through merging and scaling',
-    '⚠️ 3.5 Trustpilot rating — some consistency rule complaints',
+    '⚠️ ~3.9 implied Trustpilot average — some consistency rule complaints',
     '⚠️ News trading banned on funded accounts',
     '⚠️ Guardian Shield 1% trigger very tight for volatile sessions',
     '⚠️ Not regulated by FCA or equivalent tier-1 regulator',
@@ -3882,7 +3885,7 @@ const FIRMS=[
 },
   {id:'blue-guardian-futures',
   market:'Futures',
-  rating:4.6,reviewCount:0,
+  rating:3.7,reviewCount:1804,tpDist:[58,9,3,3,27],
   discount:'',discountCode:'',
   badge:'📈 Standard · Reserve · Express · Direct — 4 models, 6% target, 90% split, EOD trailing drawdown',
   founded:2024,country:'UAE',
@@ -3929,7 +3932,7 @@ const FIRMS=[
     'Daily loss limit breaches are "soft" (session lockout) but still restrict trading until the next day',
     'No profit target on Direct means no clear finish line, but consistency and profit-goal requirements gate every payout instead',
   ],
-  trustScore:74,
+  trustScore:71,
   trustItems:[
     '✅ Same parent brand as Blue Guardian CFD, not a new/unproven spinoff',
     '✅ Flat 90% profit split on every model',
@@ -3974,7 +3977,7 @@ const FIRMS=[
 },
   {id:'myfundedfutures',
   market:'Futures',
-  rating:4.9,reviewCount:0,
+  rating:4.9,reviewCount:22457,tpDist:[95,3,0.5,0.5,2],
   discount:'Up to 40% OFF any plan',discountCode:'CLUB',
   badge:'📈 Code CLUB: 40% OFF any plan · New traders: 50% off first eval · 4 plans, $0 activation fee',
   founded:2023,country:'USA',
@@ -4021,7 +4024,7 @@ const FIRMS=[
     'Rapid: no daily loss limit sounds generous, but a max-drawdown breach is a hard line with no reset offered',
     'Exact per-size discounted pricing beyond the default-shown size ($50K on most plans, $25K on Rapid EOD) not independently confirmed — verify at checkout',
   ],
-  trustScore:76,
+  trustScore:86,
   trustItems:[
     '✅ 4.9/5 Trustpilot rating — among the highest of any prop firm reviewed',
     '✅ $250M+ paid to traders (firm-published)',
@@ -4062,7 +4065,7 @@ const FIRMS=[
 },
   {id:'alpha-capital',
   market:'CFD',
-  rating:4.7,reviewCount:18798,
+  rating:4.6,reviewCount:21970,tpWarn:true,tpDist:[85,6,1,0.5,7],
   discount:'20% OFF',discountCode:'HUNT',
   badge:'🇬🇧 20% OFF · Code: HUNT · Scale to $2M · 5 Account Types',
   founded:2021,country:'UK',
@@ -4080,7 +4083,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'alphacapitalgroup.uk',
   websiteUrl:'https://alphacapitalgroup.uk/?ref=HUNT',
-  about:`Alpha Capital Group is a UK-based proprietary trading firm founded in November 2021 by CEO George Kohler and Director Andrew Blaylock, registered in England and Wales (Company No. 13719951) at 10 Lower Thames Street, London EC3R 6AF. The firm has paid out over $48 million across 21,000+ verified payouts via Payout Junction — one of the most transparent payout verification systems in the industry. Alpha Capital holds a 4.7 out of 5 rating on Trustpilot based on 18,798+ reviews, with 85% awarding 5 stars. Traders have access to 4 platforms: MT5, cTrader, DXTrade, and TradeLocker. The firm offers 5 distinct account types — Alpha One (1-step trailing drawdown), Alpha Pro 6%/8%/10% (2-step with different risk levels), Alpha Swing (for swing/weekend traders, 1:30 leverage), and Alpha Three (3-step gradual path) — covering every style from day traders to long-term swing traders. Virtual capital scales up to $2,000,000 through a 10% gain increment scaling plan. A free 30-day trial account is available before any purchase. All-in and RAW pricing options available at checkout.`,
+  about:`Alpha Capital Group is a UK-based proprietary trading firm founded in November 2021 by CEO George Kohler and Director Andrew Blaylock, registered in England and Wales (Company No. 13719951) at 10 Lower Thames Street, London EC3R 6AF. The firm has paid out over $48 million across 21,000+ verified payouts via Payout Junction — one of the most transparent payout verification systems in the industry. Alpha Capital has 21,900+ Trustpilot reviews with 85% awarding 5 stars, although Trustpilot currently withholds the overall rating after removing fake reviews. Traders have access to 4 platforms: MT5, cTrader, DXTrade, and TradeLocker. The firm offers 5 distinct account types — Alpha One (1-step trailing drawdown), Alpha Pro 6%/8%/10% (2-step with different risk levels), Alpha Swing (for swing/weekend traders, 1:30 leverage), and Alpha Three (3-step gradual path) — covering every style from day traders to long-term swing traders. Virtual capital scales up to $2,000,000 through a 10% gain increment scaling plan. A free 30-day trial account is available before any purchase. All-in and RAW pricing options available at checkout.`,
   headquarters:'10 Lower Thames Street, London EC3R 6AF, UK — Company No. 13719951',
   platforms:'MetaTrader 5 (MT5), cTrader, DXTrade, TradeLocker',
   instruments:'40+ instruments — Forex, Metals (Gold, Silver), Indices, Energies',
@@ -4089,7 +4092,7 @@ const FIRMS=[
   scaling:'10% gain on initial balance = +10% scale-up. Repeatable up to $2M. Min 5 trading days on scaled accounts before next payout.',
   pros:[
     '$48M+ paid via Payout Junction — independently verified across 21,000+ payouts',
-    '4.7 out of 5 Trustpilot from 18,798+ reviews — 85% five-star',
+    '21,900+ Trustpilot reviews — 85% five-star (overall rating currently withheld by Trustpilot)',
     '4 platforms: MT5, cTrader, DXTrade, TradeLocker — most choice of any UK firm',
     '5 account types covering all trading styles',
     'Alpha Swing account for weekend holders — unique in the industry',
@@ -4113,11 +4116,11 @@ const FIRMS=[
     'Challenge fees non-refundable',
     'Not available in Russia, Iran, Vietnam, and other restricted countries',
   ],
-  trustScore:89,
+  trustScore:80,
   trustItems:[
     '✅ UK registered — Company No. 13719951, 10 Lower Thames Street, London',
     '✅ $48M+ paid out via Payout Junction — 21,000+ verified payouts',
-    '✅ 4.7 out of 5 Trustpilot — 18,798+ reviews, 85% five-star',
+    '✅ 21,900+ Trustpilot reviews — 85% five-star',
     '✅ Founded November 2021 — 3+ years of operation',
     '✅ ACG Markets — own FSA Seychelles-regulated broker for execution',
     '✅ Free 30-day trial account available before any purchase',
@@ -4127,6 +4130,7 @@ const FIRMS=[
     '⚠️ Alpha One uses trailing drawdown — different from all other static plans',
     '⚠️ EAs require pre-approval — submit source code to Alpha Capital team',
     '⚠️ Challenge fees non-refundable on any plan',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 21,900+ reviews, 85% five-star',
   ],
   challenges:[
     {size:'$5K',   plan:'Alpha One (1-Step)',   fee:'$40',  target:'10%',        daily:'4%',maxDD:'6% Trailing', split:'80%',payout:'On-Demand',popular:false,scalping:true,news:true,weekend:true},
@@ -4188,7 +4192,7 @@ const FIRMS=[
 },
   {id:'fxify',
   market:'CFD',
-  rating:4.4,reviewCount:6000,
+  rating:4.3,reviewCount:6421,tpDist:[78,7,2,0.5,12],
   discount:'Flat 25% OFF · 40% OFF Instant',discountCode:'REWARD25',affiliateCode:'HUNT',affiliateId:'7774',
   badge:'🔥 REWARD25: Flat 25% OFF · FUNDED40: 40% OFF Instant Models · Must also enter affiliate code HUNT',
   founded:2023,country:'UK',
@@ -4206,7 +4210,7 @@ const FIRMS=[
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'fxify.com',
   websiteUrl:'https://fxify.com?affiliateCode=HUNT&discountCode=REWARD25&affiliateId=7774',
-  about:`FXIFY is a UK-based broker-backed proprietary trading firm that launched in 2023 and has quickly become one of the most trader-friendly prop firms in the industry. Backed by FXIFY Markets Ltd (licensed in Labuan, Malaysia, regulated through FXPIG), FXIFY offers genuine broker infrastructure behind every account — not just simulated capital on a demo server. The firm has paid out over $40 million to 250,000+ traders across 200 countries. FXIFY holds a 4.4 out of 5 rating on Trustpilot with over 6,000 reviews. What separates FXIFY from most prop firms is the sheer variety of account types and the ability to customise your account at checkout — choose your drawdown type (trailing or static), your leverage, your profit split add-on, and your payout frequency. Six distinct evaluation programs cover every trading style: One Phase (fastest path to funding), Two Phase Standard (trailing drawdown, on-demand payouts), Two Phase Pro (NEW — static drawdown, up to 100% split), Three Phase (cheapest entry, static drawdown), Lightning Challenge (7-day fast-track), and Instant Funding (no evaluation). The firm also offers dedicated Crypto challenge accounts. All standard challenge accounts have no time limit, fee refund on first payout, no minimum profit targets for withdrawals, and scaling up to $4,000,000.`,
+  about:`FXIFY is a UK-based broker-backed proprietary trading firm that launched in 2023 and has quickly become one of the most trader-friendly prop firms in the industry. Backed by FXIFY Markets Ltd (licensed in Labuan, Malaysia, regulated through FXPIG), FXIFY offers genuine broker infrastructure behind every account — not just simulated capital on a demo server. The firm has paid out over $40 million to 250,000+ traders across 200 countries. FXIFY holds a 4.3 out of 5 rating on Trustpilot with over 6,400 reviews. What separates FXIFY from most prop firms is the sheer variety of account types and the ability to customise your account at checkout — choose your drawdown type (trailing or static), your leverage, your profit split add-on, and your payout frequency. Six distinct evaluation programs cover every trading style: One Phase (fastest path to funding), Two Phase Standard (trailing drawdown, on-demand payouts), Two Phase Pro (NEW — static drawdown, up to 100% split), Three Phase (cheapest entry, static drawdown), Lightning Challenge (7-day fast-track), and Instant Funding (no evaluation). The firm also offers dedicated Crypto challenge accounts. All standard challenge accounts have no time limit, fee refund on first payout, no minimum profit targets for withdrawals, and scaling up to $4,000,000.`,
   headquarters:'UK — FXIFY Markets Ltd, Labuan, Malaysia (licensed)',
   platforms:'MetaTrader 4 (MT4), MetaTrader 5 (MT5), DXTrade, TradingView',
   instruments:'300+ including Forex, Metals, Indices, Stocks, Commodities, Crypto',
@@ -4242,7 +4246,7 @@ const FIRMS=[
   trustItems:[
     '✅ Broker-backed — FXIFY Markets Ltd licensed in Labuan, Malaysia',
     '✅ $40M+ paid out across 250,000+ traders in 200 countries',
-    '✅ 4.4 out of 5 on Trustpilot — 6,000+ verified reviews',
+    '✅ 4.3 out of 5 on Trustpilot — 6,400+ reviews',
     '✅ Founded 2023 — approaching 3 years of operation',
     '✅ 100% fee refund on first payout for all evaluation accounts',
     '✅ 6 distinct account types with full rule transparency',
@@ -4312,7 +4316,7 @@ const FIRMS=[
 },
   {id:'fundednext',
   market:'CFD',
-  rating:4.5,reviewCount:63000,
+  rating:4.5,reviewCount:81860,tpDist:[82,8,2,0.5,7],
   discount:'Up to 41% OFF — Code: HUNT',discountCode:'HUNT',
   badge:'⭐ Code HUNT: 41% OFF Stellar 2-Step $6K · 31% OFF Stellar 1-Step $6K · 16% OFF Stellar Instant $2K · 9% OFF Stellar Lite $5K · 7% OFF Everything Else',
   founded:2022,country:'UAE',
@@ -4365,10 +4369,10 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'EAs prohibited on cTrader and Match Trader',
     'Futures: no overnight or weekend holds',
   ],
-  trustScore:91,
+  trustScore:89,
   trustItems:[
     '✅ $150M+ total rewarded — one of largest verified payout records in prop trading',
-    '✅ 43,000+ funded traders — 63,000+ Trustpilot reviews at 4.5 stars',
+    '✅ 43,000+ funded traders — 81,000+ Trustpilot reviews at 4.5 stars',
     '✅ Prop Firm of the Year 2025 (Finance Magnates)',
     '✅ Highest Verified Payout Amount 2025 (PropFirmMatch)',
     '✅ 24-hour guaranteed payout — $1,000 penalty if missed',
@@ -4416,7 +4420,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'fundednext-futures',
   market:'Futures',
-  rating:4.5,reviewCount:79000,
+  rating:4.5,reviewCount:81860,tpDist:[82,8,2,0.5,7],
   discount:'50% OFF Flex — Code: HUNT',discountCode:'HUNT',
   badge:'📈 Code HUNT: 50% OFF Futures Flex · Legacy & Rapid at standard pricing · 95% Reward Share on Flex',
   founded:2022,country:'UAE',
@@ -4434,7 +4438,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   phases:'Flex (1-Phase) | Legacy (1-Phase) | Rapid Pro (1-Phase) | Rapid Daily (1-Phase)',
   allowScalping: true,allowNews: true,allowSwing: false,noTimeLimit: true,
   websiteUrl:'https://fundednext.com/?fpr=HUNT',
-  about:`FundedNext Futures is FundedNext's dedicated futures-trading product, launched separately from their long-running CFD/forex challenges, built for traders who want to trade CME/NYMEX/COMEX-listed futures contracts (indices, metals, energy, currencies) rather than CFDs. Same parent company, same brand trust (Trustpilot 4.5/5 from 79,000+ reviews), completely different rule set: every model uses end-of-day trailing drawdown rather than the static drawdown FundedNext CFD is known for. Traders pick from three challenge structures — Flex (lowest profit target, no daily loss limit, 95% reward share, the most beginner-friendly), Legacy (no daily loss limit, highest reward cap per cycle, 80% split, no consistency rule once funded), and Rapid (pass in as little as 1 day, choose Pro for no daily loss limit with a 3-day reward cycle, or Daily for daily payouts with no consistency rule at all). One-time challenge fee, no subscription, no time limit on any model. Traded via NinjaTrader and Tradovate.
+  about:`FundedNext Futures is FundedNext's dedicated futures-trading product, launched separately from their long-running CFD/forex challenges, built for traders who want to trade CME/NYMEX/COMEX-listed futures contracts (indices, metals, energy, currencies) rather than CFDs. Same parent company, same brand trust (Trustpilot 4.5/5 from 81,000+ reviews), completely different rule set: every model uses end-of-day trailing drawdown rather than the static drawdown FundedNext CFD is known for. Traders pick from three challenge structures — Flex (lowest profit target, no daily loss limit, 95% reward share, the most beginner-friendly), Legacy (no daily loss limit, highest reward cap per cycle, 80% split, no consistency rule once funded), and Rapid (pass in as little as 1 day, choose Pro for no daily loss limit with a 3-day reward cycle, or Daily for daily payouts with no consistency rule at all). One-time challenge fee, no subscription, no time limit on any model. Traded via NinjaTrader and Tradovate.
 
 🎯 DISCOUNT: Use code HUNT at checkout for 50% OFF the Futures Flex challenge specifically. Legacy and Rapid are priced separately (Rapid runs its own ~44-50% launch pricing directly on FundedNext's site; Legacy currently has no discount code active).`,
   headquarters:'Same corporate structure as FundedNext CFD — FundedNext Ltd (Comoros) / FundedNext Limited (Hong Kong), operated by GrowthNext F.Z.E. (Ajman, UAE)',
@@ -4444,7 +4448,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   minTradingDays:'No minimum trading days on any model — no fixed evaluation-day requirement published for Flex/Legacy/Rapid',
   scaling:'No published scaling plan for Futures accounts (unlike FundedNext CFD) — reward cap per cycle is fixed per account size and model',
   pros:[
-    'Same trusted parent company as FundedNext CFD — 4.5/5 Trustpilot, 79,000+ reviews',
+    'Same trusted parent company as FundedNext CFD — 4.5/5 Trustpilot, 81,000+ reviews',
     '50% OFF Futures Flex challenge with code HUNT',
     'One-time fee, no subscription, no time limit on any challenge',
     'Flex: 95% reward share — one of the highest in futures prop trading',
@@ -4464,10 +4468,10 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Reward caps per cycle are relatively low on smaller accounts (as low as $800 on Rapid $25K)',
     'Not available to residents of North Korea, Myanmar, Belarus, Iran, or Russia',
   ],
-  trustScore:78,
+  trustScore:82,
   trustItems:[
     '✅ Same parent brand as FundedNext CFD — established company, not a new/unproven entity',
-    '✅ Trustpilot 4.5/5 from 79,000+ reviews',
+    '✅ Trustpilot 4.5/5 from 81,000+ reviews',
     '✅ One-time fee, no subscription, no time limit on any model',
     '✅ Flex reward share up to 95% — high relative to futures-prop peers',
     '✅ 120+ support agents, 24/7, under 25-second average first response',
@@ -4505,7 +4509,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'legion-funding',
   market:'CFD',
-  rating:4.4,reviewCount:56,
+  rating:4.0,reviewCount:46,tpDist:[67,13,0,0,20],
   discount:'5% OFF',discountCode:'LEIGON',
   badge:'⚔️ New Firm · 80% Split · 24hr Payouts · Scale to $400K · 5% OFF · Code: LEIGON',
   founded:2026,country:'US',
@@ -4545,7 +4549,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '5% OFF with code LEIGON at checkout',
   ],
   cons:[
-    'New firm — limited track record, only 56 Trustpilot reviews as of August 2026',
+    'New firm — limited track record, only 46 Trustpilot reviews (4.0/5) as of October 2026',
     'Legal entity and registration details not prominently published',
     'No regulatory backing — private firm, unregulated',
     '80% split does not scale to 90%+ based on available info',
@@ -4560,7 +4564,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '✅ Crypto payouts — BTC, ETH, USDT available',
     '✅ Scaling to $400K — 25% increase every 3 months',
     '⚠️ New firm — launched 2026, very limited track record',
-    '⚠️ Only 56 Trustpilot reviews — small sample size',
+    '⚠️ Only 46 Trustpilot reviews — small sample size',
     '⚠️ Legal entity and incorporation details not clearly published',
     '⚠️ Pricing discrepancy between FAQ and calculator for 2-Step plan — verify before purchasing',
     '⚠️ No regulatory oversight — standard for most prop firms',
@@ -4589,7 +4593,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 
   {id:'funded-friday',
   market:'CFD',
-  rating:4.7,reviewCount:850,
+  rating:3.2,reviewCount:260,tpWarn:true,tpDist:[14,0.5,80,2,4],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🇮🇳 India Focused · UPI + Bank + Crypto · Weekly Friday Payouts · 10% OFF · Code: HUNT',
   founded:2023,country:'India',
@@ -4632,13 +4636,13 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   cons:[
     'MT5 only — no cTrader, DXTrade, or TradeLocker',
     'Relatively new firm — founded 2023, limited long-term track record',
-    'Smaller review count — 850 Trustpilot reviews vs thousands for top firms',
+    'Smaller review count — 260 Trustpilot reviews and the rating is currently withheld',
     'Instant Fund uses trailing drawdown — tighter than static',
     'Not available to US, China, Russia, Iran, and sanctioned country residents',
     'Maximum account size $200K — lower than some competitors',
     'Incorporated in Saint Lucia — not regulated by FCA or equivalent',
   ],
-  trustScore:76,
+  trustScore:60,
   trustItems:[
     '✅ Incorporated as Funded Friday LTD, Saint Lucia (Company No. 2026-00063)',
     '✅ Zero payout denial policy — core company promise',
@@ -4648,10 +4652,11 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '✅ News trading, scalping, hedging, copy trading all allowed',
     '✅ 24/7 multilingual support',
     '⚠️ Founded 2023 — limited multi-year track record',
-    '⚠️ 850 Trustpilot reviews — smaller sample size than established firms',
+    '⚠️ 260 Trustpilot reviews — small sample, rating withheld, latest review July 2026',
     '⚠️ MT5 only — no platform variety',
     '⚠️ Incorporated in Saint Lucia — offshore jurisdiction',
     '⚠️ Not regulated by FCA or tier-1 regulator',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 260 reviews only',
   ],
   challenges:[
     {size:'$10K',  plan:'Instant Fund',  fee:'$159', target:'No target',  daily:'3% Trailing',maxDD:'5% Trailing',split:'80%',payout:'Every Friday',popular:false,scalping:true,news:true,weekend:true},
@@ -4688,7 +4693,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'funded-firm',
   market:'CFD',
-  rating:4.4,reviewCount:900,
+  rating:1.7,reviewCount:292,tpWarn:true,tpDist:[8,1,14,3,74],
   discount:'15% OFF',discountCode:'AFF2709FF42',
   badge:'🇮🇳 India’s Favourite · 15% OFF · Code: AFF2709FF42 · 1:100 Leverage',
   founded:2022,country:'Saint Lucia',
@@ -4735,8 +4740,9 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Copy trading between accounts strictly prohibited',
     'MT5 only — no cTrader or other platforms',
     'Country restrictions apply (check eligibility)',
+    'Trustpilot: 74% of 292 reviews are one-star',
   ],
-  trustScore:73,
+  trustScore:46,
   trustItems:[
     '✅ Founded 2022 — registered in Saint Lucia',
     '✅ Commission-free and swap-free across all accounts',
@@ -4750,6 +4756,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ No instant funding model available',
     '⚠️ MT5 only — no platform diversity',
     '⚠️ 1% minimum net profit required per payout',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 292 reviews, 74% one-star',
   ],
   challenges:[
     {size:'$5K',  plan:'1-Step',fee:'$39', target:'10%',daily:'3%',maxDD:'6%', split:'80%',payout:'Weekly',   popular:false,scalping:true,news:true,weekend:true},
@@ -4782,7 +4789,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 {
   id:'rebels-funding',
   market:'CFD',
-  rating:4.4,reviewCount:2318,
+  rating:4.3,reviewCount:2776,tpDist:[69,15,6,3,7],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🏴 No Time Limit · 5 Programs · Up to $320K · 10% OFF · Code: HUNT',
   founded:2023,country:'Slovakia',
@@ -4800,7 +4807,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   allowScalping:true,allowNews:true,allowSwing:true,noTimeLimit:true,
   website:'rebelsfunding.com',
   websiteUrl:'https://rebelsfunding.com?a_box=c634f97j&a_cam=3',
-  about:`RebelsFunding (RIFM, s.r.o.) is a Slovakia-based proprietary trading firm founded in May 2023 by CEO Marek Soska, a trader with over 17 years of forex experience. Headquartered in Bratislava, the firm has grown to over 30,000 traders across 150+ countries and paid out over $3 million in trader rewards. RebelsFunding operates entirely without time limits on all programs — every challenge phase runs until you hit the profit target with zero calendar pressure. The firm offers five distinct training programs: Copper (4-phase), Bronze (3-phase), Silver (2-phase), Gold (1-phase), and Diamond (Instant, no evaluation) — covering every level from beginner to experienced traders who want to skip evaluation entirely. All programs run on the proprietary RF-Trader platform built on TradingView charts and connected directly to liquidity providers via FDCTech. RebelsFunding has a 4.4 out of 5 rating on Trustpilot based on 2,318+ verified reviews, with 68% awarding 5 stars. Payouts are processed within 24 hours of request. A unique 200% fee refund model means qualifying traders get back double their evaluation fee on their first reward payout. Featured in Yahoo Finance, Entrepreneur, Benzinga, and Digital Journal.`,
+  about:`RebelsFunding (RIFM, s.r.o.) is a Slovakia-based proprietary trading firm founded in May 2023 by CEO Marek Soska, a trader with over 17 years of forex experience. Headquartered in Bratislava, the firm has grown to over 30,000 traders across 150+ countries and paid out over $3 million in trader rewards. RebelsFunding operates entirely without time limits on all programs — every challenge phase runs until you hit the profit target with zero calendar pressure. The firm offers five distinct training programs: Copper (4-phase), Bronze (3-phase), Silver (2-phase), Gold (1-phase), and Diamond (Instant, no evaluation) — covering every level from beginner to experienced traders who want to skip evaluation entirely. All programs run on the proprietary RF-Trader platform built on TradingView charts and connected directly to liquidity providers via FDCTech. RebelsFunding has a 4.3 out of 5 rating on Trustpilot based on 2,700+ reviews, with 69% awarding 5 stars. Payouts are processed within 24 hours of request. A unique 200% fee refund model means qualifying traders get back double their evaluation fee on their first reward payout. Featured in Yahoo Finance, Entrepreneur, Benzinga, and Digital Journal.`,
   headquarters:'Landererova 8, Bratislava 811 09, Slovak Republic',
   platforms:'RF-Trader (TradingView-based proprietary platform)',
   instruments:'32 Swap-Free pairs including Forex, Metals, and Indices',
@@ -4810,7 +4817,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   pros:[
     'No time limit on any phase of any program — zero calendar pressure',
     '5 distinct programs covering all levels including instant funding',
-    '4.4 out of 5 on Trustpilot with 2,318+ verified reviews',
+    '4.3 out of 5 on Trustpilot with 2,700+ reviews',
     '$3M+ paid out to 30,000+ traders since 2023',
     '200% fee refund on first payout — double your evaluation fee back',
     'Gold program has no daily drawdown — maximum trading freedom',
@@ -4828,12 +4835,12 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Weekend holding technically allowed but firm advises caution due to spread widening',
     'Not available in Pakistan and several sanctioned countries',
   ],
-  trustScore:78,
+  trustScore:80,
   trustItems:[
     '✅ Registered company in Slovak Republic — RIFM, s.r.o.',
     '✅ $3M+ paid out since 2023 launch',
     '✅ 30,000+ traders across 150+ countries',
-    '✅ 4.4 out of 5 on Trustpilot — 2,318+ verified reviews',
+    '✅ 4.3 out of 5 on Trustpilot — 2,700+ reviews',
     '✅ Featured in Yahoo Finance, Entrepreneur, Benzinga, Digital Journal',
     '✅ Partner technology by FDCTech — established fintech company',
     '✅ Free trial account available before purchase',
@@ -4893,7 +4900,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'instant-funding',
   market:'CFD',
-  rating:4.5,reviewCount:4000,
+  rating:3.7,reviewCount:4371,tpWarn:true,tpDist:[61,7,3,2,27],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'⚡ No Evaluation · Weekly Payouts · Use Code: HUNT',
   founded:2021,country:'UK',
@@ -4937,7 +4944,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Smart Drawdown tightens from 10% to 5% once profit lock is triggered',
     'Crypto leverage capped at 1:2',
   ],
-  trustScore:77,
+  trustScore:65,
   trustItems:[
     '✅ Registered in UK as Acello Ltd',
     '✅ $18.2M+ paid out since 2021',
@@ -4947,6 +4954,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ Weekend holding requires paid add-on',
     '⚠️ Smart Drawdown tightens to 5% once profit lock triggered',
     '⚠️ First payout only after 14 days on Instant accounts',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 4,370+ reviews, 27% one-star',
   ],
   challenges:[
     {size:'$5K',   plan:'Instant Funding', fee:'$49',  target:'No target (lock 5%)',daily:'No daily limit',maxDD:'10%',split:'80%',payout:'Weekly (Day 14+)',popular:false,scalping:true,news:true,weekend:false},
@@ -4975,7 +4983,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'funded-elite',
   market:'CFD',
-  rating:4.3,reviewCount:800,
+  rating:4.4,reviewCount:746,tpWarn:true,tpDist:[77,7,4,3,9],
   discount:'35% OFF',discountCode:'MAY35',
   badge:'🔄 Free Retry · Start for $5 · Use Code: MAY35 · 35% OFF',
   founded:2023,country:'IT',
@@ -5018,7 +5026,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Does not accept US, Canada, Iran, Iraq, Cuba, North Korea, Israel, Syria',
     'Drawdown converts from static to trailing once funded on some accounts',
   ],
-  trustScore:73,
+  trustScore:69,
   trustItems:[
     '✅ Founded Nov 2023 — Italy (Quantum SRLS). CEO: Christian Habibi',
     '✅ $2.1M+ paid out — $2,200 average payout under 24 hours',
@@ -5031,6 +5039,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ 3-minute minimum trade duration (scalping add-on available)',
     '⚠️ Flash Activation does not include free retry if you fail',
     '⚠️ Does not accept US, Canada, Iran, Iraq, Cuba, North Korea, Israel, Syria',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 746 reviews, 77% five-star',
   ],
   challenges:[
     {size:'$10K', plan:'Standard 2-Step',fee:'$99',  target:'8%+5%',daily:'5%',maxDD:'8%', split:'80%',payout:'14 days',popular:false,scalping:true,news:true,weekend:true},
@@ -5077,7 +5086,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'funded-trading-plus',
   market:'CFD',
-  rating:4.7,reviewCount:2400,
+  rating:4.7,reviewCount:2672,tpWarn:true,tpDist:[89,5,1,1,4],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🇬🇧 Up to 100% Split · $19.5M+ Paid · 5 Programs · Scale to $2.5M · Code: HUNT',
   founded:2021,country:'UK',
@@ -5095,7 +5104,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   allowScalping: true,allowNews: true,allowSwing: true,
   website:'fundedtradingplus.com',
   websiteUrl:'https://www.fundedtradingplus.com/?ref=HUNT',
-  about:`Funded Trading Plus (FTP) is a UK-based proprietary trading firm founded in 2021, built by the team behind Trade Room Plus — a trading education company with over a decade of experience. FTP has paid out over $19.5 million to 60,000+ traders since launch and holds a 4.7 out of 5 rating on Trustpilot with over 2,400 reviews. The firm offers five evaluation programs covering every trader type: Master (instant funded, no evaluation), Experienced (1-step trailing), Prestige Lite (2-step static, budget entry), and Prestige Pro (2-step static, most generous limits). Profit splits start at 80% and scale to 100% through two milestones — 90% at 20% cumulative profit, 100% at 30% cumulative profit. Payouts start from just $50 from day one of the funded account, then every 7 days thereafter. Scale up to $2,500,000 by earning 10% profit and requesting a 25% account increase. Platforms include MT4, MT5, cTrader, DXtrade, and Match-Trader — five platforms, the widest selection of any prop firm. No consistency rules on any program. No time limits on evaluations.
+  about:`Funded Trading Plus (FTP) is a UK-based proprietary trading firm founded in 2021, built by the team behind Trade Room Plus — a trading education company with over a decade of experience. FTP has paid out over $19.5 million to 60,000+ traders since launch and has 2,600+ Trustpilot reviews (89% five-star), although Trustpilot currently withholds the overall rating after removing fake reviews. The firm offers five evaluation programs covering every trader type: Master (instant funded, no evaluation), Experienced (1-step trailing), Prestige Lite (2-step static, budget entry), and Prestige Pro (2-step static, most generous limits). Profit splits start at 80% and scale to 100% through two milestones — 90% at 20% cumulative profit, 100% at 30% cumulative profit. Payouts start from just $50 from day one of the funded account, then every 7 days thereafter. Scale up to $2,500,000 by earning 10% profit and requesting a 25% account increase. Platforms include MT4, MT5, cTrader, DXtrade, and Match-Trader — five platforms, the widest selection of any prop firm. No consistency rules on any program. No time limits on evaluations.
 
 🎯 DISCOUNT: Use code HUNT at checkout for 10% OFF all challenge types.`,
   headquarters:'United Kingdom — Funded Trading Plus Ltd',
@@ -5129,10 +5138,10 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Copy trading strictly prohibited on all programs',
     'Spread transparency limited — costs not clearly published upfront',
   ],
-  trustScore:81,
+  trustScore:79,
   trustItems:[
     '✅ $19.5M+ paid out to 60,000+ traders',
-    '✅ 4.7 out of 5 Trustpilot from 2,400+ reviews',
+    '✅ 2,600+ Trustpilot reviews — 89% five-star',
     '✅ UK registered company — Funded Trading Plus Ltd',
     '✅ Built by Trade Room Plus team — 10+ years trading education background',
     '✅ Profit split scales to 100% through achievable milestones',
@@ -5143,6 +5152,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ No swap-free accounts — not suitable for Islamic trading requirements',
     '⚠️ Copy trading strictly prohibited',
     '⚠️ Spread costs not transparently published upfront',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 2,670+ reviews, 89% five-star',
   ],
   challenges:[
     {size:'$5K',   plan:'Master (Instant)',    fee:'$59',  target:'No target',  daily:'6% Trailing',maxDD:'6% Trailing', split:'80%',payout:'Day 1',popular:false,scalping:true,news:true,weekend:false},
@@ -5188,7 +5198,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 {
   id:'think-capital',
   market:'CFD',
-  rating:4.3,reviewCount:603,
+  rating:4.2,reviewCount:608,tpWarn:true,tpDist:[75,6,2,1,16],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🏦 ThinkMarkets-Backed · TradingView · Code: HUNT · 10% OFF',
   founded:2024,country:'Global',
@@ -5234,9 +5244,9 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '14-day default payout — 7-day requires paid add-on',
     '90% profit split requires add-on or scaling milestone (base is 80%)',
     'Founded 2024 — less than 2 years track record',
-    'Only 603 Trustpilot reviews — still building review base',
+    '608 Trustpilot reviews and the rating is currently withheld — still building review base',
   ],
-  trustScore:73,
+  trustScore:67,
   trustItems:[
     '✅ Backed by ThinkMarkets — regulated global broker',
     '✅ $4M+ verified payouts to traders',
@@ -5247,7 +5257,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '✅ No consistency rule on any program',
     '✅ EAs allowed across all programs',
     '⚠️ Founded 2024 — less than 2 years of track record',
-    '⚠️ Only 603 Trustpilot reviews — still building review base',
+    '⚠️ 608 Trustpilot reviews, rating withheld — still building review base',
     '⚠️ News trading restricted on Lightning and Dual Step Intraday',
     '⚠️ 14-day default payout — 7-day requires add-on',
     '⚠️ Lightning leverage capped at 1:30',
@@ -5293,7 +5303,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'cti',
   market:'CFD',
-  rating:4.3,reviewCount:1660,
+  rating:4.2,reviewCount:1631,tpDist:[82,9,2,0.5,6],
   discount:'',discountCode:'',
   badge:'🎓 CTI Academy Included · Scale to $4M · 100% Split',
   founded:2018,country:'UK',
@@ -5340,7 +5350,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   trustScore:78,
   trustItems:[
     '✅ Founded 2018 — London, UK. 7+ years active, one of oldest prop firms',
-    '✅ 4.3 on Trustpilot from 1,660 reviews',
+    '✅ 4.2 on Trustpilot from 1,630+ reviews',
     '✅ Winner: Best Match-Trader Prop Firm 2025',
     '✅ Scale to $4M — among the highest caps in the industry',
     '✅ 80–100% profit split; VIP unlocks 100% + anytime payouts',
@@ -5387,7 +5397,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'maven-trading',
   market:'CFD',
-  rating:4.6,reviewCount:5200,
+  rating:4.5,reviewCount:5212,tpWarn:true,tpDist:[81,7,2,0.5,9],
   discount:'',discountCode:'',
   badge:'🌍 220K+ Traders · Fees from $13 · Refundable · 75:1',
   founded:2022,country:'Saint Lucia',
@@ -5432,10 +5442,10 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '3-Step has very tight 3% max drawdown with 2% daily — unforgiving',
     'News trading restricted ±2 minutes around high-impact events',
     'IP address tracking enforced — VPN or travel can flag account',
-    'Trustpilot flagged for fake review removal (March 2026)',
+    'Trustpilot withholds the overall rating after fake-review removals',
     '$100K max single account — no path to $200K+ without aggregating',
   ],
-  trustScore:82,
+  trustScore:77,
   trustItems:[
     '✅ 220,000+ traders worldwide — large established community',
     '✅ $130M+ total funding | 25,000+ funded traders verified',
@@ -5449,7 +5459,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ Payouts every 10 business days — no on-demand option',
     '⚠️ $10K payout cap per 2 cycles — hard ceiling on withdrawals',
     '⚠️ Trailing drawdown on 1-Step/Instant — riskier than static',
-    '⚠️ Trustpilot flagged fake reviews removed March 2026',
+    '⚠️ Trustpilot flagged fake reviews and withholds the rating',
     '⚠️ News trading restricted ±2 min around high-impact events',
   ],
   challenges:[
@@ -5493,7 +5503,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'lark-funding',
   market:'CFD',
-  rating:4.1,reviewCount:614,
+  rating:4.3,reviewCount:524,tpDist:[75,13,3,1,8],
   discount:'',discountCode:'HUNT',
   badge:'🐦 Smart Restart · Monthly Bonus · 90% Split · Code: HUNT',
   founded:2022,country:'Canada',
@@ -5541,7 +5551,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'No weekly payouts on 1-Step (bi-weekly only)',
     'Monthly bonus loses eligibility permanently if one month’s requirements missed',
   ],
-  trustScore:70,
+  trustScore:72,
   trustItems:[
     '✅ Founded 2022 — Canada-based, 4+ years track record',
     '✅ Powered by ThinkMarkets — regulated multi-jurisdiction broker',
@@ -5592,7 +5602,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'pipstone-capital',
   market:'CFD',
-  rating:2.3,reviewCount:183,
+  rating:2.0,reviewCount:503,tpDist:[19,3,4,3,71],
   discount:'Instant: Buy 1 Get 1 Free (BOGO)',discountCode:'EXPOBOGO',
   badge:'🇦🇪 Dubai · Instant Accounts: Buy 1 Get 1 Free · Code: EXPOBOGO · No Consistency Rule · Fee Refunded',
   founded:2024,country:'UAE',
@@ -5633,7 +5643,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Instant accounts: Buy 1 Get 1 Free — use code EXPOBOGO at checkout',
   ],
   cons:[
-    '183 Trustpilot reviews rated 2.3/5 — multiple payout complaints reported',
+    '503 Trustpilot reviews rated 2.0/5 — multiple payout complaints reported',
     'Payout delays reported by traders despite 24hr guarantee',
     'Payout amounts lower than expected in some trader reports (floating loss disputes)',
     'Maximum account size $100K — smaller cap than most competitors',
@@ -5642,7 +5652,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Instant model: 5% trailing drawdown — strictest of the three models',
     '60-second minimum hold time required per trade',
   ],
-  trustScore:43,
+  trustScore:37,
   trustItems:[
     '✅ Dubai-based — UAE entity',
     '✅ Fee refunded on first payout',
@@ -5651,7 +5661,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '✅ cTrader + Match-Trader — institutional-grade platforms',
     '✅ No time limit on evaluations',
     '✅ News trading and EAs allowed',
-    '⚠️ 183 Trustpilot reviews rated 2.3/5 — significant negative feedback',
+    '⚠️ 503 Trustpilot reviews rated 2.0/5 — 71% one-star, significant negative feedback',
     '⚠️ Multiple reports of payout delays and payout amount disputes',
     '⚠️ Founded 2024 — very new firm',
     '⚠️ Max account size $100K — lower than most competitors',
@@ -5692,7 +5702,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'the-funded-room',
   market:'CFD',
-  rating:4.1,reviewCount:783,
+  rating:2.6,reviewCount:3760,tpDist:[25,2,4,4,65],
   discount:'',discountCode:'',
   badge:'🇮🇳 Indian-Founded · By Mayank Raj · $5K–$100K · 1:100 Leverage',
   founded:2026,country:'India',
@@ -5739,11 +5749,11 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Customer support response times inconsistent — WhatsApp/IG support unreliable',
     'News trading restricted on funded accounts — profits from trades within 3 min of news may not count',
   ],
-  trustScore:67,
+  trustScore:50,
   trustItems:[
     '✅ Founder Mayank Raj — 2M+ YouTube subscribers, verified public identity, daily live streams',
     '✅ India largest trading education community backs the firm credibility',
-    '✅ 783 Trustpilot reviews — active growing review base for a brand new 2026 firm',
+    '⚠️ Trustpilot 2.6/5 from 3,760 reviews — 65% are one-star',
     '✅ 3 funding models — Instant, 1-Step, 2-Step covering all trader profiles',
     '✅ Fee refundable on payout — reduces risk for disciplined traders',
     '✅ 1:100 leverage — competitive offering',
@@ -5787,7 +5797,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'funderpro',
   market:'CFD',
-  rating:4.3,reviewCount:575,
+  rating:3.4,reviewCount:1561,tpWarn:true,tpDist:[54,6,3,2,35],
   discount:'10% OFF',discountCode:'HUNT',
   badge:'🏆 10% OFF · Code: HUNT · Fee Refunded on 1st Reward · Daily Rewards · $21.5M Paid',
   founded:2023,country:'Malta',
@@ -5835,7 +5845,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Newer firm (2023) — still building long-term track record',
     'Pro plan: 1-minute minimum hold time enforced',
   ],
-  trustScore:73,
+  trustScore:60,
   trustItems:[
     '✅ FunderPro Ltd — Malta-registered entity',
     '✅ $21.5M paid in 2025 — 25,000+ participants, 6,984 funded accounts',
@@ -5848,6 +5858,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ cTrader/TradeLocker only — no MT4 or MT5',
     '⚠️ Weekend and news holding require paid add-ons',
     '⚠️ 40% consistency rule on One Phase and Pro challenge phases',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 1,560+ reviews, 35% one-star',
   ],
   challenges:[
     {size:'$5K',  plan:'One Phase (1-Step)',fee:'$69', target:'10%',daily:'3%',maxDD:'6%',split:'80%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:false},
@@ -5884,7 +5895,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'topstep',
   market:'CFD',
-  rating:4.6,reviewCount:13880,
+  rating:3.7,reviewCount:14952,tpDist:[70,6,3,2,19],
   discount:'',discountCode:'',
   badge:'🔴 Futures Only · Since 2012 · $300M+ Paid · $49/mo Entry',
   founded:2012,country:'USA',
@@ -5902,7 +5913,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   phases:'Trading Combine (1-Step monthly sub)',
   allowScalping: true,allowNews: true,allowSwing: false,noTimeLimit: false,
   websiteUrl:'https://www.topstep.com/',
-  about:`Topstep is the oldest continuously operating major futures prop firm, founded in 2012 and headquartered in Chicago, IL. With $300M+ documented in trader payouts and 13,880+ Trustpilot reviews at 4.6 stars, Topstep is the gold standard for futures prop trading. Three account sizes: $50K ($49/mo), $100K ($99/mo), $150K ($149/mo) — all monthly subscriptions with no activation fee. Evaluation is called the Trading Combine: hit a profit target ($3K/$6K/$9K) while keeping within the trailing Maximum Loss Limit and 50% consistency rule. Pass and you advance to an Express Funded Account (XFA). Profit split: 90/10 from dollar one for all accounts signed up after January 12, 2026. Platforms: TopstepX (proprietary) with TradingView integration. Futures only — CME, CBOT, NYMEX, COMEX exchanges. No Forex, CFDs, or Crypto. Topstep also operates a regulated brokerage (Topstep Brokerage LLC, NFA member).`,
+  about:`Topstep is the oldest continuously operating major futures prop firm, founded in 2012 and headquartered in Chicago, IL. With $300M+ documented in trader payouts and 14,900+ Trustpilot reviews at 3.7 stars, Topstep is the gold standard for futures prop trading. Three account sizes: $50K ($49/mo), $100K ($99/mo), $150K ($149/mo) — all monthly subscriptions with no activation fee. Evaluation is called the Trading Combine: hit a profit target ($3K/$6K/$9K) while keeping within the trailing Maximum Loss Limit and 50% consistency rule. Pass and you advance to an Express Funded Account (XFA). Profit split: 90/10 from dollar one for all accounts signed up after January 12, 2026. Platforms: TopstepX (proprietary) with TradingView integration. Futures only — CME, CBOT, NYMEX, COMEX exchanges. No Forex, CFDs, or Crypto. Topstep also operates a regulated brokerage (Topstep Brokerage LLC, NFA member).`,
   headquarters:'Chicago, IL, USA — TopstepTechnologies LLC',
   platforms:'TopstepX (proprietary + TradingView integration), NinjaTrader, Tradovate',
   instruments:'CME, CBOT, NYMEX, COMEX Futures (indices, rates, FX, energy, metals, agriculture)',
@@ -5912,7 +5923,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   pros:[
     'Founded 2012 — oldest continuously operating major futures prop firm',
     '$300M+ documented trader payouts — largest verified payout record in futures props',
-    '4.6 stars on Trustpilot from 13,880+ reviews — exceptional credibility',
+    '14,900+ Trustpilot reviews — large review base, 3.7 stars (19% one-star)',
     'Monthly subscription model — no large upfront fee, just $49/mo entry',
     'Free reset credit included with every monthly rebill',
     'TopstepX platform with TradingView integration — industry-leading trading tools',
@@ -5933,11 +5944,11 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Accounts not eligible for Weekend or overnight positions (futures session only)',
     '50% consistency rule + intraday trailing MLL = very hard to pass with aggressive style',
   ],
-  trustScore:88,
+  trustScore:79,
   trustItems:[
     '✅ Founded 2012 — oldest continuously operating major futures prop firm',
     '✅ $300M+ documented trader payouts — largest verified record in futures props',
-    '✅ 4.6 on Trustpilot from 13,880+ verified reviews',
+    '⚠️ 3.7 on Trustpilot from 14,900+ reviews — mixed, 19% one-star',
     '✅ CME Group partnership — legitimate exchange-backed infrastructure',
     '✅ Topstep Brokerage LLC — CFTC registered, NFA member (ID 0567079)',
     '✅ Live Funded Account path — real money, real FCM-backed execution',
@@ -5970,7 +5981,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'top-one-trader',
   market:'CFD',
-  rating:4.5,reviewCount:3000,
+  rating:4.5,reviewCount:3495,tpWarn:true,tpDist:[83,6,1,1,9],
   discount:'Up to 70% OFF',discountCode:'OCT',
   badge:'⚡ Up to 70% OFF · Code: OCT · 90-Min Payouts · Prop Firm of the Year',
   founded:2024,country:'UK',
@@ -5988,7 +5999,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   phases:'1-Step | 2-Step Plus | Nova | Instant Standard | Instant Prime',
   allowScalping: true,allowNews: true,allowSwing: true,noTimeLimit: true,
   websiteUrl:'https://www.toponetrader.com/',
-  about:`Top One Trader (TOT) is a UK-based proprietary trading firm founded in 2024. Prop Firm of the Year runner-up (The Trusted Prop), Top Rated on PropFirmMatch with the tightest verified spreads in the industry. With 3,000+ Trustpilot reviews at 4.5 stars and an average payout processing time of 90 minutes, TOT has built its identity around payout speed — 90-minute average across real trader reports. Four model types: 1-Step (trailing drawdown), 2-Step Plus (static drawdown, no consistency rule), Nova (budget entry from $7), and Instant Funding (Standard and Prime). All challenge fees 100% refundable on first payout. Scale to $5,000,000 maximum allocation. 15% consistency rule on funded accounts. News trading restricted 5 minutes before/after high-impact events on funded accounts. Platforms: TradeLocker, Match Trader, cTrader, MT5.
+  about:`Top One Trader (TOT) is a UK-based proprietary trading firm founded in 2024. Prop Firm of the Year runner-up (The Trusted Prop), Top Rated on PropFirmMatch with the tightest verified spreads in the industry. With 3,400+ Trustpilot reviews (83% five-star; the overall rating is currently withheld by Trustpilot) and an average payout processing time of 90 minutes, TOT has built its identity around payout speed — 90-minute average across real trader reports. Four model types: 1-Step (trailing drawdown), 2-Step Plus (static drawdown, no consistency rule), Nova (budget entry from $7), and Instant Funding (Standard and Prime). All challenge fees 100% refundable on first payout. Scale to $5,000,000 maximum allocation. 15% consistency rule on funded accounts. News trading restricted 5 minutes before/after high-impact events on funded accounts. Platforms: TradeLocker, Match Trader, cTrader, MT5.
 
 🎯 CURRENT OFFER: Use code OCT at checkout for up to 70% OFF all Top One Trader challenges. Limited period — one of the biggest discounts in the prop space.`,
   headquarters:'United Kingdom',
@@ -6019,9 +6030,9 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Founded 2024 — relatively new firm',
     'ESS (Equity Stability Score) required on Instant Prime accounts',
   ],
-  trustScore:79,
+  trustScore:75,
   trustItems:[
-    '✅ 4.5 on Trustpilot from 3,000+ reviews',
+    '✅ 3,400+ Trustpilot reviews — 83% five-star',
     '✅ 90-minute average payout — fastest in industry',
     '✅ Top Rated PropFirmMatch — tightest verified spreads',
     '✅ Prop Firm of the Year runner-up (The Trusted Prop)',
@@ -6034,6 +6045,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ News restriction 5 min before/after on funded',
     '⚠️ $25K monthly payout cap first 3 months',
     '⚠️ ESS score required on Instant Prime accounts',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 3,490+ reviews, 83% five-star',
   ],
   challenges:[
     {size:'$5K',  plan:'1-Step',       fee:'$59', target:'10%',daily:'3%',maxDD:'6% trailing', split:'80%',payout:'Monthly',  popular:false,scalping:true,news:true,weekend:true},
@@ -6070,7 +6082,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   {id:'for-traders',
   market:'CFD',
   website:'fortraders.com',
-  rating:4.5,reviewCount:1240,
+  rating:4.1,reviewCount:1795,tpWarn:true,tpDist:[73,6,1,1,19],
   discount:'20% OFF',discountCode:'NEW20',
   badge:'🇨🇿 Czech · AI Coach · Forex + Crypto + Futures',
   founded:2023,country:'Czech Republic',
@@ -6131,11 +6143,11 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     {size:'$50K',plan:'Futures',fee:'$199',target:'$3,000',daily:'None',maxDD:'$2,000 trailing',split:'100%',payout:'On-Demand',popular:true,scalping:true,news:true,weekend:true},
     {size:'$100K',plan:'Futures',fee:'$339',target:'$5,000',daily:'None',maxDD:'$2,500 trailing',split:'100%',payout:'On-Demand',popular:false,scalping:true,news:true,weekend:true},
   ],
-  trustScore:78,
+  trustScore:65,
   trustItems:[
     '✅ $8M+ in verified payouts to traders across 130+ countries',
     '✅ 70,000+ customers — significant established base for a 2023 firm',
-    '✅ 1,240+ Trustpilot reviews — strong review volume',
+    '✅ 1,790+ Trustpilot reviews — 73% five-star',
     '✅ 48-hour payout guarantee — rare, transparent commitment',
     '✅ AI Coach — genuinely unique feature, not just marketing',
     '✅ Euro Trading Cup — monthly competition shows active community investment',
@@ -6143,11 +6155,12 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ Founded 2023 — 2-year track record, growing but not decade-old',
     '⚠️ Currently migrating to new broker — temporary instability period',
     '⚠️ News trading restrictions — limited flexibility on high-impact events',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 1,790+ reviews, 73% five-star',
   ]
 },
   {id:'aquafunded',
   market:'CFD',
-  rating:4.2,reviewCount:5000,
+  rating:3.2,reviewCount:1210,tpWarn:true,tpDist:[47,8,3,3,39],
   discount:'Flat 25% OFF',discountCode:'SPOOKY',
   badge:'💧 Flat 25% OFF · Code: SPOOKY · 100% Split · 190K+ Traders',
   founded:2023,country:'UAE',
@@ -6196,7 +6209,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Commissions $3–7 per lot round trip on top of challenge fee',
     'Some negative Trustpilot reviews around inconsistent rule enforcement',
   ],
-  trustScore:78,
+  trustScore:60,
   trustItems:[
     '✅ 190,000+ traders across 100+ countries',
     '✅ $6.4M+ total payouts | 9.4/10 rating from 5,000+ reviews',
@@ -6210,6 +6223,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ 15% consistency rule on Aqua Man and Instant models',
     '⚠️ Country restrictions — 10+ countries fully blocked',
     '⚠️ Some reports of inconsistent rule enforcement on Trustpilot',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 1,210 reviews, 39% one-star',
   ],
   challenges:[
     {size:'$25K', plan:'1-Step Standard', fee:'$165',target:'9%',  daily:'3%',maxDD:'6% trailing',  split:'90%',payout:'Bi-weekly',popular:false,scalping:true,news:true,weekend:true},
@@ -6247,7 +6261,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'finotive-funding',
   market:'CFD',
-  rating:4.2,reviewCount:800,
+  rating:3.6,reviewCount:1078,tpWarn:true,tpDist:[61,5,2,2,30],
   discount:'Flat 50% OFF',discountCode:'FUNDEDHUNT',
   badge:'💰 Flat 50% OFF: FUNDEDHUNT · Since 2021 · $20M+ Paid · Pro Gets Monthly Salary · Scale to $3.2M',
   founded:2021,country:'UAE',
@@ -6295,7 +6309,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Notional volume limit enforced — strikes reduce next payout by 10%',
     'Scaling requires 90-day cycles with specific targets — time-intensive',
   ],
-  trustScore:72,
+  trustScore:62,
   trustItems:[
     '✅ Founded 2021 — Dubai DIFC | 5+ years operating',
     '✅ $20M+ total payouts | 70,000+ verified users | 4M+ trades executed',
@@ -6310,6 +6324,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ Pre-built EAs prohibited',
     '⚠️ Instant Funding profit split starts at 55–75%',
     '⚠️ Notional volume limit with 10% payout reduction on violations',
+    '⚠️ Trustpilot rating withheld (guideline breach, fake reviews removed) — 1,078 reviews, 30% one-star',
   ],
   challenges:[
     {size:'$2.5K',plan:'Challenge 1-Step',fee:'$35',  target:'10%',daily:'4%',maxDD:'7.5%',split:'80%',payout:'Weekly',popular:false,scalping:true,news:true,weekend:true},
@@ -6364,7 +6379,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'shark-funded',
   market:'CFD',
-  rating:2.8,reviewCount:108,
+  rating:2.6,reviewCount:108,tpDist:[32,5,3,3,57],
   discount:'Flat 40% OFF',discountCode:'cb586b53',
   badge:'🦈 Flat 40% OFF · Code: cb586b53 · Daily Rewards · No Consistency Rule',
   founded:2023,country:'Saint Lucia',
@@ -6382,7 +6397,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   phases:'Prime Instant | Prime Daily 2-Step | Lite 1-Step | Lite 2-Step | Lite Instant | Bolt Instant | Strike 1-Step',
   allowScalping:false,allowNews:false,allowSwing:true,noTimeLimit:true,
   websiteUrl:'https://app.sharkfunded.com/signup?ref=cb586b53',
-  about:`Shark Funded is a Saint Lucia-registered CFD simulated-funding firm (formerly known as Monero Funding) offering Instant, 1-Step and 2-Step programs on MT5 with 300+ instruments across forex, metals, indices, stocks and crypto. Its main hooks are daily performance rewards processed within 24 hours (crypto), no consistency rule, weekend holding and a registration fee that is refunded in full with the first reward. The firm claims 150,000+ traders across 115+ countries. Be aware that third-party trackers rate it low on trust (PropFirmMap grade C/D) and its Trustpilot profile has been flagged for fake reviews, so start with a small account and confirm current terms at checkout.
+  about:`Shark Funded is a Saint Lucia-registered CFD simulated-funding firm (formerly known as Monero Funding) offering Instant, 1-Step and 2-Step programs on MT5 with 300+ instruments across forex, metals, indices, stocks and crypto. Its main hooks are daily performance rewards processed within 24 hours (crypto), no consistency rule, weekend holding and a registration fee that is refunded in full with the first reward. The firm claims 150,000+ traders across 115+ countries. Be aware that third-party trackers rate it low on trust (PropFirmMap grade C/D) and it holds 2.6/5 on Trustpilot with 57% one-star reviews, so start with a small account and confirm current terms at checkout.
 
 🎯 CURRENT OFFER: Flat 40% OFF on all models. Use code cb586b53 at checkout (or sign up through the FundedHunt link).`,
   headquarters:'Saint Lucia (city not publicly disclosed)',
@@ -6402,7 +6417,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   ],
   cons:[
     'Low third-party trust: PropFirmMap grade C/D (31/100)',
-    'Trustpilot profile suspended for fake reviews; ~2.8/5 on ~108 reviews',
+    'Trustpilot 2.6/5 on 108 reviews — 57% are one-star',
     'Formerly Monero Funding — rebrand never clearly explained',
     'Payouts in crypto only; KYC required',
     'News trading restricted (10 min before/after high-impact news) on funded and Instant accounts',
@@ -6411,14 +6426,14 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Profit split and several terms not clearly or consistently disclosed',
     'USA, North Korea and Pakistan not accepted',
   ],
-  trustScore:40,
+  trustScore:42,
   trustItems:[
     '✅ Daily rewards with fast reported processing (6–8 hours average)',
     '✅ No consistency rule',
     '✅ Registration fee refunded with first reward',
     '✅ MT5 with 300+ instruments',
     '⚠️ PropFirmMap safety grade C/D, trust score 31/100',
-    '⚠️ Trustpilot profile suspended for fake reviews',
+    '⚠️ Trustpilot 2.6/5 — 57% of reviews are one-star',
     '⚠️ Formerly Monero Funding — rebrand unexplained',
     '⚠️ Not regulated; founder/HQ details not disclosed',
     '⚠️ Some terms (split, drawdown type) unclear — verify before buying',
@@ -6466,7 +6481,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'atlas-funded',
   market:'CFD',
-  rating:4.3,reviewCount:813,
+  rating:4.0,reviewCount:1981,tpDist:[58,12,4,2,24],
   discount:'Flat 40% OFF',discountCode:'OCTFLASH',
   badge:'🌍 Flat 40% OFF · Code: OCTFLASH · No Trailing DD · 100% Split',
   founded:2025,country:'Saint Lucia',
@@ -6484,7 +6499,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
   phases:'Atlas Access ($5 Pay-After-Pass) | 1-Step Standard | 2-Step Standard | 3-Step | Instant Funding',
   allowScalping: true,allowNews: true,allowSwing: true,noTimeLimit: true,
   websiteUrl:'https://atlasfunded.com/hunt?afmc=5pi',
-  about:`Atlas Funded (Atlas Funded LTD) is a Saint Lucia-registered proprietary trading firm founded in 2025. Company number 2025-00597, headquartered at Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia. With 813+ Trustpilot reviews at 4.3 stars and a 27,000+ member Discord community, Atlas Funded has gained rapid traction for its ultra-accessible pricing and trader-friendly rules. Standout feature: the Atlas Access challenge costs just $5 (broker fee only) — paid only after passing — making it the most accessible funded challenge in the industry. Four models: Atlas Access (pay-after-pass, $5), 1-Step Standard (11% target), 2-Step Standard (8%+5%), 3-Step (gradual), and Instant Funding (no evaluation, from $40). No trailing drawdown on any account — all drawdowns are static balance-based. No consistency rule. Scale to $2,000,000. Platforms: MT5, cTrader, TradeLocker.
+  about:`Atlas Funded (Atlas Funded LTD) is a Saint Lucia-registered proprietary trading firm founded in 2025. Company number 2025-00597, headquartered at Ground Floor, The Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia. With 1,980+ Trustpilot reviews at 4.0 stars and a 27,000+ member Discord community, Atlas Funded has gained rapid traction for its ultra-accessible pricing and trader-friendly rules. Standout feature: the Atlas Access challenge costs just $5 (broker fee only) — paid only after passing — making it the most accessible funded challenge in the industry. Four models: Atlas Access (pay-after-pass, $5), 1-Step Standard (11% target), 2-Step Standard (8%+5%), 3-Step (gradual), and Instant Funding (no evaluation, from $40). No trailing drawdown on any account — all drawdowns are static balance-based. No consistency rule. Scale to $2,000,000. Platforms: MT5, cTrader, TradeLocker.
 
 🎯 DISCOUNT: Use code OCTFLASH at checkout for a flat 40% OFF all challenges.`,
   headquarters:'Ground Floor, The Sotheby Building, Rodney Bay, Gros-Islet, Saint Lucia',
@@ -6516,7 +6531,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Fee NOT refunded on fail — only refunded after 4th payout on Standard/Instant',
     'Minimum 1% profit per trading day required on Standard/3-Step (can be removed with add-on)',
   ],
-  trustScore:69,
+  trustScore:71,
   trustItems:[
     '✅ Atlas Funded LTD — Saint Lucia registered (company 2025-00597)',
     '✅ $5 Atlas Access challenge — most accessible evaluation in industry',
@@ -6573,7 +6588,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'x-fine',
   market:'CFD',
-  rating:4.5,reviewCount:180,
+  rating:2.8,reviewCount:28,tpDist:[57,4,0,0,39],
   discount:'20% OFF All Challenges',discountCode:'HUNT',
   badge:'🌐 20% OFF · Code: HUNT · Broker-Backed · 3000+ Assets · MT5 + WebTrader',
   founded:2024,country:'International',
@@ -6622,8 +6637,9 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'MT5 and WebTrader only — no cTrader or TradeLocker',
     'Trustpilot reviews primarily for the broker, not the prop arm specifically',
     '2% max risk per trading idea on Basic (2-Step) master accounts',
+    'Trustpilot 2.8/5 but only 28 reviews — too few to judge',
   ],
-  trustScore:72,
+  trustScore:60,
   trustItems:[
     '✅ Broker-backed — XFINE is an established regulated broker',
     '✅ $2.1M+ verified payouts to 2,800+ traders',
@@ -6637,6 +6653,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     '⚠️ News trading profits not counted in 5-minute window',
     '⚠️ Copy trading prohibited',
     '⚠️ Consistency rule applies (47% max daily profit rule)',
+    '⚠️ Trustpilot 2.8/5 from only 28 reviews — very thin evidence',
   ],
   challenges:[
     {size:'$2K',  plan:'Stealth (1-Step)', fee:'$44', target:'10%', daily:'3%',maxDD:'6% Static',  split:'Up to 90%',payout:'14 days',popular:false,scalping:true,news:false,weekend:true},
@@ -6675,7 +6692,7 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
 },
   {id:'nys-markets',
   market:'CFD',
-  rating:4.3,reviewCount:140,
+  rating:3.0,reviewCount:1257,tpDist:[40,6,9,4,41],
   discount:'Flat 50% OFF',discountCode:'SAVE50',
   badge:'🗽 Flat 50% OFF · Code: SAVE50',
   founded:2025,country:'Hong Kong / Saint Lucia',
@@ -6717,10 +6734,10 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     'Restricted in US, Russia, UAE, and FATF-listed jurisdictions',
     'Simulated trading environment — accounts are not real, standard industry disclosure',
   ],
-  trustScore:68,
+  trustScore:60,
   trustItems:[
     '✅ Registered entity in Saint Lucia (2025-00862) and Hong Kong (License No. 79368293)',
-    '✅ Trustpilot and FXVerify review profiles active',
+    '⚠️ Trustpilot 3.0/5 from 1,257 reviews — 41% are one-star',
     '✅ Free trials offered to test the platform before purchase',
     '✅ NYS Academy and Trading Journal included free',
     '✅ On-demand payout requests',
@@ -6960,7 +6977,8 @@ function firmCardHTML(f, showScore) {
   const stars = '★'.repeat(Math.round(f.rating)) + '☆'.repeat(5-Math.round(f.rating));
   const rc = f.reviewCount>=1000 ? (f.reviewCount/1000).toFixed(1)+'k' : f.reviewCount;
   const pm = (f.discount||'').match(/(\d+)\s*%/);
-  const payout = (f.payoutFreq||'').split(/\s*[(|]/)[0].replace(/\s*\+.*$/,'').trim() || (f.payoutSpeed||'—');
+  let payout = (f.payoutFreq||'').split(/\s*[(|]/)[0].replace(/\s*\+.*$/,'').trim() || (f.payoutSpeed||'—');
+  { const pp = payout.split(/\s*\/\s*/); if (pp.length>2) payout = pp[0]+' +'+(pp.length-1)+' more'; }
   const split = (f.profitSplit||'—').split(/\s*\(/)[0];
   const accent = f.color || '#F5C518';
   const offer = pm
@@ -6975,7 +6993,7 @@ function firmCardHTML(f, showScore) {
       <div class="fc2-logo-fb" style="background:${f.bg};display:none;">${f.emoji}</div>
       <div class="fc2-id">
         <div class="fc2-name">${f.name}</div>
-        <div class="fc2-stars"><span class="stars">${stars}</span><span class="count">${f.rating} · ${rc}</span></div>
+        <div class="fc2-stars"><span class="stars">${stars}</span><span class="count">${f.rating} · ${rc}${f.tpWarn?' <span class="tp-warn" title="Trustpilot is withholding this firm\'s rating (guideline breach, fake reviews removed). The rating shown is the average of its Trustpilot star distribution.">⚠</span>':''}</span></div>
       </div>
       ${offer}
     </div>
@@ -7157,7 +7175,7 @@ function renderCompareTable() {
     ['Swing/Weekend', f=>f.allowSwing?'✅ Yes':'❌ No'],
     ['No Time Limit', f=>f.noTimeLimit?'✅ Yes':'❌ No'],
     ['Trust Score', f=>`${f.trustScore||'—'}/100`],
-    ['Trustpilot', f=>`${f.rating}★ (${(f.reviewCount/1000).toFixed(1)}k)`],
+    ['Trustpilot', f=>`${f.rating}★ (${f.reviewCount>=1000?(f.reviewCount/1000).toFixed(1)+'k':f.reviewCount})${f.tpWarn?' ⚠ rating withheld':''}`],
     ['Discount Code', f=>f.discountCode||'—'],
   ];
   const heads = firms.map(f=>`<th style="min-width:160px;">${f.name}</th>`).join('');
@@ -7204,7 +7222,7 @@ function renderTrust() {
         <div style="display:flex;align-items:center;gap:6px;">
           <span style="font-size:13px;font-weight:800;color:${tpColor};">${tpRating.toFixed(1)}</span>
           <span style="font-size:11px;color:#00B67A;letter-spacing:1px;">${tpStars}</span>
-          <span style="font-size:11px;color:var(--muted);">(${reviewsFormatted} reviews)</span>
+          <span style="font-size:11px;color:var(--muted);">(${reviewsFormatted} reviews)</span>${f.tpWarn?'<span title="Trustpilot withholds this firm\'s rating (guideline breach, fake reviews removed). Shown: star-distribution average." style="font-size:11px;color:var(--gold);cursor:help">⚠</span>':''}
         </div>
       </div>
       <div class="trust-items">
@@ -9512,7 +9530,7 @@ That is only <strong>0.45% per day</strong>. Stop trying to hit home runs.
   <div class="edu-mini-card" style="border-color:#3B82F6"><strong>2. Search Reddit</strong><p>Go to r/Forex or r/PropFirmReviews and search the firm name. Real communities report scams within days. Zero mentions is a serious red flag.</p></div>
   <div class="edu-mini-card" style="border-color:#F5C518"><strong>3. Find Payout Proof</strong><p>Search Twitter/X for "[firm name] payout". If you cannot find at least 20 independent screenshots from real traders, do not pay them.</p></div>
 </div>
-<div class="edu-callout" style="border-color:#E53E3E">🛡️ <strong>Safe Rule:</strong> Only trade with firms that have 2+ years of operations, 1,000+ Trustpilot reviews, and an active verified payout community. Every firm listed on Funded Hunt meets these criteria.</div>`,
+<div class="edu-callout" style="border-color:#E53E3E">🛡️ <strong>Safe Rule:</strong> Only trade with firms that have 2+ years of operations, 1,000+ Trustpilot reviews, and an active verified payout community. Funded Hunt shows each firm's live Trustpilot rating, review volume and any Trustpilot warning, so you can judge against these criteria yourself.</div>`,
 
   'scaling': `<h2>Scaling from $25K to $1M+ in Funded Capital</h2>
 <p>Getting your first funded account is just the beginning. The real game is scaling — multiplying your capital as you demonstrate consistent profitability. Here is how the best traders do it.</p>
@@ -9609,7 +9627,7 @@ Net profit: $25,000 − $425 = <strong>$24,575 from just a $250 entry</strong>
 
 const FIRM_EXTRA = {
  'alpha-capital':{
-  about:`Alpha Capital Group is a UK-based proprietary trading firm founded in November 2021, registered in England and Wales (Company No. 13719951), headquartered at 10 Lower Thames Street, London EC3R 6AF. Led by CEO George Kohler and Director Andrew Blaylock, the firm has distributed over $48M across 21,000+ verified payouts via Payout Junction — one of the most transparent payout verification systems in the industry. Traders get access to 4 platforms — MT5, cTrader, DXTrade, and TradeLocker — and can scale virtual capital up to $2,000,000 through a 10%-gain-per-increment scaling plan. With 200+ employees, 14,000+ Trustpilot reviews at 4.6 stars, and a free 30-day trial account available before any purchase, Alpha Capital is one of the UK's most established and reviewed prop firms. They offer 4 distinct challenge types: Alpha Pro (2-step), Alpha One (1-step), Alpha Swing (2-step for swing traders), and Alpha Three (3-step) — covering every style from scalping to long-term position trading.`,
+  about:`Alpha Capital Group is a UK-based proprietary trading firm founded in November 2021, registered in England and Wales (Company No. 13719951), headquartered at 10 Lower Thames Street, London EC3R 6AF. Led by CEO George Kohler and Director Andrew Blaylock, the firm has distributed over $48M across 21,000+ verified payouts via Payout Junction — one of the most transparent payout verification systems in the industry. Traders get access to 4 platforms — MT5, cTrader, DXTrade, and TradeLocker — and can scale virtual capital up to $2,000,000 through a 10%-gain-per-increment scaling plan. With 200+ employees, 21,900+ Trustpilot reviews (85% five-star; overall rating currently withheld), and a free 30-day trial account available before any purchase, Alpha Capital is one of the UK's most established and reviewed prop firms. They offer 4 distinct challenge types: Alpha Pro (2-step), Alpha One (1-step), Alpha Swing (2-step for swing traders), and Alpha Three (3-step) — covering every style from scalping to long-term position trading.`,
   headquarters:'10 Lower Thames Street, London EC3R 6AF, UK — Company No. 13719951',
   platforms:'MetaTrader 5 (MT5), cTrader, DXTrade, TradeLocker',
   instruments:'Forex, Metals (Gold, Silver), Indices, Energies — 40+ assets',
@@ -9746,7 +9764,7 @@ const FIRM_EXTRA = {
   ]
  },
  'ftmo':{
-  about:`FTMO was founded in 2015 in Prague, Czech Republic by Otakar Suffner — making it the original and longest-running major prop firm in the world. They invented the two-step evaluation model that the entire industry now copies. With $500M+ paid out to 3.5M+ customers in 140+ countries and a 4.8-star Trustpilot rating from 22,000+ reviews, no other firm comes close to their track record. In 2025 they launched their brand-new 1-Step FTMO Challenge — proving they still innovate after a decade. Their Premium Programme and Quantlane acquisition offer elite scaling tools for top traders. FTMO offers a completely free trial with the same conditions as the paid challenge, making it risk-free to test your strategy before committing. The challenge fee is 100% refunded with your first payout — so if you pass, the evaluation effectively costs nothing. Supported in 20 languages with a 300+ team and 24/7 customer support via live chat, email, and WhatsApp.`,
+  about:`FTMO was founded in 2015 in Prague, Czech Republic by Otakar Suffner — making it the original and longest-running major prop firm in the world. They invented the two-step evaluation model that the entire industry now copies. With $500M+ paid out to 3.5M+ customers in 140+ countries and a 4.8-star Trustpilot rating from 54,000+ reviews, no other firm comes close to their track record. In 2025 they launched their brand-new 1-Step FTMO Challenge — proving they still innovate after a decade. Their Premium Programme and Quantlane acquisition offer elite scaling tools for top traders. FTMO offers a completely free trial with the same conditions as the paid challenge, making it risk-free to test your strategy before committing. The challenge fee is 100% refunded with your first payout — so if you pass, the evaluation effectively costs nothing. Supported in 20 languages with a 300+ team and 24/7 customer support via live chat, email, and WhatsApp.`,
   headquarters:'Prague, Czech Republic — Founded 2015, CEO: Otakar Suffner',
   platforms:'MetaTrader 4, MetaTrader 5, cTrader, DXtrade',
   instruments:'Forex, Indices, Commodities, Metals (Gold/Silver), Cryptocurrencies, Stocks/Equity CFDs',
@@ -9756,7 +9774,7 @@ const FIRM_EXTRA = {
   pros:[
     'Industry gold standard since 2015 — the original 2-step evaluation',
     '\$500M+ in verified payouts to 3.5M+ customers worldwide',
-    '4.8★ Trustpilot — 22,000+ reviews, most of any prop firm',
+    '4.8★ Trustpilot — 54,000+ reviews',
     '100% challenge fee refunded with first payout — effectively free',
     'Free Trial available — test with identical conditions before paying',
     'Swing Account removes ALL news/weekend restrictions',
@@ -9845,7 +9863,7 @@ const FIRM_EXTRA = {
   ]
  },
  'fxify':{
-  about:`FXIFY is a UK-based broker-backed proprietary trading firm launched in 2023 and backed by FXIFY Markets Ltd (licensed in Labuan, Malaysia through FXPIG). With $40M+ paid out to 250,000+ traders across 200 countries and a 4.4 out of 5 Trustpilot rating, FXIFY has established itself as one of the most flexible and trader-friendly prop firms in the industry. Six distinct account types cover every trading style — One Phase, Two Phase Standard (trailing drawdown), Two Phase Pro (NEW — static drawdown, up to 100% split), Three Phase, Lightning Challenge, and Instant Funding. All standard challenge accounts have no time limit, 100% fee refund on first payout, and on-demand payouts with no minimum profit targets. The firm also offers dedicated Crypto challenge accounts. Accounts can scale up to $4,000,000. Platforms include MT4, MT5, DXTrade, and TradingView.
+  about:`FXIFY is a UK-based broker-backed proprietary trading firm launched in 2023 and backed by FXIFY Markets Ltd (licensed in Labuan, Malaysia through FXPIG). With $40M+ paid out to 250,000+ traders across 200 countries and a 4.3 out of 5 Trustpilot rating, FXIFY has established itself as one of the most flexible and trader-friendly prop firms in the industry. Six distinct account types cover every trading style — One Phase, Two Phase Standard (trailing drawdown), Two Phase Pro (NEW — static drawdown, up to 100% split), Three Phase, Lightning Challenge, and Instant Funding. All standard challenge accounts have no time limit, 100% fee refund on first payout, and on-demand payouts with no minimum profit targets. The firm also offers dedicated Crypto challenge accounts. Accounts can scale up to $4,000,000. Platforms include MT4, MT5, DXTrade, and TradingView.
 
 🎯 DISCOUNT: Use code REWARD25 for a flat 25% OFF any FXIFY account, or code FUNDED40 for 40% OFF the Instant Funding models. Separately, enter Affiliate Code HUNT in the affiliate/referral field at checkout — both the discount code and HUNT must be entered together to get the discount and support FundedHunt.`,
   headquarters:'United Kingdom — FXIFY Markets Ltd, Labuan, Malaysia (licensed)',
@@ -9896,7 +9914,7 @@ const FIRM_EXTRA = {
   headquarters:'Chicago, Illinois, USA',platforms:'NinjaTrader, TradingView, Quantower, ATAS',
   instruments:'CME Futures: ES, NQ, CL, GC, ZB, 6E and more',leverage:'Futures standard leverage',
   minTradingDays:'No minimum days required',scaling:'Up to $300,000 across multiple accounts',
-  pros:['Oldest firm — founded 2012, 12+ years','CFTC-compliant operations','Same-day payouts','5,200+ Trustpilot reviews','#1 choice for futures traders'],
+  pros:['Oldest firm — founded 2012, 12+ years','CFTC-compliant operations','Same-day payouts','14,900+ Trustpilot reviews (3.7/5)','#1 choice for futures traders'],
   cons:['Futures only — forex traders cannot use this','Monthly subscription fee model','No news trading recommended in futures','Lower max per account ($300K)'],
   rules:[
    {rule:'Evaluation Model',detail:'Single-phase Trading Combine — no Phase 2 required',type:'requirement'},
@@ -10100,7 +10118,7 @@ const FIRM_EXTRA = {
   ]
  },
  'goat-funded':{
-  about:`Goat Funded Trader (GFT) was founded in 2024 as Goat Funded LTD, later redomiciled in Hong Kong (Company Number 76428795) under Wishes Tower International Limited. Despite being a newer firm, GFT has grown explosively to 240,000+ traders worldwide, making it one of the largest prop trading communities on the planet. With $14M+ paid out in rewards and a 4.8-star rating from over 5,000 Trustpilot reviews, GFT is widely regarded as one of the most trusted firms in the industry. GFT stands out for its 100% refundable evaluation fee — traders get their entire challenge fee back with their first profit withdrawal. They also offer a unique Reward Guarantee: if a payout is not processed within 2 business days, GFT pays the trader an extra $1,000. The firm runs on its own proprietary technology, with a custom trader dashboard described as one of the best in the industry. Five platforms are supported: MT5, TradeLocker, cTrader, Match Trader, and Volumetric Trading. GFT offers 5 challenge models — 1-Step, 2-Step (GOAT / Standard / PRO), 3-Step, and Instant Funding — with account sizes from $2.5K to $400K, scalable up to $2,000,000 through a 4-level scaling plan. They also offer "Pay Later" — traders can start a challenge for just $5 and pay the full fee only after passing. The firm also runs the periodic GOAT Blitz Challenge — a 3% profit target sprint available on select weekends. GFT is available in 182+ countries.`,
+  about:`Goat Funded Trader (GFT) was founded in 2024 as Goat Funded LTD, later redomiciled in Hong Kong (Company Number 76428795) under Wishes Tower International Limited. Despite being a newer firm, GFT has grown explosively to 240,000+ traders worldwide, making it one of the largest prop trading communities on the planet. With $14M+ paid out in rewards and 4,350 Trustpilot reviews (the overall rating is currently withheld by Trustpilot; the distribution averages roughly 3.2 out of 5), GFT is a large but divisive name in the prop trading community. GFT stands out for its 100% refundable evaluation fee — traders get their entire challenge fee back with their first profit withdrawal. They also offer a unique Reward Guarantee: if a payout is not processed within 2 business days, GFT pays the trader an extra $1,000. The firm runs on its own proprietary technology, with a custom trader dashboard described as one of the best in the industry. Five platforms are supported: MT5, TradeLocker, cTrader, Match Trader, and Volumetric Trading. GFT offers 5 challenge models — 1-Step, 2-Step (GOAT / Standard / PRO), 3-Step, and Instant Funding — with account sizes from $2.5K to $400K, scalable up to $2,000,000 through a 4-level scaling plan. They also offer "Pay Later" — traders can start a challenge for just $5 and pay the full fee only after passing. The firm also runs the periodic GOAT Blitz Challenge — a 3% profit target sprint available on select weekends. GFT is available in 182+ countries.`,
   hq:`Hong Kong (Wishes Tower International Limited, Company No. 76428795). Originally Goat Funded LTD (No. 2025-00240). Founded 2024.`,
   platforms:`MetaTrader 5 (MT5), TradeLocker, cTrader, Match Trader, Volumetric Trading — 5 platforms total. Raw spreads from 0.1 pips. $0 commission on indices and crypto.`,
   instruments:`Forex, Stocks, ETFs, Crypto pairs, Indices, Metals — trade on FX pairs, stocks, ETFs, and crypto pairs`,
@@ -10108,7 +10126,7 @@ const FIRM_EXTRA = {
   scaling:`4-Level GFT Scaling Plan: Level 1 (standard) → Level 2 (+30% capital, 88% split, weekly payouts) → Level 3 (+40% capital, 92% split, monthly salary $300–$500) → Level 4 GOAT (+50% capital, 95% split, monthly salary, free retry). Instant Funding scaling: double account size up to 3×. Max $2,000,000.`,
   pros:[
     '✅ 240,000+ traders globally — one of the largest prop firm communities in existence',
-    '✅ 4.8★ from 5,000+ Trustpilot reviews — exceptional reputation',
+    '⚠️ 4,350 Trustpilot reviews, rating withheld — 46% five-star but 40% one-star',
     '✅ 100% REFUNDABLE fee — full evaluation cost returned with first payout',
     '✅ Reward Guarantee: $1,000 bonus paid if reward delayed beyond 2 business days',
     '✅ "Pay Later" — start any challenge for just $5, pay the rest only after passing',
@@ -10355,7 +10373,7 @@ const FIRM_EXTRA = {
  },
 
  'fundednext':{
-  about:`FundedNext launched in 2022 from the UAE/Bangladesh and has become one of the most-used prop firms globally — 97,000+ funded traders, $95M+ in payouts, and 57,000+ Trustpilot reviews at 4.5/5. The industry-first 15% Performance Reward during the Challenge Phase is their biggest differentiator — traders earn 15% of profits generated in the evaluation itself. With on-demand payouts every 5 days, 24hr guaranteed processing ($1,000 penalty if missed), zero consistency rules on CFDs, news trading fully allowed, and a Scale-Up Plan to $4M, FundedNext is among the most trader-friendly and feature-rich prop firms available. Discount: MATCH (7% off + 120% first payout reward for new users).`,
+  about:`FundedNext launched in 2022 from the UAE/Bangladesh and has become one of the most-used prop firms globally — 97,000+ funded traders, $95M+ in payouts, and 81,000+ Trustpilot reviews at 4.5/5. The industry-first 15% Performance Reward during the Challenge Phase is their biggest differentiator — traders earn 15% of profits generated in the evaluation itself. With on-demand payouts every 5 days, 24hr guaranteed processing ($1,000 penalty if missed), zero consistency rules on CFDs, news trading fully allowed, and a Scale-Up Plan to $4M, FundedNext is among the most trader-friendly and feature-rich prop firms available. Discount: MATCH (7% off + 120% first payout reward for new users).`,
   headquarters:'UAE (registered) / Bangladesh (operations)',
   platforms:'MetaTrader 4 (MT4), MetaTrader 5 (MT5)',
   instruments:'Forex, Indices, Commodities, Crypto — multi-asset',
@@ -10365,7 +10383,7 @@ const FIRM_EXTRA = {
   pros:[
     '✅ 15% profit reward DURING challenge — industry first, no major firm matches this',
     '✅ 97,000+ funded traders, $95M+ paid out — massive verified track record',
-    '✅ 57,000+ Trustpilot reviews (4.5/5) — highest review volume in the industry',
+    '✅ 81,000+ Trustpilot reviews (4.5/5) — highest review volume in the industry',
     '✅ 24hr guaranteed payouts with $1,000 penalty if missed — binding commitment',
     '✅ On-demand payouts every 5 days — most flexible withdrawal schedule',
     '✅ No consistency rule on all CFD models — total trading freedom',
@@ -10584,7 +10602,7 @@ const FIRM_EXTRA = {
   ]
  },
  'top-one-trader':{
-  about:`Top One Trader has quickly made a name for itself as one of the fastest payout prop firms in the world. With a verified 90-minute average payout time and documented cases of payouts in under 11 minutes, they are the benchmark for payout speed in the industry. They have won the Prop of the Year award from The Trusted Prop and hold 5-star ratings on both Trustpilot and Benzinga. Independently verified by Prop Firm Match as having the tightest spreads in the industry, Top One Trader offers Instant Funding, 1-Step and 2-Step challenges with 60-second support response time. They have a rapidly growing community of 2000+ verified reviews and have paid hundreds of thousands to traders globally.`,
+  about:`Top One Trader has quickly made a name for itself as one of the fastest payout prop firms in the world. With a verified 90-minute average payout time and documented cases of payouts in under 11 minutes, they are the benchmark for payout speed in the industry. They have won the Prop of the Year award from The Trusted Prop and have 3,400+ Trustpilot reviews (83% five-star, with the overall rating currently withheld by Trustpilot). Independently verified by Prop Firm Match as having the tightest spreads in the industry, Top One Trader offers Instant Funding, 1-Step and 2-Step challenges with 60-second support response time. They have a rapidly growing community of 2000+ verified reviews and have paid hundreds of thousands to traders globally.`,
   headquarters:'United Kingdom',
   platforms:'MT5, cTrader',
   instruments:'Forex, Indices, Commodities, Crypto',
@@ -10596,7 +10614,7 @@ const FIRM_EXTRA = {
     'Cases of payouts under 11 minutes — genuinely exceptional',
     'Tightest spreads in the industry — verified by Prop Firm Match',
     'Prop of the Year award winner',
-    '5-star Trustpilot and Benzinga ratings',
+    '3,400+ Trustpilot reviews — 83% five-star',
     '60-second support response time',
     'Instant Funding available — skip evaluation',
     'No time limits on any challenge',
@@ -10682,7 +10700,7 @@ const FIRM_EXTRA = {
   cons:[
     'Founded 2025 — brand new firm, very limited track record',
     'Dubai UAE — no tier-1 financial regulation',
-    '152 Trustpilot reviews — very small community still growing',
+    '503 Trustpilot reviews at 2.0/5 — mostly negative feedback',
     '1-minute minimum hold time — restricts ultra-short scalpers',
     'Some payout delay reports in 5-8 day range despite 24hr guarantee',
     'Some hidden rule complaints — read full T&Cs carefully before buying',
@@ -10724,7 +10742,7 @@ const FIRM_EXTRA = {
   ],
   cons:[
     'News trading not allowed on Lightning and Nexus — add-on required',
-    'Only 603 Trustpilot reviews — relatively newer firm still building track record',
+    '608 Trustpilot reviews, rating currently withheld — relatively newer firm still building track record',
     '14-day payout cycle by default — 7-day requires paid add-on',
     'Leverage limited to 1:30 on Lightning program',
   ],
@@ -10826,7 +10844,7 @@ function renderRevList(firmId) {
   const avg = (allStars.reduce((a,b)=>a+b,0)/allStars.length).toFixed(1);
   const total = f.reviewCount + revs.length;
   const bars = [5,4,3,2,1].map(n=>{
-    const base = n===Math.round(f.rating)?Math.round(f.reviewCount*.62):n===Math.round(f.rating)-1?Math.round(f.reviewCount*.23):Math.round(f.reviewCount*.05);
+    const base = f.tpDist ? Math.round(f.reviewCount*f.tpDist[5-n]/100) : (n===Math.round(f.rating)?Math.round(f.reviewCount*.62):n===Math.round(f.rating)-1?Math.round(f.reviewCount*.23):Math.round(f.reviewCount*.05));
     const cnt = base + revs.filter(r=>r.stars===n).length;
     const pct = Math.round((cnt/total)*100);
     return `<div class="rating-bar-row"><span class="lbl">${n}★</span><div class="rating-bar-bg"><div class="rating-bar-fill" style="width:${pct}%"></div></div><span style="color:var(--muted2);font-size:10px;width:28px">${pct}%</span></div>`;
@@ -10866,7 +10884,7 @@ function openFirmDetail(id) {
         <div class="firm-ov-tag">${f.tagline}</div>
         <div style="margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
           <span style="color:var(--gold);font-size:13px">${stars} ${f.rating}</span>
-          <span style="font-size:11px;color:var(--muted)">(${f.reviewCount.toLocaleString()} Trustpilot)</span>
+          <span style="font-size:11px;color:var(--muted)">(${f.reviewCount.toLocaleString()} Trustpilot)</span>${f.tpWarn?'<span style="font-size:10px;color:var(--gold);border:1px solid var(--border2);border-radius:100px;padding:1px 8px" title="Trustpilot withholds this rating after removing fake reviews; shown value is the star-distribution average">⚠ rating withheld</span>':''}
           <span style="font-size:11px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:2px 9px">📍 ${f.country}</span>
           <span style="font-size:11px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:2px 9px">Est. ${f.founded}</span>
         </div>
@@ -10929,7 +10947,7 @@ function openFirmDetail(id) {
         <div class="about-item"><div class="ak">Min Trading Days</div><div class="av">📅 ${ex.minTradingDays||'Varies by plan'}</div></div>
         <div class="about-item"><div class="ak">Scaling</div><div class="av">🚀 ${ex.scaling||f.maxFunding+' max'}</div></div>
         <div class="about-item"><div class="ak">Years in Operation</div><div class="av">🗓️ ${2025-f.founded} years (since ${f.founded})</div></div>
-        <div class="about-item"><div class="ak">Trustpilot Rating</div><div class="av">⭐ ${f.rating}/5 — ${f.reviewCount.toLocaleString()} reviews</div></div>
+        <div class="about-item"><div class="ak">Trustpilot Rating</div><div class="av">⭐ ${f.rating}/5${f.tpWarn?' (star-distribution average — Trustpilot withholds the official rating)':''} — ${f.reviewCount.toLocaleString()} reviews</div></div>
       </div>
     </div>
 
@@ -11066,7 +11084,7 @@ function openFirmDetail(id) {
           <div style="height:10px;background:var(--bg4);border-radius:5px;overflow:hidden;margin-bottom:10px">
             <div style="width:${ts}%;height:100%;background:${ts>=85?'var(--green)':ts>=70?'var(--gold)':'var(--red)'};border-radius:5px"></div>
           </div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.7">Score is based on: years of operation, Trustpilot rating, verified payouts, regulatory standing, and community reports.</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.7">Score is based on: years of operation, Trustpilot rating and review volume (checked 17 Oct 2026), verified payouts, regulatory standing, and community reports.</div>
         </div>
       </div>
       ${(f.trustItems||[]).map(t=>`
@@ -14437,7 +14455,7 @@ const BLOG_POSTS=[
     <p>Their challenge models include Stellar, Express and Evaluation accounts with capital going up to $200,000 and profit splits reaching up to 95%. Payment support for Indian traders is smooth and their customer service has a good reputation. If you want a firm with a strong track record and a feature that feels genuinely different, FundedNext is worth your attention.</p>
 
     <h3>🐐 GOAT Funded Trader</h3>
-    <p>With over 240,000 traders worldwide and a 4.8 star rating on Trustpilot from more than 5,000 reviews, GOAT Funded Trader has built serious credibility in a very short time. Their most talked about feature is the 100% refundable evaluation fee. Pass your challenge and you get your entire challenge fee back with your first payout. For Indian traders who are cautious about spending money on challenges, this removes a big mental barrier.</p>
+    <p>With over 240,000 traders worldwide and more than 4,000 Trustpilot reviews (a polarised mix of 46% five-star and 40% one-star, with Trustpilot withholding the overall rating), GOAT Funded Trader has built real scale in a very short time. Their most talked about feature is the 100% refundable evaluation fee. Pass your challenge and you get your entire challenge fee back with your first payout. For Indian traders who are cautious about spending money on challenges, this removes a big mental barrier.</p>
     <p>They also have a Pay Later option where you can start a challenge for just $5 upfront and pay the rest only after you pass. Their payout guarantee is bold too. If your withdrawal is not processed within 2 business days, GOAT pays you an extra $1,000.</p>
 
     <h3>🫐 Blueberry Funded</h3>
