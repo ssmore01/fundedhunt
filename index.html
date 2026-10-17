@@ -4,50 +4,13 @@
 
 <!-- ═══════════ STRUCTURED DATA (Google Site Name) ═══════════ -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Funded Hunt",
-    "alternateName": "FundedHunt",
-    "url": "https://www.fundedhunt.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.fundedhunt.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Funded Hunt",
-    "alternateName": "FundedHunt",
-    "url": "https://www.fundedhunt.com",
-    "logo": "https://www.fundedhunt.com/android-chrome-512x512.png",
-    "sameAs": [
-      "https://www.instagram.com/thefundedhunt",
-      "https://twitter.com/fundedhunt",
-      "https://t.me/funded_hunt"
-    ]
-  }
-  </script>
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Funded Hunt",
   "alternateName": "FundedHunt",
-  "url": "https://www.fundedhunt.com",
-  "description": "Free prop firm comparison tool. Compare 35+ prop firms side by side with trust scores, verified payouts and exclusive discount codes.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://www.fundedhunt.com/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://www.fundedhunt.com/",
+  "description": "Free prop firm comparison tool. Compare 35+ prop firms side by side with trust scores, verified payouts and exclusive discount codes."
 }
 </script>
 <script type="application/ld+json">
@@ -55,8 +18,9 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Funded Hunt",
-  "url": "https://www.fundedhunt.com",
-  "logo": "https://www.fundedhunt.com/favicon.ico",
+  "alternateName": "FundedHunt",
+  "url": "https://www.fundedhunt.com/",
+  "logo": "https://www.fundedhunt.com/android-chrome-512x512.png",
   "sameAs": [
     "https://www.instagram.com/thefundedhunt",
     "https://x.com/fundedhunt",
@@ -76,12 +40,12 @@
 <meta name="keywords" content="prop firm comparison, best prop firm 2026, funded trader India, prop firm India, FTMO alternative, FundedNext, Funding Pips, prop firm challenge, funded account, prop trading India, best prop firm for Indian traders, prop firm discount codes, prop firm review">
 <meta name="author" content="Funded Hunt">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.fundedhunt.com">
+<link rel="canonical" href="https://www.fundedhunt.com/">
 
 <!-- ═══════════ OPEN GRAPH (WhatsApp, LinkedIn previews) ═══════════ -->
 <meta property="og:title" content="Funded Hunt - Compare 35+ Prop Firms Free | Find Your Perfect Funded Account">
 <meta property="og:description" content="Compare 35+ prop firms side by side. AI-powered matching, verified payout proofs, trust scores and exclusive discount codes. Find the right prop firm — completely free.">
-<meta property="og:url" content="https://www.fundedhunt.com">
+<meta property="og:url" content="https://www.fundedhunt.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Funded Hunt">
 
@@ -558,6 +522,8 @@
 
 /* ── BLOG STYLES ───────────────────────────────────────── */
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px;}
+a.blog-card{display:block;text-decoration:none;color:inherit}
+.footer-guides{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin:0 0 18px;font-size:12px}.footer-guides a{color:var(--muted);text-decoration:none}.footer-guides a:hover{color:var(--gold)}
 .blog-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s;}
 .blog-card:hover{transform:translateY(-4px);border-color:var(--gold);}
 .blog-card-img{width:100%;height:180px;object-fit:cover;background:linear-gradient(135deg,#1a0a00,#0d1a0a,#000d1a);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden;}
@@ -11918,6 +11884,7 @@ function injectFooter() {
           </a>
 
         </div>
+        ${(p.id==='panel-home'||p.id==='panel-blog')?`<nav class="footer-guides" aria-label="Prop firm guides"><a href="/prop-firm-scams-red-flags-checklist">Prop Firm Scams: 14 Red Flags to Check Before You Buy a Challenge</a><a href="/how-to-use-prop-firm-payout">How to Use Your Prop Firm Payout Wisely — A Complete Guide for Funded Traders</a><a href="/how-to-pass-prop-firm-challenge-30-days">How to Pass a Prop Firm Challenge in 30 Days (Complete Guide for 2026)</a><a href="/fundingpips-prime-explained">FundingPips PRIME Explained: The New Career Path for Prop Traders</a><a href="/static-vs-trailing-drawdown-funded-account">Static vs Trailing Drawdown in Funded Accounts: Which One is Better For You?</a><a href="/funded-account-hack-trade-your-drawdown">Funded Account Hack: Stop Trading Your Balance. Trade Your Drawdown.</a><a href="/why-traders-lose-funded-accounts-in-30-days">Why Traders Pass Challenges and Still Lose Their Funded Account Within 30 Days</a><a href="/prop-firm-payouts-how-they-work">Prop Firm Payouts: How They Actually Work and When You Get Paid</a><a href="/consistency-rule-prop-firm-trading">The Consistency Rule in Prop Trading — What It Is, How It Works, and What Every Trader Must Know</a><a href="/how-to-scale-prop-firm-account">How to Scale Your Prop Firm Account — From $5K to $1 Million</a><a href="/why-self-discipline-is-important-in-trading">Why Self-Discipline Is the Real Edge in Trading</a><a href="/honest-truth-about-building-trading-career">The Honest Truth About Building a Trading Career</a><a href="/what-happens-after-you-pass-prop-firm-challenge">What Happens After You Pass a Prop Firm Challenge</a><a href="/why-did-i-fail-prop-firm-challenge">Why Did I Fail My Prop Firm Challenge — 10 Real Reasons</a><a href="/how-to-pass-prop-firm-challenge-indian-traders">How to Pass a Prop Firm Challenge — 7 Things Every Indian Trader Must Know</a><a href="/best-funded-accounts-indian-traders-2026">Best Funded Accounts for Indian Traders in 2026</a><a href="/liquidity-sweep-grab-trading-guide">Liquidity Sweeps and Grabs Explained — Why the Market Takes Your Stop Loss Before Moving Your Way</a></nav>`:''}
         <div class="footer-links">
           <span class="footer-link" onclick="openLegalPage('disclaimer')">Disclaimer</span>
           <span class="footer-link" onclick="openLegalPage('affiliate')">Affiliate Disclosure</span>
@@ -14679,7 +14646,7 @@ function renderBlog(){
   if(!grid)return;
   const filtered=currentBlogFilter==='all'?BLOG_POSTS:BLOG_POSTS.filter(p=>p.tag===currentBlogFilter);
   if(!filtered.length){grid.innerHTML='<div style="text-align:center;padding:60px 20px;color:var(--muted);"><div style="font-size:48px;margin-bottom:16px;">✍️</div><div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">Coming Soon</div><div style="font-size:14px;">Our first articles are on the way. Check back soon.</div></div>';return;}
-  grid.innerHTML=filtered.map(post=>'<div class="blog-card" onclick="openBlogPost(\''+post.id+'\')"><div class="blog-card-img">'+(post.image?'<img src="'+post.image+'" alt="'+post.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;">':'<div style="position:relative;z-index:1;font-size:52px;display:flex;align-items:center;justify-content:center;height:100%;">'+post.emoji+'</div>')+'</div><div class="blog-card-body"><div class="blog-card-tag">'+post.tag.toUpperCase()+'</div><div class="blog-card-title">'+post.title+'</div><div class="blog-card-excerpt">'+post.excerpt+'</div><div class="blog-card-meta"><span>📅 '+post.date+'</span><span>⏱ '+post.readTime+'</span></div></div></div>').join('');
+  grid.innerHTML=filtered.map(post=>'<a class="blog-card" href="/'+post.id+'"><div class="blog-card-img">'+(post.image?'<img src="'+post.image+'" alt="'+post.title+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;">':'<div style="position:relative;z-index:1;font-size:52px;display:flex;align-items:center;justify-content:center;height:100%;">'+post.emoji+'</div>')+'</div><div class="blog-card-body"><div class="blog-card-tag">'+post.tag.toUpperCase()+'</div><div class="blog-card-title">'+post.title+'</div><div class="blog-card-excerpt">'+post.excerpt+'</div><div class="blog-card-meta"><span>📅 '+post.date+'</span><span>⏱ '+post.readTime+'</span></div></div></a>').join('');
 }
 function filterBlog(tag,btn){
   currentBlogFilter=tag;
@@ -14690,6 +14657,8 @@ function filterBlog(tag,btn){
 function openBlogPost(id){
   const post = BLOG_POSTS.find(p => p.id === id);
   if(!post) return;
+  // Every article has its own real page at /<slug> (own title, canonical, schema). Go there.
+  if (window.location.pathname !== '/' + id) { window.location.href = '/' + id; return; }
 
   document.getElementById('blogListView').style.display = 'none';
   document.getElementById('blogArticleView').style.display = 'block';

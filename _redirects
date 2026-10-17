@@ -1,0 +1,17 @@
+# Old or mistyped article URLs -> current article (301 = permanent)
+/how-to-pass-prop-firm-challenge  /how-to-pass-prop-firm-challenge-30-days  301
+/blog/how-to-pass-prop-firm-challenge  /how-to-pass-prop-firm-challenge-30-days  301
+/best-funded-accounts-india-2026  /best-funded-accounts-indian-traders-2026  301
+/blog/best-funded-accounts-india-2026  /best-funded-accounts-indian-traders-2026  301
+/honest-truth-about-building-a-trading-career  /honest-truth-about-building-trading-career  301
+/blog/honest-truth-about-building-a-trading-career  /honest-truth-about-building-trading-career  301
+/why-did-i-fail-my-prop-firm-challenge  /why-did-i-fail-prop-firm-challenge  301
+/blog/why-did-i-fail-my-prop-firm-challenge  /why-did-i-fail-prop-firm-challenge  301
+/what-happens-after-you-pass-a-prop-firm-challenge  /what-happens-after-you-pass-prop-firm-challenge  301
+/blog/what-happens-after-you-pass-a-prop-firm-challenge  /what-happens-after-you-pass-prop-firm-challenge  301
+
+# Old /blog/<slug> URLs -> /<slug>
+/blog/*  /:splat  301
+/blog  /  301
+
+# NOTE: do NOT add a catch-all "/*  /index.html  200" rule. It makes every wrong URL return 200 with the homepage (soft 404s).
