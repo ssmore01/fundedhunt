@@ -704,6 +704,54 @@
 .hd-erow b{font-size:13.5px}.hd-erow s{color:var(--hm);font-size:15px;font-weight:800}.hd-erow small{color:var(--hm);font-size:11.5px;margin-left:auto}
 @media(max-width:1000px){.hd-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.hd-grid{grid-template-columns:1fr}.hd-n{font-size:42px}.hd-seg button{padding:7px 10px}}
+/* ══ COMPARE v2 — price matrix + best-for-you ══ */
+.cx-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.cx-chip{display:inline-flex;align-items:center;gap:9px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:7px 8px 7px 8px}
+.cx-chip b{font-size:13px;font-family:'Plus Jakarta Sans',sans-serif}
+.cx-chip .x{background:none;border:0;color:var(--muted);font-size:17px;line-height:1;cursor:pointer;padding:0 4px}
+.cx-chip .x:hover{color:var(--red)}
+.cx-add{background:transparent;border:1px dashed var(--border);border-radius:12px;padding:10px 16px;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.cx-add:hover{border-color:var(--gold);color:var(--gold)}
+.cx-logo{position:relative;width:28px;height:28px;flex:none}
+.cx-logo img{position:absolute;inset:0;width:100%;height:100%;border-radius:8px;background:#fff;padding:2px;object-fit:contain}
+.cx-mono{position:absolute;inset:0;border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:11px;color:#fff}
+.cx-ctl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.cx-seg{display:inline-flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg2);flex-wrap:wrap}
+.cx-seg button{background:none;border:0;color:var(--muted);padding:8px 13px;font:600 12px 'Inter',sans-serif;cursor:pointer}
+.cx-seg button+button{border-left:1px solid var(--border)}
+.cx-seg button.on{background:var(--bg3);color:var(--text)}
+.cx-goal{margin-bottom:20px}
+.cx-goal h4{font:700 11px 'Inter',sans-serif;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.cx-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.cx-gc{padding:8px 14px;border-radius:100px;border:1px solid var(--border);background:var(--bg2);color:var(--muted);font:600 12.5px 'Inter',sans-serif;cursor:pointer}
+.cx-gc.on{border-color:var(--gold);color:var(--gold);background:var(--gold-dim)}
+.cx-rank{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cx-rk{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:13px 16px;border-top:1px solid var(--border)}
+.cx-rk:first-child{border-top:0}
+.cx-rk .n{font:800 17px 'Plus Jakarta Sans',sans-serif;color:var(--muted)}
+.cx-rk:first-child .n{color:var(--gold)}
+.cx-rk b{font-size:14px}
+.cx-rk p{font-size:12px;color:var(--green);margin-top:1px}
+.cx-rk .sc{text-align:right;font:800 18px 'Plus Jakarta Sans',sans-serif;line-height:1}
+.cx-rk .sc span{display:block;font:500 10px 'Inter',sans-serif;color:var(--muted);margin-top:3px}
+.cx-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow-x:auto}
+.cx-t{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+.cx-t th,.cx-t td{padding:12px 14px;text-align:center;border-top:1px solid var(--border);vertical-align:middle}
+.cx-t thead th{border-top:0;vertical-align:top;background:var(--bg2);position:sticky;top:0}
+.cx-t td:first-child,.cx-t th:first-child{text-align:left;color:var(--muted);font-size:12.5px;position:sticky;left:0;background:var(--bg2);z-index:1;min-width:104px}
+.cx-t .sec td{background:var(--bg3);font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:left;position:static}
+.cx-t td.v{font-weight:700}
+.cx-t td.b{background:rgba(29,185,84,.12);color:var(--green)}
+.cx-t td.na{color:var(--muted2);font-weight:500}
+.cx-t td s{display:block;font-weight:500;font-size:11px;color:var(--muted)}
+.cx-t td small{display:block;font-weight:500;font-size:11px;color:var(--muted);margin-top:1px}
+.cx-th{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cx-th b{font:700 13px 'Plus Jakarta Sans',sans-serif}
+.cx-th span{font-size:11px;color:var(--gold);font-weight:600}
+.cx-th .cx-logo{width:34px;height:34px}
+.cx-yes{color:var(--green);font-weight:700}.cx-no{color:var(--muted2)}
+.cx-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+@media(max-width:640px){.cx-t td,.cx-t th{padding:11px 10px}.cx-rk{grid-template-columns:28px 1fr auto}}
 /* ══ ALL FIRMS v2 — premium cards ══ */
 .firms-grid{grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 .fc2{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;min-width:0}
@@ -1554,7 +1602,7 @@ setTimeout(pfRender, 500);
     <div class="panel-inner">
       <div class="panel-head">
         <h1>⚖️ Firm Comparison</h1>
-        <p>Pick up to 3 firms and compare them across every metric that matters.</p>
+        <p>Pick up to 4 firms. See the real price for your account size, then trust, payouts and rules side by side.</p>
       </div>
       <div class="compare-slots" id="compareSlots"></div>
       <div id="compareResults"></div>
@@ -6778,7 +6826,7 @@ let state = {
   user: lsGetJSON('fe_user', null),
   journal: lsGetJSON('fe_journal', []),
   currentPanel: 'home',
-  compareSlots: [null,null,null],
+  compareSlots: [null,null,null,null],
   activeFilter: 'all',
   quizAnswers: {},
   quizStep: 0,
@@ -7109,23 +7157,35 @@ function renderChallengeTable() {
     </tr>`).join('');
 }
 
+const CMP = { size:'10k', type:'2-Step', goal:'cheap' };
+const CMP_SIZES = ['5k','10k','25k','50k','100k','200k'];
+const CMP_TYPES = ['1-Step','2-Step','3-Step','Instant'];
+const CMP_PF_NAME = { 'goat-funded':'GOAT Funded', 'alpha-capital':'Alpha Capital', 'cti':'CTI' };
+function cmpPfName(f){ return CMP_PF_NAME[f.id] || f.name; }
+function cmpPrice(f, size, type){
+  const rows = (PF_DATA[size]||[]).filter(r=>r.name===cmpPfName(f) && r.cat===type);
+  if (!rows.length) return null;
+  return rows.reduce((m,r)=>r.disc<m.disc?r:m, rows[0]);
+}
+function cmpMaxNum(s, re){ const m=(s||'').match(re); return m? Math.max(...m.map(x=>parseFloat(x.replace(/[$,]/g,'')))) : null; }
+function cmpSplitMax(f){ return cmpMaxNum((f.profitSplit||'').split(/\s*[(|]/)[0], /\d+(\.\d+)?/g); }
+function cmpFundMax(f){ return cmpMaxNum(((f.maxFunding||'').match(/\$[\d,]+/)||[''])[0], /[\d,]+/g); }
+function cmpFree(f){ return [f.allowNews,f.allowScalping,f.allowSwing,f.noTimeLimit].filter(Boolean).length; }
+function cmpFmtK(n){ return n>=1e6 ? '$'+(n/1e6)+'M' : '$'+Math.round(n/1e3)+'K'; }
+function cmpInit(f){ return f.name.replace(/^The\s+/,'').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase(); }
+function cmpLogo(f){ return `<span class="cx-logo"><span class="cx-mono" style="background:${f.color||'#555'}">${cmpInit(f)}</span><img src="${f.logo}" alt="" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display='none'"></span>`; }
+function cmpSet(k,v){ CMP[k]=v; renderCompare(); }
+
 function renderCompare() {
-  const slots = document.getElementById('compareSlots');
-  slots.innerHTML = [0,1,2].map(i=>{
-    const f = state.compareSlots[i] ? FIRMS.find(x=>x.id===state.compareSlots[i]) : null;
-    return f
-      ? `<div class="compare-slot filled">
-          <span class="slot-remove" onclick="removeFromCompare(${i})">×</span>
-          <img src="${f.logo}" style="width:28px;height:28px;border-radius:6px;background:#fff;padding:2px;margin-right:8px;" onerror="this.style.display='none'">
-          <div class="slot-name">${f.name}</div>
-         </div>`
-      : `<div class="compare-slot" onclick="openFirmPicker(${i})">
-          <div><div style="font-size:22px;margin-bottom:4px;">＋</div><div class="slot-label">Add Firm</div></div>
-         </div>`;
-  }).join('');
-  const filled = state.compareSlots.filter(Boolean);
-  if (filled.length >= 2) renderCompareTable();
-  else document.getElementById('compareResults').innerHTML = '<div class="empty"><div class="e-ico">⚖️</div><h3>Add 2–3 firms to compare</h3><p style="color:var(--muted)">Click the + slots above to pick firms</p></div>';
+  const slots = state.compareSlots;
+  const firms = slots.filter(Boolean).map(id=>FIRMS.find(x=>x.id===id)).filter(Boolean);
+  const firstEmpty = slots.findIndex(s=>!s);
+  document.getElementById('compareSlots').className = 'cx-bar';
+  document.getElementById('compareSlots').innerHTML =
+    slots.map((id,i)=>{ const f = id && FIRMS.find(x=>x.id===id); return f ? `<div class="cx-chip">${cmpLogo(f)}<b>${f.name}</b><button class="x" title="Remove" onclick="removeFromCompare(${i})">×</button></div>` : ''; }).join('')
+    + (firstEmpty>-1 ? `<button class="cx-add" onclick="openFirmPicker(${firstEmpty})">＋ Add firm</button>` : '');
+  if (firms.length >= 2) renderCompareTable();
+  else document.getElementById('compareResults').innerHTML = '<div class="empty"><div class="e-ico">⚖️</div><h3>Add 2–4 firms to compare</h3><p style="color:var(--muted)">Use “Add firm” above, or press Compare on any firm card.</p></div>';
 }
 
 function openFirmPicker(slotIndex) {
@@ -7161,35 +7221,69 @@ function addToCompare(id) {
 function removeFromCompare(i) { state.compareSlots[i]=null; renderCompare(); }
 
 function renderCompareTable() {
-  const firms = state.compareSlots.filter(Boolean).map(id=>FIRMS.find(f=>f.id===id));
-  const rows = [
-    ['Founded', f=>f.founded],
-    ['Country', f=>f.country],
-    ['Max Funding', f=>f.maxFunding],
-    ['Profit Split', f=>f.profitSplit],
-    ['Drawdown', f=>f.drawdown],
-    ['Phases', f=>f.phases],
-    ['Payout Freq', f=>f.payoutFreq],
-    ['News Trading', f=>f.allowNews?'✅ Yes':'❌ No'],
-    ['Scalping', f=>f.allowScalping?'✅ Yes':'❌ No'],
-    ['Swing/Weekend', f=>f.allowSwing?'✅ Yes':'❌ No'],
-    ['No Time Limit', f=>f.noTimeLimit?'✅ Yes':'❌ No'],
-    ['Trust Score', f=>`${f.trustScore||'—'}/100`],
-    ['Trustpilot', f=>`${f.rating}★ (${f.reviewCount>=1000?(f.reviewCount/1000).toFixed(1)+'k':f.reviewCount})${f.tpWarn?' ⚠ rating withheld':''}`],
-    ['Discount Code', f=>f.discountCode||'—'],
-  ];
-  const heads = firms.map(f=>`<th style="min-width:160px;">${f.name}</th>`).join('');
-  const body = rows.map(([label, getter])=>{
-    const vals = firms.map(f=>getter(f));
-    return `<tr><td class="row-label">${label}</td>${vals.map(v=>`<td>${v}</td>`).join('')}</tr>`;
-  }).join('');
+  const firms = state.compareSlots.filter(Boolean).map(id=>FIRMS.find(f=>f.id===id)).filter(Boolean);
+  const size = CMP.size, type = CMP.type;
+  const seg = (arr, cur, key, lab) => `<div class="cx-seg">${arr.map(o=>`<button class="${o===cur?'on':''}" onclick="cmpSet('${key}','${o}')">${lab?lab(o):o}</button>`).join('')}</div>`;
+
+  // ── Best for you ranking
+  const goals = {
+    cheap:{l:'💵 Cheapest', score:f=>{const p=cmpPrice(f,size,type);return p?-p.disc:null}, why:f=>{const p=cmpPrice(f,size,type);return '$'+p.disc+' for '+size.toUpperCase()+' '+type}},
+    safe:{l:'🛡️ Safest', score:f=>f.trustScore||null, why:f=>'Trust score '+f.trustScore+' · '+f.rating+'★ on Trustpilot'+(f.tpWarn?' (rating withheld ⚠)':'')},
+    free:{l:'🔓 Most freedom', score:f=>cmpFree(f), why:f=>cmpFree(f)+' of 4: news, scalping, weekend, no time limit'},
+    split:{l:'💰 Best split', score:f=>cmpSplitMax(f), why:f=>'Up to '+cmpSplitMax(f)+'% profit split'},
+    fund:{l:'🏦 Biggest funding', score:f=>cmpFundMax(f), why:f=>'Up to '+cmpFmtK(cmpFundMax(f))+' max funding'}
+  };
+  const G = goals[CMP.goal];
+  const scored = firms.map(f=>({f, s:G.score(f)}));
+  const ranked = scored.filter(x=>x.s!=null).sort((a,b)=>b.s-a.s);
+  const missing = scored.filter(x=>x.s==null).map(x=>x.f.name);
+  const rankHTML = ranked.map((x,i)=>`<div class="cx-rk"><div class="n">${i+1}</div><div><b>${x.f.name}</b><p>${G.why(x.f)}</p></div><div class="sc">${x.f.trustScore||'—'}<span>trust</span></div></div>`).join('')
+    + (missing.length ? `<div class="cx-rk" style="grid-template-columns:1fr"><span style="font-size:12px;color:var(--muted)">No ${size.toUpperCase()} ${type} price on file for: ${missing.join(', ')}</span></div>` : '');
+
+  // ── Matrix
+  const best = (vals, hi) => { const v=vals.filter(x=>x!=null); if (v.length<2) return vals.map(()=>false); const m = hi?Math.max(...v):Math.min(...v); return vals.map(x=>x!=null&&x===m); };
+  const row = (label, cells, bestArr) => `<tr><td>${label}</td>${cells.map((c,i)=>`<td class="v ${bestArr&&bestArr[i]?'b':''} ${c===null?'na':''}">${c===null?'—':c}</td>`).join('')}</tr>`;
+  const head = `<thead><tr><th></th>${firms.map(f=>`<th><div class="cx-th">${cmpLogo(f)}<b>${f.name}</b>${f.discount?`<span>${f.discount.replace(/\s*[—–-]\s*Code:.*$/,'')}</span>`:''}</div></th>`).join('')}</tr></thead>`;
+
+  let body = `<tr class="sec"><td colspan="${firms.length+1}">${type} · price after code</td></tr>`;
+  let anyPrice = false;
+  CMP_SIZES.forEach(z=>{
+    const ps = firms.map(f=>cmpPrice(f,z,type));
+    if (!ps.some(Boolean)) return;
+    anyPrice = true;
+    const b = best(ps.map(p=>p?p.disc:null), false);
+    body += `<tr><td>${z.toUpperCase()}</td>${ps.map((p,i)=>p?`<td class="v ${b[i]?'b':''}">$${p.disc}${p.base>p.disc?`<s>$${p.base}</s>`:''}<small>${p.plan}</small></td>`:'<td class="v na">—</td>').join('')}</tr>`;
+  });
+  if (!anyPrice) body += `<tr><td colspan="${firms.length+1}" style="text-align:center;color:var(--muted)">No ${type} prices on file for these firms. Try another plan type.</td></tr>`;
+
+  body += `<tr class="sec"><td colspan="${firms.length+1}">Trust</td></tr>`;
+  body += row('Trust score', firms.map(f=>f.trustScore?f.trustScore+'/100':null), best(firms.map(f=>f.trustScore||null), true));
+  body += row('Trustpilot', firms.map(f=>`${f.rating}★<small>${(f.reviewCount||0).toLocaleString()} reviews${f.tpWarn?' · <span class="tp-warn" title="Trustpilot is withholding this firm\'s rating (guideline breach, fake reviews removed). The rating shown is the average of the reviews that remain.">⚠ rating withheld</span>':''}</small>`), best(firms.map(f=>f.tpWarn?null:f.rating), true));
+  body += row('Founded', firms.map(f=>f.founded||null));
+  body += row('Country', firms.map(f=>f.country||null));
+
+  body += `<tr class="sec"><td colspan="${firms.length+1}">Terms</td></tr>`;
+  body += row('Max funding', firms.map(f=>f.maxFunding?f.maxFunding.split(/\s*\(/)[0]:null), best(firms.map(cmpFundMax), true));
+  body += row('Profit split', firms.map(f=>f.profitSplit?f.profitSplit.split(/\s*\(/)[0]:null), best(firms.map(cmpSplitMax), true));
+  body += row('Payouts', firms.map(f=>f.payoutFreq||f.payoutSpeed||null));
+  body += row('Drawdown', firms.map(f=>f.drawdown||null));
+  body += row('Phases', firms.map(f=>f.phases||null));
+
+  body += `<tr class="sec"><td colspan="${firms.length+1}">Trading rules</td></tr>`;
+  const yn = (label,key) => `<tr><td>${label}</td>${firms.map(f=>`<td class="v">${f[key]?'<span class="cx-yes">✓</span>':'<span class="cx-no">✗</span>'}</td>`).join('')}</tr>`;
+  body += yn('News trading','allowNews') + yn('Scalping','allowScalping') + yn('Swing / weekend','allowSwing') + yn('No time limit','noTimeLimit');
+
+  body += `<tr class="sec"><td colspan="${firms.length+1}">Get the deal</td></tr>`;
+  body += `<tr><td>Code</td>${firms.map(f=>{const c=(f.discountCode||'').replace(/'/g,"\\'");return `<td>${f.discountCode?`<button class="fc2-code" title="Click to copy code" onclick="fcCopy('${c}',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">${f.discountCode}</span><span class="fc2-cl">Copy</span></button>`:'<span class="cx-no">—</span>'}</td>`}).join('')}</tr>`;
+  body += `<tr><td></td>${firms.map(f=>`<td><button class="fc2-btn g" onclick="visitFirm('${f.id}')">Visit →</button></td>`).join('')}</tr>`;
+
   document.getElementById('compareResults').innerHTML = `
-    <div class="compare-results">
-      <table class="compare-table">
-        <thead><tr><th>Metric</th>${heads}</tr></thead>
-        <tbody>${body}</tbody>
-      </table>
-    </div>`;
+    <div class="cx-goal"><h4>Best for you</h4>
+      <div class="cx-chips">${Object.entries(goals).map(([k,g])=>`<button class="cx-gc ${k===CMP.goal?'on':''}" onclick="cmpSet('goal','${k}')">${g.l}</button>`).join('')}</div>
+      <div class="cx-rank">${rankHTML}</div></div>
+    <div class="cx-ctl">${seg(CMP_SIZES,size,'size',o=>o.toUpperCase())}${seg(CMP_TYPES,type,'type')}</div>
+    <div class="cx-wrap"><table class="cx-t">${head}<tbody>${body}</tbody></table></div>
+    <p class="cx-note">Prices are the challenge fee after the firm's current code; a green cell is the best value in that row. Plan names differ between firms (for example “Zero” or “Instant”), so check the rules before you buy. Affiliate links — we may earn a commission at no extra cost to you.</p>`;
 }
 
 
