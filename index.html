@@ -704,6 +704,45 @@
 .hd-erow b{font-size:13.5px}.hd-erow s{color:var(--hm);font-size:15px;font-weight:800}.hd-erow small{color:var(--hm);font-size:11.5px;margin-left:auto}
 @media(max-width:1000px){.hd-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.hd-grid{grid-template-columns:1fr}.hd-n{font-size:42px}.hd-seg button{padding:7px 10px}}
+/* ══ ALL FIRMS v2 — premium cards ══ */
+.firms-grid{grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.fc2{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;min-width:0}
+.fc2:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.16);box-shadow:0 14px 40px rgba(0,0,0,.45)}
+.fc2-strip{height:3px;background:var(--c)}
+.fc2-top{display:flex;gap:12px;align-items:center;padding:16px 16px 6px}
+.fc2-logo,.fc2-logo-fb{width:44px;height:44px;border-radius:12px;flex:none}
+.fc2-logo{object-fit:contain;background:#fff;padding:5px}
+.fc2-logo-fb{align-items:center;justify-content:center;font-size:20px}
+.fc2-id{min-width:0;flex:1}
+.fc2-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc2-stars{display:flex;gap:6px;align-items:center;margin-top:2px}
+.fc2-stars .stars{color:var(--gold);font-size:12px;letter-spacing:1px}.fc2-stars .count{font-size:11px;color:var(--muted)}
+.fc2-off{text-align:right;flex:none;max-width:42%}
+.fc2-off b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;line-height:1;color:var(--gold);font-weight:800}
+.fc2-off span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;font-weight:600}
+.fc2-off.txt b{font-size:12px;line-height:1.25;font-weight:700}
+.fc2-tag{padding:6px 16px 12px;font-size:12px;color:var(--muted);line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:46px}
+.fc2-kp{display:grid;grid-template-columns:repeat(3,1fr);margin:0 16px;border:1px solid var(--border);border-radius:12px;background:rgba(0,0,0,.25)}
+.fc2-kp div{padding:10px 6px;text-align:center;min-width:0}
+.fc2-kp div+div{border-left:1px solid var(--border)}
+.fc2-kp b{display:block;font-size:13px;line-height:1.3;overflow-wrap:anywhere}
+.fc2-kp span{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.fc2-pills{display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0}
+.fc2-pill{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid var(--border);color:var(--muted)}
+.fc2-pill.ok{color:var(--green);border-color:rgba(29,185,84,.3)}
+.fc2-pill.no{color:#666;text-decoration:line-through}
+.fc2-ft{display:flex;gap:8px;align-items:center;padding:14px 16px 8px;margin-top:auto}
+.fc2-code{display:inline-flex;align-items:center;gap:7px;min-width:0;background:var(--gold-dim);border:1px dashed var(--border2);border-radius:9px;padding:6px 9px;color:var(--gold);cursor:pointer;font-family:inherit;transition:.15s}
+.fc2-code:hover{background:rgba(245,197,24,.2)}
+.fc2-code.done{background:rgba(29,185,84,.14);border-color:rgba(29,185,84,.5);color:var(--green)}
+.fc2-cv{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:110px}
+.fc2-cl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.75;border-left:1px solid currentColor;padding-left:7px;white-space:nowrap}
+.fc2-btn{border-radius:9px;padding:8px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.fc2-btn.o{background:transparent;color:var(--text);border:1px solid var(--border);margin-left:auto}
+.fc2-btn.o:hover{border-color:rgba(255,255,255,.25)}
+.fc2-btn.g{background:var(--gold);color:#000;border:0}
+.fc2-aff{padding:0 16px 12px;font-size:9.5px;color:var(--muted2)}
+@media(max-width:560px){.firms-grid{grid-template-columns:1fr}.fc2-cv{max-width:90px}}
 </style>
   <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -6914,42 +6953,53 @@ function nav(panelId) {
   if(window.innerWidth <= 768) closeSidebar();
 }
 
+function fcCopy(code, el, ev) {
+  if (ev) ev.stopPropagation();
+  const done=()=>{ const l=el.querySelector('.fc2-cl'); if(!l) return; l.textContent='Copied ✓'; el.classList.add('done'); setTimeout(()=>{l.textContent='Copy';el.classList.remove('done');},1800); try{awardPoints(5,'Copied discount code');}catch(e){} };
+  const fb=()=>{ const t=document.createElement('textarea'); t.value=code; t.style.position='fixed'; t.style.opacity='0'; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); done(); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done,fb); else fb();
+}
+
 function firmCardHTML(f, showScore) {
   const stars = '★'.repeat(Math.round(f.rating)) + '☆'.repeat(5-Math.round(f.rating));
-  const parsedSplit = parseInt((f.profitSplit||'80').replace(/[^0-9]/g,''));
+  const rc = f.reviewCount>=1000 ? (f.reviewCount/1000).toFixed(1)+'k' : f.reviewCount;
+  const pm = (f.discount||'').match(/(\d+)\s*%/);
+  const payout = (f.payoutFreq||'').split(/\s*[(|]/)[0].replace(/\s*\+.*$/,'').trim() || (f.payoutSpeed||'—');
+  const split = (f.profitSplit||'—').split(/\s*\(/)[0];
+  const accent = f.color || '#F5C518';
+  const offer = pm
+    ? `<div class="fc2-off"><b>${pm[1]}%</b><span>OFF</span></div>`
+    : (f.discount?`<div class="fc2-off txt"><b>${f.discount}</b></div>`:'');
+  const safeCode = (f.discountCode||'').replace(/'/g,"\\'");
   return `
-  <div class="firm-card" onclick="openFirmDetail('${f.id}')">
-    <div class="firm-card-top">
-      <div class="firm-logo-wrap">
-        <img class="firm-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};"  alt="${f.name}">
-        <div class="firm-logo-fallback" style="background:${f.bg};display:none;">${f.emoji}</div>
-        <div>
-          <div class="firm-name">${f.name}</div>
-          <div class="firm-stars"><span class="stars">${stars}</span><span class="count">${f.rating} (${(f.reviewCount/1000).toFixed(1)}k)</span></div>
-          <div class="firm-tagline">${f.tagline}</div>
-        </div>
+  <div class="fc2" style="--c:${accent}" onclick="openFirmDetail('${f.id}')">
+    <div class="fc2-strip"></div>
+    <div class="fc2-top">
+      <img class="fc2-logo" src="${f.logo}" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain='+this.src.split('/')[2].split('?')[0]+'&sz=128';this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display='flex';};"  alt="${f.name}">
+      <div class="fc2-logo-fb" style="background:${f.bg};display:none;">${f.emoji}</div>
+      <div class="fc2-id">
+        <div class="fc2-name">${f.name}</div>
+        <div class="fc2-stars"><span class="stars">${stars}</span><span class="count">${f.rating} · ${rc}</span></div>
       </div>
-      ${f.discount?`<div class="firm-discount">${f.discount}</div>`:''}
+      ${offer}
     </div>
-    <div class="firm-card-stats">
-      <div class="fstat"><div class="v">${f.maxFunding}</div><div class="k">Max Funding</div></div>
-      <div class="fstat"><div class="v">${f.profitSplit}</div><div class="k">Profit Split</div></div>
-      <div class="fstat"><div class="v">${f.payoutFreq}</div><div class="k">Payout</div></div>
+    <div class="fc2-tag">${f.tagline||''}</div>
+    <div class="fc2-kp">
+      <div><b>${f.maxFunding}</b><span>Max funding</span></div>
+      <div><b>${split}</b><span>Profit split</span></div>
+      <div><b>${payout}</b><span>Payout</span></div>
     </div>
-    <div class="firm-card-tags">
-      ${f.allowNews?'<span class="tag green">✅ News</span>':'<span class="tag">❌ News</span>'}
-      ${f.allowScalping?'<span class="tag green">⚡ Scalping</span>':''}
-      ${f.noTimeLimit?'<span class="tag gold">⏱️ No Limit</span>':''}
-      <span class="tag">${f.badge}</span>
+    <div class="fc2-pills">
+      <span class="fc2-pill ${f.allowNews?'ok':'no'}">News</span>
+      <span class="fc2-pill ${f.allowScalping?'ok':'no'}">Scalping</span>
+      <span class="fc2-pill ${f.noTimeLimit?'ok':'no'}">No time limit</span>
     </div>
-    <div class="firm-card-footer">
-      ${f.discountCode?`<div class="code-box">🎁 ${f.discountCode}</div>`:'<div></div>'}
-      <span class="aff-badge" title="Affiliate link — we may earn a commission">🔗 Affiliate</span>
-      <div class="firm-cta">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();addToCompare('${f.id}')">Compare</button>
-        <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')">Visit →</button>
-      </div>
+    <div class="fc2-ft">
+      ${f.discountCode?`<button class="fc2-code" title="Click to copy code" onclick="fcCopy('${safeCode}',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">${f.discountCode}</span><span class="fc2-cl">Copy</span></button>`:'<span></span>'}
+      <button class="fc2-btn o" onclick="event.stopPropagation();addToCompare('${f.id}')">Compare</button>
+      <button class="fc2-btn g" onclick="event.stopPropagation();visitFirm('${f.id}')">Visit →</button>
     </div>
+    <div class="fc2-aff">🔗 Affiliate link — we may earn a commission</div>
   </div>`;
 }
 
