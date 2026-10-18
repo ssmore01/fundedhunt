@@ -718,6 +718,104 @@ a.blog-card{display:block;text-decoration:none;color:inherit}
 .cx-yes{color:var(--green);font-weight:700}.cx-no{color:var(--muted2)}
 .cx-note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
 @media(max-width:640px){.cx-t td,.cx-t th{padding:11px 10px}.cx-rk{grid-template-columns:28px 1fr auto}}
+/* ══ HOME v2 — command center ══ */
+.hx-hero{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--border);background:var(--bg2);padding:48px 40px;margin-bottom:20px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hx-aur{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hx-aur i{position:absolute;border-radius:50%;filter:blur(80px)}
+.hx-aur i:nth-child(1){width:380px;height:380px;background:#F5C518;opacity:.15;left:-90px;top:-130px}
+.hx-aur i:nth-child(2){width:340px;height:340px;background:#7C5CFF;opacity:.2;right:-60px;top:-20px}
+.hx-aur i:nth-child(3){width:260px;height:260px;background:#00D4FF;opacity:.1;left:42%;bottom:-120px}
+.hx-hero>*:not(.hx-aur){position:relative;z-index:1}
+.hx-pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:rgba(255,255,255,.04);border-radius:99px;padding:6px 13px;font-size:11px;letter-spacing:1.4px;font-weight:600;color:var(--muted);text-transform:uppercase}
+.hx-pill .d{width:7px;height:7px;border-radius:50%;background:var(--green);animation:hxpl 1.8s infinite}
+@keyframes hxpl{0%{box-shadow:0 0 0 0 rgba(29,185,84,.6)}70%{box-shadow:0 0 0 9px rgba(29,185,84,0)}100%{box-shadow:0 0 0 0 rgba(29,185,84,0)}}
+.hx-hero h1{font-family:'Plus Jakarta Sans',Inter,sans-serif;text-wrap:balance;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-.6px;margin:18px 0 14px;font-weight:800}
+.hx-l{display:block;text-wrap:balance}
+.hx-gt{background:linear-gradient(100deg,#FFE27A,#F5C518 45%,#FF9F1C);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hx-lead{font-size:15.5px;color:var(--muted);line-height:1.7;max-width:500px;margin-bottom:26px}
+.hx-act{display:flex;gap:12px;flex-wrap:wrap}
+.hx-btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:13px 22px;font:700 14px 'Inter',sans-serif;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.05);color:var(--text);transition:.2s}
+.hx-btn:hover{border-color:rgba(245,197,24,.45);transform:translateY(-2px)}
+.hx-btn.g{background:linear-gradient(135deg,#FFD84D,#F5C518 55%,#F0A500);color:#000;border:0;box-shadow:0 8px 28px -8px rgba(245,197,24,.6)}
+.hx-btn.g:hover{box-shadow:0 14px 34px -8px rgba(245,197,24,.75)}
+.hx-btn.r{border-color:rgba(255,92,92,.4);color:#FF7B7B}
+.hx-btn.s{padding:9px 15px;font-size:12.5px;border-radius:10px}
+.hx-live{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:22px;padding:22px;backdrop-filter:blur(8px);min-height:300px}
+.hx-live .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:12px;color:var(--muted)}
+.hx-id{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+.hx-lg{position:relative;width:52px;height:52px;flex:none}
+.hx-lg span{position:absolute;inset:0;border-radius:15px;display:grid;place-items:center;font:800 16px 'Plus Jakarta Sans',Inter,sans-serif;color:#fff}
+.hx-lg img{position:absolute;inset:0;width:100%;height:100%;border-radius:15px;background:#fff;padding:3px;object-fit:contain}
+.hx-nm{font:800 20px 'Plus Jakarta Sans',Inter,sans-serif}
+.hx-sm{font-size:12.5px;color:var(--muted)}
+.hx-big{font:800 50px/1 'Plus Jakarta Sans',Inter,sans-serif;letter-spacing:-2px}
+.hx-pre{font-size:11px;letter-spacing:1.6px;color:var(--muted);font-weight:700;margin-bottom:4px}
+.hx-from{font:500 14px 'Inter',sans-serif;letter-spacing:0;color:var(--muted);margin-left:10px}
+.hx-desc{font-size:12.5px;color:var(--muted);margin:10px 0 0;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hx-codes{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.hx-bar{height:4px;background:rgba(255,255,255,.08);border-radius:9px;overflow:hidden;margin-top:18px}
+.hx-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#FF9F1C);animation:hxfill 6s linear forwards}
+.hx-live:hover .hx-bar i{animation-play-state:paused}
+@keyframes hxfill{to{width:100%}}
+.hx-dots{display:flex;gap:6px;justify-content:center;margin-top:12px}
+.hx-dots b{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;transition:.2s}.hx-dots b.on{background:var(--gold);width:18px;border-radius:9px}
+.hx-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:34px}
+.hx-stat{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid var(--border);border-radius:16px;padding:22px 14px;text-align:center;transition:.25s}
+.hx-stat:hover{border-color:rgba(245,197,24,.35);transform:translateY(-3px)}
+.hx-stat .n{font:800 32px/1 'Plus Jakarta Sans',Inter,sans-serif}
+.hx-stat .l{margin-top:8px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.hx-h{margin:0 0 4px;font:800 24px 'Plus Jakarta Sans',Inter,sans-serif;letter-spacing:-.2px}
+.hx-sub{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+.hx-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:38px}
+.hx-t{grid-column:span 3;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:18px;padding:22px;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+.hx-t:hover{border-color:rgba(245,197,24,.4);transform:translateY(-3px)}
+.hx-t.w8{grid-column:span 8}.hx-t.w4{grid-column:span 4}
+.hx-t .ic{font-size:26px}.hx-t h3{font:800 16.5px 'Plus Jakarta Sans',Inter,sans-serif;margin:10px 0 4px}.hx-t p{font-size:12.5px;color:var(--muted);line-height:1.55}
+.hx-t.hot{background:linear-gradient(140deg,rgba(255,92,92,.14),rgba(255,92,92,.02));border-color:rgba(255,92,92,.25)}
+.hx-mini{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}.hx-mini span{font-size:11.5px;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--muted)}.hx-mini span.h{background:rgba(245,197,24,.14);color:var(--gold)}
+.hx-l2{display:grid;gap:8px;margin-top:14px}.hx-l2 div{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:8px 11px;border-radius:10px;background:rgba(255,255,255,.05)}.hx-l2 b{color:var(--gold);white-space:nowrap}
+.hx-rings{display:flex;gap:8px;margin-top:14px}
+.hx-ring{--p:80;--c:var(--green);width:46px;height:46px;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),rgba(255,255,255,.08) 0);display:grid;place-items:center}
+.hx-ring b{width:36px;height:36px;border-radius:50%;background:var(--bg2);display:grid;place-items:center;font:800 12.5px 'Plus Jakarta Sans',Inter,sans-serif}
+@media(max-width:860px){.hx-hero{grid-template-columns:1fr;padding:30px 20px;gap:26px}.hx-stats{grid-template-columns:repeat(2,1fr)}.hx-t,.hx-t.w8,.hx-t.w4{grid-column:span 12}.hx-big{font-size:42px}}
+@media(min-width:861px) and (max-width:1100px){.hx-t{grid-column:span 6}.hx-t.w8{grid-column:span 12}.hx-t.w4{grid-column:span 12}}
+@media(prefers-reduced-motion:reduce){.hx-bar i,.hx-pill .d{animation:none}.hx-bar i{width:100%}}
+/* ══ HOME v3 — finder + deals ══ */
+.hx-sec{margin-bottom:38px}
+.hx-fnd{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:22px;padding:24px;box-shadow:0 30px 80px -40px rgba(245,197,24,.3)}
+.hx-fl{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:600}
+.hx-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.hx-chip{padding:9px 16px;border-radius:99px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--muted);font:600 13px 'Inter',sans-serif;cursor:pointer;transition:.2s}
+.hx-chip:hover{color:var(--text)}.hx-chip.on{background:rgba(245,197,24,.14);border-color:var(--gold);color:var(--gold)}
+.hx-tg{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none;margin-left:auto}
+.hx-tg i{width:34px;height:20px;border-radius:99px;background:rgba(255,255,255,.12);position:relative;transition:.2s}.hx-tg i:after{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:.2s}
+.hx-tg.on i{background:var(--green)}.hx-tg.on i:after{left:17px}
+.hx-res{border-top:1px solid var(--border);margin-top:4px}
+.hx-fr{display:flex;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--border)}
+.hx-fr:last-child{border-bottom:0}
+.hx-rk{width:24px;font:800 15px 'Plus Jakarta Sans',Inter,sans-serif;color:var(--muted);flex:none}.hx-fr:first-child .hx-rk{color:var(--gold)}
+.hx-gr{flex:1;min-width:0}
+.hx-fn{font:700 15px 'Plus Jakarta Sans',Inter,sans-serif}
+.hx-fm{font-size:12px;color:var(--muted);margin-top:1px}
+.hx-off{background:rgba(29,185,84,.13);color:var(--green);font:700 11px 'Inter',sans-serif;border-radius:7px;padding:3px 7px;margin-left:6px}
+.hx-pr{text-align:right;flex:none}.hx-pr b{display:block;font:800 21px 'Plus Jakarta Sans',Inter,sans-serif}.hx-pr s{font-size:11.5px;color:var(--muted)}
+.hx-acts{display:flex;gap:8px;align-items:center;flex:none}
+.hx-acts .hx-btn{margin-left:auto}
+.hx-more{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--muted)}
+.hx-more a{color:var(--gold);cursor:pointer;font-weight:700;font-size:12.5px}
+.hx-dg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.hx-dc{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--border);border-radius:18px;padding:20px;transition:.25s}
+.hx-dc:hover{border-color:rgba(245,197,24,.4);transform:translateY(-3px)}
+.hx-dc .top{display:flex;gap:12px;align-items:center}
+.hx-dc .pc{font:800 36px/1 'Plus Jakarta Sans',Inter,sans-serif;margin:16px 0 4px;letter-spacing:-1px}
+.hx-dc .pc small{font:600 12px 'Inter',sans-serif;color:var(--muted);letter-spacing:0;-webkit-text-fill-color:var(--muted)}
+.hx-dc .ds{font-size:12px;color:var(--muted);line-height:1.5;min-height:36px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hx-dc .cd{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.hx-dc .hx-btn{width:100%;justify-content:center}
+.hx-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:16px}.hx-hd .hx-sub{margin-bottom:0}
+.hx-link{background:transparent;border:1px solid var(--border);border-radius:9px;padding:7px 14px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}.hx-link:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:860px){.hx-dg{grid-template-columns:1fr}.hx-fr{flex-wrap:wrap}.hx-pr{margin-left:auto}.hx-acts{width:100%;justify-content:space-between}.hx-tg{margin-left:0}.hx-fnd{padding:18px}}
+@media(min-width:861px) and (max-width:1100px){.hx-dg{grid-template-columns:repeat(2,1fr)}}
 /* ══ ALL FIRMS v2 — premium cards ══ */
 .firms-grid{grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 .fc2{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s var(--ease),border-color .2s,box-shadow .2s;min-width:0}
@@ -931,64 +1029,52 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
     <div class="panel-inner">
 
       <!-- HERO -->
-      <div class="hero" style="padding:48px 40px;margin-bottom:24px;">
-        <div style="position:absolute;top:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.06),transparent 70%);pointer-events:none;"></div>
-        <div style="position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.04),transparent 70%);pointer-events:none;"></div>
-        <div class="hero-badge" style="margin-bottom:24px;font-size:10px;letter-spacing:2px;">✦ BUILT BY A TRADER, FOR TRADERS</div>
-        <h1 style="font-size:clamp(28px,4vw,48px);line-height:1.1;margin-bottom:12px;letter-spacing:-1px;">
-          Find the Right<br><span class="accent">Prop Firm.</span><br>Save Money. Get Funded.
-        </h1>
-        <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:480px;margin-bottom:32px;">
-          Compare 35+ prop firms in one place. Exclusive discount codes, verified payouts, and an AI quiz that matches you to your perfect firm in 60 seconds.
-        </p>
-        <div class="hero-actions" style="margin-bottom:0;">
-          <button class="btn btn-gold" onclick="nav('quiz')" style="padding:14px 28px;font-size:14px;">🎯 Find My Firm</button>
-          <button class="btn btn-outline" onclick="nav('firms')" style="padding:14px 28px;font-size:14px;">Browse All Firms</button>
-          <button class="btn btn-outline" onclick="nav('hotdeals')" style="padding:14px 28px;font-size:14px;border-color:rgba(229,62,62,.4);color:#E53E3E;">🔥 Hot Deals</button>
+      <div class="hx-hero">
+        <div class="hx-aur"><i></i><i></i><i></i></div>
+        <div>
+          <span class="hx-pill"><span class="d"></span>Built by a trader, for traders</span>
+          <h1><span class="hx-l">Find the Right Prop Firm.</span><span class="hx-l hx-gt">Compare, Save, Get Funded.</span></h1>
+          <p class="hx-lead">Compare 35+ firms in one place with exclusive discount codes, trust scores built from real Trustpilot data, and an AI match in 60 seconds.</p>
+          <div class="hx-act">
+            <button class="hx-btn g" onclick="nav('quiz')">🎯 Find My Firm</button>
+            <button class="hx-btn" onclick="nav('firms')">Browse All Firms</button>
+            <button class="hx-btn r" onclick="nav('hotdeals')">🔥 Hot Deals</button>
+          </div>
         </div>
+        <div class="hx-live" id="hxLive"></div>
+      </div>
+
+      <!-- PRICE FINDER -->
+      <div class="hx-sec">
+        <div class="hx-hd"><div><h2 class="hx-h">Compare account prices, <span class="hx-gt">find your best fit.</span></h2>
+          <p class="hx-sub">Real prices after the discount code, ranked, with each firm's trust score.</p></div></div>
+        <div class="hx-fnd" id="hxFnd"></div>
       </div>
 
       <!-- NUMBERS BAR -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;">
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">35+</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">Firms Listed</div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">150+</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">Traders Joined</div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">$6000+</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">In Payouts</div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.3)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1;">100%</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.6px;">Free Platform</div>
-        </div>
+      <div class="hx-stats">
+        <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="35">35</span>+</div><div class="l">Firms Listed</div></div>
+        <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="150">150</span>+</div><div class="l">Traders Joined</div></div>
+        <div class="hx-stat"><div class="n hx-gt">$<span class="hx-cu" data-n="6000">6,000</span>+</div><div class="l">In Payouts</div></div>
+        <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="100">100</span>%</div><div class="l">Free Platform</div></div>
       </div>
 
-      <!-- FEATURE STRIP -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px;">
-        <div onclick="nav('quiz')" style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-          <div style="font-size:24px;margin-bottom:10px;">🤖</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">AI Quiz</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.5;">Get matched in 60 seconds</div>
-        </div>
-        <div onclick="nav('compare')" style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-          <div style="font-size:24px;margin-bottom:10px;">📊</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Side by Side</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.5;">Compare up to 3 firms</div>
-        </div>
-        <div onclick="nav('payouts')" style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='rgba(245,197,24,.4)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)'">
-          <div style="font-size:24px;margin-bottom:10px;">✅</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Live Payouts</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.5;">Real verified proof</div>
-        </div>
-        <div onclick="nav('hotdeals')" style="background:linear-gradient(135deg,rgba(229,62,62,.08),rgba(229,62,62,.04));border:1px solid rgba(229,62,62,.2);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='rgba(229,62,62,.5)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(229,62,62,.2)';this.style.transform='translateY(0)'">
-          <div style="font-size:24px;margin-bottom:10px;">🔥</div>
-          <div style="font-size:13px;font-weight:700;color:#E53E3E;margin-bottom:4px;">Hot Deals</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.5;">Exclusive discount codes</div>
+      <!-- HOT DEALS -->
+      <div class="hx-sec">
+        <div class="hx-hd"><div><h2 class="hx-h">🔥 Hot deals <span class="hx-gt">right now</span></h2><p class="hx-sub">The biggest live codes from firms on FundedHunt.</p></div>
+          <button class="hx-link" onclick="nav('hotdeals')">See all deals →</button></div>
+        <div class="hx-dg" id="hxDeals"></div>
+      </div>
+
+      <!-- TOOLS -->
+      <div class="hx-sec">
+        <h2 class="hx-h">More ways to <span class="hx-gt">choose smarter</span></h2>
+        <p class="hx-sub">Not sure yet? Let the tools do the work.</p>
+        <div class="hx-bento" style="margin-bottom:0">
+          <div class="hx-t" onclick="nav('quiz')"><div class="ic">🎯</div><h3>AI Find My Firm</h3><p>Answer a few questions and get matched to the right firm in 60 seconds.</p></div>
+          <div class="hx-t" onclick="nav('compare')"><div class="ic">⚖️</div><h3>Compare side by side</h3><p>Price for your size, trust and rules, up to 4 firms.</p></div>
+          <div class="hx-t" onclick="nav('trust')"><div class="ic">🛡️</div><h3>Trust Radar</h3><p>Score from 0 to 100 from reviews and firm history.</p><div class="hx-rings" id="hxRings"></div></div>
+          <div class="hx-t" onclick="nav('payouts')"><div class="ic">✅</div><h3>Live Payouts</h3><p>Real, verified payout proof from traders.</p></div>
         </div>
       </div>
 
@@ -1032,6 +1118,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
         {n:'Pipstone Capital',dom:'pipstonecapital.com',c:'#A855F7',m:'PS',type:'bogo',pre:'',big:'Buy 1 Get 1',u:'',t:1,desc:'Free Instant account of the same size added to your order',codes:[['','EXPOBOGO']],url:'https://pipstonecapital.com',ap:'Instant accounts',kind:'Free accounts'},
         {n:'Finotive Funding',dom:'finotivefunding.com',c:'#4F46E5',m:'FF',type:'pct',pre:'FLAT',big:'50',u:'% OFF',desc:'50% off all challenges',codes:[['','FUNDEDHUNT']],url:'https://finotivefunding.com/FUNDEDHUNT',ap:'All challenge types',kind:'Percentage off'}
       ];
+      window.HD_DEALS=DEALS;
       var root=document.getElementById('hdRoot'); if(!root) return;
       var I={copy:'<svg class="ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>',chk:'<svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',ext:'<svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>',down:'<svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>',info:'<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M12 11v5"/></svg>'};
       var F={all:'All',pct:'Discounts',bogo:'Free accounts'}, f='all', open={};
@@ -7031,10 +7118,93 @@ function firmCardHTML(f, showScore) {
   </div>`;
 }
 
+// ── Home hero (command center) ──────────────────────────────
+var _hxI = 0, _hxT = null;
+function hxDeals(){ return (window.HD_DEALS||[]).filter(function(d){ if(!d.expires) return true; var x=new Date(); x.setHours(0,0,0,0); return Math.round((new Date(d.expires+'T00:00:00')-x)/86400000) >= 0; }); }
+function hxFirm(n){ return FIRMS.find(function(f){return f.name===n;}) || FIRMS.find(function(f){return f.name.indexOf(n)===0;}) || null; }
+function hxFrom(n){ var best=null; (PF_DATA['10k']||[]).forEach(function(r){ if(r.name===n && (best===null || r.disc<best)) best=r.disc; }); return best; }
+function hxShort(d){ return d.type==='bogo' ? d.big : ((d.pre||'').toUpperCase()==='UP TO' ? 'Up to ' : '') + d.big + '%'; }
+function hxCountUp(){
+  document.querySelectorAll('#panel-home .hx-cu').forEach(function(el){
+    var t=+el.dataset.n, s=performance.now();
+    (function step(n){ var p=Math.min(1,(n-s)/1200); el.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString(); if(p<1) requestAnimationFrame(step); })(s);
+  });
+}
+function hxRenderLive(){
+  var el=document.getElementById('hxLive'); if(!el) return;
+  var D=hxDeals(); if(!D.length){ el.innerHTML='<div class="hx-sm" style="padding:30px 0;text-align:center">New deals drop every week. Check Hot Deals.</div>'; return; }
+  var d=D[_hxI % D.length], f=hxFirm(d.n), from=hxFrom(d.n);
+  var codes=d.codes.slice(0,2).map(function(c){ var code=String(c[1]).replace(/'/g,"\\'"); return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>'; }).join('');
+  el.innerHTML =
+    '<div class="hd"><span class="hx-pill" style="letter-spacing:.6px;text-transform:none;font-size:11.5px"><span class="d"></span>Deal of the moment</span><span>'+((_hxI%D.length)+1)+' / '+D.length+'</span></div>'
+   +'<div class="hx-id"><div class="hx-lg"><span style="background:'+d.c+'">'+d.m+'</span><img src="https://www.google.com/s2/favicons?domain='+d.dom+'&sz=128" alt="" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></div>'
+   +'<div><div class="hx-nm">'+d.n+'</div><div class="hx-sm">'+(f?(f.rating+'★ · trust '+f.trustScore+'/100'+(f.tpWarn?' ⚠':'')):'Verified deal')+'</div></div></div>'
+   +'<div class="hx-pre">'+((d.pre||'')+' '+(d.type==='bogo'?'':'DISCOUNT')).trim()+'</div>'
+   +'<div class="hx-big hx-gt">'+hxShort(d)+(d.type==='bogo'?'':'<span class="hx-from" style="-webkit-text-fill-color:var(--muted)"> OFF</span>')+'</div>'+(from&&d.type!=='bogo'?'<div class="hx-sm" style="margin-top:8px">From <b style="color:var(--text)">$'+from+'</b> for a 10K account, after code</div>':'')
+   +'<div class="hx-desc">'+d.desc+'</div>'
+   +'<div class="hx-codes">'+codes+'<button class="hx-btn g s" onclick="hxGo('+(_hxI%D.length)+')">Get this deal →</button></div>'
+   +'<div class="hx-bar"><i></i></div>'
+   +'<div class="hx-dots">'+D.map(function(_,i){return '<b class="'+(i===_hxI%D.length?'on':'')+'" onclick="hxPick('+i+')"></b>';}).join('')+'</div>';
+}
+function hxPick(i){ _hxI=i; hxRenderLive(); hxTimer(); }
+function hxTimer(){ clearInterval(_hxT); _hxT=setInterval(function(){ var p=document.getElementById('panel-home'); if(!p||!p.classList.contains('active')) return; _hxI++; hxRenderLive(); }, 6000); }
+function hxGo(i){
+  var D=hxDeals(), d=D[i]; if(!d) return; var f=hxFirm(d.n);
+  window.open(d.url,'_blank');
+  try{ awardPoints(50,'Visited '+d.n); }catch(e){}
+  try{ trackFirmClick(f?f.id:d.n, d.n, d.codes[0][1]); }catch(e){}
+}
+// ── Home price finder + deal grid ──────────────────────────
+var _hxF = { size:'10k', type:'2-Step', trusted:true };
+function hxFirmForPF(n){ if(n==='CTI') return FIRMS.find(function(f){return f.id==='cti';}); return hxFirm(n); }
+function hxFSet(k,v){ _hxF[k]=v; hxFinderRender(); }
+function hxFinderRender(){
+  var el=document.getElementById('hxFnd'); if(!el) return;
+  var sizes=['5k','10k','25k','50k','100k','200k'], types=['1-Step','2-Step','Instant'];
+  var rows=(PF_DATA[_hxF.size]||[]).filter(function(r){return r.cat===_hxF.type;}).map(function(r){return {r:r,f:hxFirmForPF(r.name)};})
+    .filter(function(x){return x.f && (!_hxF.trusted || (x.f.trustScore||0)>=70);})
+    .sort(function(a,b){return a.r.disc-b.r.disc;})
+    .filter(function(x,i,arr){return arr.findIndex(function(y){return y.f.id===x.f.id;})===i;}).slice(0,6);
+  var chips=function(list,cur,key,lab){return list.map(function(o){return '<button class="hx-chip '+(o===cur?'on':'')+'" onclick="hxFSet(\''+key+'\',\''+o+'\')">'+(lab?lab(o):o)+'</button>';}).join('');};
+  el.innerHTML =
+    '<div class="hx-fl">Account size</div><div class="hx-row">'+chips(sizes,_hxF.size,'size',function(o){return o.toUpperCase();})+'</div>'
+   +'<div class="hx-fl">Challenge type</div><div class="hx-row">'+chips(types,_hxF.type,'type')+'<div class="hx-tg '+(_hxF.trusted?'on':'')+'" onclick="hxFSet(\'trusted\','+(!_hxF.trusted)+')"><i></i>Trusted firms only (trust 70+)</div></div>'
+   +'<div class="hx-res">'+(rows.length ? rows.map(function(x,i){
+        var f=x.f, r=x.r, code=(r.code||f.discountCode||''), sc=code.replace(/'/g,"\\'"), off=r.base>r.disc?Math.round((1-r.disc/r.base)*100):0;
+        return '<div class="hx-fr"><div class="hx-rk">'+(i+1)+'</div>'
+         +'<div class="hx-lg" style="width:42px;height:42px"><span style="background:'+(f.color||'#555')+';border-radius:12px;font-size:14px">'+f.name.replace(/^The\s+/,'').split(/\s+/).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase()+'</span><img src="'+r.logo+'" alt="" style="opacity:0;border-radius:12px" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></div>'
+         +'<div class="hx-gr"><div class="hx-fn">'+f.name+(f.tpWarn?' <span class="tp-warn" title="Trustpilot is withholding this firm\'s rating">⚠</span>':'')+(off?'<span class="hx-off">'+off+'% off</span>':'')+'</div>'
+         +'<div class="hx-fm">'+r.plan+' · trust '+f.trustScore+'/100 · '+f.rating+'★</div></div>'
+         +'<div class="hx-pr"><b class="'+(i===0?'hx-gt':'')+'">$'+r.disc+'</b>'+(off?'<s>$'+r.base+'</s>':'')+'</div>'
+         +'<div class="hx-acts">'+(code?'<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+sc+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+code+'</span><span class="fc2-cl">Copy</span></button>':'')+'<button class="hx-btn g s" onclick="visitFirm(\''+f.id+'\')">Visit →</button></div></div>';
+      }).join('') : '<div style="padding:26px;text-align:center;color:var(--muted)">No '+_hxF.type+' price on file for '+_hxF.size.toUpperCase()+(_hxF.trusted?' among trusted firms':'')+'. Try another size or type.</div>')+'</div>'
+   +'<div class="hx-more"><span>Prices are the challenge fee after the firm\'s code. Plan names differ between firms, so check the rules before you buy.</span><a onclick="nav(\'pricefinder\')">Full Price Finder →</a></div>';
+}
+function hxDealsRender(){
+  var el=document.getElementById('hxDeals'); if(!el) return;
+  var D=hxDeals().slice(0,6);
+  el.innerHTML=D.map(function(d,i){ var f=hxFirm(d.n);
+    var codes=d.codes.slice(0,2).map(function(c){var code=String(c[1]).replace(/'/g,"\\'");return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>';}).join('');
+    return '<div class="hx-dc"><div class="top"><div class="hx-lg" style="width:42px;height:42px"><span style="background:'+d.c+';border-radius:12px;font-size:14px">'+d.m+'</span><img src="https://www.google.com/s2/favicons?domain='+d.dom+'&sz=128" alt="" style="opacity:0;border-radius:12px" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></div>'
+      +'<div><div class="hx-fn">'+d.n+'</div><div class="hx-fm">'+(f?'trust '+f.trustScore+'/100'+(f.tpWarn?' ⚠':''):'Verified deal')+'</div></div></div>'
+      +'<div class="pc hx-gt">'+hxShort(d)+(d.type==='bogo'?'':' <small>OFF</small>')+'</div><div class="ds">'+d.desc+'</div><div class="cd">'+codes+'</div>'
+      +'<button class="hx-btn s" onclick="hxGo('+i+')">Get this deal →</button></div>';
+  }).join('');
+}
+
+function homeHeroInit(){
+  if(!document.getElementById('hxLive')) return;
+  hxRenderLive(); hxTimer(); hxCountUp();
+  hxFinderRender(); hxDealsRender();
+  var rg=document.getElementById('hxRings');
+  if(rg) rg.innerHTML = FIRMS.slice().sort(function(a,b){return (b.trustScore||0)-(a.trustScore||0);}).slice(0,3).map(function(f){ var s=f.trustScore, c=s>=85?'var(--green)':s>=70?'var(--gold)':'var(--red)'; return '<div class="hx-ring" title="'+f.name+'" style="--p:'+s+';--c:'+c+'"><b>'+s+'</b></div>'; }).join('');
+}
+
 function renderHomeFirms() {
   const TOP6_IDS = ['funding-pips','the-5pers','goat-funded','alpha-capital','legion-funding','blue-guardian'];
   const top6 = TOP6_IDS.map(id => FIRMS.find(f => f.id === id)).filter(Boolean);
   document.getElementById('homeFirmsGrid').innerHTML = top6.map(f=>firmCardHTML(f)).join('');
+  try { homeHeroInit(); } catch(e) {}
 }
 
 let _currentFirms = [...FIRMS];
