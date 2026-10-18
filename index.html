@@ -670,6 +670,34 @@ a.blog-card{display:block;text-decoration:none;color:inherit}
 .hd-erow b{font-size:13.5px}.hd-erow s{color:var(--hm);font-size:15px;font-weight:800}.hd-erow small{color:var(--hm);font-size:11.5px;margin-left:auto}
 @media(max-width:1000px){.hd-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.hd-grid{grid-template-columns:1fr}.hd-n{font-size:42px}.hd-seg button{padding:7px 10px}}
+/* ══ TOP RATED FIRMS (home) ══ */
+.tr-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tr-sub{font-size:12.5px;color:var(--muted);margin:5px 0 0}
+.tr-sub a{color:var(--gold);cursor:pointer;white-space:nowrap}
+.tr-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.tr-row{display:flex;align-items:center;gap:14px;padding:14px 20px;border-top:1px solid var(--border);cursor:pointer;transition:background .15s}
+.tr-row:first-child{border-top:0}
+.tr-row:hover{background:var(--bg3)}
+.tr-rk{width:22px;flex:none;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:var(--muted)}
+.tr-rk.g{color:var(--gold)}
+.tr-lg{position:relative;width:44px;height:44px;flex:none}
+.tr-lg img{position:absolute;inset:0;width:100%;height:100%;border-radius:12px;background:#fff;padding:4px;object-fit:contain}
+.tr-mono{position:absolute;inset:0;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff}
+.tr-nm{flex:1;min-width:0}
+.tr-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.tr-w{color:var(--gold);font-size:12px;cursor:help}
+.tr-ft{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;color:var(--muted);border:1px solid var(--border);border-radius:100px;padding:1px 8px}
+.tr-m{font-size:12px;color:var(--muted);margin-top:3px}
+.tr-ring{position:relative;width:52px;height:52px;flex:none}
+.tr-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.tr-ring circle{fill:none;stroke-width:5}
+.tr-ring .b{stroke:rgba(255,255,255,.08)}
+.tr-ring .v{stroke-linecap:round;animation:trr 1s var(--ease) both}
+@keyframes trr{from{stroke-dashoffset:138.2}}
+.tr-ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800}
+.tr-leg{display:flex;gap:6px 18px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--muted)}
+.tr-leg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+@media(max-width:560px){.tr-row{padding:12px 14px;gap:10px}.tr-lg{width:38px;height:38px}.tr-n{font-size:14.5px}.tr-m{font-size:11px}.tr-ring{width:46px;height:46px}.tr-ring b{font-size:14px}}
 /* ══ QUIZ v2: global find-my-firm ══ */
 .quiz-wrap{max-width:720px}
 .quiz-option{padding:14px 16px}
@@ -1138,12 +1166,16 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
         </div>
       </div>
 
-      <!-- TOP FIRMS -->
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;margin:0;">Top Firms This Week</h2>
+      <!-- TOP RATED FIRMS (ranked by Funded Hunt trust score) -->
+      <div class="tr-head">
+        <div>
+          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;margin:0;">Top Rated Firms</h2>
+          <p class="tr-sub">Ranked by Funded Hunt Trust Score. Trustpilot data checked 17 Oct 2026. <a onclick="nav('trust')">How we score</a></p>
+        </div>
         <button onclick="nav('firms')" style="background:transparent;border:1px solid var(--border);border-radius:8px;padding:7px 16px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">View All Firms</button>
       </div>
-      <div class="firms-grid" id="homeFirmsGrid"></div>
+      <div class="tr-wrap" id="homeTrustList"></div>
+      <div class="tr-leg"><span><i style="background:var(--green)"></i>85+ Highly trusted</span><span><i style="background:var(--gold)"></i>70 to 84 Generally trusted</span><span><i style="background:var(--red)"></i>Under 70 Use caution</span></div>
     </div>
   </div>
 
@@ -7257,13 +7289,34 @@ function homeHeroInit(){
   hxRenderLive(); hxTimer(); hxCountUp();
   hxFinderRender(); hxDealsRender();
   var rg=document.getElementById('hxRings');
-  if(rg) rg.innerHTML = FIRMS.slice().sort(function(a,b){return (b.trustScore||0)-(a.trustScore||0);}).slice(0,3).map(function(f){ var s=f.trustScore, c=s>=85?'var(--green)':s>=70?'var(--gold)':'var(--red)'; return '<div class="hx-ring" title="'+f.name+'" style="--p:'+s+';--c:'+c+'"><b>'+s+'</b></div>'; }).join('');
+  if(rg) rg.innerHTML = hxTopTrust(3).map(function(f){ var s=f.trustScore, c=s>=85?'var(--green)':s>=70?'var(--gold)':'var(--red)'; return '<div class="hx-ring" title="'+f.name+'" style="--p:'+s+';--c:'+c+'"><b>'+s+'</b></div>'; }).join('');
 }
 
+// Top firms by Funded Hunt trust score. Ties break by Trustpilot review volume.
+// Firms that share one brand and Trustpilot page (e.g. FundedNext and FundedNext Futures) are listed once, at the higher score.
+function hxTopTrust(n){
+  var seen={}, out=[];
+  FIRMS.slice().sort(function(a,b){ return (b.trustScore||0)-(a.trustScore||0) || (b.reviewCount||0)-(a.reviewCount||0); })
+    .forEach(function(f){
+      if(!f.trustScore) return;
+      var m=(f.logo||'').match(/domain=([^&]+)/), k=m?m[1]:f.id;
+      if(seen[k]) return; seen[k]=1; out.push(f);
+    });
+  return out.slice(0,n);
+}
 function renderHomeFirms() {
-  const TOP6_IDS = ['funding-pips','the-5pers','goat-funded','alpha-capital','legion-funding','blue-guardian'];
-  const top6 = TOP6_IDS.map(id => FIRMS.find(f => f.id === id)).filter(Boolean);
-  document.getElementById('homeFirmsGrid').innerHTML = top6.map(f=>firmCardHTML(f)).join('');
+  var el=document.getElementById('homeTrustList');
+  if(el) el.innerHTML = hxTopTrust(6).map(function(f,i){
+    var s=f.trustScore, c=s>=85?'var(--green)':s>=70?'var(--gold)':'var(--red)', C=138.2, off=(C*(1-s/100)).toFixed(1);
+    var warn=f.tpWarn?'<span class="tr-w" title="Trustpilot withholds this firm\'s rating. Shown: star-distribution average.">⚠</span>':'';
+    var fut=(f.market==='Futures'||f.id==='topstep')?'<span class="tr-ft">Futures</span>':'';
+    var init=f.name.replace(/^The\s+/,'').split(/\s+/).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+    return '<div class="tr-row" onclick="openFirmDetail(\''+f.id+'\')">'
+      +'<div class="tr-rk'+(i===0?' g':'')+'">'+(i+1)+'</div>'
+      +'<span class="tr-lg"><span class="tr-mono" style="background:'+(f.color||'#555')+'">'+init+'</span><img src="'+f.logo+'" alt="" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></span>'
+      +'<div class="tr-nm"><div class="tr-n">'+f.name+warn+fut+'</div><div class="tr-m">'+Number(f.rating).toFixed(1)+'★ on Trustpilot · '+Number(f.reviewCount).toLocaleString('en-US')+' reviews · Est. '+f.founded+'</div></div>'
+      +'<div class="tr-ring" title="Trust score '+s+' out of 100"><svg viewBox="0 0 56 56"><circle class="b" cx="28" cy="28" r="22"/><circle class="v" cx="28" cy="28" r="22" style="stroke:'+c+';stroke-dasharray:'+C+';stroke-dashoffset:'+off+'"/></svg><b>'+s+'</b></div></div>';
+  }).join('');
   try { homeHeroInit(); } catch(e) {}
 }
 
