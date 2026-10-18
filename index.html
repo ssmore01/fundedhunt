@@ -634,7 +634,7 @@ a.blog-card{display:block;text-decoration:none;color:inherit}
 .hd-card:hover{border-color:var(--hl2);transform:translateY(-2px);box-shadow:0 18px 40px -22px #000}
 .hd-ct{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .hd-who{display:flex;align-items:center;gap:11px;min-width:0}.hd-who b{font-size:14.5px;display:block;letter-spacing:-.1px;color:var(--text)}.hd-who small{font-size:11.5px;color:var(--hm)}
-.hd-mono{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:12.5px;letter-spacing:.3px;color:#fff;flex:none;background:linear-gradient(145deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));box-shadow:0 0 0 1px rgba(255,255,255,.1) inset;position:relative;overflow:hidden}
+.hd-mono{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:12.5px;letter-spacing:.3px;color:#fff;flex:none;background:linear-gradient(145deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));box-shadow:0 0 0 1px rgba(255,255,255,.1) inset;position:relative;overflow:hidden}.hd-mono img{position:absolute;inset:0;width:100%;height:100%;border-radius:inherit;background:#fff;padding:4px;object-fit:contain}
 .hd-mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:5px;border-radius:11px}
 .hd-st{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--hm);white-space:nowrap}
 .hd-st:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hg)}
@@ -1229,7 +1229,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       function active(){return DEALS.filter(function(d){var dl=daysLeft(d);return dl===null||dl>=0;});}
       function ended(){return DEALS.filter(function(d){var dl=daysLeft(d);return dl!==null&&dl<0;});}
       function cnt(k){return active().filter(function(d){return k==='all'||d.type===k;}).length;}
-      function mono(d){return '<span class="hd-mono" style="--c:'+d.c+'">'+esc(d.m)+'</span>';}
+      function mono(d){return '<span class="hd-mono" style="--c:'+d.c+'">'+esc(d.m)+(d.dom?'<img src="https://www.google.com/s2/favicons?domain='+encodeURIComponent(d.dom)+'&sz=128" alt="" loading="lazy" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'">':'')+'</span>';}
       function codeRow(c){return '<div class="hd-cw">'+(c[0]?'<div class="hd-clab">'+esc(c[0])+'</div>':'')+'<div class="hd-code"><b>'+esc(c[1])+'</b><button type="button" class="hd-cbtn" data-code="'+esc(c[1])+'">'+I.copy+'Copy</button></div></div>';}
       function rowsHTML(d){return d.rows.map(function(g){return '<div class="hd-rg"><div class="hd-rt">'+esc(g[0])+'</div>'+g[1].map(function(r){return '<div class="hd-rr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>';}).join('')+'</div>';}).join('');}
       function card(d){
