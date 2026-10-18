@@ -670,6 +670,66 @@ a.blog-card{display:block;text-decoration:none;color:inherit}
 .hd-erow b{font-size:13.5px}.hd-erow s{color:var(--hm);font-size:15px;font-weight:800}.hd-erow small{color:var(--hm);font-size:11.5px;margin-left:auto}
 @media(max-width:1000px){.hd-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.hd-grid{grid-template-columns:1fr}.hd-n{font-size:42px}.hd-seg button{padding:7px 10px}}
+/* ══ QUIZ v2: global find-my-firm ══ */
+.quiz-wrap{max-width:720px}
+.quiz-option{padding:14px 16px}
+.qz-ot{display:flex;flex-direction:column;gap:3px;min-width:0}
+.qz-ot b{font-weight:600;font-size:13.5px;line-height:1.3}
+.qz-ot small{font-size:11.5px;color:var(--muted);font-weight:400;line-height:1.4}
+.quiz-option.selected .qz-ot small{color:var(--gold);opacity:.85}
+.quiz-option:last-child:nth-child(odd){grid-column:1/-1}
+@media(max-width:560px){.quiz-options{grid-template-columns:1fr}}
+.qz-eye{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.qz-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;margin-bottom:4px}
+.qz-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.qz-chip{font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
+.qz-note{font-size:12.5px;color:var(--gold);background:var(--gold-dim);border:1px solid var(--border2);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+.qz-top{position:relative;background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,.07));border:1.5px solid var(--gold);border-radius:18px;padding:24px 22px 20px;margin:14px 0}
+.qz-badge{position:absolute;top:-11px;left:20px;background:var(--gold);color:#000;font-size:10.5px;font-weight:800;padding:4px 12px;border-radius:100px;letter-spacing:.5px}
+.qz-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.qz-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+@media(max-width:620px){.qz-grid{grid-template-columns:1fr}}
+.qz-hd{display:flex;align-items:center;gap:12px}
+.qz-lg{position:relative;width:44px;height:44px;flex:none}
+.qz-card .qz-lg{width:36px;height:36px}
+.qz-lg img{position:absolute;inset:0;width:100%;height:100%;border-radius:11px;background:#fff;padding:4px;object-fit:contain}
+.qz-mono{position:absolute;inset:0;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:14px;color:#fff}
+.qz-nm{flex:1;min-width:0}
+.qz-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;line-height:1.2}
+.qz-card .qz-name{font-size:15px}
+.qz-tag{font-size:11.5px;color:var(--muted);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.qz-mt{text-align:right;flex:none;font-family:'Plus Jakarta Sans',sans-serif}
+.qz-mt div{font-size:26px;font-weight:800;line-height:1}
+.qz-mt span{font-size:10px;color:var(--muted);font-family:'Inter',sans-serif}
+.qz-mt.sm div{font-size:20px}
+.qz-price{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:11px 14px;margin:14px 0 0}
+.qz-card .qz-price{margin:0;padding:9px 12px}
+.qz-pl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+.qz-pv{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:var(--gold);margin-top:2px}
+.qz-pv s{font-size:13px;font-weight:500;color:var(--muted2);margin-left:4px}
+.qz-pv.qz-np{font-size:14px;color:var(--muted)}
+.qz-why,.qz-warn{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:6px}
+.qz-card .qz-why,.qz-card .qz-warn{margin:0}
+.qz-why li{font-size:12.5px;color:var(--text);line-height:1.45}
+.qz-warn li{font-size:12px;color:var(--red);line-height:1.45}
+.qz-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+@media(max-width:560px){.qz-stats{grid-template-columns:1fr 1fr}}
+.qz-stats div{background:var(--bg3);border-radius:10px;padding:9px 10px;min-width:0}
+.qz-stats span{display:block;font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:3px}
+.qz-stats b{font-size:12.5px;font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qz-acts{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.qz-card .qz-acts{margin-top:auto;padding-top:2px}
+.qz-more{border:1px solid var(--border);border-radius:14px;padding:6px 14px;margin-bottom:16px;background:var(--bg2)}
+.qz-mh{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;padding:10px 0 6px;font-weight:600}
+.qz-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--border);cursor:pointer;font-size:13px}
+.qz-row:hover .qz-rn{color:var(--gold)}
+.qz-rn{font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qz-rp{color:var(--muted);font-size:12px;flex:none}
+.qz-rs{font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;flex:none;width:44px;text-align:right}
+.qz-end{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.qz-disc{font-size:11px;color:var(--muted2);text-align:center;margin-top:18px;line-height:1.6}
+.qz-empty{text-align:center;padding:50px 20px;color:var(--muted)}
+.qz-empty h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);margin-bottom:8px}
 /* ══ COMPARE v2 — price matrix + best-for-you ══ */
 .cx-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
 .cx-chip{display:inline-flex;align-items:center;gap:9px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:7px 8px 7px 8px}
@@ -1054,8 +1114,8 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       <!-- NUMBERS BAR -->
       <div class="hx-stats">
         <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="35">35</span>+</div><div class="l">Firms Listed</div></div>
-        <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="150">150</span>+</div><div class="l">Traders Joined</div></div>
-        <div class="hx-stat"><div class="n hx-gt">$<span class="hx-cu" data-n="6000">6,000</span>+</div><div class="l">In Payouts</div></div>
+        <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="260">260</span>+</div><div class="l">Traders Joined</div></div>
+        <div class="hx-stat"><div class="n hx-gt">$<span class="hx-cu" data-n="7200">7,200</span>+</div><div class="l">In Payouts</div></div>
         <div class="hx-stat"><div class="n hx-gt"><span class="hx-cu" data-n="100">100</span>%</div><div class="l">Free Platform</div></div>
       </div>
 
@@ -1592,7 +1652,7 @@ setTimeout(pfRender, 500);
     <div class="panel-inner">
       <div class="panel-head">
         <h1>🎯 Find My Perfect Firm</h1>
-        <p>Answer 6 quick questions. Our AI matches you to the firms that fit your trading style best.</p>
+        <p>Answer 8 quick questions. We rank every firm on real prices, rules and trust scores to find your best fit.</p>
       </div>
       <div class="quiz-wrap" id="quizWrap"></div>
     </div>
@@ -11342,471 +11402,349 @@ function firmOvTab(el, panelId) {
   if(panel) { panel.classList.add('active'); }
 }
 
+// ── FIND MY FIRM QUIZ v2 (global, scored on real firm data and real prices) ──
 const QUIZ_STEPS = [
   {
-    key:'experience',
-    q:'What is your trading experience level?',
-    sub:'Be honest — this is the most important filter',
+    key:'market',
+    q:'What do you want to trade?',
+    sub:'This decides which firms we look at.',
     opts:[
-      {ico:'🌱',l:'Complete Beginner — never traded live',v:'beginner'},
-      {ico:'📚',l:'Some Knowledge — practiced on demo',v:'intermediate'},
-      {ico:'💼',l:'Experienced — traded live before',v:'advanced'},
-      {ico:'🏆',l:'Professional — consistent track record',v:'professional'}
+      {ico:'💱',l:'Forex, Gold and Indices',d:'CFD prop firms',v:'cfd',c:'CFD'},
+      {ico:'📈',l:'Futures',d:'CME contracts like ES, NQ, Gold, Crude',v:'futures',c:'Futures'}
+    ]
+  },
+  {
+    key:'experience',
+    q:'Where are you in your trading journey?',
+    sub:'Beginners get more weight on track record. Pros get more weight on scaling and splits.',
+    opts:[
+      {ico:'🌱',l:'Just starting',d:'Under 6 months, mostly demo',v:'beginner',c:'Beginner'},
+      {ico:'📚',l:'Developing',d:'6 months to 2 years, some live trading',v:'intermediate',c:'Developing'},
+      {ico:'💼',l:'Experienced',d:'2+ years with a tested strategy',v:'advanced',c:'Experienced'},
+      {ico:'🏆',l:'Professional',d:'Consistently profitable, ready to scale',v:'pro',c:'Pro'}
     ]
   },
   {
     key:'style',
-    q:'What is your primary trading style?',
-    sub:'This is the most critical filter — firms have very different rules per style',
+    q:'How do you trade?',
+    sub:'Firms ban styles very differently. We remove every firm that bans yours.',
     opts:[
-      {ico:'⚡',l:'Scalping — very short trades, seconds to minutes',v:'scalping'},
-      {ico:'📊',l:'Day Trading — close all trades same day',v:'daytrading'},
-      {ico:'🌙',l:'Swing / Position — hold overnight or days',v:'swing'},
-      {ico:'📡',l:'News Trading — trade major economic events',v:'news'}
+      {ico:'⚡',l:'Scalper',d:'Trades last seconds to minutes',v:'scalping',c:'Scalper'},
+      {ico:'📊',l:'Day trader',d:'Flat by the end of the session',v:'daytrading',c:'Day trader'},
+      {ico:'🌙',l:'Swing trader',d:'Holds overnight and over weekends',v:'swing',c:'Swing trader'},
+      {ico:'📡',l:'News trader',d:'Trades high impact economic events',v:'news',c:'News trader'}
     ]
   },
   {
     key:'size',
-    q:'What account size are you targeting?',
-    sub:'Pick what you are comfortable starting with',
+    q:'Which account size are you aiming for?',
+    sub:'We compare the real price after discount code at this size.',
     opts:[
-      {ico:'💵',l:'Small — Under $25K',v:'small'},
-      {ico:'💴',l:'Medium — $25K to $50K',v:'medium'},
-      {ico:'💶',l:'Large — $50K to $100K',v:'large'},
-      {ico:'💷',l:'Max — $100K+',v:'max'}
+      {ico:'🌱',l:'$5K',d:'Smallest and cheapest entry',v:'5k',c:'$5K'},
+      {ico:'💵',l:'$10K',d:'Low cost way to start',v:'10k',c:'$10K'},
+      {ico:'💶',l:'$25K',d:'The common middle ground',v:'25k',c:'$25K'},
+      {ico:'💷',l:'$50K',d:'Serious size, serious fee',v:'50k',c:'$50K'},
+      {ico:'💰',l:'$100K',d:'Large account',v:'100k',c:'$100K'},
+      {ico:'🏦',l:'$200K or more',d:'Maximum capital',v:'200k',c:'$200K+'}
+    ]
+  },
+  {
+    key:'model',
+    q:'Which challenge format do you prefer?',
+    sub:'This is how you go from paying to trading funded.',
+    opts:[
+      {ico:'🚀',l:'1-Step',d:'One evaluation phase, quicker to funding',v:'1-Step',c:'1-Step'},
+      {ico:'🪜',l:'2-Step',d:'Two phases, typically lower fees',v:'2-Step',c:'2-Step'},
+      {ico:'⚡',l:'Instant funding',d:'Skip the evaluation, trade funded from day one',v:'Instant',c:'Instant'},
+      {ico:'🤷',l:'No preference',d:'Show me the best overall',v:'any',c:'Any format'}
+    ]
+  },
+  {
+    key:'price',
+    q:'How much does the fee matter?',
+    sub:'Be honest. The cheapest firm is rarely the best one.',
+    opts:[
+      {ico:'💸',l:'Cheapest possible',d:'The fee is my top concern',v:'low',c:'Lowest fee'},
+      {ico:'⚖️',l:'Fair value',d:'I will pay more for better terms',v:'mid',c:'Fair value'},
+      {ico:'💎',l:'Quality first',d:'Price is secondary',v:'high',c:'Quality first'}
+    ]
+  },
+  {
+    key:'trust',
+    q:'How much do you care about track record?',
+    sub:'Our trust score is built from Trustpilot data. Unproven firms can change rules or disappear.',
+    opts:[
+      {ico:'🛡️',l:'Proven firms only',d:'Trust score 75 or higher',v:'strict',c:'Proven only'},
+      {ico:'⚖️',l:'Balanced',d:'Good reputation at a fair price',v:'balanced',c:'Balanced'},
+      {ico:'🎲',l:'Open to newer firms',d:'I accept more risk for a better deal',v:'open',c:'Open to newer'}
     ]
   },
   {
     key:'priority',
-    q:'What is your #1 priority in a prop firm?',
-    sub:'We weight this answer 2x more than others',
+    q:'What matters most after that?',
+    sub:'This is your tiebreaker. We weight it the highest.',
     opts:[
-      {ico:'💰',l:'Highest profit split',v:'profitsplit'},
-      {ico:'🔓',l:'Most flexible trading rules',v:'flexibility'},
-      {ico:'⚡',l:'Fastest payouts',v:'payout'},
-      {ico:'💸',l:'Lowest challenge fee',v:'cost'}
+      {ico:'💰',l:'Highest profit split',d:'Keep as much of the profit as possible',v:'profitsplit',c:'Top split'},
+      {ico:'⚡',l:'Fastest payouts',d:'Get paid quickly and often',v:'payout',c:'Fast payouts'},
+      {ico:'🔓',l:'Most flexible rules',d:'News, scalping, swing and no time limits',v:'flexibility',c:'Flexible rules'},
+      {ico:'📈',l:'Biggest scaling',d:'Grow into the largest capital',v:'scale',c:'Scaling'}
     ]
-  },
-  {
-    key:'risk',
-    q:'How do you manage risk per trade?',
-    sub:'Helps match you with the right drawdown structure',
-    opts:[
-      {ico:'🛡️',l:'Very Conservative — 0.5% or less per trade',v:'conservative'},
-      {ico:'⚖️',l:'Balanced — 1% per trade',v:'moderate'},
-      {ico:'🔥',l:'Aggressive — 2%+ per trade',v:'aggressive'},
-      {ico:'🤷',l:'Not sure yet',v:'unsure'}
-    ]
-  },
-  {
-    key:'region',
-    q:'Are you based in India?',
-    sub:'Some firms support UPI, local payments and Indian community',
-    opts:[
-      {ico:'🇮🇳',l:'Yes — India based trader',v:'india'},
-      {ico:'🌍',l:'No — outside India',v:'global'}
-    ]
-  },
+  }
 ];
 
-const MATCH_SCORES = {
-  // WEIGHTS: style=2x, priority=2x, experience=1x, size=1x, risk=1x, region=0.5x
-  // Scores are 0-100 per dimension. Firms that VIOLATE a rule get 0-20 for that dimension.
+const QZ_SIZE_N = {'5k':5000,'10k':10000,'25k':25000,'50k':50000,'100k':100000,'200k':200000};
+const QZ_TYPES = ['1-Step','2-Step','Instant'];
 
-  'funding-pips':{
-    // Experience: Good for intermediate+, not ideal for total beginners
-    beginner:60, intermediate:85, advanced:90, professional:85,
-    // Style: News restricted on funded, swing ok, day trading best
-    scalping:80, daytrading:92, swing:78, news:30,
-    // Size: Strong for medium-large
-    small:75, medium:92, large:88, max:84,
-    // Priority: High split (up to 100%), moderate fees, fast payouts
-    profitsplit:90, flexibility:78, payout:80, cost:78,
-    // Risk: Max risk per trade rule on funded — moderate/conservative better
-    conservative:80, moderate:88, aggressive:60, unsure:78,
-    // Region
-    india:82, global:88
-  },
-  'blueberry-funded':{
-    beginner:75, intermediate:78, advanced:72, professional:65,
-    scalping:72, daytrading:78, swing:70, news:75,
-    small:80, medium:76, large:68, max:55,
-    profitsplit:65, flexibility:78, payout:70, cost:82,
-    conservative:80, moderate:76, aggressive:68, unsure:78,
-    india:85, global:72
-  },
-  'goat-funded':{
-    beginner:72, intermediate:82, advanced:80, professional:74,
-    scalping:82, daytrading:80, swing:76, news:50,
-    small:80, medium:82, large:76, max:68,
-    profitsplit:72, flexibility:88, payout:74, cost:80,
-    conservative:78, moderate:82, aggressive:78, unsure:80,
-    india:78, global:82
-  },
-  'the-5pers':{
-    // Best for experienced+ conservative swing traders. Not for scalpers.
-    beginner:45, intermediate:72, advanced:90, professional:95,
-    scalping:20, daytrading:70, swing:95, news:68,
-    small:65, medium:78, large:88, max:90,
-    profitsplit:78, flexibility:60, payout:70, cost:74,
-    conservative:95, moderate:82, aggressive:45, unsure:72,
-    india:70, global:88
-  },
-  'funded-elite':{
-    beginner:72, intermediate:80, advanced:78, professional:72,
-    scalping:82, daytrading:80, swing:74, news:78,
-    small:78, medium:80, large:72, max:60,
-    profitsplit:72, flexibility:92, payout:74, cost:78,
-    conservative:70, moderate:80, aggressive:80, unsure:80,
-    india:75, global:80
-  },
-  'alpha-capital':{
-    beginner:78, intermediate:82, advanced:80, professional:76,
-    scalping:86, daytrading:84, swing:78, news:82,
-    small:82, medium:80, large:74, max:64,
-    profitsplit:74, flexibility:82, payout:86, cost:82,
-    conservative:78, moderate:82, aggressive:78, unsure:80,
-    india:78, global:82
-  },
-  'ftmo':{
-    // Best for experienced professionals. News banned on funded normal accounts.
-    beginner:45, intermediate:80, advanced:95, professional:98,
-    scalping:85, daytrading:90, swing:82, news:50,
-    small:65, medium:82, large:90, max:92,
-    profitsplit:78, flexibility:78, payout:80, cost:55,
-    conservative:90, moderate:88, aggressive:70, unsure:82,
-    india:70, global:95
-  },
-  'e8-markets':{
-    beginner:68, intermediate:86, advanced:90, professional:94,
-    scalping:84, daytrading:88, swing:86, news:84,
-    small:70, medium:84, large:90, max:88,
-    profitsplit:84, flexibility:88, payout:92, cost:74,
-    conservative:86, moderate:88, aggressive:82, unsure:82,
-    india:72, global:88
-  },
-  'fxify':{
-    // Broker-backed, very flexible rules, best for scalpers and news traders
-    beginner:78, intermediate:84, advanced:86, professional:84,
-    scalping:95, daytrading:86, swing:84, news:95,
-    small:82, medium:84, large:82, max:80,
-    profitsplit:80, flexibility:98, payout:80, cost:88,
-    conservative:72, moderate:84, aggressive:92, unsure:82,
-    india:82, global:88
-  },
-  'topstep':{
-    // Futures only, no overnight from March 2026, rating dropped to 3.4
-    beginner:50, intermediate:72, advanced:84, professional:88,
-    scalping:78, daytrading:88, swing:25, news:70,
-    small:60, medium:78, large:86, max:82,
-    profitsplit:85, flexibility:60, payout:70, cost:55,
-    conservative:85, moderate:80, aggressive:72, unsure:60,
-    india:50, global:80
-  },
-  'funderpro':{
-    beginner:72, intermediate:84, advanced:88, professional:85,
-    scalping:84, daytrading:86, swing:84, news:85,
-    small:74, medium:84, large:86, max:88,
-    profitsplit:82, flexibility:88, payout:88, cost:76,
-    conservative:80, moderate:86, aggressive:84, unsure:82,
-    india:75, global:85
-  },
-  'funded-trading-plus':{
-    beginner:76, intermediate:84, advanced:84, professional:82,
-    scalping:82, daytrading:84, swing:84, news:82,
-    small:78, medium:84, large:82, max:80,
-    profitsplit:86, flexibility:86, payout:88, cost:78,
-    conservative:80, moderate:84, aggressive:80, unsure:82,
-    india:78, global:84
-  },
-  'cti':{
-    // No scalping, no news, best for swing traders
-    beginner:55, intermediate:76, advanced:86, professional:90,
-    scalping:10, daytrading:74, swing:95, news:10,
-    small:68, medium:78, large:84, max:86,
-    profitsplit:74, flexibility:55, payout:78, cost:68,
-    conservative:92, moderate:82, aggressive:50, unsure:72,
-    india:80, global:82
-  },
-  'apex-trader':{
-    // Futures only, no overnight from Apex 4.0, 6-payout limit
-    beginner:55, intermediate:74, advanced:84, professional:86,
-    scalping:78, daytrading:86, swing:20, news:55,
-    small:62, medium:78, large:86, max:84,
-    profitsplit:88, flexibility:65, payout:78, cost:65,
-    conservative:82, moderate:80, aggressive:72, unsure:65,
-    india:52, global:82
-  },
-  'funded-firm':{
-    // India-focused, UPI payments, MT5 only
-    beginner:80, intermediate:78, advanced:70, professional:60,
-    scalping:78, daytrading:80, swing:78, news:90,
-    small:88, medium:76, large:52, max:38,
-    profitsplit:84, flexibility:76, payout:86, cost:80,
-    conservative:78, moderate:80, aggressive:76, unsure:83,
-    india:98, global:50
-  },
-  'calvoro-funding':{
-    beginner:76, intermediate:80, advanced:78, professional:70,
-    scalping:86, daytrading:84, swing:82, news:88,
-    small:68, medium:82, large:86, max:88,
-    profitsplit:86, flexibility:88, payout:90, cost:76,
-    conservative:70, moderate:84, aggressive:88, unsure:80,
-    india:75, global:84
-  },
-  'maven-trading':{
-    beginner:88, intermediate:82, advanced:74, professional:65,
-    scalping:76, daytrading:80, swing:78, news:68,
-    small:95, medium:84, large:70, max:52,
-    profitsplit:70, flexibility:78, payout:62, cost:92,
-    conservative:74, moderate:82, aggressive:70, unsure:88,
-    india:82, global:76
-  },
-  'the-funded-room':{
-    // Indian-founded, UPI, good for Indian beginners
-    beginner:85, intermediate:76, advanced:65, professional:55,
-    scalping:70, daytrading:78, swing:74, news:62,
-    small:88, medium:78, large:62, max:48,
-    profitsplit:62, flexibility:73, payout:65, cost:84,
-    conservative:68, moderate:78, aggressive:70, unsure:85,
-    india:95, global:52
-  },
-  'for-traders':{
-    beginner:74, intermediate:82, advanced:86, professional:80,
-    scalping:80, daytrading:86, swing:82, news:55,
-    small:70, medium:84, large:86, max:80,
-    profitsplit:80, flexibility:90, payout:86, cost:78,
-    conservative:72, moderate:84, aggressive:86, unsure:78,
-    india:72, global:84
-  },
+function qzOpts(step){
+  const s=QUIZ_STEPS[step];
+  if(s.key==='size' && quizAnswers.market==='futures') return s.opts.filter(o=>QZ_SIZE_N[o.v]>=25000);   // futures accounts start at $25K
+  return s.opts;
+}
+function qzIsFutures(f){ return f.market==='Futures' || f.id==='topstep'; }
+function qzCap(s){
+  const m = String(s||'').match(/\$\s*([\d,.]+)\s*([KkMm])?/); if(!m) return null;
+  let n = parseFloat(m[1].replace(/,/g,'')); if(isNaN(n)) return null;
+  if(/k/i.test(m[2]||'')) n*=1e3; else if(/m/i.test(m[2]||'')) n*=1e6;
+  return n>=500 ? n : null;
+}
+function qzFits(f,size){
+  const n = QZ_SIZE_N[size], lo = qzCap(f.minCapital), hi = qzCap(f.maxCapital);
+  if(lo!==null && lo>n) return false;
+  if(hi!==null && hi<n) return false;
+  return true;
+}
+function qzStyleOk(f,style){
+  if(style==='scalping') return !!f.allowScalping;
+  if(style==='news') return !!f.allowNews;
+  if(style==='swing') return !!f.allowSwing;
+  return true;
+}
+function qzPrice(f,size,model){
+  const types = model==='any' ? QZ_TYPES : [model];
+  let best=null;
+  types.forEach(t=>{ const r=cmpPrice(f,size,t); if(r && (!best || r.disc<best.r.disc)) best={r:r,type:t,size:size}; });
+  return best;
+}
+function qzHasModel(f,model,pr){
+  if(model==='any') return true;
+  if(pr) return true;
+  const p = f.phases||'';
+  if(model==='1-Step') return /1[\s-]?step|one[\s-]?(step|phase)|1[\s-]?phase/i.test(p);
+  if(model==='2-Step') return /2[\s-]?step|two[\s-]?(step|phase)|2[\s-]?phase|dual/i.test(p);
+  return /instant|zero|direct|master/i.test(p);
+}
+function qzSplit(f){
+  const s = f.profitSplit||'';
+  const ratio = s.match(/(\d{2,3})\s*\/\s*\d{2}/g);
+  if(ratio) return Math.max.apply(null, ratio.map(x=>parseFloat(x)));
+  return cmpSplitMax(f) || 0;
+}
+function qzPayTier(f){
+  const t = ((f.payoutFreq||'')+' '+(f.payoutSpeed||'')).toLowerCase();
+  let sc;
+  if(/on[\s-]?demand|daily|every 1 day|every business day|48 hours|2hr/.test(t)) sc = /\bafter\b|add-on|add on/.test(t) ? 85 : 100;
+  else if(/every 3 days|every 5 days|3 days|weekly|every friday|monday|7 days|every 7/.test(t)) sc = 80;
+  else if(/bi[\s-]?weekly|14|10 business|on request/.test(t)) sc = 55;
+  else if(/monthly/.test(t)) sc = 30;
+  else sc = 50;
+  return sc;
+}
+function qzInPF(f){ const n=cmpPfName(f); return Object.keys(PF_DATA).some(sz=>PF_DATA[sz].some(r=>r.name===n)); }
+function qzScaleN(f){ return cmpFundMax(f) || qzCap(f.maxCapital) || 0; }
+function qzScaleScore(f){ const x=qzScaleN(f); return x>=2e6?100 : x>=1e6?85 : x>=5e5?70 : x>=3e5?58 : x>=2e5?48 : 35; }
+function qzFlexList(f){
+  const l=[]; if(f.allowNews) l.push('news'); if(f.allowScalping) l.push('scalping'); if(f.allowSwing) l.push('swing');
+  return l;
+}
+function qzShort(s,n){
+  s = String(s||'').split(/\s*\|\s*/)[0].replace(/\s*\(.*?\)/g,'');
+  return s.length>n ? s.slice(0,n-1)+'…' : s;
+}
 
-  'fundednext':{
-    // Excellent all-rounder. News allowed. 24hr payouts. Best for most traders.
-    beginner:82, intermediate:90, advanced:92, professional:90,
-    scalping:84, daytrading:92, swing:86, news:90,
-    small:88, medium:92, large:88, max:84,
-    profitsplit:92, flexibility:88, payout:98, cost:88,
-    conservative:78, moderate:92, aggressive:86, unsure:90,
-    india:88, global:92
-  },
-  'legion-funding':{
-    // 24hr payouts, unlimited scaling, EAs fully allowed
-    beginner:80, intermediate:84, advanced:82, professional:78,
-    scalping:84, daytrading:86, swing:82, news:72,
-    small:82, medium:86, large:84, max:82,
-    profitsplit:86, flexibility:88, payout:95, cost:78,
-    conservative:78, moderate:86, aggressive:82, unsure:84,
-    india:80, global:86
-  },
-  'blue-guardian':{
-    // Trustpilot dropped to 3.8 — lower trust score now
-    beginner:70, intermediate:78, advanced:82, professional:78,
-    scalping:80, daytrading:82, swing:78, news:76,
-    small:78, medium:84, large:86, max:88,
-    profitsplit:84, flexibility:86, payout:82, cost:76,
-    conservative:72, moderate:82, aggressive:84, unsure:76,
-    india:78, global:80
-  },
-  'funded-friday':{
-    // India-friendly, UPI, weekly payouts on Fridays
-    beginner:82, intermediate:84, advanced:80, professional:76,
-    scalping:86, daytrading:84, swing:82, news:88,
-    small:80, medium:84, large:78, max:72,
-    profitsplit:84, flexibility:88, payout:90, cost:80,
-    conservative:78, moderate:84, aggressive:82, unsure:84,
-    india:92, global:76
-  },
-  'finotive-funding':{
-    beginner:80, intermediate:84, advanced:82, professional:80,
-    scalping:82, daytrading:84, swing:82, news:80,
-    small:78, medium:84, large:82, max:78,
-    profitsplit:84, flexibility:82, payout:86, cost:80,
-    conservative:82, moderate:84, aggressive:80, unsure:82,
-    india:76, global:84
-  },
-  'aquafunded':{
-    // 100% profit split is the headline. Great for split-focused traders.
-    beginner:82, intermediate:84, advanced:82, professional:80,
-    scalping:84, daytrading:84, swing:82, news:82,
-    small:80, medium:84, large:82, max:78,
-    profitsplit:98, flexibility:86, payout:90, cost:80,
-    conservative:80, moderate:84, aggressive:84, unsure:84,
-    india:82, global:84
-  },
-  'top-one-trader':{
-    // Fastest payouts (90-min average)
-    beginner:78, intermediate:84, advanced:86, professional:82,
-    scalping:86, daytrading:88, swing:80, news:80,
-    small:80, medium:84, large:82, max:78,
-    profitsplit:84, flexibility:84, payout:98, cost:78,
-    conservative:76, moderate:84, aggressive:88, unsure:80,
-    india:78, global:86
-  },
-  'lark-funding':{
-    // Free retries, CDBO certified
-    beginner:76, intermediate:82, advanced:80, professional:78,
-    scalping:76, daytrading:78, swing:82, news:70,
-    small:78, medium:82, large:78, max:74,
-    profitsplit:78, flexibility:78, payout:84, cost:74,
-    conservative:84, moderate:80, aggressive:72, unsure:78,
-    india:74, global:80
-  },
-  'pipstone-capital':{
-    // No consistency rule, Dubai 2025, flexible
-    beginner:76, intermediate:84, advanced:88, professional:82,
-    scalping:88, daytrading:86, swing:84, news:88,
-    small:80, medium:86, large:84, max:78,
-    profitsplit:86, flexibility:95, payout:88, cost:80,
-    conservative:74, moderate:86, aggressive:90, unsure:80,
-    india:76, global:86
-  },
-  'x-fine':{
-    // Broker-backed, 3000+ assets, good for multi-asset traders
-    beginner:74, intermediate:82, advanced:84, professional:80,
-    scalping:80, daytrading:84, swing:84, news:72,
-    small:76, medium:82, large:80, max:74,
-    profitsplit:82, flexibility:80, payout:78, cost:80,
-    conservative:78, moderate:82, aggressive:80, unsure:78,
-    india:78, global:84
-  },
-};
+// Returns every firm that passes the hard rules, ranked best first.
+function qzRank(a){
+  const isFut = a.market==='futures';
+  const cands = FIRMS.filter(f => qzIsFutures(f)===isFut && qzStyleOk(f,a.style) && qzFits(f,a.size)).map(f=>{
+    const pr = qzPrice(f,a.size,a.model);
+    return {f:f, pr:pr, hasModel:qzHasModel(f,a.model,pr), inPF:qzInPF(f)};
+  });
+  // price percentile among firms that have a listed price
+  const priced = cands.filter(c=>c.pr).sort((x,y)=>x.pr.r.disc-y.pr.r.disc);
+  priced.forEach((c,i)=>{ c.pricePct = priced.length>1 ? 100*(1-i/(priced.length-1)) : 100; });
+  const W = {model:2, prio:3, price:{low:3,mid:1.5,high:0.5}[a.price]||1.5, trust:{strict:2.5,balanced:1.5,open:0.5}[a.trust]||1.5};
+  if(a.experience==='beginner') W.trust*=1.4;
+  if(a.experience==='pro') W.prio*=1.2;
+  const wsum = W.model+W.prio+W.price+W.trust;
+  cands.forEach(c=>{
+    const f=c.f, trust=f.trustScore||50;
+    const cModel = (a.model==='any' || c.hasModel) ? 100 : 10;
+    const cPrice = c.pr ? c.pricePct : (a.price==='low' ? 40 : 50);
+    let cPrio;
+    if(a.priority==='profitsplit') cPrio = Math.max(0,Math.min(100,(qzSplit(f)-70)/30*100));
+    else if(a.priority==='payout') cPrio = qzPayTier(f);
+    else if(a.priority==='flexibility') cPrio = qzFlexList(f).length/3*100;
+    else cPrio = qzScaleScore(f);
+    let raw = (W.model*cModel + W.prio*cPrio + W.price*cPrice + W.trust*trust)/wsum;
+    if(a.trust==='strict' && trust<75) raw*=0.7;
+    if(!c.hasModel) raw*=0.6;
+    c.unlisted = c.inPF && !c.pr;               // we track this firm's prices, but not at this size and format
+    if(c.unlisted) raw*=0.8;
+    if(a.trust!=='open'){ if(f.tpWarn) raw*=0.93; if(trust<50) raw*=0.85; else if(trust<60 && a.trust==='balanced') raw*=0.92; }
+    c.score = Math.round(raw);
+    c.cPrio = cPrio;
+  });
+  return cands.sort((x,y)=> y.score-x.score || (y.f.trustScore||0)-(x.f.trustScore||0));
+}
+
+function qzWhy(c,a){
+  const f=c.f, r=[];
+  const split=qzSplit(f);
+  if(a.priority==='profitsplit' && split) r.push('Up to '+split+'% profit split');
+  if(a.priority==='payout') r.push('Payouts: '+qzShort(f.payoutFreq,42));
+  if(a.priority==='flexibility'){ const l=qzFlexList(f); if(l.length) r.push('Allows '+l.join(', ')+(f.noTimeLimit?' and no time limit':'')); }
+  if(a.priority==='scale'){ const x=qzScaleN(f); if(x) r.push('Scale up to '+cmpFmtK(x)); }
+  if(f.trustScore) r.push('Trust score '+f.trustScore+'/100');
+  if(a.style==='scalping') r.push('Scalping is allowed');
+  else if(a.style==='news') r.push('News trading is allowed');
+  else if(a.style==='swing') r.push('Swing and overnight holds are allowed');
+  if(a.model!=='any' && c.hasModel) r.push('Offers the '+(a.model==='Instant'?'Instant funding':a.model)+' format');
+  return r;
+}
+function qzWarn(c,a){
+  const f=c.f, w=[];
+  if(f.tpWarn) w.push('Trustpilot warning flag. Read recent reviews before you buy.');
+  else if((f.trustScore||0)<65) w.push('Lower trust score ('+f.trustScore+'/100). Start small.');
+  if(c.unlisted) w.push('No '+a.size.toUpperCase()+(a.model==='any'?'':' '+(a.model==='Instant'?'Instant':a.model))+' price in our data. This size or format may not be offered.');
+  else if(!c.pr) w.push('Price not listed here yet. Check the firm site.');
+  if(a.model!=='any' && !c.hasModel) w.push('No '+(a.model==='Instant'?'Instant funding':a.model)+' option listed.');
+  return w.slice(0,2);
+}
 
 let quizAnswers = {};
+let _qzTimer = null;
 function initQuiz() {
   quizAnswers = {};
+  clearTimeout(_qzTimer);
   renderQuizStep(0);
 }
 
 function renderQuizStep(step) {
   const wrap = document.getElementById('quizWrap');
+  if (!wrap) return;
   if (step >= QUIZ_STEPS.length) { showQuizResults(); return; }
-  const s = QUIZ_STEPS[step];
+  const s = QUIZ_STEPS[step], cur = quizAnswers[s.key], opts = qzOpts(step);
+  const sub = (s.key==='size' && quizAnswers.market==='futures') ? 'Futures accounts start at $25K. We compare the real price after discount code at this size.' : s.sub;
   const pct = Math.round((step/QUIZ_STEPS.length)*100);
   wrap.innerHTML = `
     <div class="quiz-step active">
       <div class="quiz-progress"><div class="quiz-progress-bar" style="width:${pct}%"></div></div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Step ${step+1} of ${QUIZ_STEPS.length}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Question ${step+1} of ${QUIZ_STEPS.length}</div>
       <div class="quiz-q">${s.q}</div>
-      <div class="quiz-sub">${s.sub}</div>
+      <div class="quiz-sub">${sub}</div>
       <div class="quiz-options">
-        ${s.opts.map(o=>`<button class="quiz-option" onclick="selectOpt(this,'${o.v}',${step})"><span class="opt-ico">${o.ico}</span>${o.l}</button>`).join('')}
+        ${opts.map((o,i)=>`<button class="quiz-option${cur===o.v?' selected':''}" onclick="selectOpt(${step},${i})"><span class="opt-ico">${o.ico}</span><span class="qz-ot"><b>${o.l}</b><small>${o.d}</small></span></button>`).join('')}
       </div>
       <div class="quiz-nav">
-        ${step>0?`<button class="btn btn-outline" onclick="renderQuizStep(${step-1})">← Back</button>`:'<span></span>'}
-        <button class="btn btn-gold" id="quizNext" style="opacity:.4;pointer-events:none" onclick="renderQuizStep(${step+1})">Next →</button>
+        ${step>0?`<button class="btn btn-outline" onclick="clearTimeout(_qzTimer);renderQuizStep(${step-1})">← Back</button>`:'<span></span>'}
+        <button class="btn btn-gold" id="quizNext" style="${cur?'':'opacity:.4;pointer-events:none'}" onclick="renderQuizStep(${step+1})">${step===QUIZ_STEPS.length-1?'See my matches →':'Next →'}</button>
       </div>
     </div>`;
 }
 
-function selectOpt(el, val, step) {
-  el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
-  quizAnswers[step] = val;
+function selectOpt(step, idx) {
+  const s = QUIZ_STEPS[step];
+  quizAnswers[s.key] = qzOpts(step)[idx].v;
+  if (s.key==='market' && quizAnswers.market==='futures' && QZ_SIZE_N[quizAnswers.size]<25000) delete quizAnswers.size;
+  document.querySelectorAll('#quizWrap .quiz-option').forEach((b,i)=>b.classList.toggle('selected', i===idx));
   const next = document.getElementById('quizNext');
-  next.style.opacity='1'; next.style.pointerEvents='auto';
+  if (next) { next.style.opacity='1'; next.style.pointerEvents='auto'; }
+  clearTimeout(_qzTimer);
+  _qzTimer = setTimeout(()=>renderQuizStep(step+1), 260);
+}
+
+function qzCompareTop(ids) {
+  state.compareSlots = [ids[0]||null, ids[1]||null, ids[2]||null, null];
+  nav('compare');
+}
+
+function qzCard(c, a, i) {
+  const f=c.f, why=qzWhy(c,a), warn=qzWarn(c,a), code=(c.pr&&c.pr.r.code)||f.discountCode||'';
+  const sc=code.replace(/'/g,"\\'");
+  const off = c.pr && c.pr.r.disc<c.pr.r.base;
+  const priceBlock = c.pr
+    ? `<div class="qz-price"><div><div class="qz-pl">${c.pr.size.toUpperCase()} ${c.pr.type}, after code</div><div class="qz-pv">$${c.pr.r.disc}${off?` <s>$${c.pr.r.base}</s>`:''}</div></div>${code&&off?`<button class="fc2-code" title="Copy code" onclick="fcCopy('${sc}',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">${code}</span><span class="fc2-cl">Copy</span></button>`:''}</div>`
+    : `<div class="qz-price"><div><div class="qz-pl">Price</div><div class="qz-pv qz-np">See firm site</div></div></div>`;
+  const logo = `<span class="qz-lg"><span class="qz-mono" style="background:${f.color||'#555'}">${cmpInit(f)}</span><img src="${f.logo}" alt="" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display='none'"></span>`;
+  const mc = c.score>=80?'var(--green)':c.score>=65?'var(--gold)':'var(--muted)';
+  if (i===0) {
+    const split=qzSplit(f), fm=qzScaleN(f);
+    return `<div class="qz-top"><span class="qz-badge">🏆 BEST MATCH FOR YOU</span>
+      <div class="qz-hd">${logo}<div class="qz-nm"><div class="qz-name">${f.name}</div><div class="qz-tag">${f.tagline||''}</div></div><div class="qz-mt"><div style="color:${mc}">${c.score}%</div><span>match</span></div></div>
+      ${priceBlock}
+      <ul class="qz-why">${why.slice(0,4).map(x=>`<li>✓ ${x}</li>`).join('')}</ul>
+      ${warn.length?`<ul class="qz-warn">${warn.map(x=>`<li>⚠ ${x}</li>`).join('')}</ul>`:''}
+      <div class="qz-stats">
+        <div><span>Profit split</span><b>${split?'Up to '+split+'%':'See firm'}</b></div>
+        <div><span>Payouts</span><b>${qzShort(f.payoutFreq,18)}</b></div>
+        <div><span>Trust score</span><b>${f.trustScore||'n/a'}/100</b></div>
+        <div><span>Max account</span><b>${fm?cmpFmtK(fm):'See firm'}</b></div>
+      </div>
+      <div class="qz-acts"><button class="btn btn-gold" onclick="visitFirm('${f.id}')">Visit ${f.name} →</button><button class="btn btn-outline" onclick="openFirmDetail('${f.id}')">Full review</button></div>
+    </div>`;
+  }
+  return `<div class="qz-card">
+      <div class="qz-hd">${logo}<div class="qz-nm"><div class="qz-name">${i===1?'🥈':'🥉'} ${f.name}</div></div><div class="qz-mt sm"><div style="color:${mc}">${c.score}%</div></div></div>
+      ${priceBlock}
+      <ul class="qz-why">${why.slice(0,3).map(x=>`<li>✓ ${x}</li>`).join('')}</ul>
+      ${warn.length?`<ul class="qz-warn">${warn.slice(0,1).map(x=>`<li>⚠ ${x}</li>`).join('')}</ul>`:''}
+      <div class="qz-acts"><button class="btn btn-gold btn-sm" onclick="visitFirm('${f.id}')">Visit →</button><button class="btn btn-outline btn-sm" onclick="openFirmDetail('${f.id}')">Review</button></div>
+    </div>`;
 }
 
 function showQuizResults() {
-  const a = quizAnswers; // {0:experience, 1:style, 2:size, 3:priority, 4:risk, 5:region}
-  const experience = a[0], style = a[1], size = a[2], priority = a[3], risk = a[4], region = a[5]||'global';
+  const a = quizAnswers;
+  if (a.market==='futures' && QZ_SIZE_N[a.size]<25000) a.size='25k';
+  const ranked = qzRank(a);
+  const top = ranked.slice(0,3), more = ranked.slice(3,6);
+  const chips = QUIZ_STEPS.map(s=>{ const o=s.opts.find(x=>x.v===a[s.key]); return o?`<span class="qz-chip">${o.c}</span>`:''; }).join('');
 
-  // Weighted scoring: style=2x, priority=2x, rest=1x
-  const scores = {};
-  FIRMS.forEach(f => {
-    const ms = MATCH_SCORES[f.id];
-    if (!ms) { scores[f.id] = 60; return; }
+  // Save to Supabase quiz_results. Falls back to the legacy columns if the new ones are not added yet.
+  try { if (typeof _currentUser!=='undefined' && _currentUser) {
+    const base = {user_id:_currentUser.id, experience:a.experience, style:a.style, size:a.size, priority:a.priority,
+      top_match: ranked[0]?ranked[0].f.id:'', results: ranked.slice(0,5).map(c=>c.f.id), created_at:new Date().toISOString()};
+    supa.from('quiz_results').insert(Object.assign({}, base, {market:a.market, model:a.model, price_pref:a.price, trust_pref:a.trust}))
+      .then(({error})=>{ if(error){ return supa.from('quiz_results').insert(Object.assign({}, base, {risk:a.trust, region:'global'})).then(({error:e2})=>{ if(e2) console.warn('Quiz save:', e2.message); }); } });
+  } } catch(e) { console.warn('Quiz save failed', e); }
 
-    let score = 0;
-    // Experience (1x)
-    score += (ms[experience] || 70);
-    // Style (2x — most critical, firms violating this get penalized)
-    const styleScore = ms[style] || 70;
-    score += styleScore * 2;
-    // Size (1x)
-    score += (ms[size] || 70);
-    // Priority (2x)
-    score += (ms[priority] || 70) * 2;
-    // Risk (1x)
-    score += (ms[risk] || 70);
-    // Region (0.5x)
-    score += (ms[region] || 70) * 0.5;
-
-    // Total weight = 1+2+1+2+1+0.5 = 7.5
-    const final = Math.round(score / 7.5);
-
-    // Hard penalty: style score < 30 means firm actively bans this style
-    scores[f.id] = styleScore < 30 ? Math.min(final, 40) : final;
-  });
-
-  const sorted = FIRMS
-    .filter(f => MATCH_SCORES[f.id]) // only firms with scores
-    .map(f => ({...f, score: scores[f.id]}))
-    .sort((a,b) => b.score - a.score);
-
-  // Build match reason per firm
-  const getReasons = (f) => {
-    const ms = MATCH_SCORES[f.id] || {};
-    const reasons = [];
-    if ((ms[style]||0) >= 88) reasons.push('✅ Perfect for ' + (style==='scalping'?'scalpers':style==='daytrading'?'day traders':style==='swing'?'swing traders':'news traders'));
-    if ((ms[priority]||0) >= 88) reasons.push('✅ ' + (priority==='profitsplit'?'High profit split':priority==='payout'?'Fastest payouts':priority==='flexibility'?'Very flexible rules':'Low challenge fee'));
-    if ((ms[experience]||0) >= 88) reasons.push('✅ Great for ' + experience + ' traders');
-    if (region==='india' && (ms['india']||0) >= 88) reasons.push('✅ India-friendly — UPI/local support');
-    if ((ms[risk]||0) >= 88) reasons.push('✅ Matches your risk approach');
-    if (reasons.length === 0) reasons.push('✅ Solid overall match for your profile');
-    return reasons.slice(0,2);
-  };
-
-  // Save to Supabase quiz_results table
-  if (_currentUser) {
-    supa.from('quiz_results').insert({
-      user_id: _currentUser.id,
-      experience, style, size, priority, risk, region,
-      top_match: sorted[0]?.id || '',
-      results: sorted.slice(0,5).map(f=>f.id),
-      created_at: new Date().toISOString()
-    }).then(({error}) => { if(error) console.warn('Quiz save:', error.message); });
+  let body;
+  if (!ranked.length) {
+    const isFut=a.market==='futures', mk=FIRMS.filter(f=>qzIsFutures(f)===isFut), sn={scalping:'scalping',news:'news trading',swing:'swing trading'}[a.style]||a.style;
+    const why = !mk.filter(f=>qzStyleOk(f,a.style)).length
+      ? 'No '+(isFut?'futures':'CFD')+' firm we list allows '+sn+'. '+(isFut&&a.style==='swing'?'Futures firms close positions at the end of the session. ':'')+'Pick a different style or market.'
+      : 'No '+(isFut?'futures':'CFD')+' firm we list that allows '+sn+' offers a '+a.size.toUpperCase()+' account. Try a different account size.';
+    body = `<div class="qz-empty"><div style="font-size:40px;margin-bottom:10px">🔍</div><h3>No firm fits every rule</h3><p>${why}</p></div>`;
+  } else {
+    body = (ranked.length<3?`<div class="qz-note">Only ${ranked.length} firm${ranked.length>1?'s':''} fit${ranked.length>1?'':'s'} your hard rules. Loosen your style or size for more options.</div>`:'')
+      + qzCard(top[0],a,0)
+      + (top.length>1?`<div class="qz-grid">${top.slice(1).map((c,i)=>qzCard(c,a,i+1)).join('')}</div>`:'')
+      + (more.length?`<div class="qz-more"><div class="qz-mh">Also worth a look</div>${more.map(c=>`<div class="qz-row" onclick="openFirmDetail('${c.f.id}')"><span class="qz-rn">${c.f.name}</span><span class="qz-rp">${c.pr?'$'+c.pr.r.disc+' for '+c.pr.size.toUpperCase()+' '+c.pr.type:'Price on firm site'}</span><span class="qz-rs">${c.score}%</span></div>`).join('')}</div>`:'');
   }
-
   document.getElementById('quizWrap').innerHTML = `
     <div class="quiz-results">
-      <div style="margin-bottom:24px">
-        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">🎯 Your AI Match Results</div>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px">Your top firm matches</h2>
-        <div style="font-size:13px;color:var(--muted)">Based on: ${experience} · ${style} trader · ${size} account · ${priority} priority</div>
+      <div style="margin-bottom:18px">
+        <div class="qz-eye">🎯 Your results</div>
+        <h2 class="qz-h">${ranked.length?'Your best fit, ranked by real data':'No match found'}</h2>
+        <div class="qz-chips">${chips}</div>
       </div>
-      ${sorted.slice(0,5).map((f,i)=>{
-        const reasons = getReasons(f);
-        const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-        return `
-        <div style="background:var(--bg2);border:1px solid ${i===0?'var(--gold)':'var(--border)'};border-radius:14px;padding:18px;margin-bottom:12px;cursor:pointer;${i===0?'background:linear-gradient(135deg,var(--bg2),rgba(245,197,24,0.04));':''}" onclick="openFirmDetail('${f.id}')">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;">
-            <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0;">
-              <img src="${f.logo}" style="width:38px;height:38px;border-radius:8px;object-fit:contain;background:#fff;padding:3px;flex-shrink:0;" onerror="this.style.display='none'">
-              <div style="min-width:0;">
-                <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;">${medal} ${f.name}</div>
-                <div style="font-size:11px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${f.tagline}</div>
-              </div>
-            </div>
-            <div style="text-align:right;flex-shrink:0;">
-              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:${f.score>=85?'var(--green)':f.score>=70?'var(--gold)':'var(--muted)'};">${f.score}%</div>
-              <div style="font-size:10px;color:var(--muted);">match</div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-            ${reasons.map(r=>`<div style="font-size:12px;color:var(--muted);">${r}</div>`).join('')}
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px;">
-            <div style="font-size:12px;color:var(--muted);">${f.profitSplit} split · ${f.payoutFreq}</div>
-            <button class="btn btn-gold btn-sm" onclick="event.stopPropagation();visitFirm('${f.id}')">Visit Firm →</button>
-          </div>
-        </div>`;
-      }).join('')}
-      <div style="text-align:center;margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <button class="btn btn-outline" onclick="initQuiz()">← Retake Quiz</button>
-        <button class="btn btn-gold" onclick="nav('firms')">Browse All 35 Firms →</button>
+      ${body}
+      <div class="qz-end">
+        ${top.length>1?`<button class="btn btn-gold" onclick="qzCompareTop(${JSON.stringify(top.map(c=>c.f.id)).replace(/"/g,'&quot;')})">⚖️ Compare my top ${top.length}</button>`:''}
+        <button class="btn btn-outline" onclick="initQuiz()">← Retake quiz</button>
+        <button class="btn btn-outline" onclick="nav('firms')">Browse all firms →</button>
       </div>
+      <div class="qz-disc">Matches use each firm's published rules, our discount-code prices and Trustpilot based trust scores. Always read a firm's current rules before you buy. This is not financial advice.</div>
     </div>`;
-  awardPoints(25,'AI quiz completed');
+  try { awardPoints(25,'AI quiz completed'); } catch(e) {}
 }
 
 
