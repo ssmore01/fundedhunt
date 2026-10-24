@@ -1195,6 +1195,8 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       /* To add/edit a deal: change this list. Optional "expires":"YYYY-MM-DD" hides the deal automatically after that day
          (it moves to "Recently ended"). Without "expires" a deal shows as Active until you remove it. */
       var DEALS=[
+        {n:'Funded Trader Markets',dom:'fundedtradermarkets.com',c:'#10B981',m:'FT',type:'pct',pre:'UP TO',big:'75',u:'% OFF',desc:'No code needed, the discount applies through our link · 75% off 1-Step $5K to $50K · 24-hour payout guarantee',codes:[['','']],url:'https://fundedtradermarkets.com/ref/fundedhunt',ap:'1-Step, 2-Step & Instant',kind:'Percentage off',
+          rows:[['1-Step Nitro',[['$5K to $50K','75%'],['$100K to $300K','60%']]],['Other programs',[['2-Step Plus $100K','60%'],['Instant Plus $100K','50%']]]],},
         {n:'Top One Trader',dom:'toponetrader.com',c:'#C99A12',m:'T1',type:'pct',pre:'UP TO',big:'70',u:'% OFF',desc:'Biggest discount in prop space · 90-min payouts · Prop Firm of the Year',codes:[['','OCT']],url:'https://www.toponetrader.com/',ap:'All challenge types',kind:'Percentage off'},
         {n:'NYS Markets',dom:'nysmarkets.com',c:'#2F6BFF',m:'NY',type:'pct',pre:'FLAT',big:'50',u:'% OFF',desc:'Flat 50% off all challenges',codes:[['','SAVE50']],url:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',ap:'All challenge types',kind:'Percentage off'},
         {n:'GOAT Funded',dom:'goatfundedtrader.com',c:'#E5484D',m:'GF',type:'pct',pre:'UP TO',big:'50',u:'% OFF',desc:'GFT45 for 45% off everyone · FIRSTGFT for 50% off first-time users',codes:[['New users · 50%','FIRSTGFT'],['Everyone · 45%','GFT45']],url:'https://app.goatfundedtrader.com/home?code=fundedhunt',ap:'All challenge types',kind:'Percentage off'},
@@ -1230,7 +1232,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
       function ended(){return DEALS.filter(function(d){var dl=daysLeft(d);return dl!==null&&dl<0;});}
       function cnt(k){return active().filter(function(d){return k==='all'||d.type===k;}).length;}
       function mono(d){return '<span class="hd-mono" style="--c:'+d.c+'">'+esc(d.m)+(d.dom?'<img src="https://www.google.com/s2/favicons?domain='+encodeURIComponent(d.dom)+'&sz=128" alt="" loading="lazy" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'">':'')+'</span>';}
-      function codeRow(c){return '<div class="hd-cw">'+(c[0]?'<div class="hd-clab">'+esc(c[0])+'</div>':'')+'<div class="hd-code"><b>'+esc(c[1])+'</b><button type="button" class="hd-cbtn" data-code="'+esc(c[1])+'">'+I.copy+'Copy</button></div></div>';}
+      function codeRow(c){if(!c[1])return '<div class="hd-cw"><div class="hd-code"><b style="font-size:13px;letter-spacing:.2px">No code needed</b><span style="font-size:11px;color:var(--muted)">Auto-applied via our link</span></div></div>';return '<div class="hd-cw">'+(c[0]?'<div class="hd-clab">'+esc(c[0])+'</div>':'')+'<div class="hd-code"><b>'+esc(c[1])+'</b><button type="button" class="hd-cbtn" data-code="'+esc(c[1])+'">'+I.copy+'Copy</button></div></div>';}
       function rowsHTML(d){return d.rows.map(function(g){return '<div class="hd-rg"><div class="hd-rt">'+esc(g[0])+'</div>'+g[1].map(function(r){return '<div class="hd-rr"><span>'+esc(r[0])+'</span><strong>'+esc(r[1])+'</strong></div>';}).join('')+'</div>';}).join('');}
       function card(d){
         var st=status(d), extraCodes=d.codes.slice(1), hasMore=extraCodes.length>0||d.rows, key=d.n;
@@ -1317,6 +1319,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
 <script>
 const PF_DATA = {
   '5k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:80,disc:20,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'Instant',name:'The Funded Room',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:29,disc:29,code:'',url:'https://thefundedroom.com'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:60,disc:54,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'Instant',name:'Pipstone Capital',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:49,disc:47,code:'EXPOBOGO',url:'https://pipstonecapital.com'},
@@ -1369,6 +1372,7 @@ const PF_DATA = {
     {cat:'Instant',name:'FXIFY',plan:'Instant Funding',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:99,disc:59,code:'FUNDED40',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
   ],
   '10k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:116,disc:29,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'Instant',name:'The Funded Room',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:49,disc:49,code:'',url:'https://thefundedroom.com'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:88,disc:79,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'Instant',name:'Pipstone Capital',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:89,disc:85,code:'EXPOBOGO',url:'https://pipstonecapital.com'},
@@ -1424,6 +1428,7 @@ const PF_DATA = {
     {cat:'Instant',name:'FXIFY',plan:'Instant Funding',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:179,disc:107,code:'FUNDED40',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
   ],
   '25k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:236,disc:59,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'Instant',name:'The Funded Room',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:79,disc:79,code:'',url:'https://thefundedroom.com'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:188,disc:169,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'Instant',name:'Pipstone Capital',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:189,disc:180,code:'EXPOBOGO',url:'https://pipstonecapital.com'},
@@ -1481,6 +1486,7 @@ const PF_DATA = {
     {cat:'Instant',name:'FXIFY',plan:'Instant Funding',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:349,disc:209,code:'FUNDED40',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
   ],
   '50k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:480,disc:120,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'Instant',name:'The Funded Room',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:129,disc:129,code:'',url:'https://thefundedroom.com'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:244,disc:220,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'Instant',name:'Pipstone Capital',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:349,disc:332,code:'EXPOBOGO',url:'https://pipstonecapital.com'},
@@ -1538,6 +1544,9 @@ const PF_DATA = {
     {cat:'Instant',name:'FXIFY',plan:'Instant Funding',logo:'https://www.google.com/s2/favicons?domain=fxify.com&sz=128',base:599,disc:359,code:'FUNDED40',url:'https://fxify.com?affiliateCode=HUNT&affiliateId=7774'},
   ],
   '100k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:622,disc:249,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
+    {cat:'2-Step',name:'Funded Trader Markets',plan:'Plus (2-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:998,disc:399,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
+    {cat:'Instant',name:'Funded Trader Markets',plan:'Plus (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:884,disc:442,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'Instant',name:'The Funded Room',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=thefundedroom.com&sz=128',base:199,disc:199,code:'',url:'https://thefundedroom.com'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:444,disc:400,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'Instant',name:'Pipstone Capital',plan:'Instant',logo:'https://www.google.com/s2/favicons?domain=pipstonecapital.com&sz=128',base:599,disc:569,code:'EXPOBOGO',url:'https://pipstonecapital.com'},
@@ -1591,6 +1600,7 @@ const PF_DATA = {
     {cat:'Instant',name:'Shark Funded',plan:'Lite Instant',logo:'https://www.google.com/s2/favicons?domain=sharkfunded.com&sz=128',base:799,disc:479,code:'cb586b53',url:'https://app.sharkfunded.com/signup?ref=cb586b53'},
   ],
   '200k': [
+    {cat:'1-Step',name:'Funded Trader Markets',plan:'Nitro (1-Step)',logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',base:1096,disc:439,code:'',auto:true,url:'https://fundedtradermarkets.com/ref/fundedhunt'},
     {cat:'2-Step',name:'X-Fine PropMaster',plan:'Basic (2-Step)',logo:'https://www.google.com/s2/favicons?domain=x-fine.com&sz=128',base:1299,disc:1039,code:'HUNT',url:'https://myprop.x-fine.live/challenge?affiliate=15630'},
     {cat:'Instant',name:'FundingPips',plan:'Zero (Instant)',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:888,disc:799,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
     {cat:'1-Step',name:'FundingPips',plan:'1-Step Flex',logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',base:1149,disc:1034,code:'HUNT',url:'https://fundingpips.com/?utm_source=fundedhunt'},
@@ -1650,10 +1660,10 @@ function pfRender() {
     items.sort(function(a,b) { return (a.disc||a.base) - (b.disc||b.base); });
     html += '<div style="margin:20px 0 10px;padding:10px 14px;background:var(--bg3);border-left:3px solid var(--gold);border-radius:6px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;">' + catLabels[cat] + '</div>';
     items.forEach(function(f, i) {
-      var hasDisc = f.code && f.disc < f.base;
+      var hasDisc = (f.code || f.auto) && f.disc < f.base;
       var savings = hasDisc ? Math.round(((f.base - f.disc) / f.base) * 100) : 0;
       var baseHtml = hasDisc ? '<div class="pf-base">$' + f.base + '</div>' : '';
-      var codeHtml = hasDisc ? '<div class="pf-code">' + f.code + ' · ' + savings + '% OFF</div>' : (f.code ? '<div class="pf-code">' + f.code + '</div>' : '');
+      var codeHtml = hasDisc ? '<div class="pf-code">' + (f.code ? f.code + ' · ' : 'No code · ') + savings + '% OFF</div>' : (f.code ? '<div class="pf-code">' + f.code + '</div>' : '');
       html += '<div class="pf-card">' +
         '<div class="pf-rank">#' + (i+1) + '</div>' +
         '<img class="pf-logo" src="' + f.logo + '" alt="' + f.name + '">' +
@@ -3055,6 +3065,7 @@ setTimeout(pfRender, 500);
         <option value="for-traders">For Traders</option>
         <option value="legion-funding">Legion Funding</option>
                 <option value="fundednext">FundedNext</option>
+        <option value="funded-trader-markets">Funded Trader Markets</option>
         <option value="other">Other Firm</option>
       </select>
       <select id="lbPlan" style="display:none"></select>
@@ -6950,6 +6961,86 @@ Futures Accounts — Futures Flex: 50% OFF. All other Futures accounts: 10% OFF.
     {rule:'Pricing Transparency',detail:'Exact challenge fees, profit targets, and drawdown limits are not published on the public-facing pricing page at the time of listing. Confirm full terms directly on the NYS Markets website before purchasing.',type:'warning'},
   ]
 },
+  {id:'funded-trader-markets',
+  market:'CFD',
+  rating:3.8,reviewCount:413,tpWarn:true,tpDist:[65,6,2,1,26],
+  discount:'Up to 75% OFF',discountCode:'',noCode:true,
+  badge:'🚀 Up to 75% OFF · No code needed',
+  founded:2024,country:'UAE / Cyprus / Saint Lucia',
+  logo:'https://www.google.com/s2/favicons?domain=fundedtradermarkets.com&sz=128',
+  name:'Funded Trader Markets',emoji:'🚀',
+  color:'#10B981',bg:'linear-gradient(135deg,#02130d,#04261a)',
+  tagline:'Up to 75% OFF, No Code Needed · 1-Step from $20 · 24-Hour Payout Guarantee · Up to $300K',
+  website:'fundedtradermarkets.com',
+  minCapital:'$5,000',maxCapital:'$300,000',
+  maxFunding:'$300,000',
+  profitSplit:'Up to 90%',
+  payoutSpeed:'24-hour payout guarantee',
+  payoutFreq:'On-demand',
+  drawdown:'Varies by program: 1-Step 6% Trailing Lock, 2-Step 10% Balance Based, Instant 5% to 6% trailing',
+  phases:'1-Step Nitro | 2-Step Plus | Instant | Launchpad',
+  allowScalping:true,allowNews:true,allowSwing:true,noTimeLimit:true,
+  websiteUrl:'https://fundedtradermarkets.com/ref/fundedhunt',
+  about:`Funded Trader Markets is a newer prop trading firm that contracts through Formed Technologies INT FZCO in the UAE, with registrations listed in Cyprus, the UAE and Saint Lucia. It runs four programs: 1-Step Nitro, 2-Step Plus, Instant funding and a Launchpad entry track, on MT5, cTrader, TradeLocker and Match-Trade. Payouts are on-demand and the firm promises a 24-hour payout window, paying double the reward if it is late. Rewards are paid in crypto or through Rise Works. The firm's own site claims $9.31M paid across 6,451+ rewards with traders in 180+ countries. These are the firm's claims and we have not independently verified them. All accounts are simulated.
+
+🎯 CURRENT OFFER: UP TO 75% OFF through the FundedHunt link, no coupon code needed. The discount is applied automatically when you open the firm through our link. Our check of the firm's own price table shows 75% off on 1-Step Nitro $5K to $50K and about 60% off on $100K and above, so the saving shrinks on larger accounts.`,
+  headquarters:'UAE (Formed Technologies INT FZCO) / Cyprus / Saint Lucia',
+  platforms:'MT5, cTrader, TradeLocker, Match-Trade',
+  instruments:'Forex, Commodities, Crypto, Indices',
+  leverage:'Up to 1:100',
+  minTradingDays:'1-Step: none stated · 2-Step: 3 days (eval) / 5 days (sim) · Instant: per program',
+  scaling:'Reward and account growth by program; confirm the current scaling plan with the firm',
+  pros:[
+    'Up to 75% OFF with no coupon code, applied through the FundedHunt link',
+    '1-Step Nitro starts at $20 for a $5K account after discount',
+    '24-hour payout guarantee, and double the reward if a payout is late',
+    'On-demand payouts with a 1% of starting balance minimum',
+    'News trading and weekend holding allowed, swap-free accounts',
+    'Four platforms: MT5, cTrader, TradeLocker and Match-Trade',
+    'No activation fee on 1-Step Nitro',
+  ],
+  cons:[
+    'Trustpilot is withholding the TrustScore. 26% of 413 reviews are one-star',
+    'Newer firm (launched 2024), so a short independent track record',
+    'The 75% discount only applies to smaller sizes. $100K and above get roughly 60%, or 50% on Instant Plus',
+    'The firm\'s own pages disagree on some rules (profit split, drawdown type, consistency). Verify at checkout',
+    'Payout and trader totals are self-reported by the firm',
+    'Restricted in several jurisdictions, and MT5 and cTrader are not for US residents. All accounts are simulated',
+  ],
+  trustScore:58,
+  trustItems:[
+    '⚠️ Trustpilot is withholding the official TrustScore (guideline breach notice shown on the profile)',
+    '⚠️ Star-distribution average about 3.8/5 from 413 reviews. 26% of reviews are one-star',
+    '⚠️ Newer firm (2024), limited long-term track record',
+    '⚠️ The firm\'s own pages contradict each other on some rules, so rule transparency is only partial',
+    '✅ Registrations listed in Cyprus, the UAE and Saint Lucia',
+    '✅ 24-hour payout guarantee with double reward if late',
+    '✅ Firm reports $9.31M paid to 6,451+ rewards (self-reported, unverified)',
+  ],
+  challenges:[
+    {size:'$5K',plan:'Nitro (1-Step)',fee:'$20',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$10K',plan:'Nitro (1-Step)',fee:'$29',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$25K',plan:'Nitro (1-Step)',fee:'$59',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$50K',plan:'Nitro (1-Step)',fee:'$120',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:true,scalping:true,news:true,weekend:true},
+    {size:'$100K',plan:'Nitro (1-Step)',fee:'$249',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$200K',plan:'Nitro (1-Step)',fee:'$439',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$300K',plan:'Nitro (1-Step)',fee:'$649',target:'10%',daily:'4%',maxDD:'6% (Trailing Lock)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$100K',plan:'Plus (2-Step)',fee:'$399',target:'8% + 5%',daily:'4%',maxDD:'10% (Balance Based)',split:'Up to 90%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+    {size:'$100K',plan:'Plus (Instant)',fee:'$442',target:'None (Instant)',daily:'3%',maxDD:'6% (Trailing Lock)',split:'Up to 80%',payout:'On-demand',popular:false,scalping:true,news:true,weekend:true},
+  ],
+  rules:[
+    {rule:'Current Offer: Up to 75% OFF, No Code',detail:'Open the firm through the FundedHunt link and the discount is applied automatically. No coupon code is needed. 1-Step Nitro $5K to $50K is 75% off, $100K to $300K is about 60% off. Promotions can end at any time and do not stack.',type:'allowed'},
+    {rule:'1-Step Nitro Targets and Drawdown',detail:'10% profit target, 4% daily drawdown and a 6% overall drawdown labeled Trailing Lock. A consistency rule applies (the firm lists 45% to 50% depending on the page). No activation fee.',type:'requirement'},
+    {rule:'2-Step Plus',detail:'Phase 1 target 8%, Phase 2 target 5%, 4% daily drawdown, 10% overall drawdown (Balance Based), no time limit. Minimum trading days are 3 on evaluation and 5 on simulated funded accounts.',type:'requirement'},
+    {rule:'Instant Accounts',detail:'Available in Standard, Pro and Plus variants with 3% daily drawdown and a 3% to 6% trailing limit depending on the variant. Consistency rule 15%. Profit split up to 80%.',type:'requirement'},
+    {rule:'Profit Split',detail:'Up to 90% on evaluation programs, up to 80% on Instant. The firm\'s pages show 70%, 80% and 90% in different places, so confirm the split for your exact program at checkout.',type:'warning'},
+    {rule:'Payouts',detail:'On-demand payouts, minimum 1% of starting balance. The firm guarantees payout within 24 hours and pays double the reward if it is late. Paid in crypto or through Rise Works.',type:'allowed'},
+    {rule:'News Trading and Weekend Holding',detail:'News trading and weekend holding are allowed. Accounts are swap-free. No scalping or EA restriction is stated on the pages we checked.',type:'allowed'},
+    {rule:'Conflicting Rule Statements',detail:'The firm\'s own site shows different figures for the same program in different places (profit split, drawdown type, consistency). Always read the rules shown at checkout for your chosen account.',type:'warning'},
+    {rule:'Regional Restrictions',detail:'Services are not offered in Cuba, Syria, Iran, Lebanon, Iraq, Yemen, North Korea, Russia or Cyprus. MT5 and cTrader are not available to US residents.',type:'warning'},
+    {rule:'Simulated Trading Environment',detail:'All accounts are simulated, not real trading accounts. This is a standard industry disclosure.',type:'warning'},
+  ]
+},
 ];
 
 const NEWS_ITEMS=[{tag:'DISCOUNT',tagColor:'#E53E3E',title:'FTMO 10-Year Anniversary Deal',body:'19% off $100K FTMO Challenge. Use code FTMOTPF10 at checkout. Limited time.',code:'FTMOTPF10',firm:'FTMO',date:'2 hours ago'},{tag:'NEWS',tagColor:'#3B82F6',title:'FundedNext hits $158M+ in total payouts',body:'FundedNext announces milestone of $158M paid to traders across 170+ countries.',firm:'FundedNext',date:'1 day ago'},{tag:'DISCOUNT',tagColor:'#E53E3E',title:'Blueberry Funded — Use Code 8836',body:'Use code 8836 for discount on all Blueberry Funded challenges. ASIC-backed.',code:'8836',firm:'Blueberry Funded',date:'3 hours ago'},{tag:'UPDATE',tagColor:'#8B5CF6',title:'Topstep expands to new futures markets',body:'Topstep now supports micro contracts on ES, NQ, and new CL micro futures.',firm:'Topstep',date:'2 days ago'},{tag:'DISCOUNT',tagColor:'#E53E3E',title:'Apex Trader 80% OFF — Limited Sale',body:'Massive discount on Apex Performance Accounts. Code APEXTPF80.',code:'APEXTPF80',firm:'Apex Trader Funding',date:'5 hours ago'},{tag:'NEWS',tagColor:'#1DB954',title:'The 5%ers reaches 9 years of operation',body:'One of the oldest prop firms celebrates 9 years and $100M+ in trader payouts.',firm:'The 5%ers',date:'1 week ago'}];
@@ -7226,7 +7317,7 @@ function hxRenderLive(){
   var el=document.getElementById('hxLive'); if(!el) return;
   var D=hxDeals(); if(!D.length){ el.innerHTML='<div class="hx-sm" style="padding:30px 0;text-align:center">New deals drop every week. Check Hot Deals.</div>'; return; }
   var d=D[_hxI % D.length], f=hxFirm(d.n), from=hxFrom(d.n);
-  var codes=d.codes.slice(0,2).map(function(c){ var code=String(c[1]).replace(/'/g,"\\'"); return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>'; }).join('');
+  var codes=d.codes.filter(function(c){return c[1];}).slice(0,2).map(function(c){ var code=String(c[1]).replace(/'/g,"\\'"); return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>'; }).join('') || '<span class="hx-sm" style="align-self:center">No code needed, auto-applied via our link</span>';
   el.innerHTML =
     '<div class="hd"><span class="hx-pill" style="letter-spacing:.6px;text-transform:none;font-size:11.5px"><span class="d"></span>Deal of the moment</span><span>'+((_hxI%D.length)+1)+' / '+D.length+'</span></div>'
    +'<div class="hx-id"><div class="hx-lg"><span style="background:'+d.c+'">'+d.m+'</span><img src="https://www.google.com/s2/favicons?domain='+d.dom+'&sz=128" alt="" style="opacity:0" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></div>'
@@ -7276,7 +7367,7 @@ function hxDealsRender(){
   var el=document.getElementById('hxDeals'); if(!el) return;
   var D=hxDeals().slice(0,6);
   el.innerHTML=D.map(function(d,i){ var f=hxFirm(d.n);
-    var codes=d.codes.slice(0,2).map(function(c){var code=String(c[1]).replace(/'/g,"\\'");return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>';}).join('');
+    var codes=d.codes.filter(function(c){return c[1];}).slice(0,2).map(function(c){var code=String(c[1]).replace(/'/g,"\\'");return '<button class="fc2-code" title="Click to copy code" onclick="fcCopy(\''+code+'\',this,event)"><span class="fc2-ci">🎁</span><span class="fc2-cv">'+c[1]+'</span><span class="fc2-cl">Copy</span></button>';}).join('') || '<span class="hx-sm">No code needed, auto-applied</span>';
     return '<div class="hx-dc"><div class="top"><div class="hx-lg" style="width:42px;height:42px"><span style="background:'+d.c+';border-radius:12px;font-size:14px">'+d.m+'</span><img src="https://www.google.com/s2/favicons?domain='+d.dom+'&sz=128" alt="" style="opacity:0;border-radius:12px" onload="if(this.naturalWidth>=20)this.style.opacity=1" onerror="this.style.display=\'none\'"></div>'
       +'<div><div class="hx-fn">'+d.n+'</div><div class="hx-fm">'+(f?'trust '+f.trustScore+'/100'+(f.tpWarn?' ⚠':''):'Verified deal')+'</div></div></div>'
       +'<div class="pc hx-gt">'+hxShort(d)+(d.type==='bogo'?'':' <small>OFF</small>')+'</div><div class="ds">'+d.desc+'</div><div class="cd">'+codes+'</div>'
@@ -9209,6 +9300,7 @@ const KNOWN_FIRMS = [
   {id:'atlas-funded',name:'Atlas Funded',emoji:'🌍'},
   {id:'x-fine',name:'X-Fine PropMaster',emoji:'⚡'},
   {id:'nys-markets',name:'NYS Markets',emoji:'🗽'},
+  {id:'funded-trader-markets',name:'Funded Trader Markets',emoji:'🚀'},
   {id:'other',name:'Other Firm',emoji:'🏢'}
 ];
 
@@ -11273,7 +11365,19 @@ function openFirmDetail(id) {
           </div>
         </div>
         ${f.affiliateCode?`<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between"><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;">Our Affiliate Code</div><div style="font-family:monospace;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:1px;">${f.affiliateCode} <span style="font-size:10px;font-weight:400;color:var(--muted2);">(applied automatically via link)</span></div></div>`:''}
-      </div>`:''}
+      </div>`:(f.noCode?`
+      <div style="background:var(--gold-dim);border:1px solid var(--border2);border-radius:12px;padding:16px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px">Exclusive Discount</div>
+            <div style="font-size:15px;font-weight:800;color:var(--gold)">No code needed</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:18px;font-weight:800;color:var(--gold)">${f.discount}</div>
+            <div style="font-size:11px;color:var(--muted)">applied via our link</div>
+          </div>
+        </div>
+      </div>`:'')}
       <a href="#" onclick="visitFirm('${f.id}');return false;" class="btn btn-gold btn-full">
         Visit ${f.name} &amp; Get Funded →
       </a>
