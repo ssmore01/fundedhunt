@@ -1196,7 +1196,7 @@ function closeSidebar(){var sb=document.getElementById("sidebar"),ov=document.ge
          (it moves to "Recently ended"). Without "expires" a deal shows as Active until you remove it. */
       var DEALS=[
         {n:'Funded Trader Markets',dom:'fundedtradermarkets.com',c:'#10B981',m:'FT',type:'pct',pre:'FLAT',big:'35',u:'% OFF',desc:'No code needed, the discount applies through our link · flat 35% off all programs · 24-hour payout guarantee',codes:[['','']],url:'https://fundedtradermarkets.com/ref/fundedhunt',ap:'1-Step, 2-Step & Instant',kind:'Percentage off'},
-        {n:'FundingPips',dom:'fundingpips.com',c:'#00D4FF',m:'FP',type:'pct',pre:'FLAT',big:'22',u:'% OFF',desc:'Limited time: flat 22% off with code HUNT, plus a free $5K 2-Step account instantly on any purchase of $10K or above',codes:[['','HUNT']],url:'https://fundingpips.com/?utm_source=fundedhunt',ap:'All challenge types',kind:'Percentage off'},
+        {n:'FundingPips',dom:'fundingpips.com',c:'#00D4FF',m:'FP',type:'pct',pre:'FLAT',big:'22',u:'% OFF',desc:'Flat 22% off all challenges with code HUNT',codes:[['','HUNT']],url:'https://fundingpips.com/?utm_source=fundedhunt',ap:'All challenge types',kind:'Percentage off'},
         {n:'NYS Markets',dom:'nysmarkets.com',c:'#2F6BFF',m:'NY',type:'pct',pre:'FLAT',big:'60',u:'% OFF',desc:'Flat 60% off all challenges',codes:[['','SAVE60']],url:'https://nysmarkets.com?cxd=G9PMNGH1+22300_88',ap:'All challenge types',kind:'Percentage off'},
         {n:'Pipstone Capital',dom:'pipstonecapital.com',c:'#A855F7',m:'PS',type:'bogo',pre:'',big:'Buy 1 Get 1',u:'',t:1,desc:'Free Instant account of the same size added to your order',codes:[['','BLACKBOGO']],url:'https://pipstonecapital.com',ap:'Instant accounts',kind:'Free accounts'},
         {n:'FundedSquad',dom:'fundedsquad.com',c:'#7C5CFF',m:'FS',type:'pct',pre:'FLAT',big:'50',u:'% OFF',desc:'Plus Buy 1 Get 1 · Chance to win an Apple bundle · All 6 models',codes:[['','FLASH']],url:'https://fundedsquad.com/?squad=1302',ap:'All challenge types',kind:'Percentage off'},
@@ -3280,13 +3280,13 @@ const FIRMS=[
   {id:'funding-pips',
   market:'CFD',
   rating:4.5,reviewCount:70702,tpDist:[82,7,2,0.5,8],
-  discount:'Flat 22% OFF + Free $5K 2-Step Account',discountCode:'HUNT',
-  badge:'🔥 Limited Time: Flat 22% OFF + Free $5K 2-Step Account on $10K+ · Code: HUNT · $200M+ Paid',
+  discount:'Flat 22% OFF',discountCode:'HUNT',
+  badge:'🔥 Flat 22% OFF · Code: HUNT · $200M+ Paid',
   founded:2022,country:'UAE',
   logo:'https://www.google.com/s2/favicons?domain=fundingpips.com&sz=128',
   name:'FundingPips',emoji:'🔥',
   color:'#00D4FF',bg:'linear-gradient(135deg,#000d1a,#001a2d)',
-  tagline:'Flat 22% OFF + Free $5K 2-Step on $10K+ with HUNT · $200M+ Paid · 70K+ Reviews · Scale to $2M · 100% Split',
+  tagline:'Flat 22% OFF with HUNT · $200M+ Paid · 70K+ Reviews · Scale to $2M · 100% Split',
   minCapital:'$5,000',maxCapital:'$200,000',
   maxFunding:'$2,000,000',
   profitSplit:'60–100%',
@@ -3299,7 +3299,7 @@ const FIRMS=[
   websiteUrl:'https://app.fundingpips.com/register?ref=HUNT',
   about:`FundingPips is a Dubai-based proprietary trading firm founded in 2022 by CEO Khaled Ayesh and one of the fastest-growing prop firms in the world. The firm has paid out over $200 million across 127,000+ verified payouts as confirmed by Payout Junction, and holds a 4.5 out of 5 rating on Trustpilot from over 70,000 reviews — one of the largest review volumes of any prop firm. FundingPips operates out of IFZA Business Park, Dubai and is registered as FP Funding LLC. The firm offers five distinct challenge types: 2 Step Standard (most popular, safest path), 2 Step Flex (relaxed evaluation with flexible rules), 2 Step Pro (tighter rules, daily payouts), 1 Step Flex (single phase, faster funding), and Zero (instant funding, no evaluation). All accounts except Zero use static drawdowns — one of the most trader-friendly features in the industry. Profit splits range from 60% to 100% depending on payout frequency chosen. The Hot Seat scaling program is the pinnacle — 16 successful payable periods plus 40% cumulative profit unlocks Hot Seat, giving traders 100% profit split, doubled initial balance, and up to $2,000,000 in capital. Platforms supported include MT5, cTrader, Match-Trader, and TradeLocker.
 
-🎯 LIMITED TIME OFFER: Use code HUNT at checkout for a flat 22% OFF. Plus, buy any account of $10,000 or above and get a $5K 2-Step prop account instantly with your purchase.`,
+🎯 CURRENT OFFER: Use code HUNT at checkout for a flat 22% OFF.`,
   headquarters:'IFZA Business Park, DDP Dubai, UAE — FP Funding LLC',
   platforms:'MetaTrader 5 (MT5), cTrader, Match-Trader, TradeLocker',
   instruments:'Forex, Metals (Gold/Silver), Indices, Commodities, Crypto (limited)',
@@ -3319,7 +3319,6 @@ const FIRMS=[
     'Platforms: MT5, cTrader, Match-Trader, TradeLocker — widest choice',
     'No time limit on any FundingPips challenge type',
     'Flat 22% OFF with code HUNT',
-    'Limited time: free $5K 2-Step account instantly on purchase of any $10K or above account',
   ],
   cons:[
     'Zero (Instant) account has intraday equity-based trailing drawdown — most restrictive drawdown type',
@@ -3393,8 +3392,7 @@ const FIRMS=[
     {rule:'Consistency Rule',detail:'On-Demand payout option has a 35% consistency rule on funded accounts. Zero has a 15% consistency score requirement. 2 Step Pro funded accounts have a 45% daily profit cap. No consistency rule on standard Bi-Weekly or Monthly payouts.',type:'warning'},
     {rule:'Inactivity',detail:'Accounts with no trading activity for 30 consecutive days are closed on Zero accounts. Standard evaluation accounts have similar inactivity terms.',type:'warning'},
     {rule:'Withdrawal Fee',detail:'$10 fee applies to every withdrawal transaction. Minimum withdrawal is 1% of initial account balance (including FundingPips share).',type:'warning'},
-    {rule:'Flat 22% OFF (HUNT)',detail:'Use code HUNT at checkout for a flat 22% OFF. This is a limited promotion, so confirm it is still active at checkout.',type:'allowed'},
-    {rule:'Free $5K 2-Step Account',detail:'Limited time offer: purchase an account of $10,000 or above and get a $5K 2-Step prop account instantly with your purchase. Confirm current terms at checkout.',type:'allowed'},
+    {rule:'Flat 22% OFF (HUNT)',detail:'Use code HUNT at checkout for a flat 22% OFF. Offers can change, so confirm it is still active at checkout.',type:'allowed'},
   ]
 },
   {id:'funded-squad',
